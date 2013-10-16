@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!ELEMENT sig_1337 (graphics,decisiontree)>
+
+<!ELEMENT graphics (batiments,routes)>
+
+<!ELEMENT batiments (batiment*)>
+<!ELEMENT batiment>
+	<!ATTLIST batiment name CDATA ''>
+
+<!ELEMENT routes (route*)>
+<!ELEMENT route (point,point)>
+	<!ATTLIST route type (route,chemin) chemin>
+
+<!ELEMENT point (EMPTY)>
+	<!ATTLIST point x CDATA '0'>
+	<!ATTLIST point y CDATA '0'>
+
+

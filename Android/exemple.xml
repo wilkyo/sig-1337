@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sig_1337>
+    <!-- la liste des éléménts à afficher -->
+	<graphics>
+			<!-- la listes de batiments -->
+	    	<batiments>
+				<!-- un batiment -->
+	   	 		<batiment nom="BatA">
+					<!-- J'hésite encore sur le contenue 
+						<triangle>
+							<point>
+							<point>
+							<point>					
+						</triangle>
+						...
+					ou une serie de point directement 3 points signifie un triangle
+				-->
+	    	</batiment>
+		</batiments>
+		<!-- La listes de routes existante -->
+		<routes>
+	    	<!-- une route possède un type qui pourrait définir la façon de les afficher -->
+	    	<route type="route">
+	    		<!-- les deux points composant le route -->
+	        	<point>     <!-- J'hésite encore cette version point et celle la <point x=425 y=123 /> -->
+	           		<x>4546</x>
+	           		<y>4564651</y>
+	        	</point>
+			    <point>
+	        	   	<x>4546</x>
+	            	<y>4564651</y>
+	            </point>	
+	        </route>
+			<route type="chemin">
+	        	<point>
+	            	<x>4546</x>
+	            	<y>4564651</y>
+	        	</point>
+	        	<point>
+	            	<x>4546</x>
+	            	<y>4564651</y>
+	        	</point>
+	   		</route>
+		</routes>
+	</graphics>
+	<decisiontree>
+	    <!-- Inserer ici le format de l'arbre de décision -->
+	</decisiontree>
+</sig_1337>
