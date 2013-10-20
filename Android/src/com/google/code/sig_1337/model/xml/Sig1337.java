@@ -29,7 +29,7 @@ public class Sig1337 implements ISig1337 {
 	 * @throws IOException
 	 *             error with IO.
 	 */
-	public static Sig1337 create(InputStream in) throws XmlPullParserException,
+	public static Sig1337 parse(InputStream in) throws XmlPullParserException,
 			IOException {
 		XmlPullParser p = Xml.newPullParser();
 		p.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
@@ -56,27 +56,59 @@ public class Sig1337 implements ISig1337 {
 		return graphics;
 	}
 
-	// TODO
+	/**
+	 * Name for the {@code root} tag.
+	 */
 	private static final String SIG1337 = "sig_1337";
 
+	/**
+	 * Name for the {@code graphics} tag.
+	 */
 	private static final String GRAPHICS = "graphics";
 
+	/**
+	 * Name for the {@code buildings} tag.
+	 */
 	private static final String BUILDINGS = "batiments";
 
+	/**
+	 * Name for the {@code building} tag.
+	 */
 	private static final String BUILDING = "batiment";
 
+	/**
+	 * Name for the {@code name} attribute.
+	 */
 	private static final String NAME = "nom";
 
+	/**
+	 * Name for the {@code routes} tag.
+	 */
 	private static final String ROUTES = "routes";
 
+	/**
+	 * Name for the {@code route} tag.
+	 */
 	private static final String ROUTE = "route";
 
+	/**
+	 * Name for the {@code type} attribute.
+	 */
 	private static final String TYPE = "type";
 
+	/**
+	 * Name for the {@code point} tag.
+	 */
 	private static final String POINT = "point";
 
+	/**
+	 * Name for the {@code x} attribute.
+	 */
 	private static final String X = "x";
 
+	/**
+	 * Name for the {@code y} attribute.
+	 */
 	private static final String Y = "y";
 
 	/**
@@ -248,10 +280,13 @@ public class Sig1337 implements ISig1337 {
 	}
 
 	/**
-	 * To convert a {@code Sig1337} to string.
+	 * Format a {@code Sig1337}.
 	 */
 	public static class Format implements ISig1337Format {
 
+		/**
+		 * Indentation symbol.
+		 */
 		private static final String INDENT = " ";
 
 		/**
@@ -270,6 +305,16 @@ public class Sig1337 implements ISig1337 {
 			return sb.toString();
 		}
 
+		/**
+		 * Format the given graphics.
+		 * 
+		 * @param sb
+		 *            string builder.
+		 * @param indent
+		 *            indentation.
+		 * @param graphics
+		 *            graphics to format.
+		 */
 		private void toString(StringBuilder sb, String indent,
 				IGraphics graphics) {
 			sb.append(indent);
@@ -284,6 +329,16 @@ public class Sig1337 implements ISig1337 {
 			sb.append(">\n");
 		}
 
+		/**
+		 * Format the given buildings.
+		 * 
+		 * @param sb
+		 *            string builder.
+		 * @param indent
+		 *            indentation.
+		 * @param buildings
+		 *            buildings to format.
+		 */
 		private void toString(StringBuilder sb, String indent,
 				IBuildings buildings) {
 			sb.append(indent);
@@ -299,6 +354,16 @@ public class Sig1337 implements ISig1337 {
 			sb.append(">\n");
 		}
 
+		/**
+		 * Format the given building.
+		 * 
+		 * @param sb
+		 *            string builder.
+		 * @param indent
+		 *            indentation.
+		 * @param building
+		 *            building to format.
+		 */
 		private void toString(StringBuilder sb, String indent,
 				IBuilding building) {
 			sb.append(indent);
@@ -314,6 +379,16 @@ public class Sig1337 implements ISig1337 {
 			sb.append(">\n");
 		}
 
+		/**
+		 * Format the given routes.
+		 * 
+		 * @param sb
+		 *            string builder.
+		 * @param indent
+		 *            indentation.
+		 * @param routes
+		 *            routes to format.
+		 */
 		private void toString(StringBuilder sb, String indent, IRoutes routes) {
 			sb.append(indent);
 			sb.append('<');
@@ -328,6 +403,16 @@ public class Sig1337 implements ISig1337 {
 			sb.append(">\n");
 		}
 
+		/**
+		 * Format the given route.
+		 * 
+		 * @param sb
+		 *            string builder.
+		 * @param indent
+		 *            indentation.
+		 * @param route
+		 *            route to format.
+		 */
 		private void toString(StringBuilder sb, String indent, IRoute route) {
 			sb.append(indent);
 			sb.append('<');
@@ -343,6 +428,16 @@ public class Sig1337 implements ISig1337 {
 			sb.append(">\n");
 		}
 
+		/**
+		 * Format the given point.
+		 * 
+		 * @param sb
+		 *            string builder.
+		 * @param indent
+		 *            indentation.
+		 * @param point
+		 *            point to format.
+		 */
 		private void toString(StringBuilder sb, String indent, IPoint point) {
 			sb.append(indent);
 			sb.append("<point x=\"");
