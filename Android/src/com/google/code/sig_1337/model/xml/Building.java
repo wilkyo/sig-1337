@@ -11,14 +11,22 @@ public class Building implements IBuilding {
 	private final String name;
 
 	/**
+	 * Triangles.
+	 */
+	private final ITriangles triangles;
+
+	/**
 	 * Initializing constructor.
 	 * 
 	 * @param name
 	 *            its name.
+	 * @param triangles
+	 *            triangles.
 	 */
-	public Building(String name) {
+	public Building(String name, ITriangles triangles) {
 		super();
 		this.name = name;
+		this.triangles = triangles;
 	}
 
 	/**
@@ -27,6 +35,14 @@ public class Building implements IBuilding {
 	@Override
 	public String getName() {
 		return name;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public ITriangles getTriangles() {
+		return triangles;
 	}
 
 }

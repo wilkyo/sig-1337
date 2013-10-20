@@ -4,30 +4,30 @@ import java.nio.FloatBuffer;
 import java.nio.ShortBuffer;
 
 /**
- * Interface for routes.
+ * Interface for triangles.
  */
-public interface IRoute {
+public interface ITriangle {
 
 	/**
-	 * Get its type.
+	 * Get the first point.
 	 * 
-	 * @return its type.
+	 * @return the first point.
 	 */
-	public RouteType getType();
+	public IPoint getP1();
 
 	/**
-	 * Get the starting point.
+	 * Get the second point.
 	 * 
-	 * @return the starting point.
+	 * @return the second point.
 	 */
-	public IPoint getFrom();
+	public IPoint getP2();
 
 	/**
-	 * Get the end point.
+	 * Get the third point.
 	 * 
-	 * @return the end point.
+	 * @return the third point.
 	 */
-	public IPoint getTo();
+	public IPoint getP3();
 
 	/**
 	 * Get the vertex buffer.

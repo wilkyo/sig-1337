@@ -77,6 +77,16 @@ public class Sig1337 implements ISig1337 {
 	private static final String BUILDING = "batiment";
 
 	/**
+	 * Name for the {@code triangles} tag.
+	 */
+	private static final String TRIANGLES = "triangles";
+
+	/**
+	 * Name for the {@code triangle} tag.
+	 */
+	private static final String TRIANGLE = "triangle";
+
+	/**
 	 * Name for the {@code name} attribute.
 	 */
 	private static final String NAME = "nom";
@@ -200,10 +210,58 @@ public class Sig1337 implements ISig1337 {
 				throws XmlPullParserException, IOException {
 			parser.require(XmlPullParser.START_TAG, null, BUILDING);
 			String name = parser.getAttributeValue(null, NAME);
-			// TODO points.
+			ITriangles triangles = readTriangles(parser);
 			parser.nextTag();
 			parser.require(XmlPullParser.END_TAG, null, BUILDING);
-			return new Building(name);
+			return new Building(name, triangles);
+		}
+
+		/**
+		 * Parse a list of triangles.
+		 * 
+		 * @param parser
+		 *            parser.
+		 * @return parsed triangles.
+		 * @throws XmlPullParserException
+		 *             error while parsing.
+		 * @throws IOException
+		 *             error with IO.
+		 */
+		private ITriangles readTriangles(XmlPullParser parser)
+				throws XmlPullParserException, IOException {
+			parser.nextTag();
+			ITriangles triangles = new Triangles();
+			parser.require(XmlPullParser.START_TAG, null, TRIANGLES);
+			while (parser.next() != XmlPullParser.END_TAG) {
+				if (parser.getEventType() != XmlPullParser.START_TAG) {
+					continue;
+				}
+				triangles.add(readTriangle(parser));
+			}
+			parser.require(XmlPullParser.END_TAG, null, TRIANGLES);
+			return triangles;
+		}
+
+		/**
+		 * Parse a triangle.
+		 * 
+		 * @param parser
+		 *            parser.
+		 * @return parsed triangle.
+		 * @throws XmlPullParserException
+		 *             error while parsing.
+		 * @throws IOException
+		 *             error with IO.
+		 */
+		private ITriangle readTriangle(XmlPullParser parser)
+				throws XmlPullParserException, IOException {
+			parser.require(XmlPullParser.START_TAG, null, TRIANGLE);
+			IPoint p1 = readPoint(parser);
+			IPoint p2 = readPoint(parser);
+			IPoint p3 = readPoint(parser);
+			parser.nextTag();
+			parser.require(XmlPullParser.END_TAG, null, TRIANGLE);
+			return new Triangle(p1, p2, p3);
 		}
 
 		/**
@@ -372,10 +430,60 @@ public class Sig1337 implements ISig1337 {
 			sb.append(" name=\"");
 			sb.append(building.getName());
 			sb.append("\">\n");
-			// TODO content.
+			toString(sb, indent + INDENT, building.getTriangles());
 			sb.append(indent);
 			sb.append("</");
 			sb.append(BUILDING);
+			sb.append(">\n");
+		}
+
+		/**
+		 * Format the given triangles.
+		 * 
+		 * @param sb
+		 *            string builder.
+		 * @param indent
+		 *            indentation.
+		 * @param triangles
+		 *            triangles to format.
+		 */
+		private void toString(StringBuilder sb, String indent,
+				ITriangles triangles) {
+			sb.append(indent);
+			sb.append('<');
+			sb.append(TRIANGLES);
+			sb.append(">\n");
+			for (ITriangle t : triangles) {
+				toString(sb, indent + INDENT, t);
+			}
+			sb.append(indent);
+			sb.append("</");
+			sb.append(TRIANGLES);
+			sb.append(">\n");
+		}
+
+		/**
+		 * Format the given triangle.
+		 * 
+		 * @param sb
+		 *            string builder.
+		 * @param indent
+		 *            indentation.
+		 * @param triangle
+		 *            triangle to format.
+		 */
+		private void toString(StringBuilder sb, String indent,
+				ITriangle triangle) {
+			sb.append(indent);
+			sb.append('<');
+			sb.append(TRIANGLE);
+			sb.append(">\n");
+			toString(sb, indent + INDENT, triangle.getP1());
+			toString(sb, indent + INDENT, triangle.getP2());
+			toString(sb, indent + INDENT, triangle.getP3());
+			sb.append(indent);
+			sb.append("</");
+			sb.append(TRIANGLE);
 			sb.append(">\n");
 		}
 

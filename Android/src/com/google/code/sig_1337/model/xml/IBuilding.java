@@ -12,4 +12,11 @@ public interface IBuilding {
 	 */
 	public String getName();
 
+	/**
+	 * Get the triangles.
+	 * 
+	 * @return the triangles.
+	 */
+	public ITriangles getTriangles();
+
 }

@@ -5,22 +5,35 @@ import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import java.nio.ShortBuffer;
 
-public class Route implements IRoute {
+/**
+ * Triangle.
+ */
+public class Triangle implements ITriangle {
 
 	/**
-	 * Its type.
+	 * Coordinates per vertex.
 	 */
-	private final RouteType type;
+	public static final int COORDS_PER_VERTEX = 3;
 
 	/**
-	 * Starting point.
+	 * Number of vertex.
 	 */
-	private final IPoint from;
+	public static final int VERTEX_COUNT = 3;
 
 	/**
-	 * End point.
+	 * First point.
 	 */
-	private final IPoint to;
+	private final IPoint p1;
+
+	/**
+	 * Second point.
+	 */
+	private final IPoint p2;
+
+	/**
+	 * Third point.
+	 */
+	private final IPoint p3;
 
 	/**
 	 * Vertex buffer.
@@ -35,32 +48,33 @@ public class Route implements IRoute {
 	/**
 	 * Initializing constructor.
 	 * 
-	 * @param type
-	 *            its type.
-	 * @param from
-	 *            starting point.
-	 * @param to
-	 *            end point.
+	 * @param p1
+	 *            first point.
+	 * @param p2
+	 *            second point.
+	 * @param p3
+	 *            third point.
 	 */
-	public Route(RouteType type, IPoint from, IPoint to) {
+	public Triangle(IPoint p1, IPoint p2, IPoint p3) {
 		super();
-		this.type = type;
-		this.from = from;
-		this.to = to;
+		this.p1 = p1;
+		this.p2 = p2;
+		this.p3 = p3;
 		// Create the vertex buffer.
-		ByteBuffer bb = ByteBuffer.allocateDirect(24);
+		ByteBuffer bb = ByteBuffer.allocateDirect(36);
 		bb.order(ByteOrder.nativeOrder());
 		vertexBuffer = bb.asFloatBuffer();
 		vertexBuffer.put(new float[] { //
-				from.getX(), from.getY(), 0, // From.
-						to.getX(), to.getY(), 0 // To.
+				p1.getX(), p1.getY(), 0, // P1.
+						p2.getX(), p2.getY(), 0, // P2.
+						p3.getX(), p3.getY(), 0 // P3
 				});
 		vertexBuffer.position(0);
 		// Create the index buffer.
-		bb = ByteBuffer.allocateDirect(4);
+		bb = ByteBuffer.allocateDirect(6);
 		bb.order(ByteOrder.nativeOrder());
 		indexBuffer = bb.asShortBuffer();
-		indexBuffer.put(new short[] { 0, 1 });
+		indexBuffer.put(new short[] { 0, 1, 2 });
 		indexBuffer.position(0);
 	}
 
@@ -68,24 +82,24 @@ public class Route implements IRoute {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public RouteType getType() {
-		return type;
+	public IPoint getP1() {
+		return p1;
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IPoint getFrom() {
-		return from;
+	public IPoint getP2() {
+		return p2;
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IPoint getTo() {
-		return to;
+	public IPoint getP3() {
+		return p3;
 	}
 
 	/**
