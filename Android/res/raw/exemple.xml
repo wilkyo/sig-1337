@@ -22,28 +22,13 @@
 	    	<!-- une route possède un type qui pourrait définir la façon de les afficher -->
 	    	<route type="route">
 	    		<!-- les deux points composant le route -->
-	        	<point>     <!-- J'hésite encore cette version point et celle la <point x=425 y=123 /> -->
-	           		<x>4546</x>
-	           		<y>4564651</y>
-	        	</point>
-			    <point>
-	        	   	<x>4546</x>
-	            	<y>4564651</y>
-	            </point>	
+	        	<point x="4546" y="4564651"/>
+	        	<point x="4546" y="4564651"/>
 	        </route>
 			<route type="chemin">
-	        	<point>
-	            	<x>4546</x>
-	            	<y>4564651</y>
-	        	</point>
-	        	<point>
-	            	<x>4546</x>
-	            	<y>4564651</y>
-	        	</point>
+	        	<point x="4546" y="4564651"/>
+	        	<point x="4546" y="4564651"/>
 	   		</route>
 		</routes>
 	</graphics>
-	<decisiontree>
-	    <!-- Inserer ici le format de l'arbre de décision -->
-	</decisiontree>
 </sig_1337>
