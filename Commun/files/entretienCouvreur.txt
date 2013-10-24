@@ -1,0 +1,49 @@
+Willy est allé poser des questions à J.M. COUVREUR le jeudi 24 octobre à 14h.
+Voici un résumé de l'entretien.
+
+
+PostGIS:
+Après import des données de l'osm,
+on doit les retravailler et créer nos propres tables de base de données PostGIS (chemins et bâtiments, par exemple).
+Cette opération peut se réaliser soit par une série de requêtes SQL,
+soit à l'aide d'un programme Java chargeant la base, faisant les calculs et mettant à jour la base.
+
+
+Version locale:
+Il suffit de générer le fichier xml pour la version locale de l'application Android.
+Ceci se fera probablement par un programme Java allant taper dans la base de données PostGIS.
+
+
+Version Remote:
+La base de données PostGIS que nous auront créée sera accessible via une application serveur hébergée par nos soins.
+Les accès à la base pourront se faire à l'aide de JDBC.
+
+On peut utiliser un serveur SOAP ou REST (mieux pour les types de données et bien documenté).
+On lui fournira une liste de segments et éventuellement du texte.
+
+On créera le WebService nous même afin qu'il ne contienne que ce qui nous intéresse,
+à savoir connaître sa position et calculer un itinéraire (et plus si affinité)
+
+Sur l'application Android, on pourra utiliser KSOAP2 si l'on aura choisit un serveur SOAP.
+Sinon, REST est intégré à Java de base et Google l'utilise, à priori.
+Il serait de plus, je cite: Plus simple et plus léger.
+Source: http://javaweb.developpez.com/actu/52140/Developpez-vous-plus-des-services-Web-SOAP-ou-REST-Venez-partager-votre-experience/
+
+
+Bien faire:
+Il faudra prévoir une interface (ou "façade") afin que l'application locale et la remote implémentent les mêmes méthodes.
+Cette Façade sera utilisée dans l'application, et au niveau du serveur.
+(Chaque partie du projet est en lien et un cheminement se fait quand on demande une information)
+
+
+Et aussi:
+L'important est de pouvoir communiquer -> La sécurité n'a que peu d'importance.
+(nous auront un cours de WebServices au dernier semestre)
+
+Faire des petits tests peut être intéressant:
+Faire un serveur faisant office de calculatrice et une application Java dialoguant avec celle-ci.
+Ainsi, le serveur offre un service en prenant des paramètres et retournant une réponse.
+
+Le calcul des itinéraires dans la version remote se fera via PostGIS offrant une méthode pgRouting.
+Il est fortement conseillé de finir le tutoriel que M. EXBRAYAT nous a proposé.
+
