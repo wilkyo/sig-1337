@@ -16,9 +16,10 @@ public class FirstExample {
 			/*
 			 * Load the JDBC driver and establish a connection.
 			 */
-			Class.forName("org.postgresql.Driver");
-			String url = "jdbc:postgresql://localhost:5432/sig_1337";
-			conn = DriverManager.getConnection(url, "admin", "admin");
+			Class.forName(SQLHelper.SQL_DRIVER);
+			conn = DriverManager
+					.getConnection(SQLHelper.SERVER_URL + SQLHelper.DB_NAME,
+							SQLHelper.USERNAME, SQLHelper.PASSWORD);
 			/*
 			 * Add the geometry types to the connection. Note that you must cast
 			 * the connection to the pgsql-specific connection implementation
@@ -34,7 +35,8 @@ public class FirstExample {
 			Statement s = conn.createStatement();
 			// ResultSet r = s
 			// .executeQuery("select ST_AsText(geom) as geom,id from geomtable");
-			ResultSet res = s.executeQuery("SELECT * FROM planet_osm_ways");
+			ResultSet res = s.executeQuery("SELECT * FROM "
+					+ SQLHelper.TABLE_WAYS);
 			int cpt = 0;
 			while (res.next()) {
 				cpt++;
@@ -45,7 +47,7 @@ public class FirstExample {
 				// PGgeometry geom = (PGgeometry) r.getObject(1);
 				int id = res.getInt(1);
 				java.sql.Array array = res.getArray(2);
-				int[] nodes = getArray(array);
+				int[] nodes = SQLHelper.getArray(array);
 
 				// int lat = r.getInt(2);
 				// int lon = r.getInt(3);
@@ -55,32 +57,20 @@ public class FirstExample {
 					System.out.println("Row " + id + ":"
 							+ Arrays.toString(nodes) + ", " + ": " + tags);
 					for (Object i : nodes) {
-						System.out.println(i);
+						System.out.print(i + ":");
 					}
+					System.out.println();
 				}
 				// for(int i = 0 ; i < data.length ; i++) {
 				// System.out.print(data[i] + " ");
 				// }
 				// System.out.println(geom.toString());
 			}
-			System.out.println(cpt);
+			System.out.println(cpt + " lines");
 			s.close();
 			conn.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
-
-	private static int[] getArray(java.sql.Array array) {
-		if (array != null) {
-			String[] tmp = array.toString().replace("{", "").replace("}", "")
-					.split(",");
-			int[] res = new int[tmp.length];
-			for (int i = 0; i < tmp.length; i++) {
-				res[i] = Integer.parseInt(tmp[i]);
-			}
-			return res;
-		} else
-			return new int[0];
 	}
 }

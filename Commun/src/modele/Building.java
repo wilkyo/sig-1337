@@ -1,11 +1,21 @@
 package modele;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Building {
 
 	private int id;
-	private int[] nodes;
+	private Node[] nodes;
 	private String name;
-	private int[] holes;
+	private List<Hole> holes;
+
+	public Building(int id, String name, Node[] nodes) {
+		setId(id);
+		setName(name);
+		setNodes(nodes);
+		holes = new ArrayList<Hole>();
+	}
 
 	public int getId() {
 		return id;
@@ -15,11 +25,11 @@ public class Building {
 		this.id = id;
 	}
 
-	public int[] getNodes() {
+	public Node[] getNodes() {
 		return nodes;
 	}
 
-	public void setNodes(int[] nodes) {
+	public void setNodes(Node[] nodes) {
 		this.nodes = nodes;
 	}
 
@@ -31,11 +41,15 @@ public class Building {
 		this.name = name;
 	}
 
-	public int[] getHoles() {
+	public List<Hole> getHoles() {
 		return holes;
 	}
 
-	public void setHoles(int[] holes) {
+	public void setHoles(List<Hole> holes) {
 		this.holes = holes;
+	}
+
+	public void addHole(Hole hole) {
+		this.holes.add(hole);
 	}
 }

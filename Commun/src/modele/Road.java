@@ -6,9 +6,16 @@ public class Road {
 	public static final int PATH = 1;
 
 	private int id;
-	private int[] nodes;
+	private Node[] nodes;
 	private String name;
 	private int type;
+
+	public Road(int id, String name, Node[] nodes, int type) {
+		setId(id);
+		setName(name);
+		setNodes(nodes);
+		setType(type);
+	}
 
 	public int getId() {
 		return id;
@@ -18,11 +25,11 @@ public class Road {
 		this.id = id;
 	}
 
-	public int[] getNodes() {
+	public Node[] getNodes() {
 		return nodes;
 	}
 
-	public void setNodes(int[] nodes) {
+	public void setNodes(Node[] nodes) {
 		this.nodes = nodes;
 	}
 
