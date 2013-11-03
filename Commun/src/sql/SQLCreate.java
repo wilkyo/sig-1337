@@ -316,11 +316,11 @@ public class SQLCreate {
 			mySql.append("(" + SQLHelper.CUSTOM_TABLE_HOLES_ID + ", "
 					+ SQLHelper.CUSTOM_TABLE_HOLES_NODES + ", "
 					+ SQLHelper.CUSTOM_TABLE_HOLES_ID_BUILDING + ") ");
-			mySql.append("SELECT rel.id, ways2.nodes, ways.id ");
+			mySql.append("SELECT rel.id, ways2.nodes, builing.id ");
 			mySql.append("FROM " + SQLHelper.TABLE_RELS + " rel ");
 			mySql.append("INNER JOIN "
-					+ SQLHelper.TABLE_WAYS
-					+ " ways ON ways.Id = CAST(substring((regexp_split_to_array(array_to_string(rel.members,',',''),','))[3] from 2) AS bigint) ");
+					+ SQLHelper.CUSTOM_TABLE_BUILDINGS
+					+ " builing ON builing.Id = CAST(substring((regexp_split_to_array(array_to_string(rel.members,',',''),','))[3] from 2) AS bigint) ");
 			mySql.append("INNER JOIN "
 					+ SQLHelper.TABLE_WAYS
 					+ " ways2 ON ways2.Id = CAST(substring((regexp_split_to_array(array_to_string(rel.members,',',''),','))[1] from 2) AS bigint) ");
