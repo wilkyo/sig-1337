@@ -11,13 +11,15 @@ public class SQLCreate {
 
 	public static Boolean createDataBase() {
 		Boolean result = false;
+		System.out.println("Début création base de données");
 		if (dataBaseExists()) {
 			// Récupération des nodes
 			if (createTableNodes() && createTableBuildings()
-					&& createTableRoads()) {
+					&& createTableRoads() && createTableHoles()) {
 				result = true;
 			}
 		}
+		System.out.println("Fin création base de données");
 		return result;
 	}
 
@@ -38,7 +40,7 @@ public class SQLCreate {
 
 	private static Boolean createTableNodes() {
 		Boolean result = true;
-
+		System.out.println("Début création Nodes");
 		try {
 			Class.forName(SQLHelper.SQL_DRIVER);
 			java.sql.Connection conn = DriverManager.getConnection(
@@ -81,13 +83,13 @@ public class SQLCreate {
 		} catch (Exception e) {
 			result = false;
 		}
-
+		System.out.println("Fin création Nodes");
 		return result;
 	}
 
 	private static Boolean createTableBuildings() {
 		Boolean result = true;
-
+		System.out.println("Début création Buildings");
 		try {
 			Class.forName(SQLHelper.SQL_DRIVER);
 			java.sql.Connection conn = DriverManager.getConnection(
@@ -153,13 +155,13 @@ public class SQLCreate {
 		} catch (Exception e) {
 			result = false;
 		}
-
+		System.out.println("Fin création Buildings");
 		return result;
 	}
 
 	private static Boolean createTableRoads() {
 		Boolean result = true;
-
+		System.out.println("Début création Roads");
 		try {
 			Class.forName(SQLHelper.SQL_DRIVER);
 			java.sql.Connection conn = DriverManager.getConnection(
@@ -275,7 +277,67 @@ public class SQLCreate {
 		} catch (Exception e) {
 			result = false;
 		}
-
+		System.out.println("Fin création Roads");
 		return result;
+	}
+
+	private static Boolean createTableHoles() {
+		Boolean result = true;
+		System.out.println("Début création Holes");
+		try {
+			Class.forName(SQLHelper.SQL_DRIVER);
+			java.sql.Connection conn = DriverManager.getConnection(
+					SQLHelper.SERVER_URL + SQLHelper.DB_NAME,
+					SQLHelper.USERNAME, SQLHelper.PASSWORD);
+			Statement s = conn.createStatement();
+
+			// Création de la structure de la table
+			StringBuilder mySql = new StringBuilder();
+			mySql.append("DROP TABLE IF EXISTS " + SQLHelper.CUSTOM_TABLE_HOLES
+					+ ";");
+			mySql.append("CREATE TABLE " + SQLHelper.CUSTOM_TABLE_HOLES + " (");
+			mySql.append(SQLHelper.CUSTOM_TABLE_HOLES_ID + " bigint NOT NULL,");
+			mySql.append(SQLHelper.CUSTOM_TABLE_HOLES_NODES
+					+ " bigint[] NOT NULL,");
+			mySql.append(SQLHelper.CUSTOM_TABLE_HOLES_ID_BUILDING
+					+ " bigint NOT NULL,");
+			mySql.append("CONSTRAINT " + SQLHelper.CUSTOM_TABLE_HOLES
+					+ "_pkey PRIMARY KEY (" + SQLHelper.CUSTOM_TABLE_HOLES_ID
+					+ ")");
+			mySql.append(")");
+			mySql.append("WITH (OIDS=FALSE);");
+			mySql.append("ALTER TABLE " + SQLHelper.CUSTOM_TABLE_HOLES
+					+ " OWNER TO postgres;");
+			s.execute(mySql.toString());
+
+			// Récupération des données
+			mySql = new StringBuilder();
+			mySql.append("INSERT INTO " + SQLHelper.CUSTOM_TABLE_HOLES + " ");
+			mySql.append("(" + SQLHelper.CUSTOM_TABLE_HOLES_ID + ", "
+					+ SQLHelper.CUSTOM_TABLE_HOLES_NODES + ", "
+					+ SQLHelper.CUSTOM_TABLE_HOLES_ID_BUILDING + ") ");
+			mySql.append("SELECT rel.id, ways2.nodes, ways.id ");
+			mySql.append("FROM " + SQLHelper.TABLE_RELS + " rel ");
+			mySql.append("INNER JOIN "
+					+ SQLHelper.TABLE_WAYS
+					+ " ways ON ways.Id = CAST(substring((regexp_split_to_array(array_to_string(rel.members,',',''),','))[3] from 2) AS bigint) ");
+			mySql.append("INNER JOIN "
+					+ SQLHelper.TABLE_WAYS
+					+ " ways2 ON ways2.Id = CAST(substring((regexp_split_to_array(array_to_string(rel.members,',',''),','))[1] from 2) AS bigint) ");
+			mySql.append("WHERE array_to_string(rel.members,',','') LIKE '%w%,inner,w%,outer%';");
+			s.execute(mySql.toString());
+			s.close();
+			conn.close();
+
+		} catch (Exception e) {
+			result = false;
+		}
+		System.out.println("Fin création Holes");
+		return result;
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		createDataBase();
 	}
 }
