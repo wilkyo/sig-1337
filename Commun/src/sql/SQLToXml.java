@@ -30,10 +30,12 @@ public class SQLToXml {
 		try {
 			s = db.createStatement();
 			ResultSet result = s.executeQuery("SELECT * FROM "
-					+ SQLHelper.TABLE_NODES);
+					+ SQLHelper.CUSTOM_TABLE_NODES);
 			while (result.next()) {
-				Node tmp = new Node(result.getInt(1), result.getInt(2),
-						result.getInt(3));
+				Node tmp = new Node(
+						result.getInt(SQLHelper.CUSTOM_TABLE_NODES_ID),
+						result.getInt(SQLHelper.CUSTOM_TABLE_NODES_LAT),
+						result.getInt(SQLHelper.CUSTOM_TABLE_NODES_LON));
 				nodes.put(tmp.getId(), tmp);
 			}
 			s.close();
@@ -68,7 +70,7 @@ public class SQLToXml {
 								.getArray(SQLHelper.CUSTOM_TABLE_ROADS_NODES),
 								nodes),
 						result.getInt(SQLHelper.CUSTOM_TABLE_ROADS_TYPE));
-				roads.add(tmp.getId(), tmp);
+				roads.add(tmp);
 			}
 			s.close();
 		} catch (SQLException e) {
