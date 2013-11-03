@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Building {
 
-	private int id;
+	private long id;
 	private Node[] nodes;
 	private String name;
 	private List<Hole> holes;
@@ -17,11 +17,11 @@ public class Building {
 		holes = new ArrayList<Hole>();
 	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

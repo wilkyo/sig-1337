@@ -24,8 +24,8 @@ public class SQLToXml {
 	 *            Connection to the SQL Database.
 	 * @return The Map&lt;Integer, Node&gt; of the nodes.
 	 */
-	private static Map<Integer, Node> getAllNodes(Connection db) {
-		Map<Integer, Node> nodes = new HashMap<Integer, Node>();
+	private static Map<Long, Node> getAllNodes(Connection db) {
+		Map<Long, Node> nodes = new HashMap<Long, Node>();
 		Statement s;
 		try {
 			s = db.createStatement();
@@ -53,8 +53,7 @@ public class SQLToXml {
 	 *            The Map&lt;Integer, Node&gt; of the nodes.
 	 * @return The List&lt;Road&gt; of roads.
 	 */
-	private static List<Road> getAllRoads(Connection db,
-			Map<Integer, Node> nodes) {
+	private static List<Road> getAllRoads(Connection db, Map<Long, Node> nodes) {
 		List<Road> roads = new ArrayList<Road>();
 		Statement s;
 		try {
@@ -87,9 +86,9 @@ public class SQLToXml {
 	 *            The Map&lt;Integer, Node&gt; of the nodes.
 	 * @return The Map&lt;Integer, Building&gt; of buildings.
 	 */
-	private static Map<Integer, Building> getAllBuildings(Connection db,
-			Map<Integer, Node> nodes) {
-		Map<Integer, Building> buildings = new HashMap<Integer, Building>();
+	private static Map<Long, Building> getAllBuildings(Connection db,
+			Map<Long, Node> nodes) {
+		Map<Long, Building> buildings = new HashMap<Long, Building>();
 		Statement s;
 		try {
 			s = db.createStatement();
@@ -123,8 +122,8 @@ public class SQLToXml {
 	 * @param buildings
 	 *            The Map&lt;Integer, Building&gt; of the buildings.
 	 */
-	private static void getAllHoles(Connection db, Map<Integer, Node> nodes,
-			Map<Integer, Building> buildings) {
+	private static void getAllHoles(Connection db, Map<Long, Node> nodes,
+			Map<Long, Building> buildings) {
 		Statement s;
 		try {
 			s = db.createStatement();
@@ -152,8 +151,8 @@ public class SQLToXml {
 	 * @param roads
 	 * @param nodes
 	 */
-	private static void generateXML(Map<Integer, Node> nodes, List<Road> roads,
-			Map<Integer, Building> buildings) {
+	private static void generateXML(Map<Long, Node> nodes, List<Road> roads,
+			Map<Long, Building> buildings) {
 		// TODO
 		System.err.println("Not implemented yet.");
 	}
@@ -174,10 +173,9 @@ public class SQLToXml {
 					.getConnection(SQLHelper.SERVER_URL + SQLHelper.DB_NAME,
 							SQLHelper.USERNAME, SQLHelper.PASSWORD);
 
-			Map<Integer, Node> nodes = getAllNodes(connection);
+			Map<Long, Node> nodes = getAllNodes(connection);
 			List<Road> roads = getAllRoads(connection, nodes);
-			Map<Integer, Building> buildings = getAllBuildings(connection,
-					nodes);
+			Map<Long, Building> buildings = getAllBuildings(connection, nodes);
 			getAllHoles(connection, nodes, buildings);
 
 			System.out.println(nodes.size() + " nodes.");

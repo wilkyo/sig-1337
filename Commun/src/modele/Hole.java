@@ -2,21 +2,21 @@ package modele;
 
 public class Hole {
 
-	private int id;
+	private long id;
 	private Node[] nodes;
-	private int idBuilding;
+	private long idBuilding;
 
-	public Hole(int id, int idBuilding, Node[] nodes) {
+	public Hole(long id, long idBuilding, Node[] nodes) {
 		setId(id);
 		setIdBuilding(idBuilding);
 		setNodes(nodes);
 	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -28,11 +28,11 @@ public class Hole {
 		this.nodes = nodes;
 	}
 
-	public int getIdBuilding() {
+	public long getIdBuilding() {
 		return idBuilding;
 	}
 
-	public void setIdBuilding(int idBuilding) {
+	public void setIdBuilding(long idBuilding) {
 		this.idBuilding = idBuilding;
 	}
 }

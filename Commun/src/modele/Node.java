@@ -2,21 +2,21 @@ package modele;
 
 public class Node {
 
-	private int id;
+	private long id;
 	private int latitude;
 	private int longitude;
 
-	public Node(int id, int latitude, int longitude) {
+	public Node(long id, int latitude, int longitude) {
 		setId(id);
 		setLatitude(latitude);
 		setLongitude(longitude);
 	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

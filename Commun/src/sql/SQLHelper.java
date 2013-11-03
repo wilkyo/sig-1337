@@ -32,6 +32,14 @@ public class SQLHelper {
 	/**
 	 * Constants for our custom roads table.
 	 */
+	public static final String CUSTOM_TABLE_NODES = "sig1337_nodes";
+	public static final String CUSTOM_TABLE_NODES_ID = "id";
+	public static final String CUSTOM_TABLE_NODES_LAT = "lat";
+	public static final String CUSTOM_TABLE_NODES_LON = "lon";
+
+	/**
+	 * Constants for our custom roads table.
+	 */
 	public static final String CUSTOM_TABLE_ROADS = "sig1337_roads";
 	public static final String CUSTOM_TABLE_ROADS_ID = "id";
 	public static final String CUSTOM_TABLE_ROADS_NODES = "nodes";
@@ -75,6 +83,19 @@ public class SQLHelper {
 			return new int[0];
 	}
 
+	public static long[] getLongArray(Array array) {
+		if (array != null) {
+			String[] tmp = array.toString().replace("{", "").replace("}", "")
+					.split(",");
+			long[] res = new long[tmp.length];
+			for (int i = 0; i < tmp.length; i++) {
+				res[i] = Long.parseLong(tmp[i]);
+			}
+			return res;
+		} else
+			return new long[0];
+	}
+
 	/**
 	 * Take an SQL Array and returns its Node Array value.
 	 * 
@@ -84,13 +105,13 @@ public class SQLHelper {
 	 *            The Map&lt;Integer, Nodes&gt; of the nodes.
 	 * @return The Node array.
 	 */
-	public static Node[] getArray(Array array, Map<Integer, Node> nodes) {
+	public static Node[] getArray(Array array, Map<Long, Node> nodes) {
 		if (array != null) {
 			String[] tmp = array.toString().replace("{", "").replace("}", "")
 					.split(",");
 			Node[] res = new Node[tmp.length];
 			for (int i = 0; i < tmp.length; i++) {
-				res[i] = nodes.get(Integer.parseInt(tmp[i]));
+				res[i] = nodes.get(Long.parseLong(tmp[i]));
 			}
 			return res;
 		} else
