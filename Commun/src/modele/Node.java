@@ -1,5 +1,8 @@
 package modele;
 
+import base.Point;
+import base.Polyedre;
+
 public class Node {
 
 	private long id;
@@ -34,6 +37,22 @@ public class Node {
 
 	public void setLongitude(int longitude) {
 		this.longitude = longitude;
+	}
+
+	public Point toPoint() {
+		return new Point(getLongitude(), getLatitude());
+	}
+
+	public static Point[] toPointsArray(Node[] nodes) {
+		Point[] points = new Point[nodes.length];
+		for (int i = 0; i < nodes.length; i++) {
+			points[i] = nodes[i].toPoint();
+		}
+		return points;
+	}
+
+	public static Polyedre toPolygon(Node[] nodes) {
+		return new Polyedre(Node.toPointsArray(nodes));
 	}
 
 	@Override

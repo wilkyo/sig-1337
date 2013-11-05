@@ -37,7 +37,7 @@ public class MainActivity extends Activity {
 		Logger l = Logger.getLogger("Pouet");
 		try {
 			Resources r = getResources();
-			Sig1337 s = Sig1337.parse(r.openRawResource(R.raw.exemple));
+			Sig1337 s = Sig1337.parse(r.openRawResource(R.raw.map));
 			l.info(new Format().toString(s));
 			renderer.setSig(s);
 		} catch (Exception e) {

@@ -4,5 +4,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="lib/postgis.jar"/>
 	<classpathentry kind="lib" path="lib/postgresql.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/SIG_1337"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
