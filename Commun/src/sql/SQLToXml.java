@@ -13,14 +13,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.google.code.sig_1337.model.xml.RouteType;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
 
 import modele.Building;
 import modele.Hole;
 import modele.Node;
 import modele.Road;
+
+import org.xml.sax.SAXException;
+
 import base.Point;
 import base.Polyedre;
+
+import com.google.code.sig_1337.model.xml.RouteType;
 
 public class SQLToXml {
 
@@ -180,17 +187,46 @@ public class SQLToXml {
 	}
 
 	/**
+	 * Returns the bounds of the osm file.
+	 * 
+	 * @param filename
+	 *            The osm file.
+	 * @return String of the bounds element.
+	 */
+	private static String getBounds(String filename) {
+		try {
+			SAXParserFactory fabrique = SAXParserFactory.newInstance();
+			SAXParser parseur = fabrique.newSAXParser();
+
+			File fichier = new File(filename);
+			OSMHandler handle = new OSMHandler();
+			parseur.parse(fichier, handle);
+
+			return handle.getBounds();
+		} catch (ParserConfigurationException e) {
+			System.out.println("Erreur de configuration du parseur");
+		} catch (SAXException e) {
+			System.out.println("Erreur de parsing");
+		} catch (IOException e) {
+			System.out.println("Erreur d'entrée/sortie");
+		}
+		return "";
+	}
+
+	/**
 	 * Generates the XML for the Android application.
+	 * 
+	 * @param args
 	 * 
 	 * @param buildings
 	 * @param roads
 	 * @param nodes
 	 */
-	private static void generateXML(List<Road> roads,
+	private static void generateXML(String filename, List<Road> roads,
 			Map<Long, Building> buildings) {
 		StringBuffer buff = new StringBuffer();
 		buff.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
-				+ "<sig_1337>\n" + "\t<graphics>\n");
+				+ "<sig_1337>\n\t" + getBounds(filename) + "\n\t<graphics>\n");
 
 		/* Bâtiments */
 		System.out.println("Generating Buildings...");
@@ -204,18 +240,14 @@ public class SQLToXml {
 				buff.append(polygonToXML(t));
 			}
 			buff.append("\t\t\t\t</triangles>\n");
-			// TODO Trous
-			boolean trousUnmanaged = true;
-			if (!trousUnmanaged) {
-				for (Hole h : b.getHoles()) {
-					List<Polyedre> trianglesTrou = Node.toPolygon(h.getNodes())
-							.toTriangles();
-					buff.append("\t\t\t\t<triangles type=\"trou\">\n");
-					for (Polyedre t : trianglesTrou) {
-						buff.append(polygonToXML(t));
-					}
-					buff.append("\t\t\t\t</triangles>\n");
+			for (Hole h : b.getHoles()) {
+				List<Polyedre> trianglesTrou = Node.toPolygon(h.getNodes())
+						.toTriangles();
+				buff.append("\t\t\t\t<triangles type=\"trou\">\n");
+				for (Polyedre t : trianglesTrou) {
+					buff.append(polygonToXML(t));
 				}
+				buff.append("\t\t\t\t</triangles>\n");
 			}
 			buff.append("\t\t\t</batiment>\n");
 		}
@@ -263,7 +295,7 @@ public class SQLToXml {
 
 		buff.append("\t</graphics>\n" + "</sig_1337>");
 		try {
-			FileWriter out = new FileWriter(new File("map.xml"));
+			FileWriter out = new FileWriter(new File("files/map.xml"));
 			out.write(buff.toString());
 			out.close();
 		} catch (IOException e) {
@@ -276,6 +308,8 @@ public class SQLToXml {
 	 * Android application.
 	 */
 	public static void main(String[] args) {
+		if (args.length == 0)
+			args = new String[] { "files/Universite.osm" };
 		Connection connection;
 
 		try {
@@ -298,7 +332,7 @@ public class SQLToXml {
 
 			connection.close();
 
-			generateXML(roads, buildings);
+			generateXML(args[0], roads, buildings);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {

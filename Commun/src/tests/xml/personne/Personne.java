@@ -1,4 +1,4 @@
-package xml.test.personne;
+package tests.xml.personne;
 
 public class Personne {
 	private int id;

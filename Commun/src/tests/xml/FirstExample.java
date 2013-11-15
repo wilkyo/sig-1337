@@ -1,10 +1,12 @@
-package sql;
+package tests.xml;
 
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Arrays;
 import java.sql.Array;
+
+import sql.SQLHelper;
 
 public class FirstExample {
 
