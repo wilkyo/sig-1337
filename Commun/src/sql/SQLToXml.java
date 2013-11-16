@@ -31,6 +31,8 @@ import com.google.code.sig_1337.model.xml.RouteType;
 
 public class SQLToXml {
 
+	public static final double ORIGIN_SHIFT = 200 * Math.PI * 6378137 / 2.0;
+
 	/**
 	 * Gets all the nodes from the table.
 	 * 
@@ -48,8 +50,12 @@ public class SQLToXml {
 			while (result.next()) {
 				Node tmp = new Node(
 						result.getInt(SQLHelper.CUSTOM_TABLE_NODES_ID),
-						result.getInt(SQLHelper.CUSTOM_TABLE_NODES_LAT),
-						result.getInt(SQLHelper.CUSTOM_TABLE_NODES_LON));
+						(float) ((result
+								.getInt(SQLHelper.CUSTOM_TABLE_NODES_LAT) / ORIGIN_SHIFT) * 180.0),
+						(float) ((result
+								.getInt(SQLHelper.CUSTOM_TABLE_NODES_LON) / ORIGIN_SHIFT) * 180.0));
+				tmp.setLatitude((float) (180 / Math.PI * (2 * Math.atan(Math
+						.exp(tmp.getLatitude() * Math.PI / 180.0)) - Math.PI / 2.0)));
 				nodes.put(tmp.getId(), tmp);
 			}
 			s.close();

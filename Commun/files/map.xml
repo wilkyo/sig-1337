@@ -6,3660 +6,3660 @@
 			<batiment nom="UFR de STAPS">
 				<triangles>
 					<triangle>
-						<point x="2.1481312E7" y="6.0816314E8" />
-						<point x="2.1488664E7" y="6.0815936E8" />
-						<point x="2.148912E7" y="6.0816026E8" />
+						<point x="1.9296992" y="47.84816" />
+						<point x="1.9303596" y="47.847935" />
+						<point x="1.9304006" y="47.84799" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1590192E7" y="6.080112E8" />
-						<point x="2.1592882E7" y="6.0801651E8" />
-						<point x="2.1588016E7" y="6.0801901E8" />
+						<point x="1.9394801" y="47.839" />
+						<point x="1.9397216" y="47.83932" />
+						<point x="1.9392846" y="47.83947" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.158424E7" y="6.0804768E8" />
-						<point x="2.1588192E7" y="6.0804557E8" />
-						<point x="2.1587634E7" y="6.0804448E8" />
+						<point x="1.9389452" y="47.8412" />
+						<point x="1.9393004" y="47.841072" />
+						<point x="1.9392501" y="47.841007" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1434122E7" y="6.081472E8" />
-						<point x="2.1433364E7" y="6.0814989E8" />
-						<point x="2.1428222E7" y="6.0814842E8" />
+						<point x="1.92546" y="47.8472" />
+						<point x="1.9253919" y="47.847363" />
+						<point x="1.92493" y="47.847275" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="Cône">
 				<triangles>
 					<triangle>
-						<point x="2.155672E7" y="6.0807014E8" />
-						<point x="2.15563E7" y="6.0806989E8" />
-						<point x="2.1555788E7" y="6.0806976E8" />
+						<point x="1.936473" y="47.842556" />
+						<point x="1.9364353" y="47.842537" />
+						<point x="1.9363893" y="47.842533" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1445444E7" y="6.0818912E8" />
-						<point x="2.1445108E7" y="6.0818854E8" />
-						<point x="2.1445556E7" y="6.0818912E8" />
+						<point x="1.926477" y="47.849728" />
+						<point x="1.9264469" y="47.849697" />
+						<point x="1.926487" y="47.849728" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1475938E7" y="6.0812154E8" />
-						<point x="2.1475516E7" y="6.081207E8" />
-						<point x="2.1475024E7" y="6.081209E8" />
+						<point x="1.9292164" y="47.84565" />
+						<point x="1.9291784" y="47.8456" />
+						<point x="1.9291344" y="47.845615" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1464396E7" y="6.0807565E8" />
-						<point x="2.1466232E7" y="6.0807475E8" />
-						<point x="2.1464896E7" y="6.0807194E8" />
+						<point x="1.9281796" y="47.842884" />
+						<point x="1.9283445" y="47.84283" />
+						<point x="1.9282244" y="47.842667" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1530836E7" y="6.080144E8" />
-						<point x="2.153067E7" y="6.0801408E8" />
-						<point x="2.1530202E7" y="6.0801427E8" />
+						<point x="1.934148" y="47.839195" />
+						<point x="1.934133" y="47.839172" />
+						<point x="1.934091" y="47.839188" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.145334E7" y="6.0810995E8" />
-						<point x="2.1454644E7" y="6.0810931E8" />
-						<point x="2.145428E7" y="6.0810861E8" />
+						<point x="1.9271864" y="47.844955" />
+						<point x="1.9273034" y="47.844917" />
+						<point x="1.9272708" y="47.84487" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1604586E7" y="6.0799411E8" />
-						<point x="2.1603616E7" y="6.0799226E8" />
-						<point x="2.1604128E7" y="6.07992E8" />
+						<point x="1.940773" y="47.83797" />
+						<point x="1.940686" y="47.83786" />
+						<point x="1.9407319" y="47.837845" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1476812E7" y="6.0800973E8" />
-						<point x="2.1474664E7" y="6.0801082E8" />
-						<point x="2.1474532E7" y="6.080105E8" />
+						<point x="1.929295" y="47.838913" />
+						<point x="1.929102" y="47.838974" />
+						<point x="1.9290899" y="47.83896" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1550546E7" y="6.0813542E8" />
-						<point x="2.1553304E7" y="6.0813414E8" />
-						<point x="2.1552888E7" y="6.0813325E8" />
+						<point x="1.9359185" y="47.846493" />
+						<point x="1.9361663" y="47.846413" />
+						<point x="1.9361289" y="47.84636" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1422856E7" y="6.0815853E8" />
-						<point x="2.1423524E7" y="6.0815616E8" />
-						<point x="2.1424092E7" y="6.0815629E8" />
+						<point x="1.924448" y="47.84788" />
+						<point x="1.924508" y="47.84774" />
+						<point x="1.9245589" y="47.84775" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1548228E7" y="6.0813395E8" />
-						<point x="2.154698E7" y="6.0813133E8" />
-						<point x="2.1544144E7" y="6.0813261E8" />
+						<point x="1.9357102" y="47.846405" />
+						<point x="1.935598" y="47.84624" />
+						<point x="1.9353434" y="47.84632" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="UFR Sciences Administration">
 				<triangles>
 					<triangle>
-						<point x="2.1585384E7" y="6.0812755E8" />
-						<point x="2.1589384E7" y="6.081255E8" />
-						<point x="2.158847E7" y="6.0812371E8" />
+						<point x="1.9390479" y="47.846016" />
+						<point x="1.9394072" y="47.845894" />
+						<point x="1.9393252" y="47.845783" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1534994E7" y="6.0815181E8" />
-						<point x="2.1537572E7" y="6.0815059E8" />
-						<point x="2.1533984E7" y="6.0814323E8" />
+						<point x="1.9345214" y="47.84748" />
+						<point x="1.934753" y="47.847404" />
+						<point x="1.9344308" y="47.846962" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1531162E7" y="6.0814208E8" />
-						<point x="2.1533382E7" y="6.0814093E8" />
-						<point x="2.1529854E7" y="6.0813408E8" />
+						<point x="1.9341772" y="47.846893" />
+						<point x="1.9343766" y="47.84682" />
+						<point x="1.9340597" y="47.846413" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1577188E7" y="6.0809766E8" />
-						<point x="2.1581004E7" y="6.0809574E8" />
-						<point x="2.1580316E7" y="6.0809434E8" />
+						<point x="1.9383117" y="47.84421" />
+						<point x="1.9386545" y="47.844097" />
+						<point x="1.9385929" y="47.844013" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1554872E7" y="6.0801254E8" />
-						<point x="2.1556738E7" y="6.0801632E8" />
-						<point x="2.1554296E7" y="6.0801747E8" />
+						<point x="1.9363072" y="47.839085" />
+						<point x="1.9364747" y="47.83931" />
+						<point x="1.9362552" y="47.839382" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1576692E7" y="6.0809459E8" />
-						<point x="2.1577024E7" y="6.0809446E8" />
-						<point x="2.1577276E7" y="6.0809485E8" />
+						<point x="1.9382672" y="47.84403" />
+						<point x="1.9382972" y="47.84402" />
+						<point x="1.9383197" y="47.844044" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1564172E7" y="6.0808755E8" />
-						<point x="2.1567884E7" y="6.0808563E8" />
-						<point x="2.1566744E7" y="6.0808346E8" />
+						<point x="1.9371425" y="47.843605" />
+						<point x="1.937476" y="47.84349" />
+						<point x="1.9373736" y="47.843357" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.160642E7" y="6.0804224E8" />
-						<point x="2.1606288E7" y="6.0804013E8" />
-						<point x="2.1606626E7" y="6.0803718E8" />
+						<point x="1.9409378" y="47.840874" />
+						<point x="1.9409258" y="47.840744" />
+						<point x="1.9409562" y="47.84057" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.156805E7" y="6.0807859E8" />
-						<point x="2.157533E7" y="6.0808422E8" />
-						<point x="2.1575464E7" y="6.0808403E8" />
+						<point x="1.9374909" y="47.843063" />
+						<point x="1.9381449" y="47.843403" />
+						<point x="1.9381568" y="47.84339" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1582966E7" y="6.080455E8" />
-						<point x="2.1584478E7" y="6.0804448E8" />
-						<point x="2.1585096E7" y="6.0804352E8" />
+						<point x="1.9388309" y="47.84107" />
+						<point x="1.9389666" y="47.841007" />
+						<point x="1.9390221" y="47.840946" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1538384E7" y="6.0800288E8" />
-						<point x="2.1540866E7" y="6.080016E8" />
-						<point x="2.1541412E7" y="6.0800269E8" />
+						<point x="1.9348259" y="47.838497" />
+						<point x="1.9350489" y="47.83842" />
+						<point x="1.9350979" y="47.838486" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="Bibliothèque Universitaire des Sciences">
 				<triangles>
 					<triangle>
-						<point x="2.1549506E7" y="6.0811616E8" />
-						<point x="2.1558092E7" y="6.0811187E8" />
-						<point x="2.155738E7" y="6.0811046E8" />
+						<point x="1.9358251" y="47.84533" />
+						<point x="1.9365964" y="47.845074" />
+						<point x="1.9365325" y="47.844986" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1574554E7" y="6.0809933E8" />
-						<point x="2.1576484E7" y="6.0809824E8" />
-						<point x="2.1574444E7" y="6.0809446E8" />
+						<point x="1.9380752" y="47.844315" />
+						<point x="1.9382484" y="47.84425" />
+						<point x="1.9380654" y="47.84402" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.149901E7" y="6.0800627E8" />
-						<point x="2.149812E7" y="6.0800672E8" />
-						<point x="2.1498176E7" y="6.0800685E8" />
+						<point x="1.931289" y="47.838703" />
+						<point x="1.931209" y="47.83873" />
+						<point x="1.931214" y="47.838737" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="Restaurant Universitaire - L'Anatidé">
 				<triangles>
 					<triangle>
-						<point x="2.1549336E7" y="6.0810758E8" />
-						<point x="2.1548292E7" y="6.0810688E8" />
-						<point x="2.1548196E7" y="6.0810707E8" />
+						<point x="1.9358097" y="47.84481" />
+						<point x="1.9357159" y="47.844772" />
+						<point x="1.9357073" y="47.84478" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="Oiseaux">
 				<triangles>
 					<triangle>
-						<point x="2.1570752E7" y="6.0820685E8" />
-						<point x="2.1571056E7" y="6.0820691E8" />
-						<point x="2.157138E7" y="6.0820691E8" />
+						<point x="1.9377335" y="47.850796" />
+						<point x="1.9377611" y="47.8508" />
+						<point x="1.9377902" y="47.8508" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1595612E7" y="6.079961E8" />
-						<point x="2.1595412E7" y="6.0799571E8" />
-						<point x="2.1595612E7" y="6.0799558E8" />
+						<point x="1.9399669" y="47.83809" />
+						<point x="1.9399489" y="47.838066" />
+						<point x="1.9399669" y="47.83806" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1597572E7" y="6.0800019E8" />
-						<point x="2.1597372E7" y="6.0799974E8" />
-						<point x="2.1597572E7" y="6.0799968E8" />
+						<point x="1.940143" y="47.838337" />
+						<point x="1.940125" y="47.83831" />
+						<point x="1.940143" y="47.838306" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="Halle des Sports">
 				<triangles>
 					<triangle>
-						<point x="2.1475624E7" y="6.0813677E8" />
-						<point x="2.1480574E7" y="6.0813427E8" />
-						<point x="2.1476358E7" y="6.0812582E8" />
+						<point x="1.9291881" y="47.846573" />
+						<point x="1.9296328" y="47.84642" />
+						<point x="1.929254" y="47.845913" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="Gymnase Universitaire">
 				<triangles>
 					<triangle>
-						<point x="2.1493056E7" y="6.0818278E8" />
-						<point x="2.149896E7" y="6.0817984E8" />
-						<point x="2.14975E7" y="6.081769E8" />
+						<point x="1.930754" y="47.849346" />
+						<point x="1.9312845" y="47.849167" />
+						<point x="1.9311533" y="47.84899" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1447046E7" y="6.0802125E8" />
-						<point x="2.144798E7" y="6.0802317E8" />
-						<point x="2.1446646E7" y="6.0802387E8" />
+						<point x="1.926621" y="47.839607" />
+						<point x="1.9267049" y="47.83972" />
+						<point x="1.926585" y="47.839764" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="Restaurants Universitaires - Le Forum - Le Bistro">
 				<triangles>
 					<triangle>
-						<point x="2.1550316E7" y="6.0808256E8" />
-						<point x="2.1555212E7" y="6.0807994E8" />
-						<point x="2.1554668E7" y="6.0807878E8" />
+						<point x="1.9358978" y="47.843304" />
+						<point x="1.9363376" y="47.843143" />
+						<point x="1.9362887" y="47.84308" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.148288E7" y="6.0800851E8" />
-						<point x="2.1482324E7" y="6.0800883E8" />
-						<point x="2.14822E7" y="6.0800858E8" />
+						<point x="1.92984" y="47.83884" />
+						<point x="1.92979" y="47.83886" />
+						<point x="1.9297789" y="47.83884" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1429092E7" y="6.0820704E8" />
-						<point x="2.1428524E7" y="6.0820602E8" />
-						<point x="2.1428868E7" y="6.0820589E8" />
+						<point x="1.9250079" y="47.850807" />
+						<point x="1.9249569" y="47.850746" />
+						<point x="1.9249879" y="47.85074" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="Résidence Les Magnolias">
 				<triangles>
 					<triangle>
-						<point x="2.1468152E7" y="6.0810931E8" />
-						<point x="2.1470124E7" y="6.0810835E8" />
-						<point x="2.147117E7" y="6.0811053E8" />
+						<point x="1.928517" y="47.844917" />
+						<point x="1.928694" y="47.84486" />
+						<point x="1.9287881" y="47.844986" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1442204E7" y="6.0819341E8" />
-						<point x="2.1442904E7" y="6.0819462E8" />
-						<point x="2.1441814E7" y="6.0819526E8" />
+						<point x="1.926186" y="47.849987" />
+						<point x="1.9262489" y="47.85006" />
+						<point x="1.9261509" y="47.850098" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="Maison de l'Étudiant">
 				<triangles>
 					<triangle>
-						<point x="2.155365E7" y="6.0807162E8" />
-						<point x="2.1556456E7" y="6.0807578E8" />
-						<point x="2.1558378E7" y="6.0807859E8" />
+						<point x="1.9361973" y="47.842644" />
+						<point x="1.9364494" y="47.84289" />
+						<point x="1.936622" y="47.843063" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1433576E7" y="6.0820102E8" />
-						<point x="2.1435202E7" y="6.0819987E8" />
-						<point x="2.1435236E7" y="6.0819987E8" />
+						<point x="1.925411" y="47.850445" />
+						<point x="1.9255569" y="47.850376" />
+						<point x="1.9255599" y="47.850372" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="Résidence les Dahlias">
 				<triangles>
 					<triangle>
-						<point x="2.1578864E7" y="6.080576E8" />
-						<point x="2.1581416E7" y="6.0805632E8" />
-						<point x="2.1581804E7" y="6.0805709E8" />
+						<point x="1.9384624" y="47.8418" />
+						<point x="1.9386916" y="47.84172" />
+						<point x="1.9387264" y="47.841766" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.143105E7" y="6.0820678E8" />
-						<point x="2.1432074E7" y="6.0820608E8" />
-						<point x="2.14335E7" y="6.0820819E8" />
+						<point x="1.925184" y="47.850792" />
+						<point x="1.9252759" y="47.85075" />
+						<point x="1.925404" y="47.85088" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="Résidence Les Roses">
 				<triangles>
 					<triangle>
-						<point x="2.1595568E7" y="6.0806893E8" />
-						<point x="2.1598128E7" y="6.0806758E8" />
-						<point x="2.1598528E7" y="6.0806835E8" />
+						<point x="1.9399627" y="47.84248" />
+						<point x="1.9401929" y="47.842403" />
+						<point x="1.9402287" y="47.84245" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1531382E7" y="6.080007E8" />
-						<point x="2.153087E7" y="6.0799968E8" />
-						<point x="2.1531638E7" y="6.079993E8" />
+						<point x="1.934197" y="47.838367" />
+						<point x="1.9341509" y="47.838306" />
+						<point x="1.93422" y="47.838284" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1457144E7" y="6.080816E8" />
-						<point x="2.1458752E7" y="6.0808083E8" />
-						<point x="2.1458428E7" y="6.0808019E8" />
+						<point x="1.9275281" y="47.843246" />
+						<point x="1.9276725" y="47.843197" />
+						<point x="1.9276434" y="47.84316" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.151582E7" y="6.0801056E8" />
-						<point x="2.1515508E7" y="6.0800992E8" />
-						<point x="2.1514996E7" y="6.0801011E8" />
+						<point x="1.932799" y="47.83896" />
+						<point x="1.932771" y="47.83892" />
+						<point x="1.932725" y="47.838936" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1477058E7" y="6.0801709E8" />
-						<point x="2.147698E7" y="6.080169E8" />
-						<point x="2.147747E7" y="6.080167E8" />
+						<point x="1.929317" y="47.839355" />
+						<point x="1.92931" y="47.839348" />
+						<point x="1.929354" y="47.839333" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1481978E7" y="6.0799782E8" />
-						<point x="2.1482556E7" y="6.0799757E8" />
-						<point x="2.1482612E7" y="6.079977E8" />
+						<point x="1.9297589" y="47.838196" />
+						<point x="1.9298109" y="47.838177" />
+						<point x="1.929816" y="47.83819" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.152497E7" y="6.0802176E8" />
-						<point x="2.152477E7" y="6.0802176E8" />
-						<point x="2.1524658E7" y="6.0802176E8" />
+						<point x="1.9336209" y="47.839638" />
+						<point x="1.9336029" y="47.839638" />
+						<point x="1.9335929" y="47.839638" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1628478E7" y="6.0818522E8" />
-						<point x="2.1629168E7" y="6.0818586E8" />
-						<point x="2.1630126E7" y="6.0818483E8" />
+						<point x="1.9429193" y="47.849495" />
+						<point x="1.9429811" y="47.849533" />
+						<point x="1.9430673" y="47.849472" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1445362E7" y="6.0811091E8" />
-						<point x="2.1452404E7" y="6.0810746E8" />
-						<point x="2.1451588E7" y="6.0810579E8" />
+						<point x="1.9264697" y="47.845013" />
+						<point x="1.9271023" y="47.844803" />
+						<point x="1.927029" y="47.844704" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1516744E7" y="6.0801747E8" />
-						<point x="2.1518102E7" y="6.080201E8" />
-						<point x="2.1515832E7" y="6.0802131E8" />
+						<point x="1.932882" y="47.83938" />
+						<point x="1.933004" y="47.83954" />
+						<point x="1.9327999" y="47.839607" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1440836E7" y="6.0820038E8" />
-						<point x="2.144078E7" y="6.0820045E8" />
-						<point x="2.1441112E7" y="6.0820096E8" />
+						<point x="1.926063" y="47.850407" />
+						<point x="1.9260579" y="47.85041" />
+						<point x="1.926088" y="47.85044" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1485664E7" y="6.0800717E8" />
-						<point x="2.1485118E7" y="6.0800742E8" />
-						<point x="2.1484984E7" y="6.0800717E8" />
+						<point x="1.93009" y="47.838757" />
+						<point x="1.930041" y="47.83877" />
+						<point x="1.9300289" y="47.838757" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1435212E7" y="6.0819789E8" />
-						<point x="2.143607E7" y="6.0819725E8" />
-						<point x="2.1437016E7" y="6.0819706E8" />
+						<point x="1.925558" y="47.850258" />
+						<point x="1.925635" y="47.85022" />
+						<point x="1.9257199" y="47.85021" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1460036E7" y="6.0804288E8" />
-						<point x="2.1459336E7" y="6.0804326E8" />
-						<point x="2.146074E7" y="6.0804608E8" />
+						<point x="1.9277879" y="47.840916" />
+						<point x="1.927725" y="47.840935" />
+						<point x="1.927851" y="47.841106" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.148101E7" y="6.0801491E8" />
-						<point x="2.1480296E7" y="6.0801523E8" />
-						<point x="2.1479808E7" y="6.0801549E8" />
+						<point x="1.929672" y="47.839226" />
+						<point x="1.9296079" y="47.83925" />
+						<point x="1.929564" y="47.83926" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1449362E7" y="6.0802093E8" />
-						<point x="2.1450452E7" y="6.0802035E8" />
-						<point x="2.1450408E7" y="6.0802029E8" />
+						<point x="1.926829" y="47.83959" />
+						<point x="1.926927" y="47.83955" />
+						<point x="1.9269229" y="47.839546" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1575894E7" y="6.0815322E8" />
-						<point x="2.1576818E7" y="6.081552E8" />
-						<point x="2.157607E7" y="6.0815552E8" />
+						<point x="1.9381956" y="47.847565" />
+						<point x="1.9382786" y="47.847683" />
+						<point x="1.9382113" y="47.847702" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1446268E7" y="6.0814291E8" />
-						<point x="2.1443828E7" y="6.081472E8" />
-						<point x="2.1442904E7" y="6.0814669E8" />
+						<point x="1.926551" y="47.846943" />
+						<point x="1.9263319" y="47.847202" />
+						<point x="1.9262489" y="47.847168" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1504152E7" y="6.0799194E8" />
-						<point x="2.150432E7" y="6.0799232E8" />
-						<point x="2.1505322E7" y="6.0799437E8" />
+						<point x="1.9317509" y="47.83784" />
+						<point x="1.9317659" y="47.83786" />
+						<point x="1.9318559" y="47.837986" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="La serre aux papillons">
 				<triangles>
 					<triangle>
-						<point x="2.1594176E7" y="6.0820358E8" />
-						<point x="2.1594712E7" y="6.0820454E8" />
-						<point x="2.1596056E7" y="6.0820512E8" />
+						<point x="1.9398377" y="47.8506" />
+						<point x="1.9398861" y="47.85066" />
+						<point x="1.9400067" y="47.850693" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1448036E7" y="6.0801299E8" />
-						<point x="2.1447392E7" y="6.0801171E8" />
-						<point x="2.1447604E7" y="6.0801165E8" />
+						<point x="1.9267099" y="47.839108" />
+						<point x="1.926652" y="47.83903" />
+						<point x="1.9266709" y="47.839027" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1555496E7" y="6.0817958E8" />
-						<point x="2.1558684E7" y="6.0817805E8" />
-						<point x="2.1561546E7" y="6.0818413E8" />
+						<point x="1.9363631" y="47.84915" />
+						<point x="1.9366494" y="47.84906" />
+						<point x="1.9369066" y="47.84943" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1573228E7" y="6.0799142E8" />
-						<point x="2.1574152E7" y="6.0799328E8" />
-						<point x="2.157326E7" y="6.0799373E8" />
+						<point x="1.937956" y="47.837807" />
+						<point x="1.938039" y="47.837917" />
+						<point x="1.937959" y="47.837948" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1466316E7" y="6.0802643E8" />
-						<point x="2.1464024E7" y="6.0802758E8" />
-						<point x="2.1463732E7" y="6.0802701E8" />
+						<point x="1.928352" y="47.839916" />
+						<point x="1.928146" y="47.83999" />
+						<point x="1.9281199" y="47.839954" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1531638E7" y="6.079993E8" />
-						<point x="2.153087E7" y="6.0799968E8" />
-						<point x="2.1530168E7" y="6.0799827E8" />
+						<point x="1.93422" y="47.838284" />
+						<point x="1.9341509" y="47.838306" />
+						<point x="1.934088" y="47.838223" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1410956E7" y="6.0814592E8" />
-						<point x="2.1411724E7" y="6.0814317E8" />
-						<point x="2.1413072E7" y="6.0814355E8" />
+						<point x="1.923379" y="47.847126" />
+						<point x="1.923448" y="47.84696" />
+						<point x="1.923569" y="47.84698" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="UFR de Droit">
 				<triangles>
 					<triangle>
-						<point x="2.1511352E7" y="6.0811981E8" />
-						<point x="2.1513442E7" y="6.0811994E8" />
-						<point x="2.1514602E7" y="6.0811814E8" />
+						<point x="1.9323975" y="47.845547" />
+						<point x="1.9325854" y="47.84556" />
+						<point x="1.9326895" y="47.845448" />
 					</triangle>
 				</triangles>
 				<triangles type="trou">
 					<triangle>
-						<point x="2.15125E7" y="6.081145E8" />
-						<point x="2.1513736E7" y="6.0811456E8" />
-						<point x="2.1514322E7" y="6.081136E8" />
+						<point x="1.9325007" y="47.845226" />
+						<point x="1.9326117" y="47.845234" />
+						<point x="1.9326644" y="47.845173" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.157226E7" y="6.081529E8" />
-						<point x="2.157408E7" y="6.0815238E8" />
-						<point x="2.1574052E7" y="6.08152E8" />
+						<point x="1.9378691" y="47.84754" />
+						<point x="1.9380326" y="47.84751" />
+						<point x="1.93803" y="47.847492" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="UFR de Droit">
 				<triangles>
 					<triangle>
-						<point x="2.1509554E7" y="6.0813638E8" />
-						<point x="2.1511684E7" y="6.081353E8" />
-						<point x="2.1510486E7" y="6.081328E8" />
+						<point x="1.9322361" y="47.846546" />
+						<point x="1.9324275" y="47.84648" />
+						<point x="1.9323199" y="47.846333" />
 					</triangle>
 				</triangles>
 				<triangles type="trou">
 					<triangle>
-						<point x="2.1514096E7" y="6.0813261E8" />
-						<point x="2.1515172E7" y="6.081321E8" />
-						<point x="2.151506E7" y="6.0813178E8" />
+						<point x="1.932644" y="47.84632" />
+						<point x="1.9327407" y="47.84629" />
+						<point x="1.9327308" y="47.84627" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1466916E7" y="6.08016E8" />
-						<point x="2.1463556E7" y="6.0801766E8" />
-						<point x="2.1462564E7" y="6.0801587E8" />
+						<point x="1.928406" y="47.83929" />
+						<point x="1.9281039" y="47.839394" />
+						<point x="1.9280149" y="47.83928" />
 					</triangle>
 				</triangles>
 				<triangles type="trou">
 					<triangle>
-						<point x="2.1465214E7" y="6.0801549E8" />
-						<point x="2.14646E7" y="6.0801427E8" />
-						<point x="2.1463432E7" y="6.0801491E8" />
+						<point x="1.9282529" y="47.83926" />
+						<point x="1.9281979" y="47.839188" />
+						<point x="1.928093" y="47.839226" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.146085E7" y="6.081495E8" />
-						<point x="2.1456598E7" y="6.0815085E8" />
-						<point x="2.145662E7" y="6.0815091E8" />
+						<point x="1.927861" y="47.84734" />
+						<point x="1.927479" y="47.84742" />
+						<point x="1.9274809" y="47.847424" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="Bloc Central">
 				<triangles>
 					<triangle>
-						<point x="2.1432964E7" y="6.0809011E8" />
-						<point x="2.1432372E7" y="6.0809043E8" />
-						<point x="2.1435236E7" y="6.0809626E8" />
+						<point x="1.9253558" y="47.843758" />
+						<point x="1.9253026" y="47.843777" />
+						<point x="1.9255599" y="47.844128" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1526428E7" y="6.0803962E8" />
-						<point x="2.152726E7" y="6.0803923E8" />
-						<point x="2.1526876E7" y="6.080384E8" />
+						<point x="1.933752" y="47.840714" />
+						<point x="1.9338268" y="47.84069" />
+						<point x="1.9337921" y="47.84064" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1597484E7" y="6.0799725E8" />
-						<point x="2.1597728E7" y="6.0799712E8" />
-						<point x="2.1598484E7" y="6.0799872E8" />
+						<point x="1.940135" y="47.838158" />
+						<point x="1.9401569" y="47.838154" />
+						<point x="1.9402249" y="47.838245" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.152251E7" y="6.0800781E8" />
-						<point x="2.1520752E7" y="6.080087E8" />
-						<point x="2.1520496E7" y="6.0800819E8" />
+						<point x="1.9333999" y="47.838795" />
+						<point x="1.933242" y="47.83885" />
+						<point x="1.933219" y="47.838818" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1408308E7" y="6.0805146E8" />
-						<point x="2.1412236E7" y="6.0804954E8" />
-						<point x="2.1414008E7" y="6.0805318E8" />
+						<point x="1.9231409" y="47.841427" />
+						<point x="1.923494" y="47.841312" />
+						<point x="1.923653" y="47.84153" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1420586E7" y="6.0807155E8" />
-						<point x="2.1419696E7" y="6.0806976E8" />
-						<point x="2.1420976E7" y="6.0806912E8" />
+						<point x="1.9242439" y="47.842636" />
+						<point x="1.9241639" y="47.84253" />
+						<point x="1.924279" y="47.84249" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1595024E7" y="6.0799539E8" />
-						<point x="2.1595436E7" y="6.079952E8" />
-						<point x="2.1595612E7" y="6.0799558E8" />
+						<point x="1.9399139" y="47.838047" />
+						<point x="1.939951" y="47.838036" />
+						<point x="1.9399669" y="47.83806" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1413138E7" y="6.0807494E8" />
-						<point x="2.1412504E7" y="6.0807366E8" />
-						<point x="2.1413928E7" y="6.0807296E8" />
+						<point x="1.9235749" y="47.842842" />
+						<point x="1.923518" y="47.842766" />
+						<point x="1.923646" y="47.842724" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1526908E7" y="6.080167E8" />
-						<point x="2.152516E7" y="6.080176E8" />
-						<point x="2.152487E7" y="6.0801702E8" />
+						<point x="1.933795" y="47.839333" />
+						<point x="1.933638" y="47.83939" />
+						<point x="1.933612" y="47.83935" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1599732E7" y="6.0800518E8" />
-						<point x="2.1599932E7" y="6.0800506E8" />
-						<point x="2.1600144E7" y="6.080055E8" />
+						<point x="1.940337" y="47.83864" />
+						<point x="1.940355" y="47.83863" />
+						<point x="1.9403739" y="47.838657" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1530168E7" y="6.0799827E8" />
-						<point x="2.153087E7" y="6.0799968E8" />
-						<point x="2.1531382E7" y="6.080007E8" />
+						<point x="1.934088" y="47.838223" />
+						<point x="1.9341509" y="47.838306" />
+						<point x="1.934197" y="47.838367" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1417368E7" y="6.0807309E8" />
-						<point x="2.1416166E7" y="6.080729E8" />
-						<point x="2.14165E7" y="6.0807053E8" />
+						<point x="1.923955" y="47.84273" />
+						<point x="1.923847" y="47.84272" />
+						<point x="1.9238769" y="47.84258" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1511332E7" y="6.0800845E8" />
-						<point x="2.1513972E7" y="6.0800717E8" />
-						<point x="2.1514306E7" y="6.0800781E8" />
+						<point x="1.9323958" y="47.838837" />
+						<point x="1.932633" y="47.838757" />
+						<point x="1.932663" y="47.838795" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1475788E7" y="6.080416E8" />
-						<point x="2.1475566E7" y="6.0804173E8" />
-						<point x="2.14758E7" y="6.0804218E8" />
+						<point x="1.9292029" y="47.84083" />
+						<point x="1.9291829" y="47.84084" />
+						<point x="1.929204" y="47.84087" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1444352E7" y="6.0801926E8" />
-						<point x="2.1443518E7" y="6.080176E8" />
-						<point x="2.1444576E7" y="6.0801709E8" />
+						<point x="1.926379" y="47.83949" />
+						<point x="1.926304" y="47.83939" />
+						<point x="1.926399" y="47.839355" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1510232E7" y="6.0799898E8" />
-						<point x="2.1510454E7" y="6.0799885E8" />
-						<point x="2.1510544E7" y="6.0799898E8" />
+						<point x="1.9322969" y="47.83826" />
+						<point x="1.932317" y="47.838253" />
+						<point x="1.932325" y="47.838264" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1478204E7" y="6.0820851E8" />
-						<point x="2.148032E7" y="6.0820742E8" />
-						<point x="2.1480554E7" y="6.0820794E8" />
+						<point x="1.92942" y="47.850895" />
+						<point x="1.92961" y="47.850834" />
+						<point x="1.929631" y="47.85086" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.149665E7" y="6.0820384E8" />
-						<point x="2.1498776E7" y="6.0820282E8" />
-						<point x="2.149902E7" y="6.0820333E8" />
+						<point x="1.9310769" y="47.850616" />
+						<point x="1.931268" y="47.85055" />
+						<point x="1.9312899" y="47.850582" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.145092E7" y="6.0799738E8" />
-						<point x="2.1451376E7" y="6.0799776E8" />
-						<point x="2.1450964E7" y="6.0799821E8" />
+						<point x="1.9269689" y="47.838165" />
+						<point x="1.9270099" y="47.838192" />
+						<point x="1.926973" y="47.83822" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.149114E7" y="6.082073E8" />
-						<point x="2.149399E7" y="6.0820589E8" />
-						<point x="2.149478E7" y="6.0820755E8" />
+						<point x="1.9305819" y="47.850822" />
+						<point x="1.930838" y="47.85074" />
+						<point x="1.9309089" y="47.85084" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1446344E7" y="6.0805542E8" />
-						<point x="2.1446612E7" y="6.080553E8" />
-						<point x="2.14464E7" y="6.0805478E8" />
+						<point x="1.9265579" y="47.841667" />
+						<point x="1.926582" y="47.84166" />
+						<point x="1.926563" y="47.84163" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1457878E7" y="6.0801766E8" />
-						<point x="2.1458424E7" y="6.0801882E8" />
-						<point x="2.1456352E7" y="6.0801984E8" />
+						<point x="1.927594" y="47.839394" />
+						<point x="1.927643" y="47.83946" />
+						<point x="1.927457" y="47.839523" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1488668E7" y="6.0803149E8" />
-						<point x="2.1490016E7" y="6.0803418E8" />
-						<point x="2.1487724E7" y="6.0803533E8" />
+						<point x="1.93036" y="47.84022" />
+						<point x="1.930481" y="47.840385" />
+						<point x="1.930275" y="47.840454" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1442582E7" y="6.0801299E8" />
-						<point x="2.1441124E7" y="6.080137E8" />
-						<point x="2.1440122E7" y="6.0801171E8" />
+						<point x="1.9262199" y="47.839108" />
+						<point x="1.9260889" y="47.839153" />
+						<point x="1.9259989" y="47.83903" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1498042E7" y="6.0801114E8" />
-						<point x="2.1497776E7" y="6.0801133E8" />
-						<point x="2.1498032E7" y="6.0801184E8" />
+						<point x="1.9312019" y="47.839" />
+						<point x="1.931178" y="47.83901" />
+						<point x="1.931201" y="47.83904" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="Restaurant Universitaire - Le Lac">
 				<triangles>
 					<triangle>
-						<point x="2.1514164E7" y="6.0809741E8" />
-						<point x="2.1516836E7" y="6.0809613E8" />
-						<point x="2.1516482E7" y="6.0809542E8" />
+						<point x="1.9326502" y="47.8442" />
+						<point x="1.9328903" y="47.844124" />
+						<point x="1.9328585" y="47.844078" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1497664E7" y="6.081911E8" />
-						<point x="2.1495948E7" y="6.08192E8" />
-						<point x="2.149548E7" y="6.081911E8" />
+						<point x="1.931168" y="47.84985" />
+						<point x="1.931014" y="47.8499" />
+						<point x="1.9309719" y="47.849846" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.148436E7" y="6.0820634E8" />
-						<point x="2.1488134E7" y="6.0820454E8" />
-						<point x="2.1488958E7" y="6.0820621E8" />
+						<point x="1.929973" y="47.850765" />
+						<point x="1.9303119" y="47.850655" />
+						<point x="1.930386" y="47.850754" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1444764E7" y="6.0805504E8" />
-						<point x="2.1444486E7" y="6.0805517E8" />
-						<point x="2.1444732E7" y="6.0805568E8" />
+						<point x="1.9264159" y="47.841644" />
+						<point x="1.926391" y="47.841652" />
+						<point x="1.9264129" y="47.841682" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.148948E7" y="6.0820384E8" />
-						<point x="2.1493288E7" y="6.0820205E8" />
-						<point x="2.14941E7" y="6.0820371E8" />
+						<point x="1.9304329" y="47.850616" />
+						<point x="1.9307749" y="47.850506" />
+						<point x="1.930848" y="47.850605" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1485864E7" y="6.082E8" />
-						<point x="2.14821E7" y="6.0820192E8" />
-						<point x="2.1481788E7" y="6.0820128E8" />
+						<point x="1.930108" y="47.850384" />
+						<point x="1.92977" y="47.8505" />
+						<point x="1.929742" y="47.85046" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.14934E7" y="6.0819789E8" />
-						<point x="2.1497652E7" y="6.0819571E8" />
-						<point x="2.1498454E7" y="6.0819738E8" />
+						<point x="1.930785" y="47.850258" />
+						<point x="1.9311669" y="47.85013" />
+						<point x="1.931239" y="47.850224" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.149438E7" y="6.0820109E8" />
-						<point x="2.1499132E7" y="6.0819872E8" />
-						<point x="2.1500246E7" y="6.0820102E8" />
+						<point x="1.9308729" y="47.850452" />
+						<point x="1.9312999" y="47.850307" />
+						<point x="1.9314" y="47.850445" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1498376E7" y="6.0819078E8" />
-						<point x="2.1497664E7" y="6.081911E8" />
-						<point x="2.1497196E7" y="6.0819021E8" />
+						<point x="1.931232" y="47.849827" />
+						<point x="1.931168" y="47.84985" />
+						<point x="1.931126" y="47.849792" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1482824E7" y="6.0820314E8" />
-						<point x="2.1486564E7" y="6.0820128E8" />
-						<point x="2.1487366E7" y="6.0820288E8" />
+						<point x="1.929835" y="47.850574" />
+						<point x="1.930171" y="47.85046" />
+						<point x="1.9302429" y="47.85056" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1440278E7" y="6.0799603E8" />
-						<point x="2.144078E7" y="6.0799699E8" />
-						<point x="2.1441146E7" y="6.079968E8" />
+						<point x="1.926013" y="47.838085" />
+						<point x="1.9260579" y="47.838146" />
+						<point x="1.926091" y="47.838135" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.14879E7" y="6.0820058E8" />
-						<point x="2.1491674E7" y="6.0819872E8" />
-						<point x="2.1492464E7" y="6.0820038E8" />
+						<point x="1.9302909" y="47.850418" />
+						<point x="1.93063" y="47.850304" />
+						<point x="1.930701" y="47.850403" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.152841E7" y="6.080048E8" />
-						<point x="2.1528276E7" y="6.0800499E8" />
-						<point x="2.1527908E7" y="6.0800518E8" />
+						<point x="1.9339299" y="47.838615" />
+						<point x="1.9339179" y="47.838627" />
+						<point x="1.933885" y="47.83864" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1514506E7" y="6.0799699E8" />
-						<point x="2.1515396E7" y="6.0799654E8" />
-						<point x="2.1515308E7" y="6.0799642E8" />
+						<point x="1.932681" y="47.838146" />
+						<point x="1.932761" y="47.83812" />
+						<point x="1.932753" y="47.838108" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="Département GEA">
 				<triangles>
 					<triangle>
-						<point x="2.1429736E7" y="6.0810259E8" />
-						<point x="2.1437664E7" y="6.0809856E8" />
-						<point x="2.143654E7" y="6.0809619E8" />
+						<point x="1.9250659" y="47.844513" />
+						<point x="1.9257783" y="47.84427" />
+						<point x="1.9256773" y="47.844128" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1508496E7" y="6.0799981E8" />
-						<point x="2.1509352E7" y="6.0799936E8" />
-						<point x="2.1510576E7" y="6.0800186E8" />
+						<point x="1.932141" y="47.838314" />
+						<point x="1.932218" y="47.838287" />
+						<point x="1.9323279" y="47.83844" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="Bâtiment Administratif">
 				<triangles>
 					<triangle>
-						<point x="2.1428198E7" y="6.0808435E8" />
-						<point x="2.142968E7" y="6.0808352E8" />
-						<point x="2.143238E7" y="6.0808896E8" />
+						<point x="1.9249278" y="47.84341" />
+						<point x="1.9250609" y="47.84336" />
+						<point x="1.9253036" y="47.84369" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="Résidence les Ormes">
 				<triangles>
 					<triangle>
-						<point x="2.156358E7" y="6.0802246E8" />
-						<point x="2.1563156E7" y="6.0802163E8" />
-						<point x="2.1565988E7" y="6.0802022E8" />
+						<point x="1.9370892" y="47.839684" />
+						<point x="1.9370513" y="47.83963" />
+						<point x="1.9373057" y="47.839542" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1497308E7" y="6.0803085E8" />
-						<point x="2.1497062E7" y="6.0803098E8" />
-						<point x="2.1497328E7" y="6.0803149E8" />
+						<point x="1.9311359" y="47.840183" />
+						<point x="1.931114" y="47.84019" />
+						<point x="1.9311379" y="47.840225" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="Centre d'Innovation">
 				<triangles>
 					<triangle>
-						<point x="2.1589372E7" y="6.0808864E8" />
-						<point x="2.1590556E7" y="6.0809107E8" />
-						<point x="2.1590932E7" y="6.0809094E8" />
+						<point x="1.9394063" y="47.84367" />
+						<point x="1.9395127" y="47.84382" />
+						<point x="1.9395465" y="47.84381" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="Château de la Source - Présidence de l'Université">
 				<triangles>
 					<triangle>
-						<point x="2.152086E7" y="6.0820698E8" />
-						<point x="2.1525252E7" y="6.0820486E8" />
-						<point x="2.1525042E7" y="6.0820442E8" />
+						<point x="1.9332516" y="47.850803" />
+						<point x="1.9336462" y="47.850677" />
+						<point x="1.9336274" y="47.85065" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1600088E7" y="6.0800397E8" />
-						<point x="2.16007E7" y="6.0800365E8" />
-						<point x="2.16011E7" y="6.0800448E8" />
+						<point x="1.9403689" y="47.838562" />
+						<point x="1.940424" y="47.838547" />
+						<point x="1.94046" y="47.838596" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="Résidence les Hêtres">
 				<triangles>
 					<triangle>
-						<point x="2.1576596E7" y="6.0803642E8" />
-						<point x="2.1579236E7" y="6.0803507E8" />
-						<point x="2.1579588E7" y="6.0803578E8" />
+						<point x="1.9382586" y="47.84052" />
+						<point x="1.9384956" y="47.84044" />
+						<point x="1.9385273" y="47.84048" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1594934E7" y="6.0799194E8" />
-						<point x="2.159518E7" y="6.0799187E8" />
-						<point x="2.1596536E7" y="6.0799462E8" />
+						<point x="1.9399059" y="47.83784" />
+						<point x="1.9399279" y="47.837833" />
+						<point x="1.9400499" y="47.838" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="Département Informatique">
 				<triangles>
 					<triangle>
-						<point x="2.144563E7" y="6.0808192E8" />
-						<point x="2.1446436E7" y="6.0808147E8" />
-						<point x="2.1446204E7" y="6.0808102E8" />
+						<point x="1.9264938" y="47.84326" />
+						<point x="1.926566" y="47.84324" />
+						<point x="1.9265454" y="47.843212" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="Amphithêatres">
 				<triangles>
 					<triangle>
-						<point x="2.1442584E7" y="6.0808787E8" />
-						<point x="2.1441072E7" y="6.0808493E8" />
-						<point x="2.1444116E7" y="6.0808333E8" />
+						<point x="1.92622" y="47.843624" />
+						<point x="1.9260843" y="47.843445" />
+						<point x="1.9263576" y="47.843353" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1463844E7" y="6.0804326E8" />
-						<point x="2.1463612E7" y="6.0804333E8" />
-						<point x="2.1463856E7" y="6.080439E8" />
+						<point x="1.9281299" y="47.84093" />
+						<point x="1.9281089" y="47.84094" />
+						<point x="1.928131" y="47.84097" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1464368E7" y="6.080025E8" />
-						<point x="2.1465024E7" y="6.0800384E8" />
-						<point x="2.146518E7" y="6.0800416E8" />
+						<point x="1.928177" y="47.838478" />
+						<point x="1.9282359" y="47.83856" />
+						<point x="1.92825" y="47.838577" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="Atelier de Génie Chimique">
 				<triangles>
 					<triangle>
-						<point x="2.1453192E7" y="6.0809088E8" />
-						<point x="2.1451904E7" y="6.0808845E8" />
-						<point x="2.1455234E7" y="6.0808666E8" />
+						<point x="1.927173" y="47.843803" />
+						<point x="1.9270573" y="47.843655" />
+						<point x="1.9273565" y="47.84355" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1445628E7" y="6.0809523E8" />
-						<point x="2.1452348E7" y="6.080919E8" />
-						<point x="2.1451148E7" y="6.0808947E8" />
+						<point x="1.9264935" y="47.844067" />
+						<point x="1.9270973" y="47.843864" />
+						<point x="1.9269893" y="47.84372" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="Atelier de Génie Industriel">
 				<triangles>
 					<triangle>
-						<point x="2.145234E7" y="6.0809427E8" />
-						<point x="2.1455618E7" y="6.0810099E8" />
-						<point x="2.1449772E7" y="6.0810387E8" />
+						<point x="1.9270966" y="47.84401" />
+						<point x="1.9273909" y="47.844418" />
+						<point x="1.9268657" y="47.84459" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1462708E7" y="6.0803834E8" />
-						<point x="2.1462452E7" y="6.0803776E8" />
-						<point x="2.1462196E7" y="6.0803789E8" />
+						<point x="1.928028" y="47.840633" />
+						<point x="1.928005" y="47.840603" />
+						<point x="1.927982" y="47.84061" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="Département GMP">
 				<triangles>
 					<triangle>
-						<point x="2.1439824E7" y="6.0809939E8" />
-						<point x="2.144561E7" y="6.0809658E8" />
-						<point x="2.1447396E7" y="6.0810022E8" />
+						<point x="1.9259721" y="47.84432" />
+						<point x="1.926492" y="47.844147" />
+						<point x="1.9266523" y="47.844368" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1507236E7" y="6.0801613E8" />
-						<point x="2.1505488E7" y="6.0801696E8" />
-						<point x="2.1505212E7" y="6.0801645E8" />
+						<point x="1.9320279" y="47.839294" />
+						<point x="1.9318709" y="47.839348" />
+						<point x="1.931846" y="47.839317" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1599532E7" y="6.0800422E8" />
-						<point x="2.159932E7" y="6.0800378E8" />
-						<point x="2.1599532E7" y="6.0800371E8" />
+						<point x="1.940319" y="47.83858" />
+						<point x="1.9403" y="47.838554" />
+						<point x="1.940319" y="47.838547" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1536588E7" y="6.0802848E8" />
-						<point x="2.1533152E7" y="6.0802163E8" />
-						<point x="2.1535288E7" y="6.0802054E8" />
+						<point x="1.9346646" y="47.840042" />
+						<point x="1.9343559" y="47.83963" />
+						<point x="1.9345478" y="47.839565" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1469544E7" y="6.0803488E8" />
-						<point x="2.1469288E7" y="6.0803437E8" />
-						<point x="2.1469032E7" y="6.080345E8" />
+						<point x="1.9286419" y="47.84043" />
+						<point x="1.9286189" y="47.8404" />
+						<point x="1.9285959" y="47.84041" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1454472E7" y="6.0803789E8" />
-						<point x="2.1455796E7" y="6.0804058E8" />
-						<point x="2.145357E7" y="6.0804173E8" />
+						<point x="1.9272879" y="47.84061" />
+						<point x="1.9274069" y="47.84077" />
+						<point x="1.927207" y="47.84084" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.152841E7" y="6.080048E8" />
-						<point x="2.152754E7" y="6.0800307E8" />
-						<point x="2.1526952E7" y="6.0800186E8" />
+						<point x="1.9339299" y="47.838615" />
+						<point x="1.933852" y="47.83851" />
+						<point x="1.9337989" y="47.83844" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1546722E7" y="6.0799994E8" />
-						<point x="2.1545464E7" y="6.079975E8" />
-						<point x="2.1544496E7" y="6.0799552E8" />
+						<point x="1.935575" y="47.83832" />
+						<point x="1.935462" y="47.838173" />
+						<point x="1.9353749" y="47.838055" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="UFR de STAPS">
 				<triangles>
 					<triangle>
-						<point x="2.14975E7" y="6.081769E8" />
-						<point x="2.1496616E7" y="6.0817517E8" />
-						<point x="2.149438E7" y="6.0817062E8" />
+						<point x="1.9311533" y="47.84899" />
+						<point x="1.9310739" y="47.848885" />
+						<point x="1.9308732" y="47.848614" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="Résidence Les Châtaigners">
 				<triangles>
 					<triangle>
-						<point x="2.1467276E7" y="6.0812416E8" />
-						<point x="2.1466286E7" y="6.0812224E8" />
-						<point x="2.1467644E7" y="6.0812154E8" />
+						<point x="1.9284382" y="47.84581" />
+						<point x="1.9283493" y="47.845695" />
+						<point x="1.9284713" y="47.845654" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="Brasserie de l'Indien">
 				<triangles>
 					<triangle>
-						<point x="2.1537534E7" y="6.0803437E8" />
-						<point x="2.1538024E7" y="6.0803411E8" />
-						<point x="2.1539064E7" y="6.0802944E8" />
+						<point x="1.9347496" y="47.840397" />
+						<point x="1.9347935" y="47.84038" />
+						<point x="1.9348869" y="47.840103" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1502172E7" y="6.0801434E8" />
-						<point x="2.1500402E7" y="6.0801523E8" />
-						<point x="2.1500136E7" y="6.0801472E8" />
+						<point x="1.931573" y="47.83919" />
+						<point x="1.931414" y="47.839245" />
+						<point x="1.93139" y="47.83921" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1435814E7" y="6.0799866E8" />
-						<point x="2.1434568E7" y="6.079993E8" />
-						<point x="2.1434056E7" y="6.0799834E8" />
+						<point x="1.925612" y="47.838245" />
+						<point x="1.9254999" y="47.838284" />
+						<point x="1.9254539" y="47.838226" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1450964E7" y="6.0799597E8" />
-						<point x="2.1449828E7" y="6.0799654E8" />
-						<point x="2.1448728E7" y="6.0799437E8" />
+						<point x="1.926973" y="47.83808" />
+						<point x="1.926871" y="47.83812" />
+						<point x="1.9267719" y="47.837986" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1439822E7" y="6.0819693E8" />
-						<point x="2.1439354E7" y="6.0819622E8" />
-						<point x="2.1440012E7" y="6.0819584E8" />
+						<point x="1.925972" y="47.850197" />
+						<point x="1.9259299" y="47.85016" />
+						<point x="1.9259889" y="47.850132" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.149282E7" y="6.0800064E8" />
-						<point x="2.1492576E7" y="6.0800077E8" />
-						<point x="2.1492832E7" y="6.0800128E8" />
+						<point x="1.930733" y="47.838364" />
+						<point x="1.9307109" y="47.83837" />
+						<point x="1.9307339" y="47.8384" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1479886E7" y="6.0801568E8" />
-						<point x="2.1479808E7" y="6.0801549E8" />
-						<point x="2.1480296E7" y="6.0801523E8" />
+						<point x="1.929571" y="47.83927" />
+						<point x="1.929564" y="47.83926" />
+						<point x="1.9296079" y="47.83925" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1471204E7" y="6.0802976E8" />
-						<point x="2.1470624E7" y="6.0802861E8" />
-						<point x="2.147039E7" y="6.0802874E8" />
+						<point x="1.9287909" y="47.84012" />
+						<point x="1.928739" y="47.84005" />
+						<point x="1.928718" y="47.840057" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1452444E7" y="6.0801427E8" />
-						<point x="2.1451932E7" y="6.0801325E8" />
-						<point x="2.1452568E7" y="6.0801293E8" />
+						<point x="1.9271059" y="47.839188" />
+						<point x="1.9270599" y="47.839123" />
+						<point x="1.927117" y="47.839104" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1480864E7" y="6.0800986E8" />
-						<point x="2.148042E7" y="6.0801005E8" />
-						<point x="2.1480308E7" y="6.0800986E8" />
+						<point x="1.9296589" y="47.83892" />
+						<point x="1.929619" y="47.838932" />
+						<point x="1.929609" y="47.83892" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.147746E7" y="6.0803635E8" />
-						<point x="2.1477158E7" y="6.0803654E8" />
-						<point x="2.1477436E7" y="6.0803706E8" />
+						<point x="1.929353" y="47.84052" />
+						<point x="1.9293259" y="47.84053" />
+						<point x="1.929351" y="47.84056" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1478872E7" y="6.0802598E8" />
-						<point x="2.1475356E7" y="6.0801888E8" />
-						<point x="2.1476012E7" y="6.0801856E8" />
+						<point x="1.92948" y="47.83989" />
+						<point x="1.9291639" y="47.839462" />
+						<point x="1.929223" y="47.839443" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1598164E7" y="6.0800192E8" />
-						<point x="2.1597772E7" y="6.0800109E8" />
-						<point x="2.1597972E7" y="6.0800102E8" />
+						<point x="1.940196" y="47.83844" />
+						<point x="1.940161" y="47.83839" />
+						<point x="1.9401789" y="47.838387" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1533832E7" y="6.0799987E8" />
-						<point x="2.1535468E7" y="6.0799904E8" />
-						<point x="2.15409E7" y="6.0799635E8" />
+						<point x="1.934417" y="47.838314" />
+						<point x="1.9345639" y="47.83827" />
+						<point x="1.9350519" y="47.838104" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1417502E7" y="6.0803488E8" />
-						<point x="2.1412604E7" y="6.0803885E8" />
-						<point x="2.1410066E7" y="6.0803584E8" />
+						<point x="1.9239669" y="47.840427" />
+						<point x="1.923527" y="47.840668" />
+						<point x="1.923299" y="47.840485" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1646796E7" y="6.0801754E8" />
-						<point x="2.1648988E7" y="6.0801645E8" />
-						<point x="2.16487E7" y="6.0801581E8" />
+						<point x="1.9445648" y="47.839382" />
+						<point x="1.9447618" y="47.839317" />
+						<point x="1.9447358" y="47.83928" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1612636E7" y="6.0811475E8" />
-						<point x="2.1611442E7" y="6.0811251E8" />
-						<point x="2.1614248E7" y="6.0811098E8" />
+						<point x="1.9414961" y="47.845245" />
+						<point x="1.9413888" y="47.845108" />
+						<point x="1.941641" y="47.845016" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1602484E7" y="6.0810118E8" />
-						<point x="2.1597348E7" y="6.0810406E8" />
-						<point x="2.1598424E7" y="6.0810605E8" />
+						<point x="1.9405843" y="47.844425" />
+						<point x="1.9401228" y="47.8446" />
+						<point x="1.9402194" y="47.84472" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1609532E7" y="6.0810931E8" />
-						<point x="2.161204E7" y="6.0810816E8" />
-						<point x="2.1610726E7" y="6.0810534E8" />
+						<point x="1.9412173" y="47.844917" />
+						<point x="1.9414426" y="47.844845" />
+						<point x="1.9413246" y="47.844677" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1485052E7" y="6.0803264E8" />
-						<point x="2.1484796E7" y="6.0803277E8" />
-						<point x="2.1485062E7" y="6.0803328E8" />
+						<point x="1.930035" y="47.84029" />
+						<point x="1.930012" y="47.840298" />
+						<point x="1.930036" y="47.840332" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.144226E7" y="6.0799328E8" />
-						<point x="2.144325E7" y="6.0799283E8" />
-						<point x="2.1442884E7" y="6.0799206E8" />
+						<point x="1.926191" y="47.83792" />
+						<point x="1.9262799" y="47.837894" />
+						<point x="1.926247" y="47.837845" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1435324E7" y="6.0800294E8" />
-						<point x="2.14344E7" y="6.0800102E8" />
-						<point x="2.1435424E7" y="6.0800051E8" />
+						<point x="1.9255679" y="47.8385" />
+						<point x="1.9254849" y="47.838387" />
+						<point x="1.925577" y="47.838356" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1600512E7" y="6.0800678E8" />
-						<point x="2.1600122E7" y="6.0800595E8" />
-						<point x="2.1600524E7" y="6.0800576E8" />
+						<point x="1.9404069" y="47.838734" />
+						<point x="1.940372" y="47.838688" />
+						<point x="1.940408" y="47.838673" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1431316E7" y="6.0820576E8" />
-						<point x="2.1430292E7" y="6.0820634E8" />
-						<point x="2.1430136E7" y="6.0820608E8" />
+						<point x="1.925208" y="47.85073" />
+						<point x="1.925116" y="47.850765" />
+						<point x="1.925102" y="47.85075" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1435614E7" y="6.0799974E8" />
-						<point x="2.1434068E7" y="6.0800051E8" />
-						<point x="2.14338E7" y="6.0799994E8" />
+						<point x="1.925594" y="47.83831" />
+						<point x="1.925455" y="47.838356" />
+						<point x="1.9254309" y="47.83832" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1511378E7" y="6.0802381E8" />
-						<point x="2.1511112E7" y="6.0802394E8" />
-						<point x="2.1511368E7" y="6.0802445E8" />
+						<point x="1.9324" y="47.83976" />
+						<point x="1.932376" y="47.839767" />
+						<point x="1.932399" y="47.8398" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1596984E7" y="6.0799949E8" />
-						<point x="2.1597394E7" y="6.079993E8" />
-						<point x="2.1597572E7" y="6.0799968E8" />
+						<point x="1.94009" y="47.838295" />
+						<point x="1.9401269" y="47.838284" />
+						<point x="1.940143" y="47.838306" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.147372E7" y="6.0801875E8" />
-						<point x="2.1473218E7" y="6.0801901E8" />
-						<point x="2.147314E7" y="6.0801882E8" />
+						<point x="1.929017" y="47.83946" />
+						<point x="1.928972" y="47.83947" />
+						<point x="1.928965" y="47.83946" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.147314E7" y="6.0801882E8" />
-						<point x="2.1472428E7" y="6.080192E8" />
-						<point x="2.1472972E7" y="6.0802029E8" />
+						<point x="1.928965" y="47.83946" />
+						<point x="1.928901" y="47.83948" />
+						<point x="1.92895" y="47.83955" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1432364E7" y="6.0799667E8" />
-						<point x="2.143154E7" y="6.0799501E8" />
-						<point x="2.1432676E7" y="6.079945E8" />
+						<point x="1.9253019" y="47.838123" />
+						<point x="1.925228" y="47.838024" />
+						<point x="1.9253299" y="47.837994" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1605172E7" y="6.0810822E8" />
-						<point x="2.1604276E7" y="6.0810682E8" />
-						<point x="2.1599976E7" y="6.0810906E8" />
+						<point x="1.9408256" y="47.844852" />
+						<point x="1.9407451" y="47.84477" />
+						<point x="1.940359" y="47.844902" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1606426E7" y="6.0810253E8" />
-						<point x="2.1605708E7" y="6.0810112E8" />
-						<point x="2.1608876E7" y="6.0809952E8" />
+						<point x="1.9409382" y="47.844505" />
+						<point x="1.9408739" y="47.844425" />
+						<point x="1.9411583" y="47.844326" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1491108E7" y="6.0802419E8" />
-						<point x="2.1490828E7" y="6.0802368E8" />
-						<point x="2.1490572E7" y="6.0802381E8" />
+						<point x="1.930579" y="47.839787" />
+						<point x="1.9305539" y="47.839752" />
+						<point x="1.9305309" y="47.83976" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1535412E7" y="6.0800883E8" />
-						<point x="2.1536324E7" y="6.0801069E8" />
-						<point x="2.1538596E7" y="6.0801146E8" />
+						<point x="1.934559" y="47.83886" />
+						<point x="1.934641" y="47.838966" />
+						<point x="1.934845" y="47.839016" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.156129E7" y="6.0808102E8" />
-						<point x="2.1559712E7" y="6.0807795E8" />
-						<point x="2.1559966E7" y="6.0807782E8" />
+						<point x="1.9368837" y="47.843212" />
+						<point x="1.936742" y="47.843025" />
+						<point x="1.9367647" y="47.843018" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1561268E7" y="6.0807718E8" />
-						<point x="2.156106E7" y="6.0807674E8" />
-						<point x="2.1563784E7" y="6.0807533E8" />
+						<point x="1.9368815" y="47.84298" />
+						<point x="1.936863" y="47.842953" />
+						<point x="1.9371078" y="47.84287" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1454104E7" y="6.0800461E8" />
-						<point x="2.145505E7" y="6.0800397E8" />
-						<point x="2.1456576E7" y="6.0800627E8" />
+						<point x="1.9272549" y="47.838604" />
+						<point x="1.9273399" y="47.838566" />
+						<point x="1.9274769" y="47.838703" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1454584E7" y="6.0803533E8" />
-						<point x="2.1453368E7" y="6.080329E8" />
-						<point x="2.1453624E7" y="6.0803277E8" />
+						<point x="1.927298" y="47.840454" />
+						<point x="1.9271889" y="47.840305" />
+						<point x="1.9272119" y="47.840298" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1476868E7" y="6.0799277E8" />
-						<point x="2.1479052E7" y="6.0799731E8" />
-						<point x="2.1478348E7" y="6.0799763E8" />
+						<point x="1.9293" y="47.83789" />
+						<point x="1.9294959" y="47.83816" />
+						<point x="1.9294329" y="47.83818" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1569872E7" y="6.081552E8" />
-						<point x="2.1570408E7" y="6.0815456E8" />
-						<point x="2.1570736E7" y="6.0815482E8" />
+						<point x="1.9376545" y="47.84768" />
+						<point x="1.9377028" y="47.847645" />
+						<point x="1.9377322" y="47.847656" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.142387E7" y="6.0811942E8" />
-						<point x="2.1425296E7" y="6.0812077E8" />
-						<point x="2.1425762E7" y="6.0812019E8" />
+						<point x="1.924539" y="47.845524" />
+						<point x="1.924667" y="47.845608" />
+						<point x="1.924709" y="47.84557" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.143882E7" y="6.0814374E8" />
-						<point x="2.1438786E7" y="6.0814381E8" />
-						<point x="2.1438732E7" y="6.0814387E8" />
+						<point x="1.925882" y="47.846992" />
+						<point x="1.9258789" y="47.846996" />
+						<point x="1.925874" y="47.847" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="Amphithéatre de l'UFR de Sciences">
 				<triangles>
 					<triangle>
-						<point x="2.1565192E7" y="6.0810835E8" />
-						<point x="2.1561248E7" y="6.0810048E8" />
-						<point x="2.1566668E7" y="6.0809773E8" />
+						<point x="1.9372342" y="47.844856" />
+						<point x="1.93688" y="47.844387" />
+						<point x="1.9373668" y="47.84422" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="Résidence les Charmes">
 				<triangles>
 					<triangle>
-						<point x="2.153054E7" y="6.0804787E8" />
-						<point x="2.1529148E7" y="6.0804512E8" />
-						<point x="2.1529272E7" y="6.0804506E8" />
+						<point x="1.9341214" y="47.84121" />
+						<point x="1.9339963" y="47.841045" />
+						<point x="1.9340075" y="47.84104" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1496928E7" y="6.0802733E8" />
-						<point x="2.1496672E7" y="6.0802682E8" />
-						<point x="2.1496428E7" y="6.0802694E8" />
+						<point x="1.931102" y="47.839973" />
+						<point x="1.931079" y="47.839943" />
+						<point x="1.931057" y="47.83995" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1506292E7" y="6.0802272E8" />
-						<point x="2.1504554E7" y="6.0802355E8" />
-						<point x="2.1504308E7" y="6.0802304E8" />
+						<point x="1.9319429" y="47.83969" />
+						<point x="1.9317869" y="47.839745" />
+						<point x="1.931765" y="47.839714" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="Bibliothèque Universitaire de LLSH">
 				<triangles>
 					<triangle>
-						<point x="2.1566904E7" y="6.0807328E8" />
-						<point x="2.1563202E7" y="6.0806573E8" />
-						<point x="2.1565988E7" y="6.0806432E8" />
+						<point x="1.9373878" y="47.842743" />
+						<point x="1.9370553" y="47.84229" />
+						<point x="1.9373057" y="47.842205" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="Batiment Enseignement Général UFR Sciences">
 				<triangles>
 					<triangle>
-						<point x="2.1552772E7" y="6.0814317E8" />
-						<point x="2.1560698E7" y="6.0813939E8" />
-						<point x="2.1559468E7" y="6.0813683E8" />
+						<point x="1.9361185" y="47.84696" />
+						<point x="1.9368304" y="47.84673" />
+						<point x="1.9367199" y="47.846573" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="Gymnase Gilbert Cathelineau">
 				<triangles>
 					<triangle>
-						<point x="2.1617448E7" y="6.0800685E8" />
-						<point x="2.1619596E7" y="6.0801126E8" />
-						<point x="2.1614152E7" y="6.0801389E8" />
+						<point x="1.9419284" y="47.838737" />
+						<point x="1.9421214" y="47.839005" />
+						<point x="1.9416324" y="47.83916" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1483938E7" y="6.0802778E8" />
-						<point x="2.148366E7" y="6.080272E8" />
-						<point x="2.1483404E7" y="6.0802733E8" />
+						<point x="1.929935" y="47.84" />
+						<point x="1.92991" y="47.839966" />
+						<point x="1.9298869" y="47.839973" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="Université d'informatique">
 				<triangles>
 					<triangle>
-						<point x="2.1598064E7" y="6.0812122E8" />
-						<point x="2.1591724E7" y="6.0812442E8" />
-						<point x="2.1591316E7" y="6.0812032E8" />
+						<point x="1.9401872" y="47.845634" />
+						<point x="1.9396175" y="47.84583" />
+						<point x="1.9395809" y="47.845577" />
 					</triangle>
 				</triangles>
 				<triangles type="trou">
 					<triangle>
-						<point x="2.1594478E7" y="6.0811821E8" />
-						<point x="2.159248E7" y="6.081193E8" />
-						<point x="2.1593328E7" y="6.0812115E8" />
+						<point x="1.939865" y="47.845455" />
+						<point x="1.9396856" y="47.845516" />
+						<point x="1.9397618" y="47.845634" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="Batiment de Physique-Chimie">
 				<triangles>
 					<triangle>
-						<point x="2.1562208E7" y="6.0812749E8" />
-						<point x="2.1557432E7" y="6.0811802E8" />
-						<point x="2.1565472E7" y="6.0811392E8" />
+						<point x="1.9369662" y="47.846012" />
+						<point x="1.936537" y="47.84544" />
+						<point x="1.9372592" y="47.845196" />
 					</triangle>
 				</triangles>
 				<triangles type="trou">
 					<triangle>
-						<point x="2.1563968E7" y="6.0812531E8" />
-						<point x="2.1567612E7" y="6.0812352E8" />
-						<point x="2.1563944E7" y="6.081161E8" />
+						<point x="1.9371243" y="47.845882" />
+						<point x="1.9374516" y="47.84577" />
+						<point x="1.9371221" y="47.845325" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1436572E7" y="6.0800608E8" />
-						<point x="2.1435736E7" y="6.0800435E8" />
-						<point x="2.143734E7" y="6.0800352E8" />
+						<point x="1.9256799" y="47.83869" />
+						<point x="1.9256049" y="47.83859" />
+						<point x="1.925749" y="47.83854" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="Université de mathématiques">
 				<triangles>
 					<triangle>
-						<point x="2.15648E7" y="6.0813274E8" />
-						<point x="2.1563876E7" y="6.0813088E8" />
-						<point x="2.1572024E7" y="6.0812685E8" />
+						<point x="1.937199" y="47.84633" />
+						<point x="1.9371159" y="47.84622" />
+						<point x="1.9378479" y="47.84597" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1442004E7" y="6.0804147E8" />
-						<point x="2.1440836E7" y="6.080391E8" />
-						<point x="2.1441092E7" y="6.0803898E8" />
+						<point x="1.926168" y="47.840828" />
+						<point x="1.926063" y="47.840683" />
+						<point x="1.926086" y="47.840675" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.159932E7" y="6.0799763E8" />
-						<point x="2.1598396E7" y="6.0799584E8" />
-						<point x="2.1599142E7" y="6.0799546E8" />
+						<point x="1.9403" y="47.838184" />
+						<point x="1.9402169" y="47.838078" />
+						<point x="1.9402839" y="47.838055" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1467496E7" y="6.0804211E8" />
-						<point x="2.1468832E7" y="6.080448E8" />
-						<point x="2.1466516E7" y="6.0804595E8" />
+						<point x="1.928458" y="47.840862" />
+						<point x="1.928578" y="47.841022" />
+						<point x="1.92837" y="47.841095" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.151436E7" y="6.0800461E8" />
-						<point x="2.151414E7" y="6.0800474E8" />
-						<point x="2.1513638E7" y="6.0800371E8" />
+						<point x="1.932668" y="47.838604" />
+						<point x="1.932648" y="47.83861" />
+						<point x="1.932603" y="47.83855" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1602316E7" y="6.0800211E8" />
-						<point x="2.1604508E7" y="6.0800102E8" />
-						<point x="2.1606378E7" y="6.0800486E8" />
+						<point x="1.9405689" y="47.83845" />
+						<point x="1.940766" y="47.838387" />
+						<point x="1.940934" y="47.838615" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1596214E7" y="6.0799789E8" />
-						<point x="2.1595814E7" y="6.0799706E8" />
-						<point x="2.1596014E7" y="6.0799693E8" />
+						<point x="1.9400209" y="47.838196" />
+						<point x="1.939985" y="47.83815" />
+						<point x="1.9400029" y="47.838142" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1519894E7" y="6.0801587E8" />
-						<point x="2.1518146E7" y="6.0801677E8" />
-						<point x="2.1517868E7" y="6.0801619E8" />
+						<point x="1.933165" y="47.839283" />
+						<point x="1.933008" y="47.839336" />
+						<point x="1.9329829" y="47.839302" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1475144E7" y="6.0801805E8" />
-						<point x="2.1475054E7" y="6.0801786E8" />
-						<point x="2.1475556E7" y="6.0801766E8" />
+						<point x="1.9291449" y="47.839413" />
+						<point x="1.9291369" y="47.839405" />
+						<point x="1.9291819" y="47.83939" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.153156E7" y="6.0801459E8" />
-						<point x="2.1533052E7" y="6.0801382E8" />
-						<point x="2.1534288E7" y="6.0801638E8" />
+						<point x="1.9342129" y="47.839207" />
+						<point x="1.9343469" y="47.839157" />
+						<point x="1.9344579" y="47.839314" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.14868E7" y="6.0800627E8" />
-						<point x="2.1486632E7" y="6.0800634E8" />
-						<point x="2.1486498E7" y="6.0800608E8" />
+						<point x="1.930192" y="47.838703" />
+						<point x="1.930177" y="47.838707" />
+						<point x="1.9301649" y="47.83869" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="Kt Self">
 				<triangles>
 					<triangle>
-						<point x="2.1423304E7" y="6.0806739E8" />
-						<point x="2.1425576E7" y="6.0806752E8" />
-						<point x="2.1425876E7" y="6.0806374E8" />
+						<point x="1.9244882" y="47.84239" />
+						<point x="1.9246923" y="47.8424" />
+						<point x="1.9247191" y="47.842167" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="Station Elf">
 				<triangles>
 					<triangle>
-						<point x="2.1430896E7" y="6.0805933E8" />
-						<point x="2.143232E7" y="6.0806221E8" />
-						<point x="2.1433132E7" y="6.0806182E8" />
+						<point x="1.9251702" y="47.841904" />
+						<point x="1.9252981" y="47.842075" />
+						<point x="1.9253709" y="47.842052" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="Station Elf">
 				<triangles>
 					<triangle>
-						<point x="2.1434198E7" y="6.0806899E8" />
-						<point x="2.143532E7" y="6.0806842E8" />
-						<point x="2.1433932E7" y="6.0806573E8" />
+						<point x="1.9254668" y="47.842487" />
+						<point x="1.9255676" y="47.842453" />
+						<point x="1.9254428" y="47.84229" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="Département Qlio">
 				<triangles>
 					<triangle>
-						<point x="2.1456886E7" y="6.0810074E8" />
-						<point x="2.145368E7" y="6.080937E8" />
-						<point x="2.1455636E7" y="6.0809434E8" />
+						<point x="1.9275049" y="47.844402" />
+						<point x="1.927217" y="47.843975" />
+						<point x="1.9273925" y="47.844013" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1442872E7" y="6.0801632E8" />
-						<point x="2.1442048E7" y="6.0801472E8" />
-						<point x="2.144315E7" y="6.0801414E8" />
+						<point x="1.9262459" y="47.83931" />
+						<point x="1.9261719" y="47.839214" />
+						<point x="1.926271" y="47.83918" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="Station Elf">
 				<triangles>
 					<triangle>
-						<point x="2.143168E7" y="6.0807046E8" />
-						<point x="2.143316E7" y="6.080697E8" />
-						<point x="2.1432036E7" y="6.0806752E8" />
+						<point x="1.9252405" y="47.84257" />
+						<point x="1.9253736" y="47.842525" />
+						<point x="1.9252726" y="47.842396" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1452468E7" y="6.0801952E8" />
-						<point x="2.145416E7" y="6.0801862E8" />
-						<point x="2.1454604E7" y="6.0801952E8" />
+						<point x="1.9271079" y="47.8395" />
+						<point x="1.92726" y="47.83945" />
+						<point x="1.9273" y="47.839504" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.146793E7" y="6.0819693E8" />
-						<point x="2.1468776E7" y="6.0819872E8" />
-						<point x="2.1467318E7" y="6.081993E8" />
+						<point x="1.928497" y="47.850197" />
+						<point x="1.928573" y="47.850307" />
+						<point x="1.928442" y="47.85034" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1599332E7" y="6.0800435E8" />
-						<point x="2.1598942E7" y="6.0800352E8" />
-						<point x="2.1599344E7" y="6.0800333E8" />
+						<point x="1.940301" y="47.838585" />
+						<point x="1.940266" y="47.83854" />
+						<point x="1.940302" y="47.838524" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1448016E7" y="6.0800179E8" />
-						<point x="2.144885E7" y="6.0800352E8" />
-						<point x="2.14467E7" y="6.0800461E8" />
+						<point x="1.926708" y="47.838436" />
+						<point x="1.926783" y="47.838535" />
+						<point x="1.92659" y="47.8386" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1439132E7" y="6.0800813E8" />
-						<point x="2.1437974E7" y="6.080087E8" />
-						<point x="2.143705E7" y="6.0800691E8" />
+						<point x="1.92591" y="47.838818" />
+						<point x="1.9258059" y="47.838852" />
+						<point x="1.925723" y="47.83874" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1443004E7" y="6.0818618E8" />
-						<point x="2.144404E7" y="6.081856E8" />
-						<point x="2.1445054E7" y="6.081872E8" />
+						<point x="1.926258" y="47.849552" />
+						<point x="1.926351" y="47.849514" />
+						<point x="1.926442" y="47.849613" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1541044E7" y="6.0798342E8" />
-						<point x="2.15415E7" y="6.0798438E8" />
-						<point x="2.1543472E7" y="6.0798835E8" />
+						<point x="1.935065" y="47.837326" />
+						<point x="1.9351059" y="47.837383" />
+						<point x="1.935283" y="47.837624" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1430192E7" y="6.0820147E8" />
-						<point x="2.1431628E7" y="6.0820051E8" />
-						<point x="2.1432274E7" y="6.0820147E8" />
+						<point x="1.925107" y="47.850475" />
+						<point x="1.925236" y="47.850414" />
+						<point x="1.9252939" y="47.850475" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1436648E7" y="6.0820493E8" />
-						<point x="2.1437718E7" y="6.0820422E8" />
-						<point x="2.1438752E7" y="6.0820576E8" />
+						<point x="1.925687" y="47.85068" />
+						<point x="1.9257829" y="47.85064" />
+						<point x="1.9258759" y="47.85073" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1466448E7" y="6.0819859E8" />
-						<point x="2.146685E7" y="6.0819955E8" />
-						<point x="2.1465448E7" y="6.0820006E8" />
+						<point x="1.9283639" y="47.8503" />
+						<point x="1.9283999" y="47.850357" />
+						<point x="1.9282739" y="47.850388" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.146084E7" y="6.0820589E8" />
-						<point x="2.146075E7" y="6.082057E8" />
-						<point x="2.1461908E7" y="6.0820512E8" />
+						<point x="1.92786" y="47.85074" />
+						<point x="1.9278519" y="47.850727" />
+						<point x="1.927956" y="47.850693" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1428524E7" y="6.0820602E8" />
-						<point x="2.1429092E7" y="6.0820704E8" />
-						<point x="2.1427766E7" y="6.0820774E8" />
+						<point x="1.9249569" y="47.850746" />
+						<point x="1.9250079" y="47.850807" />
+						<point x="1.924889" y="47.85085" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1447792E7" y="6.0814438E8" />
-						<point x="2.1448072E7" y="6.0814387E8" />
-						<point x="2.1448338E7" y="6.08144E8" />
+						<point x="1.926688" y="47.847027" />
+						<point x="1.926713" y="47.847" />
+						<point x="1.926737" y="47.847008" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.146508E7" y="6.0814822E8" />
-						<point x="2.146085E7" y="6.081495E8" />
-						<point x="2.1459548E7" y="6.0814528E8" />
+						<point x="1.9282409" y="47.84726" />
+						<point x="1.927861" y="47.84734" />
+						<point x="1.927744" y="47.847084" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1452568E7" y="6.0815405E8" />
-						<point x="2.1452334E7" y="6.0815456E8" />
-						<point x="2.1452044E7" y="6.0815443E8" />
+						<point x="1.927117" y="47.84761" />
+						<point x="1.927096" y="47.84764" />
+						<point x="1.92707" y="47.847633" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="UFR Lettres">
 				<triangles>
 					<triangle>
-						<point x="2.1564384E7" y="6.0805907E8" />
-						<point x="2.1565772E7" y="6.0805837E8" />
-						<point x="2.1563728E7" y="6.0805421E8" />
+						<point x="1.9371614" y="47.84189" />
+						<point x="1.9372863" y="47.841846" />
+						<point x="1.9371026" y="47.841595" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1420274E7" y="6.0814541E8" />
-						<point x="2.1423168E7" y="6.0814624E8" />
-						<point x="2.1421288E7" y="6.0815315E8" />
+						<point x="1.9242159" y="47.84709" />
+						<point x="1.9244759" y="47.84714" />
+						<point x="1.924307" y="47.847557" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1474688E7" y="6.0819322E8" />
-						<point x="2.1475064E7" y="6.0819392E8" />
-						<point x="2.1474576E7" y="6.0819418E8" />
+						<point x="1.929104" y="47.849976" />
+						<point x="1.929138" y="47.850018" />
+						<point x="1.929094" y="47.850033" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="Centre de Médecine Universitaire Jean Zay">
 				<triangles>
 					<triangle>
-						<point x="2.1553922E7" y="6.080423E8" />
-						<point x="2.1554712E7" y="6.0804358E8" />
-						<point x="2.1555084E7" y="6.0804358E8" />
+						<point x="1.9362217" y="47.840878" />
+						<point x="1.9362928" y="47.840954" />
+						<point x="1.9363261" y="47.840954" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1474576E7" y="6.0819418E8" />
-						<point x="2.1475064E7" y="6.0819392E8" />
-						<point x="2.147531E7" y="6.081945E8" />
+						<point x="1.929094" y="47.850033" />
+						<point x="1.929138" y="47.850018" />
+						<point x="1.9291599" y="47.85005" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="Résidence Aristote">
 				<triangles>
 					<triangle>
-						<point x="2.1547204E7" y="6.0802835E8" />
-						<point x="2.1548284E7" y="6.0802784E8" />
-						<point x="2.1548212E7" y="6.0802771E8" />
+						<point x="1.9356183" y="47.840034" />
+						<point x="1.9357153" y="47.840004" />
+						<point x="1.9357088" y="47.839996" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1444552E7" y="6.0818637E8" />
-						<point x="2.144404E7" y="6.081856E8" />
-						<point x="2.1444352E7" y="6.0818534E8" />
+						<point x="1.926397" y="47.849564" />
+						<point x="1.926351" y="47.849514" />
+						<point x="1.926379" y="47.849503" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.14557E7" y="6.0810688E8" />
-						<point x="2.1460184E7" y="6.0810464E8" />
-						<point x="2.1459372E7" y="6.0810298E8" />
+						<point x="1.9273984" y="47.84477" />
+						<point x="1.927801" y="47.844635" />
+						<point x="1.9277282" y="47.844536" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1457888E7" y="6.0813619E8" />
-						<point x="2.1459448E7" y="6.0814125E8" />
-						<point x="2.1454804E7" y="6.0814272E8" />
+						<point x="1.927595" y="47.84654" />
+						<point x="1.927735" y="47.846844" />
+						<point x="1.927318" y="47.84693" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1468976E7" y="6.0819309E8" />
-						<point x="2.146783E7" y="6.0819373E8" />
-						<point x="2.1467308E7" y="6.0819405E8" />
+						<point x="1.9285909" y="47.849968" />
+						<point x="1.928488" y="47.850006" />
+						<point x="1.928441" y="47.850025" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1441248E7" y="6.0819341E8" />
-						<point x="2.144196E7" y="6.0819302E8" />
-						<point x="2.1442204E7" y="6.0819341E8" />
+						<point x="1.9261" y="47.849987" />
+						<point x="1.9261639" y="47.849964" />
+						<point x="1.926186" y="47.849987" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="Département Chimie">
 				<triangles>
 					<triangle>
-						<point x="2.1459528E7" y="6.0809082E8" />
-						<point x="2.145368E7" y="6.080937E8" />
-						<point x="2.1455636E7" y="6.0809434E8" />
+						<point x="1.9277422" y="47.843803" />
+						<point x="1.927217" y="47.843975" />
+						<point x="1.9273925" y="47.844013" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1468776E7" y="6.0819872E8" />
-						<point x="2.146793E7" y="6.0819693E8" />
-						<point x="2.1467028E7" y="6.0819494E8" />
+						<point x="1.928573" y="47.850307" />
+						<point x="1.928497" y="47.850197" />
+						<point x="1.9284159" y="47.85008" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1440344E7" y="6.0819078E8" />
-						<point x="2.1439276E7" y="6.0819142E8" />
-						<point x="2.143822E7" y="6.0818963E8" />
+						<point x="1.926019" y="47.849827" />
+						<point x="1.925923" y="47.84987" />
+						<point x="1.925828" y="47.84976" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1599444E7" y="6.0800134E8" />
-						<point x="2.15997E7" y="6.0800122E8" />
-						<point x="2.1600456E7" y="6.0800275E8" />
+						<point x="1.940311" y="47.838406" />
+						<point x="1.940334" y="47.838398" />
+						<point x="1.940402" y="47.838493" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="UFR de Droit">
 				<triangles>
 					<triangle>
-						<point x="2.1504164E7" y="6.0811008E8" />
-						<point x="2.1505918E7" y="6.0811354E8" />
-						<point x="2.1507752E7" y="6.0811258E8" />
+						<point x="1.9317518" y="47.844963" />
+						<point x="1.9319094" y="47.845173" />
+						<point x="1.9320743" y="47.84511" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1464756E7" y="6.0800192E8" />
-						<point x="2.1471048E7" y="6.0799878E8" />
-						<point x="2.1472996E7" y="6.0800282E8" />
+						<point x="1.9282119" y="47.838444" />
+						<point x="1.928777" y="47.838253" />
+						<point x="1.928952" y="47.838493" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.148692E7" y="6.0818502E8" />
-						<point x="2.148632E7" y="6.0818534E8" />
-						<point x="2.1486186E7" y="6.0818509E8" />
+						<point x="1.930203" y="47.84948" />
+						<point x="1.930149" y="47.8495" />
+						<point x="1.9301369" y="47.849483" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.14823E7" y="6.081799E8" />
-						<point x="2.1482456E7" y="6.0817978E8" />
-						<point x="2.1483204E7" y="6.0818125E8" />
+						<point x="1.9297879" y="47.849174" />
+						<point x="1.929802" y="47.849163" />
+						<point x="1.9298689" y="47.84925" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1448016E7" y="6.0800179E8" />
-						<point x="2.1447836E7" y="6.0800141E8" />
-						<point x="2.1447336E7" y="6.0800045E8" />
+						<point x="1.926708" y="47.838436" />
+						<point x="1.926692" y="47.838413" />
+						<point x="1.926647" y="47.838352" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.14763E7" y="6.0819398E8" />
-						<point x="2.1475466E7" y="6.0819437E8" />
-						<point x="2.1474832E7" y="6.0819315E8" />
+						<point x="1.9292489" y="47.85002" />
+						<point x="1.929174" y="47.850044" />
+						<point x="1.929117" y="47.849968" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1460906E7" y="6.0800403E8" />
-						<point x="2.1464746E7" y="6.0801165E8" />
-						<point x="2.1462498E7" y="6.080128E8" />
+						<point x="1.927866" y="47.838566" />
+						<point x="1.928211" y="47.83903" />
+						<point x="1.928009" y="47.839096" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1445064E7" y="6.0800448E8" />
-						<point x="2.144433E7" y="6.0800486E8" />
-						<point x="2.1444664E7" y="6.0800557E8" />
+						<point x="1.926443" y="47.838596" />
+						<point x="1.9263769" y="47.83862" />
+						<point x="1.926407" y="47.83866" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1532562E7" y="6.0797709E8" />
-						<point x="2.1532272E7" y="6.0797728E8" />
-						<point x="2.1531904E7" y="6.0797747E8" />
+						<point x="1.9343029" y="47.836945" />
+						<point x="1.9342769" y="47.836956" />
+						<point x="1.9342439" y="47.836967" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1461028E7" y="6.0820621E8" />
-						<point x="2.146084E7" y="6.0820589E8" />
-						<point x="2.1462864E7" y="6.0820486E8" />
+						<point x="1.927877" y="47.850758" />
+						<point x="1.92786" y="47.85074" />
+						<point x="1.9280419" y="47.850677" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.145584E7" y="6.0802707E8" />
-						<point x="2.1456308E7" y="6.0802682E8" />
-						<point x="2.1456496E7" y="6.080272E8" />
+						<point x="1.927411" y="47.83996" />
+						<point x="1.9274529" y="47.839943" />
+						<point x="1.92747" y="47.839966" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1474076E7" y="6.0819443E8" />
-						<point x="2.1474598E7" y="6.0819546E8" />
-						<point x="2.1470712E7" y="6.0819738E8" />
+						<point x="1.929049" y="47.850048" />
+						<point x="1.929096" y="47.85011" />
+						<point x="1.9287469" y="47.850224" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1481556E7" y="6.0818266E8" />
-						<point x="2.148288E7" y="6.081824E8" />
-						<point x="2.1481722E7" y="6.0818298E8" />
+						<point x="1.9297209" y="47.84934" />
+						<point x="1.92984" y="47.849323" />
+						<point x="1.9297359" y="47.849358" />
 					</triangle>
 				</triangles>
 			</batiment>
 			<batiment nom="">
 				<triangles>
 					<triangle>
-						<point x="2.1490916E7" y="6.0801587E8" />
-						<point x="2.1488992E7" y="6.0801203E8" />
-						<point x="2.1489616E7" y="6.0801171E8" />
+						<point x="1.9305619" y="47.839283" />
+						<point x="1.930389" y="47.839054" />
+						<point x="1.930445" y="47.83903" />
 					</triangle>
 				</triangles>
 			</batiment>
 		</batiments>
 		<routes>
 			<route type="route">
-				<point x="2.1479996E7" y="6.0819533E8" />
-				<point x="2.1477492E7" y="6.0818765E8" />
+				<point x="1.9295809" y="47.8501" />
+				<point x="1.9293559" y="47.84964" />
 			</route>
 			<route type="route">
-				<point x="2.1440614E7" y="6.0802784E8" />
-				<point x="2.1439188E7" y="6.0802438E8" />
+				<point x="1.9260432" y="47.840004" />
+				<point x="1.925915" y="47.839794" />
 			</route>
 			<route type="route">
-				<point x="2.153594E7" y="6.0801869E8" />
-				<point x="2.153562E7" y="6.0801773E8" />
+				<point x="1.9346066" y="47.83945" />
+				<point x="1.9345776" y="47.839394" />
 			</route>
 			<route type="route">
-				<point x="2.140133E7" y="6.0808813E8" />
-				<point x="2.141388E7" y="6.0808243E8" />
+				<point x="1.9225142" y="47.84364" />
+				<point x="1.9236414" y="47.843296" />
 			</route>
 			<route type="route">
-				<point x="2.1356712E7" y="6.080489E8" />
-				<point x="2.1389954E7" y="6.0804685E8" />
+				<point x="1.918506" y="47.841274" />
+				<point x="1.9214922" y="47.841152" />
 			</route>
 			<route type="route">
-				<point x="2.1429766E7" y="6.0807597E8" />
-				<point x="2.1426928E7" y="6.080752E8" />
+				<point x="1.9250686" y="47.842907" />
+				<point x="1.9248137" y="47.84286" />
 			</route>
 			<route type="route">
-				<point x="2.1589336E7" y="6.0799437E8" />
-				<point x="2.1588284E7" y="6.0799475E8" />
+				<point x="1.9394029" y="47.837986" />
+				<point x="1.9393085" y="47.83801" />
 			</route>
 			<route type="route">
-				<point x="2.158984E7" y="6.0799296E8" />
-				<point x="2.1591768E7" y="6.0799622E8" />
+				<point x="1.9394482" y="47.837902" />
+				<point x="1.9396216" y="47.838097" />
 			</route>
 			<route type="route">
-				<point x="2.152163E7" y="6.0802579E8" />
-				<point x="2.1525956E7" y="6.0802374E8" />
+				<point x="1.9333209" y="47.83988" />
+				<point x="1.9337095" y="47.83976" />
 			</route>
 			<route type="route">
-				<point x="2.1588284E7" y="6.0799475E8" />
-				<point x="2.1586852E7" y="6.0799507E8" />
+				<point x="1.9393085" y="47.83801" />
+				<point x="1.9391798" y="47.838024" />
 			</route>
 			<route type="route">
-				<point x="2.1591768E7" y="6.0799622E8" />
-				<point x="2.1590576E7" y="6.0799494E8" />
+				<point x="1.9396216" y="47.838097" />
+				<point x="1.9395145" y="47.83802" />
 			</route>
 			<route type="route">
-				<point x="2.1591768E7" y="6.0799622E8" />
-				<point x="2.1603198E7" y="6.0801907E8" />
+				<point x="1.9396216" y="47.838097" />
+				<point x="1.9406483" y="47.839478" />
 			</route>
 			<route type="route">
-				<point x="2.155948E7" y="6.080073E8" />
-				<point x="2.1560958E7" y="6.0800698E8" />
+				<point x="1.936721" y="47.838764" />
+				<point x="1.9368538" y="47.83875" />
 			</route>
 			<route type="route">
-				<point x="2.1524376E7" y="6.0803501E8" />
-				<point x="2.1472644E7" y="6.0806106E8" />
+				<point x="1.9335676" y="47.84044" />
+				<point x="1.9289204" y="47.84201" />
 			</route>
 			<route type="route">
-				<point x="2.1524376E7" y="6.0803501E8" />
-				<point x="2.1521308E7" y="6.0802854E8" />
+				<point x="1.9335676" y="47.84044" />
+				<point x="1.933292" y="47.840046" />
 			</route>
 			<route type="route">
-				<point x="2.1520722E7" y="6.0802771E8" />
-				<point x="2.152022E7" y="6.0802797E8" />
+				<point x="1.9332393" y="47.839996" />
+				<point x="1.9331943" y="47.84001" />
 			</route>
 			<route type="route">
-				<point x="2.1520722E7" y="6.0802771E8" />
-				<point x="2.1521088E7" y="6.0802746E8" />
+				<point x="1.9332393" y="47.839996" />
+				<point x="1.9332722" y="47.83998" />
 			</route>
 			<route type="route">
-				<point x="2.1566022E7" y="6.0801299E8" />
-				<point x="2.1566022E7" y="6.0801427E8" />
+				<point x="1.9373087" y="47.839108" />
+				<point x="1.9373087" y="47.839188" />
 			</route>
 			<route type="route">
-				<point x="2.1539912E7" y="6.0802739E8" />
-				<point x="2.1539012E7" y="6.080279E8" />
+				<point x="1.9349632" y="47.839977" />
+				<point x="1.9348823" y="47.840008" />
 			</route>
 			<route type="route">
-				<point x="2.147017E7" y="6.0806227E8" />
-				<point x="2.1470496E7" y="6.0806298E8" />
+				<point x="1.9286982" y="47.842083" />
+				<point x="1.9287275" y="47.84212" />
 			</route>
 			<route type="route">
-				<point x="2.1599076E7" y="6.0792864E8" />
-				<point x="2.1617898E7" y="6.0796742E8" />
+				<point x="1.940278" y="47.834023" />
+				<point x="1.9419688" y="47.836357" />
 			</route>
 			<route type="route">
-				<point x="2.1524476E7" y="6.0817248E8" />
-				<point x="2.152031E7" y="6.0816288E8" />
+				<point x="1.9335767" y="47.848724" />
+				<point x="1.9332024" y="47.84815" />
 			</route>
 			<route type="route">
-				<point x="2.152031E7" y="6.0816288E8" />
-				<point x="2.1521954E7" y="6.0816205E8" />
+				<point x="1.9332024" y="47.84815" />
+				<point x="1.93335" y="47.848095" />
 			</route>
 			<route type="route">
-				<point x="2.1526332E7" y="6.0815994E8" />
-				<point x="2.1530836E7" y="6.0816922E8" />
+				<point x="1.9337432" y="47.84797" />
+				<point x="1.934148" y="47.84853" />
 			</route>
 			<route type="route">
-				<point x="2.1607664E7" y="6.0813178E8" />
-				<point x="2.1620388E7" y="6.0815283E8" />
+				<point x="1.9410493" y="47.84627" />
+				<point x="1.9421926" y="47.84754" />
 			</route>
 			<route type="route">
-				<point x="2.1607664E7" y="6.0813178E8" />
-				<point x="2.160747E7" y="6.0813088E8" />
+				<point x="1.9410493" y="47.84627" />
+				<point x="1.941032" y="47.84622" />
 			</route>
 			<route type="route">
-				<point x="2.163599E7" y="6.0817702E8" />
-				<point x="2.1635122E7" y="6.0817242E8" />
+				<point x="1.9435941" y="47.849" />
+				<point x="1.9435161" y="47.848724" />
 			</route>
 			<route type="route">
-				<point x="2.1606838E7" y="6.081312E8" />
-				<point x="2.16061E7" y="6.0812992E8" />
+				<point x="1.9409753" y="47.846237" />
+				<point x="1.940909" y="47.84616" />
 			</route>
 			<route type="route">
-				<point x="2.1511332E7" y="6.0814522E8" />
-				<point x="2.1515786E7" y="6.0814317E8" />
+				<point x="1.9323958" y="47.84708" />
+				<point x="1.9327959" y="47.846954" />
 			</route>
 			<route type="route">
-				<point x="2.1431052E7" y="6.0808173E8" />
-				<point x="2.143396E7" y="6.0808685E8" />
+				<point x="1.925184" y="47.843254" />
+				<point x="1.9254454" y="47.843563" />
 			</route>
 			<route type="route">
-				<point x="2.1435644E7" y="6.0808179E8" />
-				<point x="2.1434276E7" y="6.0808006E8" />
+				<point x="1.9255966" y="47.843258" />
+				<point x="1.9254738" y="47.84315" />
 			</route>
 			<route type="route">
-				<point x="2.1618888E7" y="6.0811386E8" />
-				<point x="2.1611534E7" y="6.0811757E8" />
+				<point x="1.9420578" y="47.845192" />
+				<point x="1.9413972" y="47.845413" />
 			</route>
 			<route type="route">
-				<point x="2.1479996E7" y="6.0819533E8" />
-				<point x="2.1494872E7" y="6.0818771E8" />
+				<point x="1.9295809" y="47.8501" />
+				<point x="1.9309173" y="47.84964" />
 			</route>
 			<route type="route">
-				<point x="2.1606838E7" y="6.081312E8" />
-				<point x="2.160747E7" y="6.0813088E8" />
+				<point x="1.9409753" y="47.846237" />
+				<point x="1.941032" y="47.84622" />
 			</route>
 			<route type="route">
-				<point x="2.1354096E7" y="6.083015E8" />
-				<point x="2.135528E7" y="6.0829997E8" />
+				<point x="1.9182712" y="47.856506" />
+				<point x="1.9183774" y="47.856407" />
 			</route>
 			<route type="route">
-				<point x="2.1615628E7" y="6.080775E8" />
-				<point x="2.1612832E7" y="6.0807187E8" />
+				<point x="1.9417648" y="47.843002" />
+				<point x="1.9415138" y="47.84266" />
 			</route>
 			<route type="route">
-				<point x="2.160968E7" y="6.0808064E8" />
-				<point x="2.1615628E7" y="6.080775E8" />
+				<point x="1.9412305" y="47.84319" />
+				<point x="1.9417648" y="47.843002" />
 			</route>
 			<route type="route">
-				<point x="2.1618148E7" y="6.0808403E8" />
-				<point x="2.1619444E7" y="6.0809133E8" />
+				<point x="1.9419913" y="47.84339" />
+				<point x="1.9421078" y="47.84383" />
 			</route>
 			<route type="route">
-				<point x="2.1615628E7" y="6.080775E8" />
-				<point x="2.1618148E7" y="6.0808403E8" />
+				<point x="1.9417648" y="47.843002" />
+				<point x="1.9419913" y="47.84339" />
 			</route>
 			<route type="route">
-				<point x="2.1618148E7" y="6.0808403E8" />
-				<point x="2.1614832E7" y="6.0808192E8" />
+				<point x="1.9419913" y="47.84339" />
+				<point x="1.9416934" y="47.843266" />
 			</route>
 			<route type="route">
-				<point x="2.1619444E7" y="6.0809133E8" />
-				<point x="2.160266E7" y="6.0809958E8" />
+				<point x="1.9421078" y="47.84383" />
+				<point x="1.9406" y="47.84433" />
 			</route>
 			<route type="route">
-				<point x="2.1601804E7" y="6.081225E8" />
-				<point x="2.158428E7" y="6.0813101E8" />
+				<point x="1.940523" y="47.84571" />
+				<point x="1.9389489" y="47.846226" />
 			</route>
 			<route type="chemin">
-				<point x="2.1521308E7" y="6.0802854E8" />
-				<point x="2.1519292E7" y="6.0802976E8" />
+				<point x="1.933292" y="47.840046" />
+				<point x="1.9331108" y="47.84012" />
 			</route>
 			<route type="chemin">
-				<point x="2.1521308E7" y="6.0802854E8" />
-				<point x="2.1521642E7" y="6.0802784E8" />
+				<point x="1.933292" y="47.840046" />
+				<point x="1.933322" y="47.840004" />
 			</route>
 			<route type="route">
-				<point x="2.1542344E7" y="6.0802618E8" />
-				<point x="2.1542782E7" y="6.0802714E8" />
+				<point x="1.9351817" y="47.8399" />
+				<point x="1.9352211" y="47.839962" />
 			</route>
 			<route type="route">
-				<point x="2.160968E7" y="6.0808064E8" />
-				<point x="2.1608168E7" y="6.080807E8" />
+				<point x="1.9412305" y="47.84319" />
+				<point x="1.9410948" y="47.843193" />
 			</route>
 			<route type="route">
-				<point x="2.1619444E7" y="6.0809133E8" />
-				<point x="2.1618888E7" y="6.0811386E8" />
+				<point x="1.9421078" y="47.84383" />
+				<point x="1.9420578" y="47.845192" />
 			</route>
 			<route type="chemin">
-				<point x="2.16061E7" y="6.0812992E8" />
-				<point x="2.1618948E7" y="6.0812141E8" />
+				<point x="1.940909" y="47.84616" />
+				<point x="1.9420632" y="47.845646" />
 			</route>
 			<route type="route">
-				<point x="2.1483392E7" y="6.080889E8" />
-				<point x="2.1479808E7" y="6.0809069E8" />
+				<point x="1.929886" y="47.843685" />
+				<point x="1.929564" y="47.843796" />
 			</route>
 			<route type="route">
-				<point x="2.1495268E7" y="6.0811334E8" />
-				<point x="2.1491652E7" y="6.0811514E8" />
+				<point x="1.9309528" y="47.845158" />
+				<point x="1.930628" y="47.84527" />
 			</route>
 			<route type="route">
-				<point x="2.1449332E7" y="6.0807232E8" />
-				<point x="2.1450236E7" y="6.0807443E8" />
+				<point x="1.9268262" y="47.842686" />
+				<point x="1.9269075" y="47.842815" />
 			</route>
 			<route type="route">
-				<point x="2.1522364E7" y="6.0799008E8" />
-				<point x="2.1521232E7" y="6.079913E8" />
+				<point x="1.9333869" y="47.837727" />
+				<point x="1.9332851" y="47.8378" />
 			</route>
 			<route type="route">
-				<point x="2.1429022E7" y="6.0805402E8" />
-				<point x="2.143131E7" y="6.0805306E8" />
+				<point x="1.9250017" y="47.841583" />
+				<point x="1.9252074" y="47.841522" />
 			</route>
 			<route type="route">
-				<point x="2.1433412E7" y="6.0805088E8" />
-				<point x="2.1431602E7" y="6.0805184E8" />
+				<point x="1.9253961" y="47.841396" />
+				<point x="1.9252336" y="47.84145" />
 			</route>
 			<route type="route">
-				<point x="2.1442658E7" y="6.0806022E8" />
-				<point x="2.1436336E7" y="6.0804653E8" />
+				<point x="1.9262267" y="47.841957" />
+				<point x="1.9256588" y="47.841133" />
 			</route>
 			<route type="route">
-				<point x="2.1438868E7" y="6.0803923E8" />
-				<point x="2.1446296E7" y="6.0805421E8" />
+				<point x="1.9258864" y="47.84069" />
+				<point x="1.9265535" y="47.841595" />
 			</route>
 			<route type="route">
-				<point x="2.1450466E7" y="6.0803008E8" />
-				<point x="2.1454308E7" y="6.080377E8" />
+				<point x="1.9269282" y="47.84014" />
+				<point x="1.9272734" y="47.8406" />
 			</route>
 			<route type="route">
-				<point x="2.1449264E7" y="6.0802758E8" />
-				<point x="2.144524E7" y="6.080297E8" />
+				<point x="1.9268203" y="47.83999" />
+				<point x="1.9264586" y="47.840115" />
 			</route>
 			<route type="route">
-				<point x="2.1440614E7" y="6.0802784E8" />
-				<point x="2.1441072E7" y="6.0802733E8" />
+				<point x="1.9260432" y="47.840004" />
+				<point x="1.9260843" y="47.839973" />
 			</route>
 			<route type="route">
-				<point x="2.1444132E7" y="6.0802778E8" />
-				<point x="2.1446914E7" y="6.0802797E8" />
+				<point x="1.9263593" y="47.840004" />
+				<point x="1.926609" y="47.84001" />
 			</route>
 			<route type="route">
-				<point x="2.1442538E7" y="6.0803091E8" />
-				<point x="2.1440276E7" y="6.0803251E8" />
+				<point x="1.926216" y="47.84019" />
+				<point x="1.9260129" y="47.840286" />
 			</route>
 			<route type="route">
-				<point x="2.1438548E7" y="6.0806669E8" />
-				<point x="2.1438612E7" y="6.0807149E8" />
+				<point x="1.9258574" y="47.842346" />
+				<point x="1.9258633" y="47.842636" />
 			</route>
 			<route type="route">
-				<point x="2.160266E7" y="6.0809958E8" />
-				<point x="2.1611534E7" y="6.0811757E8" />
+				<point x="1.9406" y="47.84433" />
+				<point x="1.9413972" y="47.845413" />
 			</route>
 			<route type="route">
-				<point x="2.1523644E7" y="6.0817306E8" />
-				<point x="2.1524128E7" y="6.0817478E8" />
+				<point x="1.933502" y="47.84876" />
+				<point x="1.9335452" y="47.84886" />
 			</route>
 			<route type="route">
-				<point x="2.1514668E7" y="6.08184E8" />
-				<point x="2.1513208E7" y="6.0818368E8" />
+				<point x="1.9326954" y="47.849422" />
+				<point x="1.9325644" y="47.8494" />
 			</route>
 			<route type="route">
-				<point x="2.1514668E7" y="6.08184E8" />
-				<point x="2.1515396E7" y="6.0818624E8" />
+				<point x="1.9326954" y="47.849422" />
+				<point x="1.9327608" y="47.849552" />
 			</route>
 			<route type="route">
-				<point x="2.1515396E7" y="6.0818624E8" />
-				<point x="2.1519216E7" y="6.081849E8" />
+				<point x="1.9327608" y="47.849552" />
+				<point x="1.9331039" y="47.849472" />
 			</route>
 			<route type="chemin">
-				<point x="2.1563006E7" y="6.081417E8" />
-				<point x="2.1567434E7" y="6.0815098E8" />
+				<point x="1.9370378" y="47.846867" />
+				<point x="1.9374355" y="47.847427" />
 			</route>
 			<route type="route">
-				<point x="2.155948E7" y="6.080073E8" />
-				<point x="2.1563888E7" y="6.0800506E8" />
+				<point x="1.936721" y="47.838764" />
+				<point x="1.937117" y="47.83863" />
 			</route>
 			<route type="route">
-				<point x="2.1427588E7" y="6.0810656E8" />
-				<point x="2.1426144E7" y="6.0810842E8" />
+				<point x="1.9248731" y="47.844753" />
+				<point x="1.9247433" y="47.844864" />
 			</route>
 			<route type="route">
-				<point x="2.1404464E7" y="6.0813427E8" />
-				<point x="2.1405592E7" y="6.0813523E8" />
+				<point x="1.9227957" y="47.846424" />
+				<point x="1.922897" y="47.84648" />
 			</route>
 			<route type="route">
-				<point x="2.144618E7" y="6.081385E8" />
-				<point x="2.1447352E7" y="6.0814086E8" />
+				<point x="1.926543" y="47.846676" />
+				<point x="1.9266484" y="47.846817" />
 			</route>
 			<route type="route">
-				<point x="2.1617772E7" y="6.082473E8" />
-				<point x="2.1632696E7" y="6.0820205E8" />
+				<point x="1.9419576" y="47.853237" />
+				<point x="1.9432981" y="47.850506" />
 			</route>
 			<route type="route">
-				<point x="2.1637304E7" y="6.0819424E8" />
-				<point x="2.1636756E7" y="6.0819942E8" />
+				<point x="1.9437121" y="47.850037" />
+				<point x="1.9436629" y="47.85035" />
 			</route>
 			<route type="chemin">
-				<point x="2.160274E7" y="6.0760685E8" />
-				<point x="2.1602082E7" y="6.0760512E8" />
+				<point x="1.9406071" y="47.814613" />
+				<point x="1.9405481" y="47.81451" />
 			</route>
 			<route type="chemin">
-				<point x="2.1625746E7" y="6.0816198E8" />
-				<point x="2.1625648E7" y="6.0816429E8" />
+				<point x="1.9426738" y="47.84809" />
+				<point x="1.942665" y="47.848232" />
 			</route>
 			<route type="chemin">
-				<point x="2.1635676E7" y="6.0819622E8" />
-				<point x="2.1638126E7" y="6.0819686E8" />
+				<point x="1.9435657" y="47.850155" />
+				<point x="1.9437859" y="47.850193" />
 			</route>
 			<route type="route">
-				<point x="2.1478882E7" y="6.080912E8" />
-				<point x="2.1491652E7" y="6.0811514E8" />
+				<point x="1.9294808" y="47.843826" />
+				<point x="1.930628" y="47.84527" />
 			</route>
 			<route type="chemin">
-				<point x="2.158428E7" y="6.0813101E8" />
-				<point x="2.158234E7" y="6.0812698E8" />
+				<point x="1.9389489" y="47.846226" />
+				<point x="1.9387747" y="47.84598" />
 			</route>
 			<route type="chemin">
-				<point x="2.157794E7" y="6.0812595E8" />
-				<point x="2.158234E7" y="6.0812698E8" />
+				<point x="1.9383794" y="47.84592" />
+				<point x="1.9387747" y="47.84598" />
 			</route>
 			<route type="chemin">
-				<point x="2.1569708E7" y="6.0812448E8" />
-				<point x="2.157092E7" y="6.0812595E8" />
+				<point x="1.93764" y="47.84583" />
+				<point x="1.9377487" y="47.845917" />
 			</route>
 			<route type="chemin">
-				<point x="2.1525656E7" y="6.0807501E8" />
-				<point x="2.1526044E7" y="6.0807462E8" />
+				<point x="1.9336827" y="47.842846" />
+				<point x="1.9337175" y="47.842827" />
 			</route>
 			<route type="chemin">
-				<point x="2.1470496E7" y="6.0806298E8" />
-				<point x="2.1473004E7" y="6.0806195E8" />
+				<point x="1.9287275" y="47.84212" />
+				<point x="1.9289527" y="47.84206" />
 			</route>
 			<route type="chemin">
-				<point x="2.1539244E7" y="6.0802867E8" />
-				<point x="2.1540166E7" y="6.0803066E8" />
+				<point x="1.9349033" y="47.840057" />
+				<point x="1.934986" y="47.840176" />
 			</route>
 			<route type="chemin">
-				<point x="2.1520046E7" y="6.0807814E8" />
-				<point x="2.15197E7" y="6.0807706E8" />
+				<point x="1.9331787" y="47.84304" />
+				<point x="1.9331477" y="47.84297" />
 			</route>
 			<route type="chemin">
-				<point x="2.1522692E7" y="6.0807718E8" />
-				<point x="2.1523348E7" y="6.0807565E8" />
+				<point x="1.9334162" y="47.84298" />
+				<point x="1.9334753" y="47.842888" />
 			</route>
 			<route type="chemin">
-				<point x="2.1540166E7" y="6.0803066E8" />
-				<point x="2.1538986E7" y="6.0803622E8" />
+				<point x="1.934986" y="47.840176" />
+				<point x="1.93488" y="47.84051" />
 			</route>
 			<route type="chemin">
-				<point x="2.146242E7" y="6.080905E8" />
-				<point x="2.1466212E7" y="6.0809069E8" />
+				<point x="1.9280021" y="47.843784" />
+				<point x="1.9283426" y="47.843792" />
 			</route>
 			<route type="chemin">
-				<point x="2.1540964E7" y="6.0803258E8" />
-				<point x="2.1546428E7" y="6.0804339E8" />
+				<point x="1.9350576" y="47.84029" />
+				<point x="1.9355487" y="47.840942" />
 			</route>
 			<route type="chemin">
-				<point x="2.1547294E7" y="6.0804512E8" />
-				<point x="2.1546204E7" y="6.0805101E8" />
+				<point x="1.9356264" y="47.841045" />
+				<point x="1.9355285" y="47.8414" />
 			</route>
 			<route type="chemin">
-				<point x="2.1534688E7" y="6.0804896E8" />
-				<point x="2.153625E7" y="6.0804928E8" />
+				<point x="1.9344939" y="47.84128" />
+				<point x="1.9346342" y="47.841297" />
 			</route>
 			<route type="chemin">
-				<point x="2.1557938E7" y="6.080519E8" />
-				<point x="2.1554796E7" y="6.080457E8" />
+				<point x="1.9365826" y="47.841454" />
+				<point x="1.9363003" y="47.84108" />
 			</route>
 			<route type="chemin">
-				<point x="2.1546428E7" y="6.0804339E8" />
-				<point x="2.1540982E7" y="6.0804218E8" />
+				<point x="1.9355487" y="47.840942" />
+				<point x="1.9350593" y="47.840866" />
 			</route>
 			<route type="route">
-				<point x="2.1550556E7" y="6.0804768E8" />
-				<point x="2.1549056E7" y="6.0804864E8" />
+				<point x="1.9359193" y="47.8412" />
+				<point x="1.9357847" y="47.84126" />
 			</route>
 			<route type="chemin">
-				<point x="2.1541286E7" y="6.0805805E8" />
-				<point x="2.1534732E7" y="6.0805658E8" />
+				<point x="1.9350866" y="47.841827" />
+				<point x="1.934498" y="47.841736" />
 			</route>
 			<route type="chemin">
-				<point x="2.1518706E7" y="6.0808973E8" />
-				<point x="2.1518272E7" y="6.0808986E8" />
+				<point x="1.9330583" y="47.843735" />
+				<point x="1.9330193" y="47.843746" />
 			</route>
 			<route type="chemin">
-				<point x="2.1528476E7" y="6.080857E8" />
-				<point x="2.1528028E7" y="6.0808909E8" />
+				<point x="1.9339358" y="47.84349" />
+				<point x="1.9338957" y="47.843697" />
 			</route>
 			<route type="chemin">
-				<point x="2.1552788E7" y="6.080736E8" />
-				<point x="2.1549706E7" y="6.0807482E8" />
+				<point x="1.9361199" y="47.842762" />
+				<point x="1.935843" y="47.84284" />
 			</route>
 			<route type="chemin">
-				<point x="2.1525384E7" y="6.0811066E8" />
-				<point x="2.1525344E7" y="6.0811104E8" />
+				<point x="1.9336581" y="47.844994" />
+				<point x="1.9336545" y="47.84502" />
 			</route>
 			<route type="chemin">
-				<point x="2.1526564E7" y="6.0809869E8" />
-				<point x="2.1526512E7" y="6.0809914E8" />
+				<point x="1.9337642" y="47.844276" />
+				<point x="1.9337595" y="47.844303" />
 			</route>
 			<route type="chemin">
-				<point x="2.1525862E7" y="6.0808525E8" />
-				<point x="2.1518706E7" y="6.0808973E8" />
+				<point x="1.933701" y="47.843464" />
+				<point x="1.9330583" y="47.843735" />
 			</route>
 			<route type="chemin">
-				<point x="2.1527932E7" y="6.0808013E8" />
-				<point x="2.152812E7" y="6.080809E8" />
+				<point x="1.9338871" y="47.84316" />
+				<point x="1.9339039" y="47.843204" />
 			</route>
 			<route type="chemin">
-				<point x="2.1525804E7" y="6.0810656E8" />
-				<point x="2.1525384E7" y="6.0811066E8" />
+				<point x="1.9336959" y="47.844753" />
+				<point x="1.9336581" y="47.844994" />
 			</route>
 			<route type="chemin">
-				<point x="2.1527096E7" y="6.0809446E8" />
-				<point x="2.1526564E7" y="6.0809869E8" />
+				<point x="1.9338119" y="47.84402" />
+				<point x="1.9337642" y="47.844276" />
 			</route>
 			<route type="chemin">
-				<point x="2.1528028E7" y="6.0808909E8" />
-				<point x="2.1527858E7" y="6.0808947E8" />
+				<point x="1.9338957" y="47.843697" />
+				<point x="1.9338803" y="47.843723" />
 			</route>
 			<route type="chemin">
-				<point x="2.1527328E7" y="6.0807648E8" />
-				<point x="2.1527932E7" y="6.0808013E8" />
+				<point x="1.9338328" y="47.842937" />
+				<point x="1.9338871" y="47.84316" />
 			</route>
 			<route type="chemin">
-				<point x="2.1550956E7" y="6.080713E8" />
-				<point x="2.154964E7" y="6.0806944E8" />
+				<point x="1.9359552" y="47.842625" />
+				<point x="1.9358371" y="47.84251" />
 			</route>
 			<route type="chemin">
-				<point x="2.1525608E7" y="6.0810611E8" />
-				<point x="2.1525804E7" y="6.0810656E8" />
+				<point x="1.9336784" y="47.844723" />
+				<point x="1.9336959" y="47.844753" />
 			</route>
 			<route type="chemin">
-				<point x="2.1556772E7" y="6.080585E8" />
-				<point x="2.1556206E7" y="6.0805741E8" />
+				<point x="1.9364777" y="47.841854" />
+				<point x="1.9364269" y="47.841785" />
 			</route>
 			<route type="chemin">
-				<point x="2.1520162E7" y="6.0809766E8" />
-				<point x="2.1519186E7" y="6.0809862E8" />
+				<point x="1.933189" y="47.844215" />
+				<point x="1.9331014" y="47.844273" />
 			</route>
 			<route type="chemin">
-				<point x="2.155919E7" y="6.0806323E8" />
-				<point x="2.1556772E7" y="6.080585E8" />
+				<point x="1.936695" y="47.842136" />
+				<point x="1.9364777" y="47.841854" />
 			</route>
 			<route type="chemin">
-				<point x="2.1534116E7" y="6.080809E8" />
-				<point x="2.153521E7" y="6.0808109E8" />
+				<point x="1.9344425" y="47.843204" />
+				<point x="1.9345409" y="47.843216" />
 			</route>
 			<route type="chemin">
-				<point x="2.1560512E7" y="6.0806272E8" />
-				<point x="2.1560892E7" y="6.080663E8" />
+				<point x="1.9368138" y="47.842106" />
+				<point x="1.9368479" y="47.842323" />
 			</route>
 			<route type="chemin">
-				<point x="2.1550956E7" y="6.080713E8" />
-				<point x="2.1548944E7" y="6.0807245E8" />
+				<point x="1.9359552" y="47.842625" />
+				<point x="1.9357746" y="47.842693" />
 			</route>
 			<route type="chemin">
-				<point x="2.1564972E7" y="6.0805984E8" />
-				<point x="2.156802E7" y="6.0805843E8" />
+				<point x="1.9372145" y="47.841934" />
+				<point x="1.9374883" y="47.84185" />
 			</route>
 			<route type="chemin">
-				<point x="2.1560512E7" y="6.0806272E8" />
-				<point x="2.1566852E7" y="6.0806336E8" />
+				<point x="1.9368138" y="47.842106" />
+				<point x="1.9373833" y="47.842144" />
 			</route>
 			<route type="chemin">
-				<point x="2.154964E7" y="6.0806944E8" />
-				<point x="2.155919E7" y="6.0806323E8" />
+				<point x="1.9358371" y="47.84251" />
+				<point x="1.936695" y="47.842136" />
 			</route>
 			<route type="chemin">
-				<point x="2.1523588E7" y="6.0809587E8" />
-				<point x="2.1523832E7" y="6.0809504E8" />
+				<point x="1.933497" y="47.844105" />
+				<point x="1.9335186" y="47.844055" />
 			</route>
 			<route type="chemin">
-				<point x="2.155576E7" y="6.0805658E8" />
-				<point x="2.1554876E7" y="6.0805485E8" />
+				<point x="1.936387" y="47.841736" />
+				<point x="1.9363073" y="47.841633" />
 			</route>
 			<route type="chemin">
-				<point x="2.1560892E7" y="6.080663E8" />
-				<point x="2.155749E7" y="6.080681E8" />
+				<point x="1.9368479" y="47.842323" />
+				<point x="1.9365423" y="47.842434" />
 			</route>
 			<route type="chemin">
-				<point x="2.153434E7" y="6.0808262E8" />
-				<point x="2.1534116E7" y="6.080809E8" />
+				<point x="1.9344625" y="47.843307" />
+				<point x="1.9344425" y="47.843204" />
 			</route>
 			<route type="chemin">
-				<point x="2.1560512E7" y="6.0806272E8" />
-				<point x="2.1564972E7" y="6.0805984E8" />
+				<point x="1.9368138" y="47.842106" />
+				<point x="1.9372145" y="47.841934" />
 			</route>
 			<route type="chemin">
-				<point x="2.152812E7" y="6.080809E8" />
-				<point x="2.153078E7" y="6.0808064E8" />
+				<point x="1.9339039" y="47.843204" />
+				<point x="1.9341428" y="47.84319" />
 			</route>
 			<route type="chemin">
-				<point x="2.1560892E7" y="6.080663E8" />
-				<point x="2.1566852E7" y="6.0806336E8" />
+				<point x="1.9368479" y="47.842323" />
+				<point x="1.9373833" y="47.842144" />
 			</route>
 			<route type="chemin">
-				<point x="2.1527324E7" y="6.0809395E8" />
-				<point x="2.1526484E7" y="6.0809434E8" />
+				<point x="1.9338323" y="47.84399" />
+				<point x="1.933757" y="47.844013" />
 			</route>
 			<route type="chemin">
-				<point x="2.1517232E7" y="6.0808198E8" />
-				<point x="2.1516972E7" y="6.0808294E8" />
+				<point x="1.9329257" y="47.84327" />
+				<point x="1.9329023" y="47.843327" />
 			</route>
 			<route type="chemin">
-				<point x="2.1556206E7" y="6.0805741E8" />
-				<point x="2.1553192E7" y="6.0805894E8" />
+				<point x="1.9364269" y="47.841785" />
+				<point x="1.9361562" y="47.841877" />
 			</route>
 			<route type="chemin">
-				<point x="2.1533162E7" y="6.0805626E8" />
-				<point x="2.1534688E7" y="6.0804896E8" />
+				<point x="1.9343568" y="47.841717" />
+				<point x="1.9344939" y="47.84128" />
 			</route>
 			<route type="chemin">
-				<point x="2.1553192E7" y="6.0805894E8" />
-				<point x="2.155218E7" y="6.0805946E8" />
+				<point x="1.9361562" y="47.841877" />
+				<point x="1.9360652" y="47.84191" />
 			</route>
 			<route type="route">
-				<point x="2.1562112E7" y="6.0810464E8" />
-				<point x="2.1560012E7" y="6.0810554E8" />
+				<point x="1.9369574" y="47.844635" />
+				<point x="1.9367689" y="47.844692" />
 			</route>
 			<route type="chemin">
-				<point x="2.1559708E7" y="6.0807366E8" />
-				<point x="2.1560892E7" y="6.080663E8" />
+				<point x="1.9367415" y="47.84277" />
+				<point x="1.9368479" y="47.842323" />
 			</route>
 			<route type="route">
-				<point x="2.1534352E7" y="6.0815597E8" />
-				<point x="2.152598E7" y="6.0814016E8" />
+				<point x="1.9344639" y="47.84773" />
+				<point x="1.9337116" y="47.84678" />
 			</route>
 			<route type="chemin">
-				<point x="2.1549296E7" y="6.0808429E8" />
-				<point x="2.155176E7" y="6.0808314E8" />
+				<point x="1.9358062" y="47.843407" />
+				<point x="1.9360274" y="47.843338" />
 			</route>
 			<route type="route">
-				<point x="2.158688E7" y="6.0806624E8" />
-				<point x="2.1580998E7" y="6.0806906E8" />
+				<point x="1.9391825" y="47.84232" />
+				<point x="1.9386541" y="47.842487" />
 			</route>
 			<route type="chemin">
-				<point x="2.1566724E7" y="6.0807456E8" />
-				<point x="2.156655E7" y="6.0807565E8" />
+				<point x="1.9373719" y="47.842823" />
+				<point x="1.9373561" y="47.842884" />
 			</route>
 			<route type="chemin">
-				<point x="2.1557388E7" y="6.080736E8" />
-				<point x="2.1559708E7" y="6.0807366E8" />
+				<point x="1.936533" y="47.842766" />
+				<point x="1.9367415" y="47.84277" />
 			</route>
 			<route type="route">
-				<point x="2.1563006E7" y="6.081417E8" />
-				<point x="2.1554768E7" y="6.0812493E8" />
+				<point x="1.9370378" y="47.846867" />
+				<point x="1.9362977" y="47.84586" />
 			</route>
 			<route type="chemin">
-				<point x="2.1565452E7" y="6.0807437E8" />
-				<point x="2.1566724E7" y="6.0807456E8" />
+				<point x="1.9372574" y="47.84281" />
+				<point x="1.9373719" y="47.842823" />
 			</route>
 			<route type="chemin">
-				<point x="2.1549706E7" y="6.0807482E8" />
-				<point x="2.1550428E7" y="6.080761E8" />
+				<point x="1.935843" y="47.84284" />
+				<point x="1.935908" y="47.842915" />
 			</route>
 			<route type="chemin">
-				<point x="2.1556456E7" y="6.0807578E8" />
-				<point x="2.1557388E7" y="6.080736E8" />
+				<point x="1.9364494" y="47.84289" />
+				<point x="1.936533" y="47.842766" />
 			</route>
 			<route type="chemin">
-				<point x="2.1554876E7" y="6.0805485E8" />
-				<point x="2.1555784E7" y="6.080544E8" />
+				<point x="1.9363073" y="47.841633" />
+				<point x="1.9363891" y="47.841606" />
 			</route>
 			<route type="chemin">
-				<point x="2.1555784E7" y="6.080544E8" />
-				<point x="2.1556656E7" y="6.0805606E8" />
+				<point x="1.9363891" y="47.841606" />
+				<point x="1.9364674" y="47.84171" />
 			</route>
 			<route type="chemin">
-				<point x="2.1572096E7" y="6.0820499E8" />
-				<point x="2.1572618E7" y="6.0820333E8" />
+				<point x="1.9378544" y="47.850685" />
+				<point x="1.9379013" y="47.850586" />
 			</route>
 			<route type="chemin">
-				<point x="2.1569858E7" y="6.0820589E8" />
-				<point x="2.1569894E7" y="6.0820634E8" />
+				<point x="1.9376533" y="47.85074" />
+				<point x="1.9376565" y="47.850765" />
 			</route>
 			<route type="chemin">
-				<point x="2.1550946E7" y="6.0817696E8" />
-				<point x="2.155309E7" y="6.081831E8" />
+				<point x="1.9359545" y="47.848995" />
+				<point x="1.936147" y="47.849365" />
 			</route>
 			<route type="chemin">
-				<point x="2.1613524E7" y="6.0815667E8" />
-				<point x="2.1605164E7" y="6.0816205E8" />
+				<point x="1.9415759" y="47.847775" />
+				<point x="1.9408249" y="47.84809" />
 			</route>
 			<route type="chemin">
-				<point x="2.157651E7" y="6.0816403E8" />
-				<point x="2.1560196E7" y="6.0817229E8" />
+				<point x="1.9382509" y="47.848213" />
+				<point x="1.9367855" y="47.848713" />
 			</route>
 			<route type="chemin">
-				<point x="2.1559964E7" y="6.082057E8" />
-				<point x="2.1563272E7" y="6.0820595E8" />
+				<point x="1.9367645" y="47.850723" />
+				<point x="1.9370617" y="47.850742" />
 			</route>
 			<route type="chemin">
-				<point x="2.1571924E7" y="6.0815475E8" />
-				<point x="2.15726E7" y="6.081561E8" />
+				<point x="1.9378388" y="47.847656" />
+				<point x="1.9378996" y="47.847736" />
 			</route>
 			<route type="chemin">
-				<point x="2.1541924E7" y="6.0818125E8" />
-				<point x="2.153753E7" y="6.0817222E8" />
+				<point x="1.935144" y="47.84925" />
+				<point x="1.9347492" y="47.84871" />
 			</route>
 			<route type="chemin">
-				<point x="2.1583248E7" y="6.0817715E8" />
-				<point x="2.1577336E7" y="6.0818022E8" />
+				<point x="1.9388561" y="47.849007" />
+				<point x="1.9383249" y="47.84919" />
 			</route>
 			<route type="chemin">
-				<point x="2.159282E7" y="6.0818554E8" />
-				<point x="2.1588562E7" y="6.0818771E8" />
+				<point x="1.939716" y="47.84951" />
+				<point x="1.9393336" y="47.849644" />
 			</route>
 			<route type="chemin">
-				<point x="2.1569692E7" y="6.0819718E8" />
-				<point x="2.1568408E7" y="6.0819603E8" />
+				<point x="1.9376383" y="47.850216" />
+				<point x="1.937523" y="47.850147" />
 			</route>
 			<route type="chemin">
-				<point x="2.153753E7" y="6.0817222E8" />
-				<point x="2.1540102E7" y="6.0817101E8" />
+				<point x="1.9347492" y="47.84871" />
+				<point x="1.9349803" y="47.848637" />
 			</route>
 			<route type="chemin">
-				<point x="2.1601282E7" y="6.0820211E8" />
-				<point x="2.160358E7" y="6.082016E8" />
+				<point x="1.9404762" y="47.85051" />
+				<point x="1.9406826" y="47.85048" />
 			</route>
 			<route type="chemin">
-				<point x="2.157651E7" y="6.0816403E8" />
-				<point x="2.1577776E7" y="6.0816339E8" />
+				<point x="1.9382509" y="47.848213" />
+				<point x="1.9383646" y="47.848175" />
 			</route>
 			<route type="chemin">
-				<point x="2.157651E7" y="6.0816403E8" />
-				<point x="2.1583248E7" y="6.0817715E8" />
+				<point x="1.9382509" y="47.848213" />
+				<point x="1.9388561" y="47.849007" />
 			</route>
 			<route type="chemin">
-				<point x="2.1601282E7" y="6.0820211E8" />
-				<point x="2.1597684E7" y="6.0820179E8" />
+				<point x="1.9404762" y="47.85051" />
+				<point x="1.940153" y="47.850494" />
 			</route>
 			<route type="chemin">
-				<point x="2.158259E7" y="6.0819738E8" />
-				<point x="2.1583664E7" y="6.081959E8" />
+				<point x="1.938797" y="47.850227" />
+				<point x="1.9388936" y="47.850136" />
 			</route>
 			<route type="chemin">
-				<point x="2.15825E7" y="6.082009E8" />
-				<point x="2.158259E7" y="6.0819738E8" />
+				<point x="1.938789" y="47.850437" />
+				<point x="1.938797" y="47.850227" />
 			</route>
 			<route type="chemin">
-				<point x="2.154489E7" y="6.0821683E8" />
-				<point x="2.1544282E7" y="6.0821478E8" />
+				<point x="1.9354104" y="47.8514" />
+				<point x="1.9353558" y="47.851276" />
 			</route>
 			<route type="route">
-				<point x="2.152379E7" y="6.0799002E8" />
-				<point x="2.152482E7" y="6.0799181E8" />
+				<point x="1.933515" y="47.837727" />
+				<point x="1.9336076" y="47.83783" />
 			</route>
 			<route type="route">
-				<point x="2.1452368E7" y="6.0820902E8" />
-				<point x="2.1442336E7" y="6.081911E8" />
+				<point x="1.9270989" y="47.85093" />
+				<point x="1.9261978" y="47.84985" />
 			</route>
 			<route type="chemin">
-				<point x="2.141682E7" y="6.0820794E8" />
-				<point x="2.1415148E7" y="6.0820646E8" />
+				<point x="1.9239057" y="47.850864" />
+				<point x="1.9237554" y="47.850773" />
 			</route>
 			<route type="chemin">
-				<point x="2.14302E7" y="6.0822733E8" />
-				<point x="2.1420164E7" y="6.0821293E8" />
+				<point x="1.9251075" y="47.85203" />
+				<point x="1.924206" y="47.851162" />
 			</route>
 			<route type="route">
-				<point x="2.1444682E7" y="6.0821286E8" />
-				<point x="2.143732E7" y="6.0820186E8" />
+				<point x="1.9264085" y="47.85116" />
+				<point x="1.9257472" y="47.8505" />
 			</route>
 			<route type="chemin">
-				<point x="2.1443406E7" y="6.0813914E8" />
-				<point x="2.1441858E7" y="6.0814227E8" />
+				<point x="1.926294" y="47.846714" />
+				<point x="1.9261549" y="47.8469" />
 			</route>
 			<route type="chemin">
-				<point x="2.1572402E7" y="6.0812557E8" />
-				<point x="2.1571672E7" y="6.0812403E8" />
+				<point x="1.9378818" y="47.845898" />
+				<point x="1.9378164" y="47.845802" />
 			</route>
 			<route type="chemin">
-				<point x="2.156536E7" y="6.0812832E8" />
-				<point x="2.1570676E7" y="6.0812582E8" />
+				<point x="1.9372493" y="47.84606" />
+				<point x="1.9377267" y="47.845913" />
 			</route>
 			<route type="chemin">
-				<point x="2.1576348E7" y="6.0813338E8" />
-				<point x="2.1574084E7" y="6.0812915E8" />
+				<point x="1.9382364" y="47.846367" />
+				<point x="1.9380329" y="47.84611" />
 			</route>
 			<route type="chemin">
-				<point x="2.1572048E7" y="6.0812448E8" />
-				<point x="2.1579564E7" y="6.0812083E8" />
+				<point x="1.9378501" y="47.84583" />
+				<point x="1.9385251" y="47.845608" />
 			</route>
 			<route type="chemin">
-				<point x="2.1571744E7" y="6.0812422E8" />
-				<point x="2.1565898E7" y="6.0811187E8" />
+				<point x="1.9378227" y="47.845814" />
+				<point x="1.9372976" y="47.845074" />
 			</route>
 			<route type="route">
-				<point x="2.1657832E7" y="6.0811386E8" />
-				<point x="2.165588E7" y="6.0811738E8" />
+				<point x="1.945556" y="47.84519" />
+				<point x="1.9453809" y="47.845406" />
 			</route>
 			<route type="chemin">
-				<point x="2.1524492E7" y="6.0800384E8" />
-				<point x="2.1527732E7" y="6.080023E8" />
+				<point x="1.9335779" y="47.838554" />
+				<point x="1.933869" y="47.838463" />
 			</route>
 			<route type="chemin">
-				<point x="2.1527732E7" y="6.080023E8" />
-				<point x="2.153037E7" y="6.0800102E8" />
+				<point x="1.933869" y="47.838463" />
+				<point x="1.934106" y="47.838387" />
 			</route>
 			<route type="chemin">
-				<point x="2.153037E7" y="6.0800102E8" />
-				<point x="2.1541424E7" y="6.0799571E8" />
+				<point x="1.934106" y="47.838387" />
+				<point x="1.9350991" y="47.838066" />
 			</route>
 			<route type="route">
-				<point x="2.1614832E7" y="6.0808192E8" />
-				<point x="2.160968E7" y="6.0808064E8" />
+				<point x="1.9416934" y="47.843266" />
+				<point x="1.9412305" y="47.84319" />
 			</route>
 			<route type="chemin">
-				<point x="2.1521608E7" y="6.0817242E8" />
-				<point x="2.1519906E7" y="6.0816883E8" />
+				<point x="1.933319" y="47.848724" />
+				<point x="1.933166" y="47.848507" />
 			</route>
 			<route type="chemin">
-				<point x="2.147077E7" y="6.0807526E8" />
-				<point x="2.1476228E7" y="6.0808608E8" />
+				<point x="1.9287521" y="47.842865" />
+				<point x="1.9292423" y="47.843513" />
 			</route>
 			<route type="chemin">
-				<point x="2.1473004E7" y="6.0806195E8" />
-				<point x="2.1472644E7" y="6.0806106E8" />
+				<point x="1.9289527" y="47.84206" />
+				<point x="1.9289204" y="47.84201" />
 			</route>
 			<route type="route">
-				<point x="2.1460438E7" y="6.080871E8" />
-				<point x="2.1457752E7" y="6.0808192E8" />
+				<point x="1.9278239" y="47.84358" />
+				<point x="1.9275826" y="47.843266" />
 			</route>
 			<route type="chemin">
-				<point x="2.148464E7" y="6.0811981E8" />
-				<point x="2.148938E7" y="6.0811744E8" />
+				<point x="1.929998" y="47.84555" />
+				<point x="1.930424" y="47.845406" />
 			</route>
 			<route type="chemin">
-				<point x="2.1475696E7" y="6.080919E8" />
-				<point x="2.1472744E7" y="6.0809344E8" />
+				<point x="1.9291947" y="47.84387" />
+				<point x="1.9289294" y="47.84396" />
 			</route>
 			<route type="chemin">
-				<point x="2.150287E7" y="6.0814752E8" />
-				<point x="2.15011E7" y="6.0814413E8" />
+				<point x="1.9316356" y="47.84722" />
+				<point x="1.9314766" y="47.84701" />
 			</route>
 			<route type="chemin">
-				<point x="2.1476544E7" y="6.0810643E8" />
-				<point x="2.1483714E7" y="6.0810285E8" />
+				<point x="1.9292709" y="47.84474" />
+				<point x="1.9299148" y="47.84453" />
 			</route>
 			<route type="chemin">
-				<point x="2.1484792E7" y="6.0811782E8" />
-				<point x="2.1487842E7" y="6.0811635E8" />
+				<point x="1.9300117" y="47.84543" />
+				<point x="1.9302857" y="47.84534" />
 			</route>
 			<route type="chemin">
-				<point x="2.146778E7" y="6.0809024E8" />
-				<point x="2.1462486E7" y="6.0807949E8" />
+				<point x="1.9284834" y="47.843765" />
+				<point x="1.928008" y="47.843117" />
 			</route>
 			<route type="route">
-				<point x="2.1504264E7" y="6.0808698E8" />
-				<point x="2.1500092E7" y="6.0808922E8" />
+				<point x="1.9317608" y="47.84357" />
+				<point x="1.9313861" y="47.8437" />
 			</route>
 			<route type="chemin">
-				<point x="2.14828E7" y="6.0811386E8" />
-				<point x="2.1484792E7" y="6.0811782E8" />
+				<point x="1.9298328" y="47.84519" />
+				<point x="1.9300117" y="47.84543" />
 			</route>
 			<route type="chemin">
-				<point x="2.1464756E7" y="6.0807827E8" />
-				<point x="2.1463872E7" y="6.0807635E8" />
+				<point x="1.9282119" y="47.84305" />
+				<point x="1.9281324" y="47.84293" />
 			</route>
 			<route type="chemin">
-				<point x="2.1473512E7" y="6.0808742E8" />
-				<point x="2.1475696E7" y="6.080919E8" />
+				<point x="1.9289985" y="47.843594" />
+				<point x="1.9291947" y="47.84387" />
 			</route>
 			<route type="route">
-				<point x="2.1496026E7" y="6.0808813E8" />
-				<point x="2.1496172E7" y="6.080912E8" />
+				<point x="1.9310209" y="47.84364" />
+				<point x="1.931034" y="47.843826" />
 			</route>
 			<route type="route">
-				<point x="2.1493632E7" y="6.0810374E8" />
-				<point x="2.1498156E7" y="6.0810131E8" />
+				<point x="1.9308058" y="47.84458" />
+				<point x="1.9312121" y="47.844433" />
 			</route>
 			<route type="route">
-				<point x="2.1503116E7" y="6.0810176E8" />
-				<point x="2.1502146E7" y="6.0809933E8" />
+				<point x="1.9316579" y="47.844463" />
+				<point x="1.9315706" y="47.844315" />
 			</route>
 			<route type="chemin">
-				<point x="2.1485928E7" y="6.0811226E8" />
-				<point x="2.1487842E7" y="6.0811635E8" />
+				<point x="1.9301138" y="47.845097" />
+				<point x="1.9302857" y="47.84534" />
 			</route>
 			<route type="route">
-				<point x="2.1488964E7" y="6.0810042E8" />
-				<point x="2.1491408E7" y="6.080992E8" />
+				<point x="1.9303864" y="47.84438" />
+				<point x="1.930606" y="47.844307" />
 			</route>
 			<route type="chemin">
-				<point x="2.147854E7" y="6.0809242E8" />
-				<point x="2.1474772E7" y="6.0809421E8" />
+				<point x="1.9294502" y="47.843895" />
+				<point x="1.9291116" y="47.844006" />
 			</route>
 			<route type="route">
-				<point x="2.145408E7" y="6.0808384E8" />
-				<point x="2.1457752E7" y="6.0808192E8" />
+				<point x="1.9272528" y="47.843384" />
+				<point x="1.9275826" y="47.843266" />
 			</route>
 			<route type="chemin">
-				<point x="2.1473144E7" y="6.0809421E8" />
-				<point x="2.1472744E7" y="6.0809344E8" />
+				<point x="1.9289652" y="47.844006" />
+				<point x="1.9289294" y="47.84396" />
 			</route>
 			<route type="chemin">
-				<point x="2.1487906E7" y="6.081113E8" />
-				<point x="2.1483714E7" y="6.0810285E8" />
+				<point x="1.9302914" y="47.845036" />
+				<point x="1.9299148" y="47.84453" />
 			</route>
 			<route type="chemin">
-				<point x="2.1471174E7" y="6.0809555E8" />
-				<point x="2.147156E7" y="6.0809632E8" />
+				<point x="1.9287884" y="47.844086" />
+				<point x="1.9288231" y="47.844135" />
 			</route>
 			<route type="chemin">
-				<point x="2.150057E7" y="6.0814867E8" />
-				<point x="2.1498954E7" y="6.0814522E8" />
+				<point x="1.931429" y="47.84729" />
+				<point x="1.931284" y="47.84708" />
 			</route>
 			<route type="route">
-				<point x="2.1435644E7" y="6.0808179E8" />
-				<point x="2.1450236E7" y="6.0807443E8" />
+				<point x="1.9255966" y="47.843258" />
+				<point x="1.9269075" y="47.842815" />
 			</route>
 			<route type="chemin">
-				<point x="2.147546E7" y="6.080727E8" />
-				<point x="2.147077E7" y="6.0807526E8" />
+				<point x="1.9291734" y="47.84271" />
+				<point x="1.9287521" y="47.842865" />
 			</route>
 			<route type="chemin">
-				<point x="2.1508798E7" y="6.0817875E8" />
-				<point x="2.1507E7" y="6.0817472E8" />
+				<point x="1.9321682" y="47.849106" />
+				<point x="1.9320067" y="47.84886" />
 			</route>
 			<route type="chemin">
-				<point x="2.1500484E7" y="6.081239E8" />
-				<point x="2.1500004E7" y="6.0812422E8" />
+				<point x="1.9314213" y="47.845795" />
+				<point x="1.9313784" y="47.845814" />
 			</route>
 			<route type="chemin">
-				<point x="2.1493042E7" y="6.0810874E8" />
-				<point x="2.1487906E7" y="6.081113E8" />
+				<point x="1.9307528" y="47.844883" />
+				<point x="1.9302914" y="47.845036" />
 			</route>
 			<route type="route">
-				<point x="2.1494714E7" y="6.0810592E8" />
-				<point x="2.1493632E7" y="6.0810374E8" />
+				<point x="1.930903" y="47.844715" />
+				<point x="1.9308058" y="47.84458" />
 			</route>
 			<route type="chemin">
-				<point x="2.1488934E7" y="6.0811654E8" />
-				<point x="2.148938E7" y="6.0811744E8" />
+				<point x="1.9303838" y="47.845352" />
+				<point x="1.930424" y="47.845406" />
 			</route>
 			<route type="route">
-				<point x="2.1485544E7" y="6.0809338E8" />
-				<point x="2.1488004E7" y="6.0809197E8" />
+				<point x="1.9300792" y="47.843956" />
+				<point x="1.9303002" y="47.843872" />
 			</route>
 			<route type="route">
-				<point x="2.1492264E7" y="6.0810714E8" />
-				<point x="2.1494714E7" y="6.0810592E8" />
+				<point x="1.9306829" y="47.844788" />
+				<point x="1.930903" y="47.844715" />
 			</route>
 			<route type="route">
-				<point x="2.155042E7" y="6.0805568E8" />
-				<point x="2.154794E7" y="6.0805677E8" />
+				<point x="1.9359071" y="47.841682" />
+				<point x="1.9356844" y="47.841747" />
 			</route>
 			<route type="chemin">
-				<point x="2.156288E7" y="6.0805638E8" />
-				<point x="2.1564072E7" y="6.080535E8" />
+				<point x="1.9370265" y="47.841724" />
+				<point x="1.9371337" y="47.841553" />
 			</route>
 			<route type="chemin">
-				<point x="2.1570206E7" y="6.0815181E8" />
-				<point x="2.1571924E7" y="6.0815475E8" />
+				<point x="1.9376845" y="47.847477" />
+				<point x="1.9378388" y="47.847656" />
 			</route>
 			<route type="chemin">
-				<point x="2.1560512E7" y="6.0806272E8" />
-				<point x="2.156288E7" y="6.0805638E8" />
+				<point x="1.9368138" y="47.842106" />
+				<point x="1.9370265" y="47.841724" />
 			</route>
 			<route type="route">
-				<point x="2.154965E7" y="6.0806093E8" />
-				<point x="2.154794E7" y="6.0805677E8" />
+				<point x="1.935838" y="47.842" />
+				<point x="1.9356844" y="47.841747" />
 			</route>
 			<route type="chemin">
-				<point x="2.1562228E7" y="6.0815597E8" />
-				<point x="2.156834E7" y="6.081527E8" />
+				<point x="1.9369678" y="47.84773" />
+				<point x="1.9375168" y="47.847534" />
 			</route>
 			<route type="route">
-				<point x="2.1563448E7" y="6.0815296E8" />
-				<point x="2.1562228E7" y="6.0815597E8" />
+				<point x="1.9370775" y="47.84755" />
+				<point x="1.9369678" y="47.84773" />
 			</route>
 			<route type="chemin">
-				<point x="2.1524476E7" y="6.0817248E8" />
-				<point x="2.1521608E7" y="6.0817242E8" />
+				<point x="1.9335767" y="47.848724" />
+				<point x="1.933319" y="47.848724" />
 			</route>
 			<route type="chemin">
-				<point x="2.150378E7" y="6.0818323E8" />
-				<point x="2.1499116E7" y="6.0817389E8" />
+				<point x="1.9317173" y="47.84937" />
+				<point x="1.9312985" y="47.84881" />
 			</route>
 			<route type="chemin">
-				<point x="2.1499116E7" y="6.0817389E8" />
-				<point x="2.1498748E7" y="6.0817683E8" />
+				<point x="1.9312985" y="47.84881" />
+				<point x="1.9312654" y="47.848988" />
 			</route>
 			<route type="chemin">
-				<point x="2.1547544E7" y="6.0806304E8" />
-				<point x="2.1547164E7" y="6.0806234E8" />
+				<point x="1.9356487" y="47.842125" />
+				<point x="1.9356146" y="47.842083" />
 			</route>
 			<route type="chemin">
-				<point x="2.1548616E7" y="6.0806643E8" />
-				<point x="2.1547544E7" y="6.0806304E8" />
+				<point x="1.9357451" y="47.84233" />
+				<point x="1.9356487" y="47.842125" />
 			</route>
 			<route type="chemin">
-				<point x="2.1498784E7" y="6.0817408E8" />
-				<point x="2.1496616E7" y="6.0817517E8" />
+				<point x="1.9312686" y="47.848824" />
+				<point x="1.9310739" y="47.848885" />
 			</route>
 			<route type="chemin">
-				<point x="2.1548944E7" y="6.0807245E8" />
-				<point x="2.1548198E7" y="6.0807021E8" />
+				<point x="1.9357746" y="47.842693" />
+				<point x="1.9357076" y="47.842556" />
 			</route>
 			<route type="route">
-				<point x="2.1494872E7" y="6.0818771E8" />
-				<point x="2.1493432E7" y="6.0818426E8" />
+				<point x="1.9309173" y="47.84964" />
+				<point x="1.9307878" y="47.849434" />
 			</route>
 			<route type="chemin">
-				<point x="2.150576E7" y="6.0817062E8" />
-				<point x="2.150163E7" y="6.0817261E8" />
+				<point x="1.9318953" y="47.848614" />
+				<point x="1.9315243" y="47.848732" />
 			</route>
 			<route type="route">
-				<point x="2.15771E7" y="6.0813459E8" />
-				<point x="2.157742E7" y="6.0813728E8" />
+				<point x="1.9383038" y="47.84644" />
+				<point x="1.9383326" y="47.846603" />
 			</route>
 			<route type="chemin">
-				<point x="2.150163E7" y="6.0817261E8" />
-				<point x="2.1492724E7" y="6.0816499E8" />
+				<point x="1.9315243" y="47.848732" />
+				<point x="1.9307241" y="47.84827" />
 			</route>
 			<route type="route">
-				<point x="2.157742E7" y="6.0813728E8" />
-				<point x="2.157776E7" y="6.0814003E8" />
+				<point x="1.9383326" y="47.846603" />
+				<point x="1.9383631" y="47.846767" />
 			</route>
 			<route type="route">
-				<point x="2.1522764E7" y="6.0813728E8" />
-				<point x="2.151653E7" y="6.0813997E8" />
+				<point x="1.9334229" y="47.846603" />
+				<point x="1.9328628" y="47.846764" />
 			</route>
 			<route type="route">
-				<point x="2.1515786E7" y="6.0814317E8" />
-				<point x="2.151653E7" y="6.0813997E8" />
+				<point x="1.9327959" y="47.846954" />
+				<point x="1.9328628" y="47.846764" />
 			</route>
 			<route type="chemin">
-				<point x="2.1517222E7" y="6.0813702E8" />
-				<point x="2.1516456E7" y="6.0813645E8" />
+				<point x="1.932925" y="47.84659" />
+				<point x="1.9328561" y="47.84655" />
 			</route>
 			<route type="route">
-				<point x="2.143912E7" y="6.0811059E8" />
-				<point x="2.1436636E7" y="6.0810598E8" />
+				<point x="1.9259089" y="47.844994" />
+				<point x="1.9256856" y="47.84472" />
 			</route>
 			<route type="route">
-				<point x="2.1562208E7" y="6.081447E8" />
-				<point x="2.155056E7" y="6.0815034E8" />
+				<point x="1.9369662" y="47.84705" />
+				<point x="1.9359198" y="47.84739" />
 			</route>
 			<route type="route">
-				<point x="2.144132E7" y="6.0810957E8" />
-				<point x="2.1439164E7" y="6.081047E8" />
+				<point x="1.9261066" y="47.844933" />
+				<point x="1.9259129" y="47.844635" />
 			</route>
 			<route type="route">
-				<point x="2.1561916E7" y="6.0814221E8" />
-				<point x="2.1562208E7" y="6.081447E8" />
+				<point x="1.9369398" y="47.8469" />
+				<point x="1.9369662" y="47.84705" />
 			</route>
 			<route type="chemin">
-				<point x="2.1566724E7" y="6.0807456E8" />
-				<point x="2.1574076E7" y="6.0807104E8" />
+				<point x="1.9373719" y="47.842823" />
+				<point x="1.9380323" y="47.84261" />
 			</route>
 			<route type="route">
-				<point x="2.157412E7" y="6.0810131E8" />
-				<point x="2.1568584E7" y="6.0809101E8" />
+				<point x="1.9380361" y="47.844433" />
+				<point x="1.9375389" y="47.84381" />
 			</route>
 			<route type="route">
-				<point x="2.1576848E7" y="6.0810246E8" />
-				<point x="2.1582336E7" y="6.0809978E8" />
+				<point x="1.9382813" y="47.844505" />
+				<point x="1.9387741" y="47.84434" />
 			</route>
 			<route type="route">
-				<point x="2.1563446E7" y="6.0808979E8" />
-				<point x="2.1571424E7" y="6.080857E8" />
+				<point x="1.9370773" y="47.843742" />
+				<point x="1.9377941" y="47.84349" />
 			</route>
 			<route type="route">
-				<point x="2.1575168E7" y="6.0810074E8" />
-				<point x="2.1576848E7" y="6.0810246E8" />
+				<point x="1.9381303" y="47.8444" />
+				<point x="1.9382813" y="47.844505" />
 			</route>
 			<route type="route">
-				<point x="2.1573116E7" y="6.0810202E8" />
-				<point x="2.1573308E7" y="6.0810189E8" />
+				<point x="1.9379461" y="47.844475" />
+				<point x="1.9379631" y="47.844467" />
 			</route>
 			<route type="route">
-				<point x="2.1477896E7" y="6.0812218E8" />
-				<point x="2.1484452E7" y="6.0813549E8" />
+				<point x="1.9293922" y="47.84569" />
+				<point x="1.9299812" y="47.846497" />
 			</route>
 			<route type="route">
-				<point x="2.1486782E7" y="6.0814554E8" />
-				<point x="2.1482288E7" y="6.0813645E8" />
+				<point x="1.9301904" y="47.847103" />
+				<point x="1.9297868" y="47.846554" />
 			</route>
 			<route type="route">
-				<point x="2.1484452E7" y="6.0813549E8" />
-				<point x="2.1488968E7" y="6.0814438E8" />
+				<point x="1.9299812" y="47.846497" />
+				<point x="1.9303868" y="47.84703" />
 			</route>
 			<route type="route">
-				<point x="2.1477492E7" y="6.0818765E8" />
-				<point x="2.148076E7" y="6.0818605E8" />
+				<point x="1.9293559" y="47.84964" />
+				<point x="1.9296494" y="47.84954" />
 			</route>
 			<route type="route">
-				<point x="2.1482234E7" y="6.0818925E8" />
-				<point x="2.148076E7" y="6.0818605E8" />
+				<point x="1.9297819" y="47.849735" />
+				<point x="1.9296494" y="47.84954" />
 			</route>
 			<route type="route">
-				<point x="2.1625546E7" y="6.0802182E8" />
-				<point x="2.1626566E7" y="6.0802202E8" />
+				<point x="1.9426558" y="47.83964" />
+				<point x="1.9427475" y="47.839653" />
 			</route>
 			<route type="route">
-				<point x="2.163058E7" y="6.0802221E8" />
-				<point x="2.1630564E7" y="6.0802317E8" />
+				<point x="1.9431081" y="47.83967" />
+				<point x="1.9431068" y="47.83972" />
 			</route>
 			<route type="route">
-				<point x="2.1625546E7" y="6.0802182E8" />
-				<point x="2.1626154E7" y="6.0802163E8" />
+				<point x="1.9426558" y="47.83964" />
+				<point x="1.9427105" y="47.83963" />
 			</route>
 			<route type="route">
-				<point x="2.164823E7" y="6.0806605E8" />
-				<point x="2.1646964E7" y="6.0806554E8" />
+				<point x="1.9446936" y="47.842308" />
+				<point x="1.94458" y="47.842278" />
 			</route>
 			<route type="route">
-				<point x="2.1624032E7" y="6.0803738E8" />
-				<point x="2.1625676E7" y="6.080377E8" />
+				<point x="1.9425199" y="47.84058" />
+				<point x="1.9426675" y="47.8406" />
 			</route>
 			<route type="route">
-				<point x="2.1622476E7" y="6.0802176E8" />
-				<point x="2.1622536E7" y="6.080224E8" />
+				<point x="1.9423801" y="47.839638" />
+				<point x="1.9423853" y="47.839676" />
 			</route>
 			<route type="route">
-				<point x="2.1628312E7" y="6.080208E8" />
-				<point x="2.1628232E7" y="6.0801952E8" />
+				<point x="1.9429045" y="47.839584" />
+				<point x="1.9428971" y="47.839504" />
 			</route>
 			<route type="route">
-				<point x="2.1630262E7" y="6.0802099E8" />
-				<point x="2.1630492E7" y="6.080215E8" />
+				<point x="1.9430795" y="47.839592" />
+				<point x="1.9431002" y="47.839622" />
 			</route>
 			<route type="route">
-				<point x="2.1623252E7" y="6.0802176E8" />
-				<point x="2.1623222E7" y="6.0802125E8" />
+				<point x="1.9424498" y="47.839638" />
+				<point x="1.9424471" y="47.839607" />
 			</route>
 			<route type="route">
-				<point x="2.1651018E7" y="6.0807187E8" />
-				<point x="2.164823E7" y="6.0806605E8" />
+				<point x="1.944944" y="47.84266" />
+				<point x="1.9446936" y="47.842308" />
 			</route>
 			<route type="route">
-				<point x="2.1589868E7" y="6.0809632E8" />
-				<point x="2.1594652E7" y="6.0809344E8" />
+				<point x="1.939451" y="47.84413" />
+				<point x="1.9398806" y="47.84396" />
 			</route>
 			<route type="chemin">
-				<point x="2.1593238E7" y="6.08104E8" />
-				<point x="2.1584582E7" y="6.081081E8" />
+				<point x="1.9397535" y="47.844597" />
+				<point x="1.938976" y="47.84484" />
 			</route>
 			<route type="chemin">
-				<point x="2.1399488E7" y="6.081552E8" />
-				<point x="2.14081E7" y="6.081641E8" />
+				<point x="1.9223487" y="47.84768" />
+				<point x="1.9231223" y="47.84822" />
 			</route>
 			<route type="route">
-				<point x="2.1562292E7" y="6.080455E8" />
-				<point x="2.1562832E7" y="6.0804314E8" />
+				<point x="1.9369736" y="47.84107" />
+				<point x="1.9370222" y="47.840927" />
 			</route>
 			<route type="chemin">
-				<point x="2.1560512E7" y="6.0806272E8" />
-				<point x="2.1558248E7" y="6.0805798E8" />
+				<point x="1.9368138" y="47.842106" />
+				<point x="1.9366105" y="47.84182" />
 			</route>
 			<route type="route">
-				<point x="2.1556448E7" y="6.0804486E8" />
-				<point x="2.155728E7" y="6.0804646E8" />
+				<point x="1.9364486" y="47.84103" />
+				<point x="1.9365234" y="47.84113" />
 			</route>
 			<route type="route">
-				<point x="2.1554692E7" y="6.0802278E8" />
-				<point x="2.1558888E7" y="6.0802054E8" />
+				<point x="1.936291" y="47.8397" />
+				<point x="1.9366678" y="47.83956" />
 			</route>
 			<route type="route">
-				<point x="2.1575516E7" y="6.08048E8" />
-				<point x="2.1574522E7" y="6.0804563E8" />
+				<point x="1.9381615" y="47.84122" />
+				<point x="1.9380723" y="47.841076" />
 			</route>
 			<route type="route">
-				<point x="2.1565838E7" y="6.080489E8" />
-				<point x="2.1563724E7" y="6.0804979E8" />
+				<point x="1.9372922" y="47.841274" />
+				<point x="1.9371022" y="47.841328" />
 			</route>
 			<route type="route">
-				<point x="2.1579334E7" y="6.0806989E8" />
-				<point x="2.1582218E7" y="6.080759E8" />
+				<point x="1.9385046" y="47.842537" />
+				<point x="1.9387636" y="47.8429" />
 			</route>
 			<route type="route">
-				<point x="2.155728E7" y="6.0804646E8" />
-				<point x="2.1558544E7" y="6.0804595E8" />
+				<point x="1.9365234" y="47.84113" />
+				<point x="1.9366369" y="47.841095" />
 			</route>
 			<route type="route">
-				<point x="2.1569704E7" y="6.0805107E8" />
-				<point x="2.1564892E7" y="6.0804205E8" />
+				<point x="1.9376396" y="47.841404" />
+				<point x="1.9372071" y="47.84086" />
 			</route>
 			<route type="route">
-				<point x="2.1563888E7" y="6.0800506E8" />
-				<point x="2.1562288E7" y="6.0800294E8" />
+				<point x="1.937117" y="47.83863" />
+				<point x="1.9369732" y="47.838505" />
 			</route>
 			<route type="route">
-				<point x="2.1565182E7" y="6.0800429E8" />
-				<point x="2.1559868E7" y="6.0799437E8" />
+				<point x="1.9372332" y="47.838585" />
+				<point x="1.936756" y="47.837986" />
 			</route>
 			<route type="route">
-				<point x="2.1531238E7" y="6.0798598E8" />
-				<point x="2.1535656E7" y="6.0799482E8" />
+				<point x="1.9341841" y="47.83748" />
+				<point x="1.934581" y="47.83801" />
 			</route>
 			<route type="route">
-				<point x="2.1573976E7" y="6.0800019E8" />
-				<point x="2.157435E7" y="6.0799526E8" />
+				<point x="1.9380231" y="47.838337" />
+				<point x="1.9380568" y="47.83804" />
 			</route>
 			<route type="chemin">
-				<point x="2.1541424E7" y="6.0799571E8" />
-				<point x="2.1545212E7" y="6.0800333E8" />
+				<point x="1.9350991" y="47.838066" />
+				<point x="1.9354392" y="47.838528" />
 			</route>
 			<route type="chemin">
-				<point x="2.1553256E7" y="6.0798995E8" />
-				<point x="2.1557214E7" y="6.0799859E8" />
+				<point x="1.9361619" y="47.837723" />
+				<point x="1.9365175" y="47.83824" />
 			</route>
 			<route type="route">
-				<point x="2.1574544E7" y="6.080777E8" />
-				<point x="2.1575592E7" y="6.0807987E8" />
+				<point x="1.9380744" y="47.84301" />
+				<point x="1.9381683" y="47.843143" />
 			</route>
 			<route type="chemin">
-				<point x="2.1580228E7" y="6.080777E8" />
-				<point x="2.1578902E7" y="6.0807834E8" />
+				<point x="1.9385848" y="47.84301" />
+				<point x="1.9384657" y="47.84305" />
 			</route>
 			<route type="route">
-				<point x="2.15748E7" y="6.0807206E8" />
-				<point x="2.1576986E7" y="6.0807654E8" />
+				<point x="1.9380972" y="47.842674" />
+				<point x="1.9382936" y="47.842937" />
 			</route>
 			<route type="route">
-				<point x="2.1543432E7" y="6.0803296E8" />
-				<point x="2.1543828E7" y="6.0803168E8" />
+				<point x="1.9352795" y="47.840313" />
+				<point x="1.935315" y="47.840237" />
 			</route>
 			<route type="chemin">
-				<point x="2.154154E7" y="6.0805562E8" />
-				<point x="2.154402E7" y="6.0805645E8" />
+				<point x="1.9351095" y="47.84168" />
+				<point x="1.9353322" y="47.841732" />
 			</route>
 			<route type="route">
-				<point x="2.1565396E7" y="6.0805402E8" />
-				<point x="2.1564044E7" y="6.0805325E8" />
+				<point x="1.9372525" y="47.841583" />
+				<point x="1.9371309" y="47.841537" />
 			</route>
 			<route type="chemin">
-				<point x="2.151684E7" y="6.080873E8" />
-				<point x="2.1514002E7" y="6.0808813E8" />
+				<point x="1.9328907" y="47.843586" />
+				<point x="1.9326357" y="47.84364" />
 			</route>
 			<route type="chemin">
-				<point x="2.1531206E7" y="6.0820723E8" />
-				<point x="2.153092E7" y="6.0820659E8" />
+				<point x="1.9341811" y="47.85082" />
+				<point x="1.9341555" y="47.85078" />
 			</route>
 			<route type="chemin">
-				<point x="2.1524582E7" y="6.0821606E8" />
-				<point x="2.1524708E7" y="6.0821555E8" />
+				<point x="1.9335861" y="47.85135" />
+				<point x="1.9335974" y="47.851322" />
 			</route>
 			<route type="chemin">
-				<point x="2.161042E7" y="6.0818528E8" />
-				<point x="2.1611072E7" y="6.0818662E8" />
+				<point x="1.941297" y="47.849495" />
+				<point x="1.9413556" y="47.849575" />
 			</route>
 			<route type="chemin">
-				<point x="2.1600352E7" y="6.0816538E8" />
-				<point x="2.1599644E7" y="6.0816422E8" />
+				<point x="1.9403925" y="47.848297" />
+				<point x="1.940329" y="47.84823" />
 			</route>
 			<route type="chemin">
-				<point x="2.1597492E7" y="6.081751E8" />
-				<point x="2.1599462E7" y="6.081753E8" />
+				<point x="1.9401356" y="47.84888" />
+				<point x="1.9403127" y="47.848896" />
 			</route>
 			<route type="chemin">
-				<point x="2.1598088E7" y="6.0816454E8" />
-				<point x="2.1599404E7" y="6.0816384E8" />
+				<point x="1.9401894" y="47.848248" />
+				<point x="1.9403074" y="47.848206" />
 			</route>
 			<route type="chemin">
-				<point x="2.1605164E7" y="6.0816205E8" />
-				<point x="2.1605638E7" y="6.0816288E8" />
+				<point x="1.9408249" y="47.84809" />
+				<point x="1.9408675" y="47.848145" />
 			</route>
 			<route type="chemin">
-				<point x="2.1614868E7" y="6.0819437E8" />
-				<point x="2.1615864E7" y="6.0819629E8" />
+				<point x="1.9416968" y="47.850044" />
+				<point x="1.9417862" y="47.85016" />
 			</route>
 			<route type="chemin">
-				<point x="2.1577776E7" y="6.0816339E8" />
-				<point x="2.1580444E7" y="6.0816442E8" />
+				<point x="1.9383646" y="47.848175" />
+				<point x="1.9386042" y="47.84824" />
 			</route>
 			<route type="chemin">
-				<point x="2.1592682E7" y="6.0815597E8" />
-				<point x="2.1595312E7" y="6.0815968E8" />
+				<point x="1.9397036" y="47.84773" />
+				<point x="1.9399399" y="47.847954" />
 			</route>
 			<route type="chemin">
-				<point x="2.160329E7" y="6.0816154E8" />
-				<point x="2.160226E7" y="6.0816141E8" />
+				<point x="1.9406565" y="47.848064" />
+				<point x="1.9405642" y="47.848057" />
 			</route>
 			<route type="chemin">
-				<point x="2.153092E7" y="6.0820659E8" />
-				<point x="2.1530656E7" y="6.0820608E8" />
+				<point x="1.9341555" y="47.85078" />
+				<point x="1.9341317" y="47.85075" />
 			</route>
 			<route type="chemin">
-				<point x="2.155088E7" y="6.0818515E8" />
-				<point x="2.1549868E7" y="6.0818624E8" />
+				<point x="1.9359486" y="47.849487" />
+				<point x="1.9358577" y="47.849556" />
 			</route>
 			<route type="chemin">
-				<point x="2.1546372E7" y="6.0819392E8" />
-				<point x="2.1546944E7" y="6.0819469E8" />
+				<point x="1.9355435" y="47.850014" />
+				<point x="1.9355948" y="47.850063" />
 			</route>
 			<route type="chemin">
-				<point x="2.1565366E7" y="6.0816026E8" />
-				<point x="2.1566052E7" y="6.081625E8" />
+				<point x="1.9372498" y="47.84799" />
+				<point x="1.9373114" y="47.84812" />
 			</route>
 			<route type="chemin">
-				<point x="2.156032E7" y="6.0816077E8" />
-				<point x="2.1563484E7" y="6.0815962E8" />
+				<point x="1.9367965" y="47.848022" />
+				<point x="1.9370807" y="47.84795" />
 			</route>
 			<route type="route">
-				<point x="2.1601804E7" y="6.081225E8" />
-				<point x="2.1593376E7" y="6.0810426E8" />
+				<point x="1.940523" y="47.84571" />
+				<point x="1.9397659" y="47.844612" />
 			</route>
 			<route type="route">
-				<point x="2.1469232E7" y="6.0801754E8" />
-				<point x="2.1482512E7" y="6.0804461E8" />
+				<point x="1.9286139" y="47.839386" />
+				<point x="1.9298068" y="47.841015" />
 			</route>
 			<route type="route">
-				<point x="2.147017E7" y="6.0806227E8" />
-				<point x="2.1449332E7" y="6.0807232E8" />
+				<point x="1.9286982" y="47.842083" />
+				<point x="1.9268262" y="47.842686" />
 			</route>
 			<route type="route">
-				<point x="2.1491044E7" y="6.0800659E8" />
-				<point x="2.1504024E7" y="6.080336E8" />
+				<point x="1.9305732" y="47.838726" />
+				<point x="1.9317394" y="47.840355" />
 			</route>
 			<route type="route">
-				<point x="2.1482512E7" y="6.0804461E8" />
-				<point x="2.1486816E7" y="6.0804243E8" />
+				<point x="1.9298068" y="47.841015" />
+				<point x="1.9301935" y="47.840885" />
 			</route>
 			<route type="route">
-				<point x="2.1482512E7" y="6.0804461E8" />
-				<point x="2.1483432E7" y="6.0804653E8" />
+				<point x="1.9298068" y="47.841015" />
+				<point x="1.9298896" y="47.84113" />
 			</route>
 			<route type="route">
-				<point x="2.1483432E7" y="6.0804653E8" />
-				<point x="2.146088E7" y="6.0805734E8" />
+				<point x="1.9298896" y="47.84113" />
+				<point x="1.9278636" y="47.841785" />
 			</route>
 			<route type="route">
-				<point x="2.1491044E7" y="6.0800659E8" />
-				<point x="2.1485252E7" y="6.0799526E8" />
+				<point x="1.9305732" y="47.838726" />
+				<point x="1.9300531" y="47.83804" />
 			</route>
 			<route type="route">
-				<point x="2.150186E7" y="6.0797466E8" />
-				<point x="2.1512224E7" y="6.0799584E8" />
+				<point x="1.9315449" y="47.8368" />
+				<point x="1.9324759" y="47.838078" />
 			</route>
 			<route type="route">
-				<point x="2.1469232E7" y="6.0801754E8" />
-				<point x="2.1449264E7" y="6.0802758E8" />
+				<point x="1.9286139" y="47.839386" />
+				<point x="1.9268203" y="47.83999" />
 			</route>
 			<route type="route">
-				<point x="2.1512224E7" y="6.0799584E8" />
-				<point x="2.1493952E7" y="6.0800512E8" />
+				<point x="1.9324759" y="47.838078" />
+				<point x="1.9308347" y="47.838634" />
 			</route>
 			<route type="chemin">
-				<point x="2.1506332E7" y="6.0804493E8" />
-				<point x="2.1513304E7" y="6.0806752E8" />
+				<point x="1.9319466" y="47.841038" />
+				<point x="1.932573" y="47.842396" />
 			</route>
 			<route type="route">
-				<point x="2.1443018E7" y="6.0802694E8" />
-				<point x="2.1443648E7" y="6.0802726E8" />
+				<point x="1.926259" y="47.83995" />
+				<point x="1.9263155" y="47.83997" />
 			</route>
 			<route type="route">
-				<point x="2.1440372E7" y="6.0802925E8" />
-				<point x="2.1440372E7" y="6.0802854E8" />
+				<point x="1.9260215" y="47.840088" />
+				<point x="1.9260213" y="47.840046" />
 			</route>
 			<route type="route">
-				<point x="2.1426928E7" y="6.080752E8" />
-				<point x="2.1427552E7" y="6.0806266E8" />
+				<point x="1.9248137" y="47.84286" />
+				<point x="1.9248698" y="47.842106" />
 			</route>
 			<route type="route">
-				<point x="2.1438548E7" y="6.0806669E8" />
-				<point x="2.144206E7" y="6.0806784E8" />
+				<point x="1.9258574" y="47.842346" />
+				<point x="1.926173" y="47.84242" />
 			</route>
 			<route type="route">
-				<point x="2.1442538E7" y="6.0803091E8" />
-				<point x="2.144183E7" y="6.0803085E8" />
+				<point x="1.926216" y="47.84019" />
+				<point x="1.9261523" y="47.840183" />
 			</route>
 			<route type="route">
-				<point x="2.1438612E7" y="6.0807149E8" />
-				<point x="2.1429766E7" y="6.0807597E8" />
+				<point x="1.9258633" y="47.842636" />
+				<point x="1.9250686" y="47.842907" />
 			</route>
 			<route type="route">
-				<point x="2.1426928E7" y="6.080752E8" />
-				<point x="2.1435052E7" y="6.0807168E8" />
+				<point x="1.9248137" y="47.84286" />
+				<point x="1.9255434" y="47.842648" />
 			</route>
 			<route type="route">
-				<point x="2.1443032E7" y="6.0800826E8" />
-				<point x="2.1447602E7" y="6.0801702E8" />
+				<point x="1.9262602" y="47.838825" />
+				<point x="1.9266709" y="47.83935" />
 			</route>
 			<route type="route">
-				<point x="2.1440108E7" y="6.0800256E8" />
-				<point x="2.1446234E7" y="6.0799488E8" />
+				<point x="1.9259976" y="47.83848" />
+				<point x="1.926548" y="47.838017" />
 			</route>
 			<route type="route">
-				<point x="2.143356E7" y="6.0801312E8" />
-				<point x="2.1435048E7" y="6.0801235E8" />
+				<point x="1.9254096" y="47.839115" />
+				<point x="1.9255431" y="47.83907" />
 			</route>
 			<route type="route">
-				<point x="2.138224E7" y="6.0790605E8" />
-				<point x="2.1393828E7" y="6.0792934E8" />
+				<point x="1.9207993" y="47.832657" />
+				<point x="1.9218402" y="47.834064" />
 			</route>
 			<route type="chemin">
-				<point x="2.1383508E7" y="6.0790534E8" />
-				<point x="2.1385252E7" y="6.0790893E8" />
+				<point x="1.9209131" y="47.83262" />
+				<point x="1.92107" y="47.832832" />
 			</route>
 			<route type="route">
-				<point x="2.1632852E7" y="6.0819674E8" />
-				<point x="2.1633352E7" y="6.0819475E8" />
+				<point x="1.9433122" y="47.850185" />
+				<point x="1.943357" y="47.850067" />
 			</route>
 			<route type="route">
-				<point x="2.163708E7" y="6.0818502E8" />
-				<point x="2.163741E7" y="6.0818912E8" />
+				<point x="1.9436921" y="47.849483" />
+				<point x="1.9437217" y="47.849728" />
 			</route>
 			<route type="chemin">
-				<point x="2.1585288E7" y="6.0808038E8" />
-				<point x="2.1583632E7" y="6.0807757E8" />
+				<point x="1.9390395" y="47.84317" />
+				<point x="1.9388906" y="47.843002" />
 			</route>
 			<route type="chemin">
-				<point x="2.1533504E7" y="6.0801728E8" />
-				<point x="2.1538908E7" y="6.0802733E8" />
+				<point x="1.9343877" y="47.83937" />
+				<point x="1.934873" y="47.839973" />
 			</route>
 		</routes>
 	</graphics>
