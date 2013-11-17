@@ -6,6 +6,13 @@ package com.google.code.sig_1337.model.xml;
 public interface ISig1337 {
 
 	/**
+	 * Get the bounds.
+	 * 
+	 * @return the bounds.
+	 */
+	public IBounds getBounds();
+
+	/**
 	 * Get the graphics.
 	 * 
 	 * @return the graphics.

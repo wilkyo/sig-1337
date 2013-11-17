@@ -1,38 +1,81 @@
 package com.google.code.sig_1337.model.xml;
 
-import android.graphics.PointF;
-
 /**
  * Point.
  */
-public class Point extends PointF implements IPoint {
+public class Point implements IPoint {
+
+	/**
+	 * Longitude.
+	 */
+	private double longitude;
+
+	/**
+	 * Latitude.
+	 */
+	private double latitude;
+
+	/**
+	 * Relative longitude.
+	 */
+	private double relativeLongitude;
+
+	/**
+	 * Relative latitude.
+	 */
+	private double relativeLatitude;
 
 	/**
 	 * Initializing constructor.
 	 * 
-	 * @param x
-	 *            x-coordinate.
-	 * @param y
-	 *            y-coordinate.
+	 * @param longitude
+	 *            longitude.
+	 * @param latitude
+	 *            latitude.
+	 * @param relativeLongitude
+	 *            relative longitude.
+	 * @param relativeLatitude
+	 *            relative latitude.
 	 */
-	public Point(float x, float y) {
-		super(x, y);
+	public Point(double longitude, double latitude, double relativeLongitude,
+			double relativeLatitude) {
+		super();
+		this.longitude = longitude;
+		this.latitude = latitude;
+		this.relativeLongitude = relativeLongitude;
+		this.relativeLatitude = relativeLatitude;
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public float getX() {
-		return x;
+	public double getLongitude() {
+		return longitude;
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public float getY() {
-		return y;
+	public double getLatitude() {
+		return latitude;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public double getRelativeLongitude() {
+		return relativeLongitude;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public double getRelativeLatitude() {
+		return relativeLatitude;
 	}
 
 }

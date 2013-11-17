@@ -6,17 +6,31 @@ package com.google.code.sig_1337.model.xml;
 public interface IPoint {
 
 	/**
-	 * Get the x-coordinate.
+	 * Get the longitude.
 	 * 
-	 * @return the x-coordinate.
+	 * @return the longitude.
 	 */
-	public float getX();
+	public double getLongitude();
 
 	/**
-	 * Get the y-coordinate.
+	 * Get the latitude.
 	 * 
-	 * @return the y-coordinate.
+	 * @return the latitude.
 	 */
-	public float getY();
+	public double getLatitude();
+
+	/**
+	 * Get the longitude, relative to the map bounds.
+	 * 
+	 * @return the longitude.
+	 */
+	public double getRelativeLongitude();
+
+	/**
+	 * Get the latitude, relative to the map bounds.
+	 * 
+	 * @return the latitude.
+	 */
+	public double getRelativeLatitude();
 
 }

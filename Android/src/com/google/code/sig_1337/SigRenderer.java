@@ -9,13 +9,18 @@ import javax.microedition.khronos.opengles.GL10;
 
 import android.content.Context;
 import android.opengl.GLSurfaceView;
+import android.view.DragEvent;
+import android.view.ScaleGestureDetector;
+import android.view.ScaleGestureDetector.SimpleOnScaleGestureListener;
 
+import com.google.code.sig_1337.model.xml.IBounds;
 import com.google.code.sig_1337.model.xml.IBuilding;
 import com.google.code.sig_1337.model.xml.IBuildings;
 import com.google.code.sig_1337.model.xml.IRoute;
 import com.google.code.sig_1337.model.xml.IRoutes;
 import com.google.code.sig_1337.model.xml.ISig1337;
 import com.google.code.sig_1337.model.xml.ITriangle;
+import com.google.code.sig_1337.model.xml.ITriangles;
 
 /**
  * Render for {@code Sig1337}.
@@ -28,20 +33,74 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	private static final float[] CLEAR_COLOR = { 0.0f, 0.0f, 0.0f, 0.0f };
 
 	/**
+	 * Scale listener.
+	 */
+	private MyScaleListener scaleListener;
+
+	/**
+	 * User scale factor.
+	 */
+	private float userScale = 1;
+
+	/**
+	 * User horizontal translation.
+	 */
+	private float userDX = 0;
+
+	/**
+	 * User vertical translation.
+	 */
+	private float userDY = 0;
+
+	/**
 	 * SIG.
 	 */
 	private ISig1337 sig;
 
+	private double mapX;
+
+	private double mapY;
+
+	private double mapWidth;
+
+	private double mapHeight;
+
 	FloatBuffer colorBuffer;
+
+	FloatBuffer colorBufferTrou;
+
+	/**
+	 * GPS listener.
+	 */
+	private MyLocationListener locationListener;
+
+	private float ratio;
+
+	private float width;
+
+	private float height;
 
 	/**
 	 * Initializing constructor.
 	 * 
 	 * @param context
 	 *            context.
+	 * @param GPS
+	 *            listener.
 	 */
-	public SigRenderer(Context context) {
+	public SigRenderer(Context context, MyLocationListener locationListener) {
 		super();
+		scaleListener = new MyScaleListener();
+		this.locationListener = locationListener;
+	}
+
+	/**
+	 * Get the scale listener.
+	 * 
+	 * @return the scale listener.
+	 */
+	public MyScaleListener getScaleListener() {
+		return scaleListener;
 	}
 
 	/**
@@ -52,6 +111,11 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	 */
 	public synchronized void setSig(ISig1337 sig) {
 		this.sig = sig;
+		IBounds bounds = sig.getBounds();
+		mapX = bounds.getMinLon();
+		mapY = bounds.getMinLat();
+		mapWidth = bounds.getMaxLon() - bounds.getMinLon();
+		mapHeight = bounds.getMaxLat() - bounds.getMinLat();
 	}
 
 	/**
@@ -60,14 +124,28 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	@Override
 	public synchronized void onDrawFrame(GL10 gl) {
 		gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
-		gl.glMatrixMode(GL10.GL_MODELVIEW);
+		gl.glMatrixMode(GL10.GL_PROJECTION);
 		gl.glLoadIdentity();
-		gl.glTranslatef(0.0f, 0.0f, -9.0f);
+		gl.glOrthof(-ratio, ratio, -1, 1, 0, 1);
+		gl.glTranslatef(0, 0, -0.00001f);
 
 		gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
 		gl.glEnableClientState(GL10.GL_COLOR_ARRAY);
 
+		// Translate.
+		float cX = (float) (locationListener.getLongitude() - mapX);
+		float cY = (float) (locationListener.getLatitude() - mapY);
+		// Scale.
+		float rW = (float) ((ratio * 2) / mapWidth);
+		float rH = (float) ((2 / mapHeight));
+		float scale = (float) Math.max(rW, rH) * userScale;
+		gl.glPushMatrix();
+		//
+		gl.glTranslatef(userDX/1000, -userDY/1000, 0);
+		gl.glScalef(scale, scale, 1);
+		gl.glTranslatef(-(float) cX, -(float) cY, 0);
 		drawGraphics(gl);
+		gl.glPopMatrix();
 
 		gl.glDisableClientState(GL10.GL_VERTEX_ARRAY);
 		gl.glDisableClientState(GL10.GL_COLOR_ARRAY);
@@ -108,12 +186,27 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	 *            building to draw.
 	 */
 	private void drawBuilding(GL10 gl, IBuilding building) {
-		for (ITriangle t : building.getTriangles()) {
-			// Draw the triangle.
-			gl.glVertexPointer(3, GL10.GL_FLOAT, 0, t.getVertexBuffer());
-			gl.glColorPointer(4, GL10.GL_FLOAT, 0, colorBuffer);
-			gl.glDrawElements(GL10.GL_TRIANGLES, 3, GL10.GL_UNSIGNED_SHORT,
-					t.getIndexBuffer());
+		FloatBuffer color;
+		for (ITriangles ts : building.getTriangles()) {
+			// Color depending on the type.
+			if (ts.getType() != null) {
+				switch (ts.getType()) {
+				case Trou:
+					color = colorBufferTrou;
+				default:
+					color = colorBuffer;
+				}
+			} else {
+				color = colorBuffer;
+			}
+			// Draw the triangles.
+			for (ITriangle t : ts) {
+				// Draw the triangle.
+				gl.glVertexPointer(3, GL10.GL_FLOAT, 0, t.getVertexBuffer());
+				gl.glColorPointer(4, GL10.GL_FLOAT, 0, color);
+				gl.glDrawElements(GL10.GL_TRIANGLES, 3, GL10.GL_UNSIGNED_SHORT,
+						t.getIndexBuffer());
+			}
 		}
 	}
 
@@ -160,11 +253,13 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	 */
 	@Override
 	public void onSurfaceChanged(GL10 gl, int width, int height) {
+		this.width = width;
+		this.height = height;
 		gl.glViewport(0, 0, width, height);
-		float ratio = (float) width / height;
+		ratio = (float) width / height;
 		gl.glMatrixMode(GL10.GL_PROJECTION);
 		gl.glLoadIdentity();
-		gl.glFrustumf(-ratio, ratio, -1, 1, 1, 10);
+		gl.glOrthof(-ratio, ratio, -1, 1, 0, 1);
 	}
 
 	/**
@@ -182,6 +277,40 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 		colorBuffer = bb.asFloatBuffer();
 		colorBuffer.put(new float[] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 });
 		colorBuffer.position(0);
+		bb = ByteBuffer.allocateDirect(48);
+		bb.order(ByteOrder.nativeOrder());
+		colorBufferTrou = bb.asFloatBuffer();
+		colorBufferTrou.put(new float[] { 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1 });
+		colorBufferTrou.position(0);
+	}
+
+	/**
+	 * Called when a drag event occurred.
+	 * 
+	 * @param dX
+	 *            Horizontal dragging.
+	 * @param dY
+	 *            Vertical dragging.
+	 */
+	public void onDrag(float dX, float dY) {
+		userDX += dX;
+		userDY += dY;
+	}
+
+	/**
+	 * Custom scale listener.
+	 */
+	private class MyScaleListener extends SimpleOnScaleGestureListener {
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public boolean onScale(ScaleGestureDetector detector) {
+			userScale *= detector.getScaleFactor();
+			return true;
+		}
+
 	}
 
 }
