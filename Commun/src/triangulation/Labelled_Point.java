@@ -7,7 +7,7 @@ public class Labelled_Point extends Point {
 		START, END, SPLIT, MERGE, REGULAR
 	};
 
-	Point_Type type;
+	private Point_Type type;
 	
 	public Labelled_Point(float x, float y, Point_Type pt) {
 		super(x, y);
@@ -25,5 +25,10 @@ public class Labelled_Point extends Point {
 	
 	public void setType(Point_Type pt) {
 		type = pt;
+	}
+
+	@Override
+	public String toString() {
+		return "(" + x + " " + y + ") :" + type;
 	}
 }

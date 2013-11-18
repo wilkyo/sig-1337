@@ -89,4 +89,10 @@ public class Segment {
 	public double longueur() {
 		return Math.sqrt(Math.pow(fin.x-debut.x,2)+Math.pow(fin.y-debut.y, 2));	
 	}
+	
+	@Override
+	public int hashCode() {
+		// TODO Auto-generated method stub
+		return debut.hashCode() + fin.hashCode();
+	}
 }
