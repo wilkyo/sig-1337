@@ -1,5 +1,7 @@
 package com.google.code.sig_1337.model.xml;
 
+import java.util.List;
+
 /**
  * Building.
  */
@@ -13,7 +15,7 @@ public class Building implements IBuilding {
 	/**
 	 * Triangles.
 	 */
-	private final ITriangles triangles;
+	private final List<ITriangles> triangles;
 
 	/**
 	 * Initializing constructor.
@@ -23,7 +25,7 @@ public class Building implements IBuilding {
 	 * @param triangles
 	 *            triangles.
 	 */
-	public Building(String name, ITriangles triangles) {
+	public Building(String name, List<ITriangles> triangles) {
 		super();
 		this.name = name;
 		this.triangles = triangles;
@@ -41,7 +43,7 @@ public class Building implements IBuilding {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public ITriangles getTriangles() {
+	public List<ITriangles> getTriangles() {
 		return triangles;
 	}
 

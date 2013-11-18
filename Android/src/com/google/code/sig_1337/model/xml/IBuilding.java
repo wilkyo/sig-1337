@@ -1,5 +1,7 @@
 package com.google.code.sig_1337.model.xml;
 
+import java.util.List;
+
 /**
  * Interface for buildings.
  */
@@ -17,6 +19,6 @@ public interface IBuilding {
 	 * 
 	 * @return the triangles.
 	 */
-	public ITriangles getTriangles();
+	public List<ITriangles> getTriangles();
 
 }

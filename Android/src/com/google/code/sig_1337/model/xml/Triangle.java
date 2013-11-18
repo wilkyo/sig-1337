@@ -65,9 +65,14 @@ public class Triangle implements ITriangle {
 		bb.order(ByteOrder.nativeOrder());
 		vertexBuffer = bb.asFloatBuffer();
 		vertexBuffer.put(new float[] { //
-				p1.getX(), p1.getY(), 0, // P1.
-						p2.getX(), p2.getY(), 0, // P2.
-						p3.getX(), p3.getY(), 0 // P3
+						(float) p1.getRelativeLongitude(),
+						(float) p1.getRelativeLatitude(),
+						0, // P1.
+						(float) p2.getRelativeLongitude(),
+						(float) p2.getRelativeLatitude(),
+						0, // P2.
+						(float) p3.getRelativeLongitude(),
+						(float) p3.getRelativeLatitude(), 0 // P3
 				});
 		vertexBuffer.position(0);
 		// Create the index buffer.

@@ -52,8 +52,11 @@ public class Route implements IRoute {
 		bb.order(ByteOrder.nativeOrder());
 		vertexBuffer = bb.asFloatBuffer();
 		vertexBuffer.put(new float[] { //
-				from.getX(), from.getY(), 0, // From.
-						to.getX(), to.getY(), 0 // To.
+				(float) from.getRelativeLongitude(),
+						(float) from.getRelativeLatitude(),
+						0, // From.
+						(float) to.getRelativeLongitude(),
+						(float) to.getRelativeLatitude(), 0 // To.
 				});
 		vertexBuffer.position(0);
 		// Create the index buffer.

@@ -7,4 +7,11 @@ import java.util.List;
  */
 public interface ITriangles extends List<ITriangle> {
 
+	/**
+	 * Get the type.
+	 * 
+	 * @return The type.
+	 */
+	public TrianglesType getType();
+
 }

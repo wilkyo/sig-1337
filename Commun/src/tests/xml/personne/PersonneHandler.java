@@ -1,4 +1,4 @@
-package xml.test.personne;
+package tests.xml.personne;
 
 import java.util.LinkedList;
 import java.util.List;

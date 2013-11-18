@@ -12,4 +12,28 @@ public class Triangles extends ArrayList<ITriangle> implements ITriangles {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Type.
+	 */
+	private TrianglesType type;
+
+	/**
+	 * Initializing constructor.
+	 * 
+	 * @param type
+	 *            type.
+	 */
+	public Triangles(TrianglesType type) {
+		super();
+		this.type = type;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public TrianglesType getType() {
+		return type;
+	}
+
 }
