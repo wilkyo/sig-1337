@@ -39,11 +39,7 @@ public class Point implements Comparable<Point>{
 		if (getClass() != obj.getClass())
 			return false;
 		Point other = (Point) obj;
-		if (Float.floatToIntBits(x) != Float.floatToIntBits(other.x))
-			return false;
-		if (Float.floatToIntBits(y) != Float.floatToIntBits(other.y))
-			return false;
-		return true;
+		return (proche(other.x, x) && proche(other.y, y));
 	}
 
 
@@ -66,7 +62,6 @@ public class Point implements Comparable<Point>{
 	public int compareTo(Point p) {
 		if (proche (x,p.x) && proche (y,p.y))
 			return 0;
-
 		if (y < p.y)
 			return 1;
 		else if (y>p.y)

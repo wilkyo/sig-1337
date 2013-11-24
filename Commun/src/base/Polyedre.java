@@ -6,6 +6,8 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Vector;
 
+import triangulation.Triangulation;
+
 public class Polyedre {
 	public Point[] points;
 
@@ -15,7 +17,8 @@ public class Polyedre {
 	}
 
 	public boolean contains(Point p) {
-		return true;
+		ArrayList<Point> inter = intersect(p);
+		return (inter.size()%2 != 0);
 	}
 
 	public ArrayList<Segment> envellopeConvexN3() {
@@ -99,10 +102,27 @@ public class Polyedre {
 	 * @return List<Polyedre> of the triangles.
 	 */
 	public List<Polyedre> toTriangles() {
-		List<Polyedre> triangles = new ArrayList<Polyedre>();
-		// TODO Bouchon
-		Point[] first = new Point[] { points[0], points[1], points[2] };
-		triangles.add(new Polyedre(first));
-		return triangles;
+		return Triangulation.partitionning_polygon(this);
+	}
+	
+	public ArrayList<Point> intersect(Point p) {
+		Point I  = new Point(10000,0);
+		Segment PI = new Segment(p, I);
+		return intersect(PI);
+	}
+	
+	public ArrayList<Point> intersect(Segment s) {
+		ArrayList<Point> res = new ArrayList<>();
+		for(int j = 0; j < points.length; j++) {
+			Segment s1;
+			if(j == (points.length-1))
+				s1 = new Segment(points[j],points[0]);
+			else
+				s1 = new Segment(points[j], points[j+1]);
+			Point p = s1.intersection(s);
+			if(!res.contains(p) && p != null)
+				res.add(p);
+		}
+		return res;
 	}
 }

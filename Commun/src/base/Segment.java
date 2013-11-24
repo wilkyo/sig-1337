@@ -28,6 +28,10 @@ public class Segment {
 
 	}
 
+	public Point milieu() {
+		return new Point((debut.x+fin.x)/2,(debut.y+fin.y)/2);
+	}
+	
 	public Point intersectionHorizontale(float y) {
 		if ((debut.y - y) * (fin.y - y) > 0) // debut, fin du m�me cot�
 			return null;
@@ -81,9 +85,15 @@ public class Segment {
 
 		if (a < 0 || a > 1)
 			return null;
-		else
-			return new Point(debut.x + a * (fin.x - debut.x), debut.y + a
+		else {
+			Point p = new Point(debut.x + a * (fin.x - debut.x), debut.y + a
 					* (fin.y - debut.y));
+			Segment strie = s.trie();
+			if(p.x >= strie.debut.x && p.x <= strie.fin.x)
+				return p;
+			else
+				return null;
+		}
 	}
 	
 	public double longueur() {
