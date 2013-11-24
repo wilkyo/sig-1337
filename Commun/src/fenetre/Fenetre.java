@@ -17,7 +17,7 @@ public class Fenetre extends JFrame {
 		setLocation(screenSize.width / 4, screenSize.height / 4);
 
 		// definir l'icone
-		setTitle("Algorithmique géometrique");
+		setTitle("Algorithmique g√©ometrique");
 
 		// ajouter le panneau au cadre
 		Container contentPane = getContentPane();

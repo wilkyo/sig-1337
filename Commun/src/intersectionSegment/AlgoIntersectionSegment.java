@@ -14,7 +14,7 @@ public class AlgoIntersectionSegment {
 	}
 
 	public ArrayList<Point> findIntersection() {
-		/* initialisation de la queue des évènements */
+		/* initialisation de la queue des √©v√®nements */
 		for (Segment s : segment) {
 			EventQueue.Event e = queue.add(s.debut);
 			e.addDebut(s);
