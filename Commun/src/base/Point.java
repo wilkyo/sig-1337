@@ -1,26 +1,49 @@
 package base;
 
-
+/**
+ * Classe contenant les informations d'un point
+ */
 public class Point implements Comparable<Point>{
+	/**
+	 * La position en X du point
+	 */
 	public float x;
+	/**
+	 * La position en Y du point
+	 */
 	public float y;
 	
+	/**
+	 * Construit un point de coordonnée x,y
+	 * @param x La position en X
+	 * @param y La position en Y
+	 */
 	public Point(float x, float y) {
 		super();
 		this.x = x;
 		this.y = y;
 	}
 	
+	/**
+	 * Construit un point de coordonnée p.x, p.y
+	 * @param p le point à recopier
+	 */
 	public Point(Point p) {
 		this.x = p.x;
 		this.y = p.y;
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public String toString() {;
 		return "(" + x + "," + y + ")";
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -30,6 +53,9 @@ public class Point implements Comparable<Point>{
 		return result;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -43,22 +69,43 @@ public class Point implements Comparable<Point>{
 	}
 
 
-
+	/**
+	 * Applique une translation de vecteur s
+	 * @param s le vecteur de translation
+	 * @return Le point translaté
+	 */
 	public Point translation(Segment s) {
 		return new Point(x+s.fin.x-s.debut.x,y+s.fin.y-s.debut.y);
 	}
 	
+	/**
+	 * Applique une homothetie de coefficiant lamda
+	 * @param lambda le coefficiant de l'homothetie
+	 * @return le point après homothétie
+	 */
 	public Point homothetie(float lambda) {
 		return new Point(lambda*x,lambda*y);
 	}
 	
+	/**
+	 * L'écart minimun entre 2 points
+	 */
 	private static final float EPSILON = (float) 0.001;
 	
+	/**
+	 * Fonction vérifiant que 2 valueurs sont assez éloignés
+	 * @param x un des valeurs à comparer
+	 * @param y un des valeurs à comparer
+	 * @return Vrai si les valeurs sont proche d'EPSILON
+	 */
 	private static boolean proche(float x, float y) {
 		return (x-y < EPSILON) && (y-x < EPSILON);
 	}
 
-	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public int compareTo(Point p) {
 		if (proche (x,p.x) && proche (y,p.y))
 			return 0;
