@@ -353,6 +353,8 @@ public class Sig1337 implements ISig1337 {
 			String s = parser.getAttributeValue(null, TYPE);
 			if (s != null) {
 				type = TrianglesType.parse(s);
+			} else {
+				type = TrianglesType.Filled;
 			}
 			ITriangles triangles = new Triangles(type);
 			while (parser.next() != XmlPullParser.END_TAG) {
