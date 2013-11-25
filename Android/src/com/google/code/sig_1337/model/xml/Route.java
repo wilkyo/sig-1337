@@ -23,9 +23,24 @@ public class Route implements IRoute {
 	private final IPoint to;
 
 	/**
+	 * Angle.
+	 */
+	private final float angle;
+
+	/**
+	 * Length.
+	 */
+	private final float length;
+
+	/**
 	 * Vertex buffer.
 	 */
-	private final FloatBuffer vertexBuffer;
+	private final FloatBuffer fillVertexBuffer;
+
+	/**
+	 * Vertex buffer.
+	 */
+	private final FloatBuffer strokeVertexBuffer;
 
 	/**
 	 * Index buffer.
@@ -47,23 +62,41 @@ public class Route implements IRoute {
 		this.type = type;
 		this.from = from;
 		this.to = to;
-		// Create the vertex buffer.
-		ByteBuffer bb = ByteBuffer.allocateDirect(24);
+		float dX = (float) (to.getRelativeLongitude() - from
+				.getRelativeLongitude());
+		float dY = (float) (to.getRelativeLatitude() - from
+				.getRelativeLatitude());
+		angle = (float) ((Math.atan2(dY, dX) * 180f) / Math.PI);
+		length = (float) Math.sqrt(dX * dX + dY * dY);
+		// Fill.
+		float y = type.getFillSize() / 2f;
+		ByteBuffer bb = ByteBuffer.allocateDirect(48);
 		bb.order(ByteOrder.nativeOrder());
-		vertexBuffer = bb.asFloatBuffer();
-		vertexBuffer.put(new float[] { //
-				(float) from.getRelativeLongitude(),
-						(float) from.getRelativeLatitude(),
-						0, // From.
-						(float) to.getRelativeLongitude(),
-						(float) to.getRelativeLatitude(), 0 // To.
+		fillVertexBuffer = bb.asFloatBuffer();
+		fillVertexBuffer.put(new float[] { //
+				0, y, 0, // From.
+						length, y, 0, // To.
+						0, -y, 0, // From.
+						length, -y, 0 // To.
 				});
-		vertexBuffer.position(0);
+		fillVertexBuffer.position(0);
+		// Stroke.
+		y = type.getStrokeSize() / 2f;
+		bb = ByteBuffer.allocateDirect(48);
+		bb.order(ByteOrder.nativeOrder());
+		strokeVertexBuffer = bb.asFloatBuffer();
+		strokeVertexBuffer.put(new float[] { //
+				0, y, 0, // From.
+						length, y, 0, // To.
+						0, -y, 0, // From.
+						length, -y, 0 // To.
+				});
+		strokeVertexBuffer.position(0);
 		// Create the index buffer.
-		bb = ByteBuffer.allocateDirect(4);
+		bb = ByteBuffer.allocateDirect(12);
 		bb.order(ByteOrder.nativeOrder());
 		indexBuffer = bb.asShortBuffer();
-		indexBuffer.put(new short[] { 0, 1 });
+		indexBuffer.put(new short[] { 0, 1, 2, 1, 2, 3 });
 		indexBuffer.position(0);
 	}
 
@@ -95,8 +128,24 @@ public class Route implements IRoute {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public FloatBuffer getVertexBuffer() {
-		return vertexBuffer;
+	public float getAngle() {
+		return angle;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public FloatBuffer getFillVertexBuffer() {
+		return fillVertexBuffer;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public FloatBuffer getStrokeVertexBuffer() {
+		return strokeVertexBuffer;
 	}
 
 	/**

@@ -35,7 +35,7 @@ public enum RouteType {
 		 */
 		@Override
 		public float getFillSize() {
-			return 2.0f;
+			return 0.00004f;
 		}
 
 		/**
@@ -43,7 +43,7 @@ public enum RouteType {
 		 */
 		@Override
 		public float getStrokeSize() {
-			return 1.0f;
+			return 0.00006f;
 		}
 
 	},
@@ -73,7 +73,7 @@ public enum RouteType {
 		 */
 		@Override
 		public float getFillSize() {
-			return 4.0f;
+			return 0.00006f;
 		}
 
 		/**
@@ -81,7 +81,7 @@ public enum RouteType {
 		 */
 		@Override
 		public float getStrokeSize() {
-			return 2.0f;
+			return 0.00008f;
 		}
 
 	};
@@ -107,37 +107,41 @@ public enum RouteType {
 	private static final FloatBuffer ROUTE_STROKE;
 
 	static {
-		ByteBuffer bb = ByteBuffer.allocateDirect(48);
+		ByteBuffer bb = ByteBuffer.allocateDirect(64);
 		bb.order(ByteOrder.nativeOrder());
 		PATH_FILL = bb.asFloatBuffer();
 		float r = 253f / 255f;
 		float g = 250f / 255f;
 		float b = 240f / 255f;
-		PATH_FILL.put(new float[] { r, g, b, 1, r, g, b, 1, r, g, b, 1 });
+		PATH_FILL.put(new float[] { r, g, b, 1, r, g, b, 1, r, g, b, 1, r, g,
+				b, 1 });
 		PATH_FILL.position(0);
-		bb = ByteBuffer.allocateDirect(48);
+		bb = ByteBuffer.allocateDirect(64);
 		bb.order(ByteOrder.nativeOrder());
 		PATH_STROKE = bb.asFloatBuffer();
 		r = 188f / 255f;
 		g = 182f / 255f;
 		b = 174f / 255f;
-		PATH_STROKE.put(new float[] { r, g, b, 1, r, g, b, 1, r, g, b, 1 });
+		PATH_STROKE.put(new float[] { r, g, b, 1, r, g, b, 1, r, g, b, 1, r, g,
+				b, 1 });
 		PATH_STROKE.position(0);
-		bb = ByteBuffer.allocateDirect(48);
+		bb = ByteBuffer.allocateDirect(64);
 		bb.order(ByteOrder.nativeOrder());
 		ROUTE_FILL = bb.asFloatBuffer();
 		r = 253f / 255f;
 		g = 212f / 255f;
 		b = 117f / 255f;
-		ROUTE_FILL.put(new float[] { r, g, b, 1, r, g, b, 1, r, g, b, 1 });
+		ROUTE_FILL.put(new float[] { r, g, b, 1, r, g, b, 1, r, g, b, 1, r, g,
+				b, 1, });
 		ROUTE_FILL.position(0);
-		bb = ByteBuffer.allocateDirect(48);
+		bb = ByteBuffer.allocateDirect(64);
 		bb.order(ByteOrder.nativeOrder());
 		ROUTE_STROKE = bb.asFloatBuffer();
 		r = 143f / 255f;
 		g = 125f / 255f;
 		b = 105f / 255f;
-		ROUTE_STROKE.put(new float[] { r, g, b, 1, r, g, b, 1, r, g, b, 1 });
+		ROUTE_STROKE.put(new float[] { r, g, b, 1, r, g, b, 1, r, g, b, 1, r,
+				g, b, 1 });
 		ROUTE_STROKE.position(0);
 	}
 

@@ -13,6 +13,7 @@ import android.view.ScaleGestureDetector.SimpleOnScaleGestureListener;
 import com.google.code.sig_1337.model.xml.IBounds;
 import com.google.code.sig_1337.model.xml.IBuilding;
 import com.google.code.sig_1337.model.xml.IBuildings;
+import com.google.code.sig_1337.model.xml.IPoint;
 import com.google.code.sig_1337.model.xml.IRoute;
 import com.google.code.sig_1337.model.xml.IRoutes;
 import com.google.code.sig_1337.model.xml.ISig1337;
@@ -70,6 +71,10 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 
 	private float height;
 
+	private float testScale;
+
+	private float scale;
+
 	/**
 	 * Initializing constructor.
 	 * 
@@ -118,6 +123,8 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 		gl.glLoadIdentity();
 		gl.glOrthof(-ratio, ratio, -1, 1, 0, 1);
 		gl.glTranslatef(0, 0, -0.00001f);
+		gl.glMatrixMode(GL10.GL_MODELVIEW);
+		gl.glLoadIdentity();
 
 		gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
 		gl.glEnableClientState(GL10.GL_COLOR_ARRAY);
@@ -128,7 +135,9 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 		// Scale.
 		float rW = (float) ((ratio * 2) / mapWidth);
 		float rH = (float) ((2 / mapHeight));
-		float scale = (float) Math.max(rW, rH) * userScale;
+		float initialScale = (float) Math.max(rW, rH);
+		scale = initialScale * userScale;
+		testScale = scale / initialScale;
 		gl.glPushMatrix();
 		//
 		gl.glTranslatef(userDX / 1000, -userDY / 1000, 0);
@@ -215,11 +224,31 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	 */
 	private void drawRoute(GL10 gl, IRoute route) {
 		RouteType type = route.getType();
-		gl.glVertexPointer(3, GL10.GL_FLOAT, 0, route.getVertexBuffer());
+		gl.glPushMatrix();
+		IPoint from = route.getFrom();
+		gl.glTranslatef((float) from.getRelativeLongitude(),
+				(float) from.getRelativeLatitude(), 0);
+		gl.glRotatef(route.getAngle(), 0, 0, 1);
+		gl.glVertexPointer(3, GL10.GL_FLOAT, 0, route.getFillVertexBuffer());
 		gl.glColorPointer(4, GL10.GL_FLOAT, 0, type.getFill());
-		gl.glLineWidth(type.getFillSize());
-		gl.glDrawElements(GL10.GL_LINES, 2, GL10.GL_UNSIGNED_SHORT,
+		gl.glDrawElements(GL10.GL_TRIANGLES, 6, GL10.GL_UNSIGNED_SHORT,
 				route.getIndexBuffer());
+		gl.glVertexPointer(3, GL10.GL_FLOAT, 0, route.getStrokeVertexBuffer());
+		gl.glColorPointer(4, GL10.GL_FLOAT, 0, type.getStroke());
+		gl.glDrawElements(GL10.GL_TRIANGLES, 6, GL10.GL_UNSIGNED_SHORT,
+				route.getIndexBuffer());
+		gl.glPopMatrix();
+		/*
+		 * gl.glVertexPointer(3, GL10.GL_FLOAT, 0, route.getVertexBuffer());
+		 * gl.glColorPointer(4, GL10.GL_FLOAT, 0, type.getFill());
+		 * gl.glLineWidth(type.getFillSize() * testScale);
+		 * gl.glDrawElements(GL10.GL_LINES, 2, GL10.GL_UNSIGNED_SHORT,
+		 * route.getIndexBuffer()); gl.glVertexPointer(3, GL10.GL_FLOAT, 0,
+		 * route.getVertexBuffer()); gl.glColorPointer(4, GL10.GL_FLOAT, 0,
+		 * type.getStroke()); gl.glLineWidth(type.getStrokeSize() * testScale);
+		 * gl.glDrawElements(GL10.GL_LINES, 2, GL10.GL_UNSIGNED_SHORT,
+		 * route.getIndexBuffer());
+		 */
 	}
 
 	/**
