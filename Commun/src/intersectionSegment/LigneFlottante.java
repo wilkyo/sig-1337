@@ -99,7 +99,7 @@ public class LigneFlottante {
 	}
 
 	/*
-	 * Plus grand élément avant p
+	 * Plus grand √©l√©ment avant p
 	 */
 	public Segment avant() {
 		// [point,(max,max)] ou [point,(-max,max]
@@ -110,7 +110,7 @@ public class LigneFlottante {
 	}
 
 	/*
-	 * Plus petit élément contenant p
+	 * Plus petit √©l√©ment contenant p
 	 */
 	public Segment plusPetit() {
 		SegmentFlottant s = new SegmentFlottant(new Segment(point, new Point(
@@ -120,7 +120,7 @@ public class LigneFlottante {
 	}
 
 	/*
-	 * Plus petit élément après p
+	 * Plus petit √©l√©ment apr√®s p
 	 */
 	public Segment apres() {
 		SegmentFlottant s = new SegmentFlottant(new Segment(point, new Point(
@@ -130,7 +130,7 @@ public class LigneFlottante {
 	}
 
 	/*
-	 * Plus grand élément contenant p
+	 * Plus grand √©l√©ment contenant p
 	 */
 	public Segment plusGrand() {
 		SegmentFlottant s = new SegmentFlottant(new Segment(point, new Point(
