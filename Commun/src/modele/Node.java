@@ -6,10 +6,10 @@ import base.Polyedre;
 public class Node {
 
 	private long id;
-	private float latitude;
-	private float longitude;
+	private double latitude;
+	private double longitude;
 
-	public Node(long id, float latitude, float longitude) {
+	public Node(long id, double latitude, double longitude) {
 		setId(id);
 		setLatitude(latitude);
 		setLongitude(longitude);
@@ -23,24 +23,24 @@ public class Node {
 		this.id = id;
 	}
 
-	public float getLatitude() {
+	public double getLatitude() {
 		return latitude;
 	}
 
-	public void setLatitude(float latitude) {
+	public void setLatitude(double latitude) {
 		this.latitude = latitude;
 	}
 
-	public float getLongitude() {
+	public double getLongitude() {
 		return longitude;
 	}
 
-	public void setLongitude(float longitude) {
+	public void setLongitude(double longitude) {
 		this.longitude = longitude;
 	}
 
 	public Point toPoint() {
-		return new Point(getLongitude(), getLatitude());
+		return new Point((float) getLongitude(), (float) getLatitude());
 	}
 
 	public static Point[] toPointsArray(Node[] nodes) {
