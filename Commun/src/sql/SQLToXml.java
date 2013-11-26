@@ -49,13 +49,11 @@ public class SQLToXml {
 					+ SQLHelper.CUSTOM_TABLE_NODES);
 			while (result.next()) {
 				Node tmp = new Node(
-						result.getInt(SQLHelper.CUSTOM_TABLE_NODES_ID),
-						(float) ((result
-								.getInt(SQLHelper.CUSTOM_TABLE_NODES_LAT) / ORIGIN_SHIFT) * 180.0),
-						(float) ((result
-								.getInt(SQLHelper.CUSTOM_TABLE_NODES_LON) / ORIGIN_SHIFT) * 180.0));
-				tmp.setLatitude((float) (180 / Math.PI * (2 * Math.atan(Math
-						.exp(tmp.getLatitude() * Math.PI / 180.0)) - Math.PI / 2.0)));
+						result.getLong(SQLHelper.CUSTOM_TABLE_NODES_ID),
+						((result.getInt(SQLHelper.CUSTOM_TABLE_NODES_LAT) / ORIGIN_SHIFT) * 180.0),
+						((result.getInt(SQLHelper.CUSTOM_TABLE_NODES_LON) / ORIGIN_SHIFT) * 180.0));
+				tmp.setLatitude((180 / Math.PI * (2 * Math.atan(Math.exp(tmp
+						.getLatitude() * Math.PI / 180.0)) - Math.PI / 2.0)));
 				nodes.put(tmp.getId(), tmp);
 			}
 			s.close();
