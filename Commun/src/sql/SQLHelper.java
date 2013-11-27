@@ -45,6 +45,7 @@ public class SQLHelper {
 	public static final String CUSTOM_TABLE_ROADS_NODES = "nodes";
 	public static final String CUSTOM_TABLE_ROADS_NAME = "name";
 	public static final String CUSTOM_TABLE_ROADS_TYPE = "type";
+	public static final String CUSTOM_TABLE_ROADS_GEOM = "geom";
 
 	/**
 	 * Constants for our custom buildings table.
