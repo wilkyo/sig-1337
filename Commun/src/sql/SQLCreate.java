@@ -179,6 +179,7 @@ public class SQLCreate {
 					+ " bigint[] NOT NULL,");
 			mySql.append(SQLHelper.CUSTOM_TABLE_ROADS_NAME + " text NOT NULL,");
 			mySql.append(SQLHelper.CUSTOM_TABLE_ROADS_TYPE + " int NOT NULL,");
+			mySql.append(SQLHelper.CUSTOM_TABLE_ROADS_GEOM + " geometry NOT NULL,");
 			mySql.append("CONSTRAINT " + SQLHelper.CUSTOM_TABLE_ROADS
 					+ "_pkey PRIMARY KEY (" + SQLHelper.CUSTOM_TABLE_ROADS_ID
 					+ ")");
@@ -190,12 +191,15 @@ public class SQLCreate {
 
 			// Récupération des données
 			mySql = new StringBuilder();
-			mySql.append("SELECT id, nodes, ");
+			mySql.append("SELECT w.id, w.nodes, ");
 			// on récupère le nom du tableau "tags"
-			mySql.append("(regexp_split_to_array(substring(array_to_string(tags,',','') from 'name,(.*)'), ','))[1], ");
-			mySql.append("(regexp_split_to_array(substring(array_to_string(tags,',','') from 'highway,(.*)'), ','))[1] ");
-			mySql.append("FROM " + SQLHelper.TABLE_WAYS + " ");
-			mySql.append("WHERE array_to_string(tags,',','') LIKE '%highway%';");
+			mySql.append("(regexp_split_to_array(substring(array_to_string(w.tags,',','') from 'name,(.*)'), ','))[1], ");
+			mySql.append("(regexp_split_to_array(substring(array_to_string(w.tags,',','') from 'highway,(.*)'), ','))[1], ");
+			mySql.append("l.way ");
+			mySql.append("FROM " + SQLHelper.TABLE_WAYS + " w ");
+			mySql.append("INNER JOIN " + SQLHelper.TABLE_LINES + " l ON l.osm_id = w.id ");
+			mySql.append("WHERE array_to_string(w.tags,',','') LIKE '%highway%';");
+			System.out.println("+" + mySql.toString());
 			ResultSet myResultSet = s.executeQuery(mySql.toString());
 			mySql = new StringBuilder();
 			while (myResultSet.next()) {
@@ -275,6 +279,7 @@ public class SQLCreate {
 			conn.close();
 
 		} catch (Exception e) {
+			System.err.println("Erreur lors de la création des roads.");
 			result = false;
 		}
 		System.out.println("Fin création Roads");
