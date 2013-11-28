@@ -243,7 +243,8 @@ public class SQLToXml {
 					.toTriangles();
 			buff.append("\t\t\t\t<triangles>\n");
 			for (Polygone t : triangles) {
-				buff.append(polygonToXML(t));
+				if(t.points.length == 3 && t.points[0] != null && t.points[1] != null && t.points[2] != null)
+					buff.append(polygonToXML(t));
 			}
 			buff.append("\t\t\t\t</triangles>\n");
 			for (Hole h : b.getHoles()) {

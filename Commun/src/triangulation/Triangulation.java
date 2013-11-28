@@ -35,6 +35,7 @@ public class Triangulation {
 			creerFenetre(polygon);
 
 		int i = 0;
+		int cpt = 0;
 		Point[] pts = {};
 		Polygone poly = new Polygone(sommets.toArray(new Point[0]));
 		while (sommets.size() > 3) {
@@ -57,15 +58,45 @@ public class Triangulation {
 				poly = new Polygone(sommets.toArray(pts));
 				if (DEBUG && !REFRESH_ALWAYS)
 					refreshPanel(poly);
+				cpt=0;
 			} else {
 				i++;
 			}
 			i = i % sommets.size();
-
+			
 			if (DEBUG && REFRESH_ALWAYS)
 				refreshPanel(poly);
 			System.out.println("Res "
 					+ Arrays.toString(res.toArray(new Polygone[0])));
+			
+			if(cpt == sommets.size()*2) {
+				if(sommets.size() == 4) {
+					Segment s1 = new Segment(sommets.get(0), sommets.get(1));
+					Segment s2 = new Segment(sommets.get(2), sommets.get(3));
+					Point inter = s1.intersection(s2);
+					if(inter != null) {
+						Point[] tri1 = {sommets.remove(3), sommets.remove(0), inter};
+						res.add(new Polygone(tri1));
+					}
+					else {
+						Segment s3 = new Segment(sommets.get(0), sommets.get(3));
+						Segment s4 = new Segment(sommets.get(2), sommets.get(1));
+						Point inter1 = s3.intersection(s4);
+						if(inter1 != null) {
+							Point[] tri1 = {sommets.remove(0), sommets.remove(1), inter};
+							res.add(new Polygone(tri1));
+						}
+						else {
+							sommets.remove(0);
+						}
+					}
+				}
+				else {
+					sommets.remove(i);
+					cpt = 0;
+				}
+			}
+			cpt++;
 		}
 		res.add(new Polygone(sommets.toArray(pts)));
 		return res;
