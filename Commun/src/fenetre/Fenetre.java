@@ -1,10 +1,16 @@
 package fenetre;
+
 import java.awt.*;
 import javax.swing.*;
 
 public class Fenetre extends JFrame {
 
-	public Fenetre(JPanel panneau) {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public Fenetre(String title, JPanel panneau) {
 		// operation de fermeture
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -14,13 +20,12 @@ public class Fenetre extends JFrame {
 
 		// centrer l'image
 		setSize(screenSize.width / 2, screenSize.height / 2);
-		setLocation(screenSize.width / 4, screenSize.height / 4);
+		setLocationRelativeTo(null);
 
-		// definir l'icone
-		setTitle("Algorithmique géometrique");
+		setTitle(title);
 
 		// ajouter le panneau au cadre
-		Container contentPane = getContentPane();
-		contentPane.add(panneau);
+		this.setContentPane(panneau);
+		this.setVisible(true);
 	}
 }

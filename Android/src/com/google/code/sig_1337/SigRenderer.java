@@ -1,7 +1,5 @@
 package com.google.code.sig_1337;
 
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 
 import javax.microedition.khronos.egl.EGLConfig;
@@ -9,28 +7,25 @@ import javax.microedition.khronos.opengles.GL10;
 
 import android.content.Context;
 import android.opengl.GLSurfaceView;
-import android.view.DragEvent;
 import android.view.ScaleGestureDetector;
 import android.view.ScaleGestureDetector.SimpleOnScaleGestureListener;
 
 import com.google.code.sig_1337.model.xml.IBounds;
 import com.google.code.sig_1337.model.xml.IBuilding;
 import com.google.code.sig_1337.model.xml.IBuildings;
+import com.google.code.sig_1337.model.xml.IPoint;
 import com.google.code.sig_1337.model.xml.IRoute;
 import com.google.code.sig_1337.model.xml.IRoutes;
 import com.google.code.sig_1337.model.xml.ISig1337;
 import com.google.code.sig_1337.model.xml.ITriangle;
 import com.google.code.sig_1337.model.xml.ITriangles;
+import com.google.code.sig_1337.model.xml.RouteType;
+import com.google.code.sig_1337.model.xml.Sig1337;
 
 /**
  * Render for {@code Sig1337}.
  */
 public class SigRenderer implements GLSurfaceView.Renderer {
-
-	/**
-	 * Clear color.
-	 */
-	private static final float[] CLEAR_COLOR = { 0.0f, 0.0f, 0.0f, 0.0f };
 
 	/**
 	 * Scale listener.
@@ -65,10 +60,6 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 
 	private double mapHeight;
 
-	FloatBuffer colorBuffer;
-
-	FloatBuffer colorBufferTrou;
-
 	/**
 	 * GPS listener.
 	 */
@@ -79,6 +70,10 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	private float width;
 
 	private float height;
+
+	private float testScale;
+
+	private float scale;
 
 	/**
 	 * Initializing constructor.
@@ -128,6 +123,8 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 		gl.glLoadIdentity();
 		gl.glOrthof(-ratio, ratio, -1, 1, 0, 1);
 		gl.glTranslatef(0, 0, -0.00001f);
+		gl.glMatrixMode(GL10.GL_MODELVIEW);
+		gl.glLoadIdentity();
 
 		gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
 		gl.glEnableClientState(GL10.GL_COLOR_ARRAY);
@@ -138,10 +135,12 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 		// Scale.
 		float rW = (float) ((ratio * 2) / mapWidth);
 		float rH = (float) ((2 / mapHeight));
-		float scale = (float) Math.max(rW, rH) * userScale;
+		float initialScale = (float) Math.max(rW, rH);
+		scale = initialScale * userScale;
+		testScale = scale / initialScale;
 		gl.glPushMatrix();
 		//
-		gl.glTranslatef(userDX/1000, -userDY/1000, 0);
+		gl.glTranslatef(userDX / 1000, -userDY / 1000, 0);
 		gl.glScalef(scale, scale, 1);
 		gl.glTranslatef(-(float) cX, -(float) cY, 0);
 		drawGraphics(gl);
@@ -186,19 +185,9 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	 *            building to draw.
 	 */
 	private void drawBuilding(GL10 gl, IBuilding building) {
-		FloatBuffer color;
 		for (ITriangles ts : building.getTriangles()) {
 			// Color depending on the type.
-			if (ts.getType() != null) {
-				switch (ts.getType()) {
-				case Trou:
-					color = colorBufferTrou;
-				default:
-					color = colorBuffer;
-				}
-			} else {
-				color = colorBuffer;
-			}
+			FloatBuffer color = ts.getType().getFill();
 			// Draw the triangles.
 			for (ITriangle t : ts) {
 				// Draw the triangle.
@@ -234,18 +223,32 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	 *            route to draw.
 	 */
 	private void drawRoute(GL10 gl, IRoute route) {
-		gl.glVertexPointer(3, GL10.GL_FLOAT, 0, route.getVertexBuffer());
-		gl.glColorPointer(4, GL10.GL_FLOAT, 0, colorBuffer);
-		switch (route.getType()) {
-		case Path:
-			gl.glLineWidth(2.0f);
-			break;
-		case Route:
-			gl.glLineWidth(4.0f);
-			break;
-		}
-		gl.glDrawElements(GL10.GL_LINES, 2, GL10.GL_UNSIGNED_SHORT,
+		RouteType type = route.getType();
+		gl.glPushMatrix();
+		IPoint from = route.getFrom();
+		gl.glTranslatef((float) from.getRelativeLongitude(),
+				(float) from.getRelativeLatitude(), 0);
+		gl.glRotatef(route.getAngle(), 0, 0, 1);
+		gl.glVertexPointer(3, GL10.GL_FLOAT, 0, route.getFillVertexBuffer());
+		gl.glColorPointer(4, GL10.GL_FLOAT, 0, type.getFill());
+		gl.glDrawElements(GL10.GL_TRIANGLES, 6, GL10.GL_UNSIGNED_SHORT,
 				route.getIndexBuffer());
+		gl.glVertexPointer(3, GL10.GL_FLOAT, 0, route.getStrokeVertexBuffer());
+		gl.glColorPointer(4, GL10.GL_FLOAT, 0, type.getStroke());
+		gl.glDrawElements(GL10.GL_TRIANGLES, 6, GL10.GL_UNSIGNED_SHORT,
+				route.getIndexBuffer());
+		gl.glPopMatrix();
+		/*
+		 * gl.glVertexPointer(3, GL10.GL_FLOAT, 0, route.getVertexBuffer());
+		 * gl.glColorPointer(4, GL10.GL_FLOAT, 0, type.getFill());
+		 * gl.glLineWidth(type.getFillSize() * testScale);
+		 * gl.glDrawElements(GL10.GL_LINES, 2, GL10.GL_UNSIGNED_SHORT,
+		 * route.getIndexBuffer()); gl.glVertexPointer(3, GL10.GL_FLOAT, 0,
+		 * route.getVertexBuffer()); gl.glColorPointer(4, GL10.GL_FLOAT, 0,
+		 * type.getStroke()); gl.glLineWidth(type.getStrokeSize() * testScale);
+		 * gl.glDrawElements(GL10.GL_LINES, 2, GL10.GL_UNSIGNED_SHORT,
+		 * route.getIndexBuffer());
+		 */
 	}
 
 	/**
@@ -268,20 +271,9 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	@Override
 	public void onSurfaceCreated(GL10 gl, EGLConfig config) {
 		gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT, GL10.GL_FASTEST);
-		gl.glClearColor(CLEAR_COLOR[0], CLEAR_COLOR[1], CLEAR_COLOR[2],
-				CLEAR_COLOR[3]);
+		gl.glClearColor(Sig1337.BACKGROUND_RED, Sig1337.BACKGROUND_GREEN,
+				Sig1337.BACKGROUND_BLUE, 1);
 		gl.glEnable(GL10.GL_DEPTH_TEST);
-
-		ByteBuffer bb = ByteBuffer.allocateDirect(48);
-		bb.order(ByteOrder.nativeOrder());
-		colorBuffer = bb.asFloatBuffer();
-		colorBuffer.put(new float[] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 });
-		colorBuffer.position(0);
-		bb = ByteBuffer.allocateDirect(48);
-		bb.order(ByteOrder.nativeOrder());
-		colorBufferTrou = bb.asFloatBuffer();
-		colorBufferTrou.put(new float[] { 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1 });
-		colorBufferTrou.position(0);
 	}
 
 	/**

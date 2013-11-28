@@ -2,6 +2,9 @@ package com.google.code.sig_1337.model.xml;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.nio.FloatBuffer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +17,37 @@ import android.util.Xml;
  * XML file.
  */
 public class Sig1337 implements ISig1337 {
+
+	/**
+	 * Background color red component.
+	 */
+	public static final float BACKGROUND_RED = 248f / 255f;
+
+	/**
+	 * Background color green component.
+	 */
+	public static final float BACKGROUND_GREEN = 244f / 255f;
+
+	/**
+	 * Background color blue component.
+	 */
+	public static final float BACKGROUND_BLUE = 232f / 255f;
+
+	/**
+	 * Background color.
+	 */
+	public static final FloatBuffer BACKGROUND_COLOR;
+
+	static {
+		ByteBuffer bb = ByteBuffer.allocateDirect(48);
+		bb.order(ByteOrder.nativeOrder());
+		BACKGROUND_COLOR = bb.asFloatBuffer();
+		BACKGROUND_COLOR.put(new float[] { BACKGROUND_RED, BACKGROUND_GREEN,
+				BACKGROUND_BLUE, 1, BACKGROUND_RED, BACKGROUND_GREEN,
+				BACKGROUND_BLUE, 1, BACKGROUND_RED, BACKGROUND_GREEN,
+				BACKGROUND_BLUE, 1 });
+		BACKGROUND_COLOR.position(0);
+	}
 
 	/**
 	 * Bounds.
@@ -319,6 +353,8 @@ public class Sig1337 implements ISig1337 {
 			String s = parser.getAttributeValue(null, TYPE);
 			if (s != null) {
 				type = TrianglesType.parse(s);
+			} else {
+				type = TrianglesType.Filled;
 			}
 			ITriangles triangles = new Triangles(type);
 			while (parser.next() != XmlPullParser.END_TAG) {

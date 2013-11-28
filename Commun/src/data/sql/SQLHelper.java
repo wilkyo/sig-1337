@@ -1,9 +1,9 @@
-package sql;
+package data.sql;
 
 import java.sql.Array;
 import java.util.Map;
 
-import modele.Node;
+import data.model.Node;
 
 public class SQLHelper {
 
@@ -12,7 +12,9 @@ public class SQLHelper {
 	 */
 	public static final String SQL_DRIVER = "org.postgresql.Driver";
 	public static final String SERVER_URL = "jdbc:postgresql://localhost:5432/";
+	public static final String DB_SCHEMA = "public";
 	public static final String DB_NAME = "sig_1337";
+	public static final String OSM_SRID = "900913";
 	public static final String USERNAME = "admin";
 	public static final String PASSWORD = "admin";
 
@@ -30,6 +32,16 @@ public class SQLHelper {
 	public static final String TABLE_WAYS = "planet_osm_ways";
 
 	/**
+	 * Constants for our geometries.
+	 */
+	public static final String GEOMETRY_POINT = "POINT";
+	public static final String GEOMETRY_POINT_DIMENSIONS = "2";
+	public static final String GEOMETRY_LINE = "LINESTRING";
+	public static final String GEOMETRY_LINE_DIMENSIONS = "2";
+	public static final String GEOMETRY_POLYGON = "GEOMETRY";
+	public static final String GEOMETRY_POLYGON_DIMENSIONS = "2";
+
+	/**
 	 * Constants for our custom roads table.
 	 */
 	public static final String CUSTOM_TABLE_NODES = "sig1337_nodes";
@@ -45,6 +57,7 @@ public class SQLHelper {
 	public static final String CUSTOM_TABLE_ROADS_NODES = "nodes";
 	public static final String CUSTOM_TABLE_ROADS_NAME = "name";
 	public static final String CUSTOM_TABLE_ROADS_TYPE = "type";
+	public static final String CUSTOM_TABLE_ROADS_GEOM = "geom";
 
 	/**
 	 * Constants for our custom buildings table.

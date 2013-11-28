@@ -1,7 +1,7 @@
-package modele;
+package data.model;
 
 import base.Point;
-import base.Polyedre;
+import base.Polygone;
 
 public class Node {
 
@@ -51,8 +51,8 @@ public class Node {
 		return points;
 	}
 
-	public static Polyedre toPolygon(Node[] nodes) {
-		return new Polyedre(Node.toPointsArray(nodes));
+	public static Polygone toPolygon(Node[] nodes) {
+		return new Polygone(Node.toPointsArray(nodes));
 	}
 
 	@Override

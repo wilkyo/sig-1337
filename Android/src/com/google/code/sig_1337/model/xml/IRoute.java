@@ -30,11 +30,25 @@ public interface IRoute {
 	public IPoint getTo();
 
 	/**
+	 * Get the angle between this route and the origin.
+	 * 
+	 * @return the angle.
+	 */
+	public float getAngle();
+
+	/**
 	 * Get the vertex buffer.
 	 * 
 	 * @return the vertex buffer.
 	 */
-	public FloatBuffer getVertexBuffer();
+	public FloatBuffer getFillVertexBuffer();
+
+	/**
+	 * Get the vertex buffer.
+	 * 
+	 * @return the vertex buffer.
+	 */
+	public FloatBuffer getStrokeVertexBuffer();
 
 	/**
 	 * Get the index buffer.

@@ -1,4 +1,4 @@
-package sql;
+package data.sql;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -17,17 +17,17 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
-import modele.Building;
-import modele.Hole;
-import modele.Node;
-import modele.Road;
-
 import org.xml.sax.SAXException;
 
 import base.Point;
-import base.Polyedre;
+import base.Polygone;
 
 import com.google.code.sig_1337.model.xml.RouteType;
+
+import data.model.Building;
+import data.model.Hole;
+import data.model.Node;
+import data.model.Road;
 
 public class SQLToXml {
 
@@ -87,7 +87,8 @@ public class SQLToXml {
 						SQLHelper.getArray(result
 								.getArray(SQLHelper.CUSTOM_TABLE_ROADS_NODES),
 								nodes),
-						result.getInt(SQLHelper.CUSTOM_TABLE_ROADS_TYPE));
+						result.getInt(SQLHelper.CUSTOM_TABLE_ROADS_TYPE),
+						result.getString(SQLHelper.CUSTOM_TABLE_ROADS_GEOM));
 				roads.add(tmp);
 			}
 			s.close();
@@ -182,7 +183,7 @@ public class SQLToXml {
 	 *            The Polyedre.
 	 * @return The XML String of the Polyedre.
 	 */
-	private static String polygonToXML(Polyedre polygon) {
+	private static String polygonToXML(Polygone polygon) {
 		return "\t\t\t\t\t<triangle>\n" + "\t\t\t\t\t\t"
 				+ pointToXML(polygon.points[0]) + "\n" + "\t\t\t\t\t\t"
 				+ pointToXML(polygon.points[1]) + "\n" + "\t\t\t\t\t\t"
@@ -237,19 +238,19 @@ public class SQLToXml {
 		buff.append("\t\t<batiments>\n");
 		for (Building b : buildings.values()) {
 			buff.append("\t\t\t<batiment nom=\"" + b.getName() + "\">\n");
-			System.out.println(b.getName());
-			List<Polyedre> triangles = Node.toPolygon(b.getNodes())
+
+			List<Polygone> triangles = Node.toPolygon(b.getNodes())
 					.toTriangles();
 			buff.append("\t\t\t\t<triangles>\n");
-			for (Polyedre t : triangles) {
+			for (Polygone t : triangles) {
 				buff.append(polygonToXML(t));
 			}
 			buff.append("\t\t\t\t</triangles>\n");
 			for (Hole h : b.getHoles()) {
-				List<Polyedre> trianglesTrou = Node.toPolygon(h.getNodes())
+				List<Polygone> trianglesTrou = Node.toPolygon(h.getNodes())
 						.toTriangles();
 				buff.append("\t\t\t\t<triangles type=\"trou\">\n");
-				for (Polyedre t : trianglesTrou) {
+				for (Polygone t : trianglesTrou) {
 					buff.append(polygonToXML(t));
 				}
 				buff.append("\t\t\t\t</triangles>\n");
@@ -312,9 +313,7 @@ public class SQLToXml {
 	 * Gets the data from the PostGIS database and generate the xml for the
 	 * Android application.
 	 */
-	public static void main(String[] args) {
-		if (args.length == 0)
-			args = new String[] { "files/Universite.osm" };
+	public static void process(String filename) {
 		Connection connection;
 
 		try {
@@ -326,6 +325,7 @@ public class SQLToXml {
 					.getConnection(SQLHelper.SERVER_URL + SQLHelper.DB_NAME,
 							SQLHelper.USERNAME, SQLHelper.PASSWORD);
 
+			System.out.println("Preprocessing before XML...");
 			Map<Long, Node> nodes = getAllNodes(connection);
 			List<Road> roads = getAllRoads(connection, nodes);
 			Map<Long, Building> buildings = getAllBuildings(connection, nodes);
@@ -337,7 +337,8 @@ public class SQLToXml {
 
 			connection.close();
 
-			generateXML(args[0], roads, buildings);
+			generateXML(filename, roads, buildings);
+			System.out.println("XML generated.");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {

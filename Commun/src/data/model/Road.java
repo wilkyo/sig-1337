@@ -1,4 +1,4 @@
-package modele;
+package data.model;
 
 public class Road {
 
@@ -48,28 +48,22 @@ public class Road {
 	private Node[] nodes;
 	private String name;
 	private int type;
+	private String geom;
 
-	public Road(int id, String name, Node[] nodes, int type) {
-		setId(id);
-		setName(name);
-		setNodes(nodes);
-		setType(type);
+	public Road(int id, String name, Node[] nodes, int type, String geom) {
+		this.id = id;
+		this.name = name;
+		this.nodes = nodes;
+		this.type = type;
+		this.geom = geom;
 	}
 
 	public int getId() {
 		return id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
 	public Node[] getNodes() {
 		return nodes;
-	}
-
-	public void setNodes(Node[] nodes) {
-		this.nodes = nodes;
 	}
 
 	public String getName() {
@@ -86,6 +80,14 @@ public class Road {
 
 	public void setType(int type) {
 		this.type = type;
+	}
+
+	public String getGeom() {
+		return geom;
+	}
+
+	public void setGeom(String geom) {
+		this.geom = geom;
 	}
 
 }

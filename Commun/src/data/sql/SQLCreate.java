@@ -1,11 +1,11 @@
-package sql;
+package data.sql;
 
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Arrays;
 
-import modele.Road;
+import data.model.Road;
 
 public class SQLCreate {
 
@@ -179,6 +179,8 @@ public class SQLCreate {
 					+ " bigint[] NOT NULL,");
 			mySql.append(SQLHelper.CUSTOM_TABLE_ROADS_NAME + " text NOT NULL,");
 			mySql.append(SQLHelper.CUSTOM_TABLE_ROADS_TYPE + " int NOT NULL,");
+			mySql.append(SQLHelper.CUSTOM_TABLE_ROADS_GEOM
+					+ " geometry NOT NULL,");
 			mySql.append("CONSTRAINT " + SQLHelper.CUSTOM_TABLE_ROADS
 					+ "_pkey PRIMARY KEY (" + SQLHelper.CUSTOM_TABLE_ROADS_ID
 					+ ")");
@@ -190,12 +192,15 @@ public class SQLCreate {
 
 			// Récupération des données
 			mySql = new StringBuilder();
-			mySql.append("SELECT id, nodes, ");
+			mySql.append("SELECT w.id, w.nodes, ");
 			// on récupère le nom du tableau "tags"
-			mySql.append("(regexp_split_to_array(substring(array_to_string(tags,',','') from 'name,(.*)'), ','))[1], ");
-			mySql.append("(regexp_split_to_array(substring(array_to_string(tags,',','') from 'highway,(.*)'), ','))[1] ");
-			mySql.append("FROM " + SQLHelper.TABLE_WAYS + " ");
-			mySql.append("WHERE array_to_string(tags,',','') LIKE '%highway%';");
+			mySql.append("(regexp_split_to_array(substring(array_to_string(w.tags,',','') from 'name,(.*)'), ','))[1], ");
+			mySql.append("(regexp_split_to_array(substring(array_to_string(w.tags,',','') from 'highway,(.*)'), ','))[1], ");
+			mySql.append("l.way ");
+			mySql.append("FROM " + SQLHelper.TABLE_WAYS + " w ");
+			mySql.append("INNER JOIN " + SQLHelper.TABLE_LINES
+					+ " l ON l.osm_id = w.id ");
+			mySql.append("WHERE array_to_string(w.tags,',','') LIKE '%highway%';");
 			ResultSet myResultSet = s.executeQuery(mySql.toString());
 			mySql = new StringBuilder();
 			while (myResultSet.next()) {
@@ -204,6 +209,7 @@ public class SQLCreate {
 				String name = myResultSet.getString(3);
 				int type = Road.UNCLASSIFIED;
 				String sType = myResultSet.getString(4);
+				String sWay = myResultSet.getString(5);
 				if (sType != null) {
 					switch (myResultSet.getString(4).toUpperCase()) {
 					case "UNCLASSIFIED":
@@ -257,7 +263,8 @@ public class SQLCreate {
 				mySql.append("(" + SQLHelper.CUSTOM_TABLE_ROADS_ID + ", "
 						+ SQLHelper.CUSTOM_TABLE_ROADS_NODES + ", "
 						+ SQLHelper.CUSTOM_TABLE_ROADS_NAME + ", "
-						+ SQLHelper.CUSTOM_TABLE_ROADS_TYPE + ")");
+						+ SQLHelper.CUSTOM_TABLE_ROADS_TYPE + ", "
+						+ SQLHelper.CUSTOM_TABLE_ROADS_GEOM + ")");
 				mySql.append(" VALUES ");
 				mySql.append("("
 						+ id
@@ -266,7 +273,17 @@ public class SQLCreate {
 								.replace("]", "}")
 						+ "', "
 						+ (name != null ? "'" + name.replace("'", "''") + "' "
-								: "''") + ", " + type + "); ");
+								: "''") + ", " + type + ", '" + sWay + "'); ");
+				mySql.append("DELETE FROM " + SQLHelper.TABLE_GEOMETRY_COLUMNS
+						+ " WHERE f_table_name = '"
+						+ SQLHelper.CUSTOM_TABLE_ROADS + "'; ");
+				mySql.append("INSERT INTO " + SQLHelper.TABLE_GEOMETRY_COLUMNS
+						+ " VALUES ('', '" + SQLHelper.DB_SCHEMA + "', '"
+						+ SQLHelper.CUSTOM_TABLE_ROADS + "', '"
+						+ SQLHelper.CUSTOM_TABLE_ROADS_GEOM + "', "
+						+ SQLHelper.GEOMETRY_LINE_DIMENSIONS + ", "
+						+ SQLHelper.OSM_SRID + ", '" + SQLHelper.GEOMETRY_LINE
+						+ "'); ");
 			}
 			if (mySql.length() > 0)
 				s.execute(mySql.toString());
@@ -275,6 +292,7 @@ public class SQLCreate {
 			conn.close();
 
 		} catch (Exception e) {
+			System.err.println("Erreur lors de la création des roads.");
 			result = false;
 		}
 		System.out.println("Fin création Roads");
@@ -334,10 +352,5 @@ public class SQLCreate {
 		}
 		System.out.println("Fin création Holes");
 		return result;
-	}
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		createDataBase();
 	}
 }

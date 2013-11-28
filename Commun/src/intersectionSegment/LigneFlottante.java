@@ -5,7 +5,7 @@ import base.*;
 
 public class LigneFlottante {
 	TreeSet<SegmentFlottant> tree = new TreeSet<SegmentFlottant>();
-	Point point = new Point(Float.MAX_VALUE/2,-Float.MAX_VALUE/2);
+	Point point = new Point(Float.MAX_VALUE / 2, -Float.MAX_VALUE / 2);
 
 	@Override
 	public String toString() {
@@ -18,11 +18,10 @@ public class LigneFlottante {
 	}
 
 	private static final double EPSILON = 0.001;
-	
-	private static boolean proche(double p0, double p1) {
-		return (p0-p1 < EPSILON) && (p1-p0 < EPSILON);
+	private static boolean proche(double x, double y) {
+		return (x - y < EPSILON) && (y - x < EPSILON);
 	}
-	
+
 	public class SegmentFlottant implements Comparable<SegmentFlottant> {
 		Segment segment;
 
@@ -57,22 +56,21 @@ public class LigneFlottante {
 			}
 		}
 
-
-		
 		public int compareTo(SegmentFlottant s) {
-			if (s==this)
+			if (s == this)
 				return 0;
-			
 			double p0 = intersectionLigne();
 			double p1 = s.intersectionLigne();
 
-			if (proche(p0,p1)) {					
+			if (proche(p0, p1)) {
 				// traiter le cas artificiel
 				// [point,(max,max)] ou [point,(-max,max]
-				if (segment.debut.equals(point) && segment.fin.y==Float.MAX_VALUE)
-					return (segment.fin.x>0)?1:-1;
-				else if (s.segment.debut.equals(point) && s.segment.fin.y==Float.MAX_VALUE)
-					return (s.segment.fin.x>0)?-1:1;
+				if (segment.debut.equals(point)
+						&& segment.fin.y == Float.MAX_VALUE)
+					return (segment.fin.x > 0) ? 1 : -1;
+				else if (s.segment.debut.equals(point)
+						&& s.segment.fin.y == Float.MAX_VALUE)
+					return (s.segment.fin.x > 0) ? -1 : 1;
 
 				// autres cas !
 				int d = this.compareDirection(s);
@@ -80,12 +78,12 @@ public class LigneFlottante {
 					return (p0 <= point.x) ? d : -d;
 				else if (segment.fin.x == s.segment.fin.x)
 					return 0;
-				else 
+				else
 					return (segment.fin.x < s.segment.fin.x) ? -1 : 1;
-			}
-			else if (p0 < p1)
+			} else if (p0 < p1)
 				return -1;
-			else // if (p0 > p1)
+			else
+				// if (p0 > p1)
 				return 1;
 		}
 	}
@@ -139,23 +137,23 @@ public class LigneFlottante {
 		return (res == null) ? null : res.segment;
 	}
 
-
 	public ArrayList<Segment> coupure(Point p) {
 		Point tmp = point;
 		point = p;
 		ArrayList<Segment> res = new ArrayList<Segment>();
-		SegmentFlottant limite = new SegmentFlottant(new Segment(point, new Point(
-				-Float.MAX_VALUE, Float.MAX_VALUE)));
-		for (SegmentFlottant s:tree.tailSet(limite)) {
+
+		SegmentFlottant limite = new SegmentFlottant(new Segment(point,
+				new Point(-Float.MAX_VALUE, Float.MAX_VALUE)));
+		for (SegmentFlottant s : tree.tailSet(limite)) {
 			double p0 = s.intersectionLigne();
-			if (proche(p0,p.x))
+			if (proche(p0, p.x))
 				res.add(s.segment);
 			else
 				break;
 		}
 		point = tmp;
 		return res;
-				
+
 	}
 
 }

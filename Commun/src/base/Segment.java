@@ -15,8 +15,11 @@ public class Segment {
 
 	/**
 	 * Construit un segment à partir de deux point
-	 * @param debut le point de debut
-	 * @param fin le point de fin
+	 * 
+	 * @param debut
+	 *            le point de debut
+	 * @param fin
+	 *            le point de fin
 	 */
 	public Segment(Point debut, Point fin) {
 		super();
@@ -34,6 +37,7 @@ public class Segment {
 
 	/**
 	 * Retourne le hashcode de la classe parent
+	 * 
 	 * @return le hashcode de la classe parent
 	 */
 	public int superHashCode() {
@@ -42,6 +46,7 @@ public class Segment {
 
 	/**
 	 * Trie le segment par ses valeurs en y puis en x
+	 * 
 	 * @return le segment trié
 	 */
 	public Segment trie() {
@@ -54,24 +59,26 @@ public class Segment {
 
 	/**
 	 * Retourne le point du milieu du segment
+	 * 
 	 * @return le milieu du segment
 	 */
 	public Point milieu() {
-		return new Point((debut.x+fin.x)/2,(debut.y+fin.y)/2);
+		return new Point((debut.x + fin.x) / 2, (debut.y + fin.y) / 2);
 	}
-	
+
 	/**
 	 * I don't know what i'm doing
-	 * @param y 
+	 * 
+	 * @param y
 	 * @return
 	 */
 	public Point intersectionHorizontale(double y) {
 		if ((debut.y - y) * (fin.y - y) > 0) // debut, fin du m�me cot�
 			return null;
-		else if (debut.y == fin.y) // segment horizontal 
+		else if (debut.y == fin.y) // segment horizontal
 			return null;
 		else {
-			double x = ((fin.y - y) * debut.x + (y - debut.y)*fin.x)
+			double x = ((fin.y - y) * debut.x + (y - debut.y) * fin.x)
 					/ (fin.y - debut.y);
 			return new Point(x, y);
 		}
@@ -79,7 +86,9 @@ public class Segment {
 
 	/**
 	 * Calcule le produit scalaire avec le segment passé en paramêtre
-	 * @param s le segment avec qui calculer le produit scalaire
+	 * 
+	 * @param s
+	 *            le segment avec qui calculer le produit scalaire
 	 * @return le produit scalaire
 	 */
 	public double produitScalaire(Segment s) {
@@ -89,7 +98,9 @@ public class Segment {
 
 	/**
 	 * Calcule le produit vectoriel avec le segment passé en paramêtre
-	 * @param s le segment avec qui calculer le produit vectoriel
+	 * 
+	 * @param s
+	 *            le segment avec qui calculer le produit vectoriel
 	 * @return le produit scalaire
 	 */
 	public double produitVectoriel(Segment s) {
@@ -99,45 +110,55 @@ public class Segment {
 
 	/**
 	 * Calcule l'homothétie sur le segment de coéfficiant lambda
-	 * @param lambda le coefficiant d'homothétie
+	 * 
+	 * @param lambda
+	 *            le coefficiant d'homothétie
 	 * @return le segment homothétié
 	 */
 	public Segment homothetie(double lambda) {
-		return new Segment(debut.homothetie(lambda),fin.homothetie(lambda));
+		return new Segment(debut.homothetie(lambda), fin.homothetie(lambda));
 	}
-	
+
 	/**
 	 * Vérifie que le point p est dans le segment
-	 * @param p le point
+	 * 
+	 * @param p
+	 *            le point
 	 * @return Vrai si le point est dans le segment, faux sinon
 	 */
 	public boolean contains(Point p) {
-		Segment s = new Segment(debut,p);
-		return (produitVectoriel(s) == 0
-				&& produitScalaire(s) >= 0
-				&& s.produitScalaire(s) <= produitScalaire(this));
+		Segment s = new Segment(debut, p);
+		return (produitVectoriel(s) == 0 && produitScalaire(s) >= 0 && s
+				.produitScalaire(s) <= produitScalaire(this));
 	}
 
 	/**
 	 * Calcule la projectiob horizontale du point sur le segment
-	 * @param p le point
+	 * 
+	 * @param p
+	 *            le point
 	 * @return le point sur le segment
 	 */
 	public Point projectionHorizontale(Point p) {
-		Point pointHorizon = new Point(p.x+1,p.y);
-		Segment demiHorizon = new Segment(p,pointHorizon);
+		Point pointHorizon = new Point(p.x + 1, p.y);
+		Segment demiHorizon = new Segment(p, pointHorizon);
 		if (produitVectoriel(demiHorizon) == 0)
-				return null;
+			return null;
 		else {
-			double lambda = - produitVectoriel(new Segment(debut,p)) / produitVectoriel(demiHorizon);
+
+			double lambda = -produitVectoriel(new Segment(debut, p))
+					/ produitVectoriel(demiHorizon);
 			return p.translation(demiHorizon.homothetie(lambda));
 		}
 	}
-	
+
 	/**
 	 * Calcule l'intersection avec le segment s
-	 * @param s le segment
-	 * @return le point au niveau de l'intersection, null si le point n'éxiste pas
+	 * 
+	 * @param s
+	 *            le segment
+	 * @return le point au niveau de l'intersection, null si le point n'éxiste
+	 *         pas
 	 */
 	public Point intersection(Segment s) {
 		if (s.produitVectoriel(this) == 0)
@@ -152,21 +173,23 @@ public class Segment {
 			Point p = new Point(debut.x + a * (fin.x - debut.x), debut.y + a
 					* (fin.y - debut.y));
 			Segment strie = s.trie();
-			if(p.x >= strie.debut.x && p.x <= strie.fin.x)
+			if (p.x >= strie.debut.x && p.x <= strie.fin.x)
 				return p;
 			else
 				return null;
 		}
 	}
-	
+
 	/**
 	 * Calcule la longueur du segment
+	 * 
 	 * @return la longueur du segment
 	 */
 	public double longueur() {
-		return Math.sqrt(Math.pow(fin.x-debut.x,2)+Math.pow(fin.y-debut.y, 2));	
+		return Math.sqrt(Math.pow(fin.x - debut.x, 2)
+				+ Math.pow(fin.y - debut.y, 2));
 	}
-	
+
 	/**
 	 * {@inheritDoc}
 	 */
