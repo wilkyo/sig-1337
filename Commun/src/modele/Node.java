@@ -40,7 +40,7 @@ public class Node {
 	}
 
 	public Point toPoint() {
-		return new Point((float) getLongitude(), (float) getLatitude());
+		return new Point( getLongitude(), getLatitude());
 	}
 
 	public static Point[] toPointsArray(Node[] nodes) {

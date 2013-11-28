@@ -47,9 +47,9 @@ public class Triangulation {
 			}
 			else {
 				i++;
-				if(i == sommets.size())
-					i = 0;
 			}
+			if(i == sommets.size())
+				i = 0;
 		}
 		res.add(new Polyedre(sommets.toArray(pts)));
 		return res;

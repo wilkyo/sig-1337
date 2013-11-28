@@ -65,13 +65,13 @@ public class Segment {
 	 * @param y 
 	 * @return
 	 */
-	public Point intersectionHorizontale(float y) {
+	public Point intersectionHorizontale(double y) {
 		if ((debut.y - y) * (fin.y - y) > 0) // debut, fin du m�me cot�
 			return null;
 		else if (debut.y == fin.y) // segment horizontal 
 			return null;
 		else {
-			float x = ((fin.y - y) * debut.x + (y - debut.y)*fin.x)
+			double x = ((fin.y - y) * debut.x + (y - debut.y)*fin.x)
 					/ (fin.y - debut.y);
 			return new Point(x, y);
 		}
@@ -82,7 +82,7 @@ public class Segment {
 	 * @param s le segment avec qui calculer le produit scalaire
 	 * @return le produit scalaire
 	 */
-	public float produitScalaire(Segment s) {
+	public double produitScalaire(Segment s) {
 		return (fin.x - debut.x) * (s.fin.x - s.debut.x) + (fin.y - debut.y)
 				* (s.fin.y - s.debut.y);
 	}
@@ -92,7 +92,7 @@ public class Segment {
 	 * @param s le segment avec qui calculer le produit vectoriel
 	 * @return le produit scalaire
 	 */
-	public float produitVectoriel(Segment s) {
+	public double produitVectoriel(Segment s) {
 		return (fin.x - debut.x) * (s.fin.y - s.debut.y) - (fin.y - debut.y)
 				* (s.fin.x - s.debut.x);
 	}
@@ -102,7 +102,7 @@ public class Segment {
 	 * @param lambda le coefficiant d'homothétie
 	 * @return le segment homothétié
 	 */
-	public Segment homothetie(float lambda) {
+	public Segment homothetie(double lambda) {
 		return new Segment(debut.homothetie(lambda),fin.homothetie(lambda));
 	}
 	
@@ -129,7 +129,7 @@ public class Segment {
 		if (produitVectoriel(demiHorizon) == 0)
 				return null;
 		else {
-			float lambda = - produitVectoriel(new Segment(debut,p)) / produitVectoriel(demiHorizon);
+			double lambda = - produitVectoriel(new Segment(debut,p)) / produitVectoriel(demiHorizon);
 			return p.translation(demiHorizon.homothetie(lambda));
 		}
 	}
@@ -143,7 +143,7 @@ public class Segment {
 		if (s.produitVectoriel(this) == 0)
 			return null;
 
-		float a = (s.produitVectoriel(new Segment(debut, s.debut)))
+		double a = (s.produitVectoriel(new Segment(debut, s.debut)))
 				/ s.produitVectoriel(this);
 
 		if (a < 0 || a > 1)

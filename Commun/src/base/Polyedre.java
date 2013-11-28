@@ -115,7 +115,7 @@ public class Polyedre {
 	 * @param p3 le troisieme point
 	 * @return le produit vectoriel
 	 */
-	private float produitvectoriel(Point p1, Point p2, Point p3) {
+	private double produitvectoriel(Point p1, Point p2, Point p3) {
 		return (p2.x - p1.x) * (p3.y - p1.y) - (p3.x - p1.x) * (p2.y - p1.y);
 	}
 

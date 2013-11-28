@@ -237,6 +237,7 @@ public class SQLToXml {
 		buff.append("\t\t<batiments>\n");
 		for (Building b : buildings.values()) {
 			buff.append("\t\t\t<batiment nom=\"" + b.getName() + "\">\n");
+			System.out.println(b.getName());
 			List<Polyedre> triangles = Node.toPolygon(b.getNodes())
 					.toTriangles();
 			buff.append("\t\t\t\t<triangles>\n");

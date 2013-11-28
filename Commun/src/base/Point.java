@@ -7,18 +7,18 @@ public class Point implements Comparable<Point>{
 	/**
 	 * La position en X du point
 	 */
-	public float x;
+	public double x;
 	/**
 	 * La position en Y du point
 	 */
-	public float y;
+	public double y;
 	
 	/**
 	 * Construit un point de coordonnée x,y
 	 * @param x La position en X
 	 * @param y La position en Y
 	 */
-	public Point(float x, float y) {
+	public Point(double x, double y) {
 		super();
 		this.x = x;
 		this.y = y;
@@ -48,8 +48,8 @@ public class Point implements Comparable<Point>{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + Float.floatToIntBits(x);
-		result = prime * result + Float.floatToIntBits(y);
+		result = prime * result + (int)Double.doubleToLongBits(x);
+		result = prime * result + (int)Double.doubleToLongBits(y);
 		return result;
 	}
 
@@ -83,14 +83,14 @@ public class Point implements Comparable<Point>{
 	 * @param lambda le coefficiant de l'homothetie
 	 * @return le point après homothétie
 	 */
-	public Point homothetie(float lambda) {
+	public Point homothetie(double lambda) {
 		return new Point(lambda*x,lambda*y);
 	}
 	
 	/**
 	 * L'écart minimun entre 2 points
 	 */
-	private static final float EPSILON = (float) 0.001;
+	private static final double EPSILON = 0.000001;
 	
 	/**
 	 * Fonction vérifiant que 2 valueurs sont assez éloignés
@@ -98,7 +98,7 @@ public class Point implements Comparable<Point>{
 	 * @param y un des valeurs à comparer
 	 * @return Vrai si les valeurs sont proche d'EPSILON
 	 */
-	private static boolean proche(float x, float y) {
+	private static boolean proche(double x, double y) {
 		return (x-y < EPSILON) && (y-x < EPSILON);
 	}
 
