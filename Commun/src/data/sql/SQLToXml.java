@@ -1,4 +1,4 @@
-package sql;
+package data.sql;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -17,17 +17,17 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
-import modele.Building;
-import modele.Hole;
-import modele.Node;
-import modele.Road;
-
 import org.xml.sax.SAXException;
 
 import base.Point;
 import base.Polyedre;
 
 import com.google.code.sig_1337.model.xml.RouteType;
+
+import data.model.Building;
+import data.model.Hole;
+import data.model.Node;
+import data.model.Road;
 
 public class SQLToXml {
 
@@ -312,9 +312,7 @@ public class SQLToXml {
 	 * Gets the data from the PostGIS database and generate the xml for the
 	 * Android application.
 	 */
-	public static void main(String[] args) {
-		if (args.length == 0)
-			args = new String[] { "files/Universite.osm" };
+	public static void process(String filename) {
 		Connection connection;
 
 		try {
@@ -326,6 +324,7 @@ public class SQLToXml {
 					.getConnection(SQLHelper.SERVER_URL + SQLHelper.DB_NAME,
 							SQLHelper.USERNAME, SQLHelper.PASSWORD);
 
+			System.out.println("Preprocessing before XML...");
 			Map<Long, Node> nodes = getAllNodes(connection);
 			List<Road> roads = getAllRoads(connection, nodes);
 			Map<Long, Building> buildings = getAllBuildings(connection, nodes);
@@ -337,7 +336,8 @@ public class SQLToXml {
 
 			connection.close();
 
-			generateXML(args[0], roads, buildings);
+			generateXML(filename, roads, buildings);
+			System.out.println("XML generated.");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {

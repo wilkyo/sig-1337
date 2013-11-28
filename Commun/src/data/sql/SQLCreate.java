@@ -1,11 +1,11 @@
-package sql;
+package data.sql;
 
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Arrays;
 
-import modele.Road;
+import data.model.Road;
 
 public class SQLCreate {
 
@@ -274,6 +274,16 @@ public class SQLCreate {
 						+ "', "
 						+ (name != null ? "'" + name.replace("'", "''") + "' "
 								: "''") + ", " + type + ", '" + sWay + "'); ");
+				mySql.append("DELETE FROM " + SQLHelper.TABLE_GEOMETRY_COLUMNS
+						+ " WHERE f_table_name = '"
+						+ SQLHelper.CUSTOM_TABLE_ROADS + "'; ");
+				mySql.append("INSERT INTO " + SQLHelper.TABLE_GEOMETRY_COLUMNS
+						+ " VALUES ('', '" + SQLHelper.DB_SCHEMA + "', '"
+						+ SQLHelper.CUSTOM_TABLE_ROADS + "', '"
+						+ SQLHelper.CUSTOM_TABLE_ROADS_GEOM + "', "
+						+ SQLHelper.GEOMETRY_LINE_DIMENSIONS + ", "
+						+ SQLHelper.OSM_SRID + ", '" + SQLHelper.GEOMETRY_LINE
+						+ "'); ");
 			}
 			if (mySql.length() > 0)
 				s.execute(mySql.toString());
@@ -342,10 +352,5 @@ public class SQLCreate {
 		}
 		System.out.println("Fin création Holes");
 		return result;
-	}
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		createDataBase();
 	}
 }

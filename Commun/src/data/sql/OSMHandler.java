@@ -1,4 +1,4 @@
-package sql;
+package data.sql;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;

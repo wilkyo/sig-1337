@@ -1,4 +1,4 @@
-package modele;
+package data.model;
 
 import base.Point;
 import base.Polyedre;

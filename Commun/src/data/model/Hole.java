@@ -1,4 +1,4 @@
-package modele;
+package data.model;
 
 public class Hole {
 
