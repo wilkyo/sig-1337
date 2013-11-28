@@ -179,7 +179,8 @@ public class SQLCreate {
 					+ " bigint[] NOT NULL,");
 			mySql.append(SQLHelper.CUSTOM_TABLE_ROADS_NAME + " text NOT NULL,");
 			mySql.append(SQLHelper.CUSTOM_TABLE_ROADS_TYPE + " int NOT NULL,");
-			mySql.append(SQLHelper.CUSTOM_TABLE_ROADS_GEOM + " geometry NOT NULL,");
+			mySql.append(SQLHelper.CUSTOM_TABLE_ROADS_GEOM
+					+ " geometry NOT NULL,");
 			mySql.append("CONSTRAINT " + SQLHelper.CUSTOM_TABLE_ROADS
 					+ "_pkey PRIMARY KEY (" + SQLHelper.CUSTOM_TABLE_ROADS_ID
 					+ ")");
@@ -197,9 +198,9 @@ public class SQLCreate {
 			mySql.append("(regexp_split_to_array(substring(array_to_string(w.tags,',','') from 'highway,(.*)'), ','))[1], ");
 			mySql.append("l.way ");
 			mySql.append("FROM " + SQLHelper.TABLE_WAYS + " w ");
-			mySql.append("INNER JOIN " + SQLHelper.TABLE_LINES + " l ON l.osm_id = w.id ");
+			mySql.append("INNER JOIN " + SQLHelper.TABLE_LINES
+					+ " l ON l.osm_id = w.id ");
 			mySql.append("WHERE array_to_string(w.tags,',','') LIKE '%highway%';");
-			System.out.println("+" + mySql.toString());
 			ResultSet myResultSet = s.executeQuery(mySql.toString());
 			mySql = new StringBuilder();
 			while (myResultSet.next()) {
@@ -208,6 +209,7 @@ public class SQLCreate {
 				String name = myResultSet.getString(3);
 				int type = Road.UNCLASSIFIED;
 				String sType = myResultSet.getString(4);
+				String sWay = myResultSet.getString(5);
 				if (sType != null) {
 					switch (myResultSet.getString(4).toUpperCase()) {
 					case "UNCLASSIFIED":
@@ -261,7 +263,8 @@ public class SQLCreate {
 				mySql.append("(" + SQLHelper.CUSTOM_TABLE_ROADS_ID + ", "
 						+ SQLHelper.CUSTOM_TABLE_ROADS_NODES + ", "
 						+ SQLHelper.CUSTOM_TABLE_ROADS_NAME + ", "
-						+ SQLHelper.CUSTOM_TABLE_ROADS_TYPE + ")");
+						+ SQLHelper.CUSTOM_TABLE_ROADS_TYPE + ", "
+						+ SQLHelper.CUSTOM_TABLE_ROADS_GEOM + ")");
 				mySql.append(" VALUES ");
 				mySql.append("("
 						+ id
@@ -270,7 +273,7 @@ public class SQLCreate {
 								.replace("]", "}")
 						+ "', "
 						+ (name != null ? "'" + name.replace("'", "''") + "' "
-								: "''") + ", " + type + "); ");
+								: "''") + ", " + type + ", '" + sWay + "'); ");
 			}
 			if (mySql.length() > 0)
 				s.execute(mySql.toString());

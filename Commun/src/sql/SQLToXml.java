@@ -87,7 +87,8 @@ public class SQLToXml {
 						SQLHelper.getArray(result
 								.getArray(SQLHelper.CUSTOM_TABLE_ROADS_NODES),
 								nodes),
-						result.getInt(SQLHelper.CUSTOM_TABLE_ROADS_TYPE));
+						result.getInt(SQLHelper.CUSTOM_TABLE_ROADS_TYPE),
+						result.getString(SQLHelper.CUSTOM_TABLE_ROADS_GEOM));
 				roads.add(tmp);
 			}
 			s.close();

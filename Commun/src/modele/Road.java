@@ -48,8 +48,9 @@ public class Road {
 	private Node[] nodes;
 	private String name;
 	private int type;
+	private String geom;
 
-	public Road(int id, String name, Node[] nodes, int type) {
+	public Road(int id, String name, Node[] nodes, int type, String geom) {
 		setId(id);
 		setName(name);
 		setNodes(nodes);
