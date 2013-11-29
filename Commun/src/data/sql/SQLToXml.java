@@ -1,5 +1,8 @@
 package data.sql;
 
+import geometry.model.Point;
+import geometry.model.Polygone;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -18,9 +21,6 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
 import org.xml.sax.SAXException;
-
-import base.Point;
-import base.Polygone;
 
 import com.google.code.sig_1337.model.xml.RouteType;
 

@@ -1,11 +1,11 @@
-package triangulation;
+package geometry.triangulation;
 
 import java.util.ArrayList;
 
-import base.Point;
-import base.Polygone;
-import fenetre.Fenetre;
-import fenetre.Panneau;
+import geometry.gui.Fenetre;
+import geometry.gui.Panneau;
+import geometry.model.Point;
+import geometry.model.Polygone;
 
 public class Main {
 
@@ -16,7 +16,6 @@ public class Main {
 
 		Polygone p = new Polygone(pts);
 		ArrayList<Polygone> res = Triangulation.partitionningPolygon(p);
-		ArrayList<Fenetre> listfen = new ArrayList<>();
 		Panneau pan1 = new Panneau();
 		for (Polygone poly : res) {
 			pan1.add(poly);

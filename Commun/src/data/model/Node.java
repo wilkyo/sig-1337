@@ -1,7 +1,7 @@
 package data.model;
 
-import base.Point;
-import base.Polygone;
+import geometry.model.Point;
+import geometry.model.Polygone;
 
 public class Node {
 

@@ -1,7 +1,8 @@
-package intersectionSegment;
+package geometry.intersectionSegment;
+
+import geometry.model.*;
 
 import java.util.*;
-import base.*;
 
 public class LigneFlottante {
 	TreeSet<SegmentFlottant> tree = new TreeSet<SegmentFlottant>();

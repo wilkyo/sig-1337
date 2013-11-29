@@ -1,10 +1,10 @@
-package itineraire;
+package geometry.itineraire;
+
+import geometry.model.Point;
+import geometry.model.Segment;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-
-import base.Point;
-import base.Segment;
 
 /**
  * Classe permettant de calculer l'itinéraire entre un point départ et un point

@@ -1,12 +1,12 @@
-package base;
+package geometry.model;
+
+import geometry.triangulation.Triangulation;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Vector;
-
-import triangulation.Triangulation;
 
 /**
  * Classe contenant les informations d'un polyedre
@@ -72,8 +72,8 @@ public class Polygone {
 	 * @return l'enveloppe convexe
 	 */
 	public ArrayList<Segment> envellopeConvex() {
-		ArrayList<Segment> res = new ArrayList<Segment>();
-		ArrayList<Point> pointtrie = new ArrayList<Point>();
+		//ArrayList<Segment> res = new ArrayList<Segment>();
+		//ArrayList<Point> pointtrie = new ArrayList<Point>();
 		Point P = points[0];
 		int index = 0;
 		int i = 0;

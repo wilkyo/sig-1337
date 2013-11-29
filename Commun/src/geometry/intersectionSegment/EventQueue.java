@@ -1,7 +1,8 @@
-package intersectionSegment;
+package geometry.intersectionSegment;
+
+import geometry.model.*;
 
 import java.util.*;
-import base.*;
 
 public class EventQueue {
 	TreeMap<Point, Event> queue = new TreeMap<Point, Event>();

@@ -1,4 +1,4 @@
-package fenetre;
+package geometry.gui;
 
 import java.awt.*;
 import javax.swing.*;
