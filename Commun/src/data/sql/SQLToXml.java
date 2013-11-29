@@ -24,10 +24,10 @@ import org.xml.sax.SAXException;
 
 import com.google.code.sig_1337.model.xml.RouteType;
 
-import data.model.Building;
-import data.model.Hole;
 import data.model.Node;
 import data.model.Road;
+import data.model.structure.Building;
+import data.model.structure.Hole;
 
 public class SQLToXml {
 
