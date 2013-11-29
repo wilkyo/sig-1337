@@ -1,13 +1,16 @@
 package fenetre;
 
-import java.awt.*;
-import javax.swing.*;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
+import java.util.ArrayList;
+
+import javax.swing.JPanel;
 
 import base.Point;
 import base.Polygone;
 import base.Segment;
-
-import java.util.*;
 
 public class Panneau extends JPanel {
 	/**
@@ -44,17 +47,25 @@ public class Panneau extends JPanel {
 	}
 
 	private void draw(Point point, Graphics g) {
-		g.drawOval((int) point.x - TAILLEPOINT, (int) point.y - TAILLEPOINT,
-				TAILLEPOINT, TAILLEPOINT);
+		double w = bounds[1].x - bounds[0].x;
+		double h = bounds[1].y - bounds[0].y;
+		double x = ((point.x - bounds[0].x) * (getWidth() / w));
+		double y = ((point.y - bounds[0].y) * (getHeight() / h));
+		g.drawOval((int) x - TAILLEPOINT, (int) y - TAILLEPOINT,
+				TAILLEPOINT * 2, TAILLEPOINT * 2);
 		g.setColor(Color.red);
-		g.fillOval((int) point.x - TAILLEPOINT, (int) point.y - TAILLEPOINT,
-				TAILLEPOINT, TAILLEPOINT);
+		g.fillOval((int) x - TAILLEPOINT, (int) y - TAILLEPOINT,
+				TAILLEPOINT * 2, TAILLEPOINT * 2);
 		g.setColor(Color.black);
 	}
 
 	private void draw(Segment segment, Graphics g) {
-		g.drawLine((int) segment.debut.x, (int) segment.debut.y,
-				(int) segment.fin.x, (int) segment.fin.y);
+		double w = bounds[1].x - bounds[0].x;
+		double h = bounds[1].y - bounds[0].y;
+		g.drawLine((int) ((segment.debut.x - bounds[0].x) * (getWidth() / w)),
+				(int) ((segment.debut.y - bounds[0].y) * (getHeight() / h)),
+				(int) ((segment.fin.x - bounds[0].x) * (getWidth() / w)),
+				(int) ((segment.fin.y - bounds[0].y) * (getHeight() / h)));
 
 	}
 
@@ -80,6 +91,9 @@ public class Panneau extends JPanel {
 
 	public void paint(Graphics g) {
 		super.paint(g);
+		Graphics2D g2d = (Graphics2D) g;
+		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+				RenderingHints.VALUE_ANTIALIAS_ON);
 
 		for (Point p : points)
 			draw(p, g);
