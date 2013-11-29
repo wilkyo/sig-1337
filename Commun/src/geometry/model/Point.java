@@ -1,4 +1,4 @@
-package base;
+package geometry.model;
 
 /**
  * Classe contenant les informations d'un point

@@ -1,6 +1,7 @@
-package intersectionSegment;
+package geometry.intersectionSegment;
 
-import base.*;
+import geometry.model.*;
+
 import java.util.*;
 
 public class AlgoIntersectionSegment {
@@ -88,7 +89,7 @@ public class AlgoIntersectionSegment {
 			Point newP = sl.intersection(sr);
 			if (newP != null) {
 				if (newP.y < p.y || (newP.y == p.y && newP.x >= p.x)) {
-					EventQueue.Event e = queue.add(newP);
+					queue.add(newP);
 				}
 			}
 		}

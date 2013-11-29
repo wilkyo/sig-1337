@@ -1,11 +1,12 @@
-package fenetre;
+package geometry.gui;
+
+import geometry.model.Point;
+import geometry.model.Polygone;
+import geometry.model.Segment;
 
 import java.awt.*;
-import javax.swing.*;
 
-import base.Point;
-import base.Polygone;
-import base.Segment;
+import javax.swing.*;
 
 import java.util.*;
 

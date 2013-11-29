@@ -1,9 +1,10 @@
-package intersectionSegment;
+package geometry.intersectionSegment;
 
-import base.Point;
-import base.Segment;
-import fenetre.Fenetre;
-import fenetre.Panneau;
+import geometry.gui.Fenetre;
+import geometry.gui.Panneau;
+import geometry.model.Point;
+import geometry.model.Segment;
+
 import java.util.*;
 
 public class Main {
