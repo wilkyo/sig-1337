@@ -51,12 +51,12 @@ public class Panneau extends JPanel {
 		double h = bounds[1].y - bounds[0].y;
 		double x = ((point.x - bounds[0].x) * (getWidth() / w));
 		double y = ((point.y - bounds[0].y) * (getHeight() / h));
-		g.drawOval((int) x - TAILLEPOINT, (int) y - TAILLEPOINT,
-				TAILLEPOINT * 2, TAILLEPOINT * 2);
 		g.setColor(Color.red);
 		g.fillOval((int) x - TAILLEPOINT, (int) y - TAILLEPOINT,
 				TAILLEPOINT * 2, TAILLEPOINT * 2);
 		g.setColor(Color.black);
+		g.drawOval((int) x - TAILLEPOINT, (int) y - TAILLEPOINT,
+				TAILLEPOINT * 2, TAILLEPOINT * 2);
 	}
 
 	private void draw(Segment segment, Graphics g) {
