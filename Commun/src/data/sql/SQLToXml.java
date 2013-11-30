@@ -12,9 +12,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
@@ -219,16 +221,60 @@ public class SQLToXml {
 	}
 
 	/**
+	 * Return the graph for routing
+	 * @param db
+	 * 		Connection to the SQL Database
+	 * @return
+	 * 		The graph
+	 */
+	private static Map<Point, ArrayList<Point>> getGraph(Connection db) {
+		Map<Point, ArrayList<Point>> map = new HashMap<Point, ArrayList<Point>>();
+		Statement s;
+		try{
+			s = db.createStatement();
+			ResultSet result = s.executeQuery("SELECT * FROM " + SQLHelper.CUSTOM_GRAPH_SOURCE);
+			while (result.next()) {
+				Point ori = new Point(result.getDouble(SQLHelper.CUSTOM_GRAPH_POINT_X), result.getDouble(SQLHelper.CUSTOM_GRAPH_POINT_Y));
+				Point voisin = new Point(result.getDouble(SQLHelper.CUSTOM_GRAPH_VOISIN_X), result.getDouble(SQLHelper.CUSTOM_GRAPH_VOISIN_Y));
+				if(map.containsKey(ori))
+					map.get(ori).add(voisin);
+				else {
+					ArrayList<Point> list = new ArrayList<Point>();
+					list.add(voisin);
+					map.put(ori, list);
+				}
+			}
+			result = s.executeQuery("SELECT * FROM " + SQLHelper.CUSTOM_GRAPH_TARGET);
+			while (result.next()) {
+				Point ori = new Point(result.getDouble(SQLHelper.CUSTOM_GRAPH_POINT_X), result.getDouble(SQLHelper.CUSTOM_GRAPH_POINT_Y));
+				Point voisin = new Point(result.getDouble(SQLHelper.CUSTOM_GRAPH_VOISIN_X), result.getDouble(SQLHelper.CUSTOM_GRAPH_VOISIN_Y));
+				if(map.containsKey(ori))
+					map.get(ori).add(voisin);
+				else {
+					ArrayList<Point> list = new ArrayList<Point>();
+					list.add(voisin);
+					map.put(ori, list);
+				}
+			}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return map;
+	}
+	
+	/**
 	 * Generates the XML for the Android application.
 	 * 
 	 * @param args
 	 * 
 	 * @param buildings
 	 * @param roads
+	 * @param graph 
 	 * @param nodes
 	 */
 	private static void generateXML(String filename, List<Road> roads,
-			Map<Long, Building> buildings) {
+			Map<Long, Building> buildings, Map<Point, ArrayList<Point>> graph) {
 		StringBuffer buff = new StringBuffer();
 		buff.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 				+ "<sig_1337>\n\t" + getBounds(filename) + "\n\t<graphics>\n");
@@ -299,8 +345,17 @@ public class SQLToXml {
 		}
 		buff.append("\t\t</routes>\n");
 		System.out.println("Roads generated");
-
-		buff.append("\t</graphics>\n" + "</sig_1337>");
+		System.out.println("Generating graph ...");
+		buff.append("\t</graphics>\n\t<graph>\n");
+		for (Point p : graph.keySet()) {
+			buff.append("\t\t<sommmet x=\"" + p.x + "\" y=\"" + p.y + "\">\n");
+			for (Point voisin : graph.get(p)) {
+				buff.append("\t\t\t" + pointToXML(voisin) + "\n");
+			}
+			buff.append("\t\t</sommmet>\n");
+		}
+		System.out.println("Graph generated");
+		buff.append("\t</graph>\n</sig_1337>");
 		try {
 			FileWriter out = new FileWriter(new File("files/map.xml"));
 			out.write(buff.toString());
@@ -332,13 +387,15 @@ public class SQLToXml {
 			Map<Long, Building> buildings = getAllBuildings(connection, nodes);
 			getAllHoles(connection, nodes, buildings);
 
+			Map<Point, ArrayList<Point>> graph = getGraph(connection);
+			
 			System.out.println(nodes.size() + " nodes.");
 			System.out.println(roads.size() + " roads.");
 			System.out.println(buildings.size() + " buildings.");
 
 			connection.close();
 
-			generateXML(filename, roads, buildings);
+			generateXML(filename, roads, buildings,graph);
 			System.out.println("XML generated.");
 		} catch (SQLException e) {
 			e.printStackTrace();

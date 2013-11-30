@@ -107,7 +107,7 @@ public class Triangulation {
 	private static Panneau panneau;
 	private static Point[] bounds;
 	private static boolean DEBUG = false;
-	private static boolean REFRESH_ALWAYS = true;
+	private static boolean REFRESH_ALWAYS = false;
 
 	/**
 	 * Crée la fenêtre ou la prépare pour le nouveau polygone.
