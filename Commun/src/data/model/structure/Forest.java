@@ -15,8 +15,8 @@ public class Forest extends Structure {
 	 * @param nodes
 	 *            Nodes forming the Forest.
 	 */
-	public Forest(long id, Node[] nodes) {
-		super(id, nodes);
+	public Forest(long id, String name, Node[] nodes) {
+		super(id, name, nodes);
 	}
 
 }

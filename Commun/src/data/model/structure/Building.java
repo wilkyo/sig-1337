@@ -11,10 +11,6 @@ import data.model.Node;
 public class Building extends Structure {
 
 	/**
-	 * Name of the Building.
-	 */
-	private String name;
-	/**
 	 * Holes of the Building.
 	 */
 	private List<Hole> holes;
@@ -30,16 +26,8 @@ public class Building extends Structure {
 	 *            Nodes forming the Building.
 	 */
 	public Building(long id, String name, Node[] nodes) {
-		super(id, nodes);
-		this.name = name;
+		super(id, name, nodes);
 		holes = new ArrayList<Hole>();
-	}
-
-	/**
-	 * @return the name
-	 */
-	public String getName() {
-		return name;
 	}
 
 	/**

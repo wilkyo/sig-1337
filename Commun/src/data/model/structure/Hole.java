@@ -23,7 +23,7 @@ public class Hole extends Structure {
 	 *            Nodes forming the Hole.
 	 */
 	public Hole(long id, long idBuilding, Node[] nodes) {
-		super(id, nodes);
+		super(id, null, nodes);
 		this.idBuilding = idBuilding;
 	}
 

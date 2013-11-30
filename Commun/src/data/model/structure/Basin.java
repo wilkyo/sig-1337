@@ -15,8 +15,8 @@ public class Basin extends Structure {
 	 * @param nodes
 	 *            Nodes forming the Basin.
 	 */
-	public Basin(long id, Node[] nodes) {
-		super(id, nodes);
+	public Basin(long id, String name, Node[] nodes) {
+		super(id, name, nodes);
 	}
 
 }

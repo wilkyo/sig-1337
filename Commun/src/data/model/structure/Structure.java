@@ -13,6 +13,10 @@ public abstract class Structure {
 	 */
 	private long id;
 	/**
+	 * Name of the Structure.
+	 */
+	private String name;
+	/**
 	 * Nodes forming the polygon.
 	 */
 	private Node[] nodes;
@@ -25,8 +29,9 @@ public abstract class Structure {
 	 * @param nodes
 	 *            Nodes forming the Structure.
 	 */
-	public Structure(long id, Node[] nodes) {
+	public Structure(long id, String name, Node[] nodes) {
 		this.id = id;
+		this.name = name;
 		this.nodes = nodes;
 	}
 
@@ -35,6 +40,13 @@ public abstract class Structure {
 	 */
 	public long getId() {
 		return id;
+	}
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
 	}
 
 	/**
