@@ -100,21 +100,21 @@ public class SQLCreate {
 			// Création de la structure de la table
 			StringBuilder mySql = new StringBuilder();
 			mySql.append("DROP TABLE IF EXISTS "
-					+ SQLHelper.CUSTOM_TABLE_BUILDINGS + ";");
-			mySql.append("CREATE TABLE " + SQLHelper.CUSTOM_TABLE_BUILDINGS
+					+ SQLHelper.CUSTOM_TABLE_STRUCTURES + ";");
+			mySql.append("CREATE TABLE " + SQLHelper.CUSTOM_TABLE_STRUCTURES
 					+ " (");
-			mySql.append(SQLHelper.CUSTOM_TABLE_BUILDINGS_ID
+			mySql.append(SQLHelper.CUSTOM_TABLE_STRUCTURES_ID
 					+ " bigint NOT NULL,");
-			mySql.append(SQLHelper.CUSTOM_TABLE_BUILDINGS_NODES
+			mySql.append(SQLHelper.CUSTOM_TABLE_STRUCTURES_NODES
 					+ " bigint[] NOT NULL,");
-			mySql.append(SQLHelper.CUSTOM_TABLE_BUILDINGS_NAME
+			mySql.append(SQLHelper.CUSTOM_TABLE_STRUCTURES_NAME
 					+ " text NOT NULL,");
-			mySql.append("CONSTRAINT " + SQLHelper.CUSTOM_TABLE_BUILDINGS
+			mySql.append("CONSTRAINT " + SQLHelper.CUSTOM_TABLE_STRUCTURES
 					+ "_pkey PRIMARY KEY ("
-					+ SQLHelper.CUSTOM_TABLE_BUILDINGS_ID + ")");
+					+ SQLHelper.CUSTOM_TABLE_STRUCTURES_ID + ")");
 			mySql.append(")");
 			mySql.append("WITH (OIDS=FALSE);");
-			mySql.append("ALTER TABLE " + SQLHelper.CUSTOM_TABLE_BUILDINGS
+			mySql.append("ALTER TABLE " + SQLHelper.CUSTOM_TABLE_STRUCTURES
 					+ " OWNER TO postgres;");
 			s.execute(mySql.toString());
 
@@ -131,11 +131,11 @@ public class SQLCreate {
 				long id = myResultSet.getLong(1);
 				long[] nodes = SQLHelper.getLongArray(myResultSet.getArray(2));
 				String name = myResultSet.getString(3);
-				mySql.append("INSERT INTO " + SQLHelper.CUSTOM_TABLE_BUILDINGS
+				mySql.append("INSERT INTO " + SQLHelper.CUSTOM_TABLE_STRUCTURES
 						+ " ");
-				mySql.append("(" + SQLHelper.CUSTOM_TABLE_BUILDINGS_ID + ", "
-						+ SQLHelper.CUSTOM_TABLE_BUILDINGS_NODES + ", "
-						+ SQLHelper.CUSTOM_TABLE_BUILDINGS_NAME + ")");
+				mySql.append("(" + SQLHelper.CUSTOM_TABLE_STRUCTURES_ID + ", "
+						+ SQLHelper.CUSTOM_TABLE_STRUCTURES_NODES + ", "
+						+ SQLHelper.CUSTOM_TABLE_STRUCTURES_NAME + ")");
 				mySql.append(" VALUES ");
 				mySql.append("("
 						+ id
@@ -337,7 +337,7 @@ public class SQLCreate {
 			mySql.append("SELECT rel.id, ways2.nodes, builing.id ");
 			mySql.append("FROM " + SQLHelper.TABLE_RELS + " rel ");
 			mySql.append("INNER JOIN "
-					+ SQLHelper.CUSTOM_TABLE_BUILDINGS
+					+ SQLHelper.CUSTOM_TABLE_STRUCTURES
 					+ " builing ON builing.Id = CAST(substring((regexp_split_to_array(array_to_string(rel.members,',',''),','))[3] from 2) AS bigint) ");
 			mySql.append("INNER JOIN "
 					+ SQLHelper.TABLE_WAYS

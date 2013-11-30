@@ -62,11 +62,11 @@ public class SQLHelper {
 	/**
 	 * Constants for our custom buildings table.
 	 */
-	public static final String CUSTOM_TABLE_BUILDINGS = "sig1337_buildings";
-	public static final String CUSTOM_TABLE_BUILDINGS_ID = "id";
-	public static final String CUSTOM_TABLE_BUILDINGS_NODES = "nodes";
-	public static final String CUSTOM_TABLE_BUILDINGS_NAME = "name";
-	public static final String CUSTOM_TABLE_BUILDINGS_TROUS = "holes";
+	public static final String CUSTOM_TABLE_STRUCTURES = "sig1337_structures";
+	public static final String CUSTOM_TABLE_STRUCTURES_ID = "id";
+	public static final String CUSTOM_TABLE_STRUCTURES_NODES = "nodes";
+	public static final String CUSTOM_TABLE_STRUCTURES_NAME = "name";
+	public static final String CUSTOM_TABLE_STRUCTURES_TYPE = "type";
 
 	/**
 	 * Constants for our custom holes table.

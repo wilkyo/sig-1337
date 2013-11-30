@@ -26,10 +26,10 @@ import org.xml.sax.SAXException;
 
 import com.google.code.sig_1337.model.xml.RouteType;
 
-import data.model.Building;
-import data.model.Hole;
 import data.model.Node;
 import data.model.Road;
+import data.model.structure.Building;
+import data.model.structure.Hole;
 
 public class SQLToXml {
 
@@ -116,13 +116,14 @@ public class SQLToXml {
 		try {
 			s = db.createStatement();
 			ResultSet result = s.executeQuery("SELECT * FROM "
-					+ SQLHelper.CUSTOM_TABLE_BUILDINGS);
+					+ SQLHelper.CUSTOM_TABLE_STRUCTURES + " WHERE "
+					+ SQLHelper.CUSTOM_TABLE_STRUCTURES_TYPE + " = 'building'");
 			while (result.next()) {
 				Building tmp = new Building(
-						result.getInt(SQLHelper.CUSTOM_TABLE_BUILDINGS_ID),
-						result.getString(SQLHelper.CUSTOM_TABLE_BUILDINGS_NAME),
+						result.getInt(SQLHelper.CUSTOM_TABLE_STRUCTURES_ID),
+						result.getString(SQLHelper.CUSTOM_TABLE_STRUCTURES_NAME),
 						SQLHelper.getArray(
-								result.getArray(SQLHelper.CUSTOM_TABLE_BUILDINGS_NODES),
+								result.getArray(SQLHelper.CUSTOM_TABLE_STRUCTURES_NODES),
 								nodes));
 				// Holes will be set in the getAllHoles method
 				buildings.put(tmp.getId(), tmp);
@@ -289,7 +290,8 @@ public class SQLToXml {
 					.toTriangles();
 			buff.append("\t\t\t\t<triangles>\n");
 			for (Polygone t : triangles) {
-				if(t.points.length == 3 && t.points[0] != null && t.points[1] != null && t.points[2] != null)
+				if (t.points.length == 3 && t.points[0] != null
+						&& t.points[1] != null && t.points[2] != null)
 					buff.append(polygonToXML(t));
 			}
 			buff.append("\t\t\t\t</triangles>\n");
