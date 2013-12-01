@@ -138,12 +138,11 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 		float rH = (float) ((2 / mapHeight));
 		float initialScale = (float) Math.max(rW, rH);
 		scale = initialScale * userScale;
-		testScale = scale / initialScale;
 		gl.glPushMatrix();
 		//
-		gl.glTranslatef(userDX / 1000, -userDY / 1000, 0);
-		gl.glScalef(scale, scale, 1);
-		gl.glTranslatef(-(float) cX, -(float) cY, 0);
+		gl.glScalef(200 * userScale, 200 * userScale, 1);
+		gl.glTranslatef(-(float) (cX - userDX / 100000f),
+				-(float) (cY + userDY / 100000f), 0);
 		drawGraphics(gl);
 		gl.glPopMatrix();
 
