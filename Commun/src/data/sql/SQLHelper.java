@@ -79,6 +79,16 @@ public class SQLHelper {
 	public static final String CUSTOM_TABLE_HOLES_ID_BUILDING = "id_building";
 
 	/**
+	 * Constants for our custom graph table.
+	 */
+	public static final String CUSTOM_GRAPH_SOURCE = "get_source";
+	public static final String CUSTOM_GRAPH_TARGET = "get_target";
+	public static final String CUSTOM_GRAPH_POINT_X = "point_x";
+	public static final String CUSTOM_GRAPH_POINT_Y = "point_y";
+	public static final String CUSTOM_GRAPH_VOISIN_X = "voisin_x";
+	public static final String CUSTOM_GRAPH_VOISIN_Y = "voisin_y";
+
+	/**
 	 * Take an SQL Array and returns its integer Array value.
 	 * 
 	 * @param array
