@@ -11,6 +11,7 @@ import java.util.List;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
+import android.util.Log;
 import android.util.Xml;
 
 /**
@@ -60,6 +61,11 @@ public class Sig1337 implements ISig1337 {
 	private final IGraphics graphics;
 
 	/**
+	 * Graph.
+	 */
+	private final IGraph graph;
+
+	/**
 	 * Parse the given XML file.
 	 * 
 	 * @param in
@@ -86,10 +92,11 @@ public class Sig1337 implements ISig1337 {
 	 * @param graphics
 	 *            graphics.
 	 */
-	private Sig1337(IBounds bounds, IGraphics graphics) {
+	private Sig1337(IBounds bounds, IGraphics graphics, IGraph graph) {
 		super();
 		this.bounds = bounds;
 		this.graphics = graphics;
+		this.graph = graph;
 	}
 
 	/**
@@ -199,6 +206,16 @@ public class Sig1337 implements ISig1337 {
 	private static final String Y = "y";
 
 	/**
+	 * Name for the {@code graph} tag.
+	 */
+	private static final String GRAPH = "graph";
+	
+	/**
+	 * Name for the {@code tag} tag.
+	 */
+	private static final String VERTEX = "vertex";
+
+	/**
 	 * Handler for the {@code XmlPullParser}.
 	 */
 	private static class Handler {
@@ -220,9 +237,64 @@ public class Sig1337 implements ISig1337 {
 			parser.require(XmlPullParser.START_TAG, null, SIG1337);
 			IBounds bounds = readBounds(parser);
 			IGraphics graphics = readGraphics(parser, bounds);
+			IGraph graph = readGraph(parser, bounds);
 			parser.nextTag();
 			parser.require(XmlPullParser.END_TAG, null, SIG1337);
-			return new Sig1337(bounds, graphics);
+			return new Sig1337(bounds, graphics, graph);
+		}
+
+		/**
+		 * Parse the graph.
+		 * @param parser
+		 * 				parser.
+		 * @param bounds
+		 * 				map bounds.
+		 * @return	parsed graph.
+		 * @throws XmlPullParserException
+		 * 				error while parsing.
+		 * @throws IOException
+		 * 				error with IO.
+		 */
+		private IGraph readGraph(XmlPullParser parser, IBounds bounds) throws XmlPullParserException, IOException {
+			parser.nextTag();
+			parser.require(XmlPullParser.START_TAG, null, GRAPH);
+			IGraph graph = new Graph();
+			while(parser.next() != XmlPullParser.END_TAG) {
+				if(parser.getEventType() != XmlPullParser.START_TAG) {
+					continue;
+				}
+				graph.add(readVertex(parser, bounds));
+			}
+			return graph;
+		}
+
+		/**
+		 * Parse the sommet.
+		 * @param parser
+		 * 				parser
+		 * @param bounds
+		 * 				map bounds
+		 * @return	parsed sommet
+		 * @throws XmlPullParserException
+		 * 				error while parsing
+		 * @throws IOException
+		 * 				error with IO
+		 */
+		private IVertex readVertex(XmlPullParser parser, IBounds bounds) throws XmlPullParserException, IOException {
+			parser.require(XmlPullParser.START_TAG, null, VERTEX);
+			double x = Double.parseDouble(parser.getAttributeValue(null, X));
+			double y = Double.parseDouble(parser.getAttributeValue(null, X));
+			List<IPoint> list = new ArrayList<IPoint>();
+			do {
+				try{
+					list.add(readPoint(parser, bounds));
+				}
+				catch (XmlPullParserException e) {
+					Log.d("pouet", "Fin des voisins du sommet (TODO : virer le catch)");
+				}
+			} while (! parser.getName().equals(VERTEX));
+			parser.require(XmlPullParser.END_TAG, null, VERTEX);
+			return new Vertex(x, y, x - bounds.getMinLon(), y - bounds.getMinLat(), list);
 		}
 
 		/**
@@ -492,10 +564,62 @@ public class Sig1337 implements ISig1337 {
 			sb.append(">\n");
 			toString(sb, INDENT, sig1337.getBounds());
 			toString(sb, INDENT, sig1337.getGraphics());
+			toString(sb, INDENT, sig1337.getGraph());
 			sb.append("</");
 			sb.append(SIG1337);
 			sb.append(">\n");
 			return sb.toString();
+		}
+
+		/**
+		 * Format the given graph.
+		 * 
+		 * @param sb
+		 *            string builder.
+		 * @param indent
+		 *            indentation.
+		 * @param graph
+		 *            graph to format.
+		 */
+		private void toString(StringBuilder sb, String indent, IGraph graph) {
+			sb.append(indent);
+			sb.append('<');
+			sb.append(GRAPH);
+			sb.append(">\n");
+			for (IVertex vertex : graph) {
+				toString(sb,indent + INDENT, vertex);
+			}
+			sb.append("</");
+			sb.append(GRAPH);
+			sb.append(">\n");
+
+		}
+
+		/**
+		 * Format the given vertex.
+		 * 
+		 * @param sb
+		 *            string builder.
+		 * @param indent
+		 *            indentation.
+		 * @param vertex
+		 *            vertex to format.
+		 */
+		private void toString(StringBuilder sb, String indent, IVertex vertex) {
+			sb.append(indent);
+			sb.append("<");
+			sb.append(VERTEX);
+			sb.append(" x=\"");
+			sb.append(vertex.getLongitude());
+			sb.append("\" y=\"");
+			sb.append(vertex.getLatitude());
+			sb.append("\">\n");
+			for (IPoint point : vertex.getPoint()) {
+				toString(sb, indent+ INDENT, point);
+			}
+			sb.append("</");
+			sb.append(VERTEX);
+			sb.append(">\n");
 		}
 
 		/**
@@ -731,6 +855,11 @@ public class Sig1337 implements ISig1337 {
 			sb.append(point.getLatitude());
 			sb.append("\"/>\n");
 		}
+	}
+
+	@Override
+	public IGraph getGraph() {
+		return graph;
 	}
 
 }

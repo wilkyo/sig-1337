@@ -19,4 +19,10 @@ public interface ISig1337 {
 	 */
 	public IGraphics getGraphics();
 
+	/**
+	 * Get the Graph
+	 * 
+	 * @return the graph
+	 */
+	public IGraph getGraph();
 }

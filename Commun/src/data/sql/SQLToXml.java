@@ -350,11 +350,11 @@ public class SQLToXml {
 		System.out.println("Generating graph ...");
 		buff.append("\t</graphics>\n\t<graph>\n");
 		for (Point p : graph.keySet()) {
-			buff.append("\t\t<sommmet x=\"" + p.x + "\" y=\"" + p.y + "\">\n");
+			buff.append("\t\t<vertex x=\"" + p.x + "\" y=\"" + p.y + "\">\n");
 			for (Point voisin : graph.get(p)) {
 				buff.append("\t\t\t" + pointToXML(voisin) + "\n");
 			}
-			buff.append("\t\t</sommmet>\n");
+			buff.append("\t\t</vertex>\n");
 		}
 		System.out.println("Graph generated");
 		buff.append("\t</graph>\n</sig_1337>");
@@ -386,8 +386,8 @@ public class SQLToXml {
 			System.out.println("Preprocessing before XML...");
 			Map<Long, Node> nodes = getAllNodes(connection);
 			List<Road> roads = getAllRoads(connection, nodes);
-			Map<Long, Building> buildings = getAllBuildings(connection, nodes);
-			getAllHoles(connection, nodes, buildings);
+			Map<Long, Building> buildings = new HashMap<Long, Building>();//getAllBuildings(connection, nodes);
+			//getAllHoles(connection, nodes, buildings);
 
 			Map<Point, ArrayList<Point>> graph = getGraph(connection);
 			
