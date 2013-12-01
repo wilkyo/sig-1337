@@ -449,17 +449,14 @@ public class SQLToXml {
 		}
 		buff.append("\t\t</routes>\n");
 		System.out.println("Roads generated");
-		System.out.println("Generating graph ...");
+		System.out.println("Generating graph...");
 		buff.append("\t</graphics>\n\t<graph>\n");
-		if (graph != null) { // TODO Plante chez Willy
-			for (Point p : graph.keySet()) {
-				buff.append("\t\t<vertex x=\"" + p.x + "\" y=\"" + p.y
-						+ "\">\n");
-				for (Point voisin : graph.get(p)) {
-					buff.append("\t\t\t" + pointToXML(voisin) + "\n");
-				}
-				buff.append("\t\t</vertex>\n");
+		for (Point p : graph.keySet()) {
+			buff.append("\t\t<vertex x=\"" + p.x + "\" y=\"" + p.y + "\">\n");
+			for (Point voisin : graph.get(p)) {
+				buff.append("\t\t\t" + pointToXML(voisin) + "\n");
 			}
+			buff.append("\t\t</vertex>\n");
 		}
 		System.out.println("Graph generated");
 		buff.append("\t</graph>\n</sig_1337>");
@@ -496,7 +493,7 @@ public class SQLToXml {
 			Map<Long, Basin> basins = getAllBasins(connection, nodes);
 			getAllHoles(connection, nodes, buildings);
 
-			Map<Point, ArrayList<Point>> graph = null;// getGraph(connection);
+			Map<Point, ArrayList<Point>> graph = new HashMap<Point, ArrayList<Point>>();// getGraph(connection);
 
 			System.out.println(nodes.size() + " nodes.");
 			System.out.println(roads.size() + " roads.");

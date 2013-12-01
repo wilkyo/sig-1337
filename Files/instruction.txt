@@ -1,6 +1,7 @@
 =============== Requirement (basé sur ceux de pgrouting) ===============
 
-osm2po : http://osm2po.de/download.php?lnk=osm2po-4.8.8.zip  Pour pouvoir genérer la table de base;
+osm2po-4.8.8 : http://osm2po.de/
+Pour pouvoir genérer la table de base;
 
 postgresql : >= 8.4 (9.1 recommandé)
 
@@ -16,8 +17,11 @@ Suivre la doc de pgrouting
 
 Décrompresser l'archive osm2po-4.8.8.zip
 
-Exécuter la commande : java -Xmx512m -jar osm2po-core-4.8.8-signed.jar cmd=tjsp path/to/map.osm
+Exécuter la commande :
+java -Xmx512m -jar osm2po-core-4.8.8-signed.jar cmd=tjsp path/to/Universite.osm
 
 Exécuter le fichier sql genéré sur la base
+sudo su postgres
+psql sig_1337 < osm/osm_2po_4pgr.sql 
 
 Puis éxecuter le fichier gentable.sql sur la base
