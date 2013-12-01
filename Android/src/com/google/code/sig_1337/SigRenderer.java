@@ -107,11 +107,6 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	 */
 	public synchronized void setSig(ISig1337 sig) {
 		this.sig = sig;
-		IBounds bounds = sig.getBounds();
-		mapX = bounds.getMinLon();
-		mapY = bounds.getMinLat();
-		mapWidth = bounds.getMaxLon() - bounds.getMinLon();
-		mapHeight = bounds.getMaxLat() - bounds.getMinLat();
 	}
 
 	/**
@@ -130,6 +125,12 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 		gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
 		gl.glEnableClientState(GL10.GL_COLOR_ARRAY);
 
+		// Bounds.
+		IBounds bounds = sig.getBounds();
+		mapX = bounds.getMinLon();
+		mapY = bounds.getMinLat();
+		mapWidth = bounds.getMaxLon() - bounds.getMinLon();
+		mapHeight = bounds.getMaxLat() - bounds.getMinLat();
 		// Translate.
 		float cX = (float) (locationListener.getLongitude() - mapX);
 		float cY = (float) (locationListener.getLatitude() - mapY);
@@ -171,9 +172,11 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	 */
 	private void drawStructures(GL10 gl,
 			IStructures<? extends IStructure> structures) {
-		if (structures != null && !structures.isEmpty()) {
-			for (IStructure structure : structures) {
-				drawStructure(gl, structure);
+		synchronized (structures) {
+			if (structures != null && !structures.isEmpty()) {
+				for (IStructure structure : structures) {
+					drawStructure(gl, structure);
+				}
 			}
 		}
 	}
@@ -210,9 +213,11 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	 */
 	private void drawRoutes(GL10 gl) {
 		IRoutes l = sig.getGraphics().getRoutes();
-		if (l != null && !l.isEmpty()) {
-			for (IRoute r : l) {
-				drawRoute(gl, r);
+		synchronized (l) {
+			if (l != null && !l.isEmpty()) {
+				for (IRoute r : l) {
+					drawRoute(gl, r);
+				}
 			}
 		}
 	}

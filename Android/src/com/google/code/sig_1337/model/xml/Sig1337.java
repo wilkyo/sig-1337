@@ -53,7 +53,7 @@ public class Sig1337 implements ISig1337 {
 	/**
 	 * Bounds.
 	 */
-	private final IBounds bounds;
+	private Bounds bounds;
 
 	/**
 	 * Graphics.
@@ -75,28 +75,24 @@ public class Sig1337 implements ISig1337 {
 	 *             error while parsing.
 	 * @throws IOException
 	 *             error with IO.
+	 * @throws InterruptedException
 	 */
-	public static Sig1337 parse(InputStream in) throws XmlPullParserException,
-			IOException {
+	public static void parse(InputStream in, Sig1337 sig)
+			throws XmlPullParserException, IOException, InterruptedException {
 		XmlPullParser p = Xml.newPullParser();
 		p.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
 		p.setInput(in, null);
-		return new Handler().handle(p);
+		new Handler().handle(sig, p);
 	}
 
 	/**
-	 * Initializing constructor.
-	 * 
-	 * @param bounds
-	 *            bounds.
-	 * @param graphics
-	 *            graphics.
+	 * Default constructor.
 	 */
-	private Sig1337(IBounds bounds, IGraphics graphics, IGraph graph) {
+	public Sig1337() {
 		super();
-		this.bounds = bounds;
-		this.graphics = graphics;
-		this.graph = graph;
+		this.bounds = new Bounds(0, 0, 0, 0);
+		this.graphics = new Graphics();
+		this.graph = new Graph();
 	}
 
 	/**
@@ -250,17 +246,19 @@ public class Sig1337 implements ISig1337 {
 		 *             error while parsing.
 		 * @throws IOException
 		 *             error with IO.
+		 * @throws InterruptedException
 		 */
-		public Sig1337 handle(XmlPullParser parser)
-				throws XmlPullParserException, IOException {
+		public void handle(Sig1337 sig, XmlPullParser parser)
+				throws XmlPullParserException, IOException,
+				InterruptedException {
+			checkInterrupted();
 			parser.nextTag();
 			parser.require(XmlPullParser.START_TAG, null, SIG1337);
-			IBounds bounds = readBounds(parser);
-			IGraphics graphics = readGraphics(parser, bounds);
-			IGraph graph = readGraph(parser, bounds);
+			readBounds(parser, sig.bounds);
+			readGraphics(parser, sig);
+			readGraph(parser, sig.graph, sig.bounds);
 			parser.nextTag();
 			parser.require(XmlPullParser.END_TAG, null, SIG1337);
-			return new Sig1337(bounds, graphics, graph);
 		}
 
 		/**
@@ -270,24 +268,25 @@ public class Sig1337 implements ISig1337 {
 		 *            parser.
 		 * @param bounds
 		 *            map bounds.
-		 * @return parsed graph.
 		 * @throws XmlPullParserException
 		 *             error while parsing.
 		 * @throws IOException
 		 *             error with IO.
+		 * @throws InterruptedException
 		 */
-		private IGraph readGraph(XmlPullParser parser, IBounds bounds)
-				throws XmlPullParserException, IOException {
+		private void readGraph(XmlPullParser parser, IGraph graph,
+				IBounds bounds) throws XmlPullParserException, IOException,
+				InterruptedException {
+			checkInterrupted();
 			parser.nextTag();
 			parser.require(XmlPullParser.START_TAG, null, GRAPH);
-			IGraph graph = new Graph();
 			while (parser.next() != XmlPullParser.END_TAG) {
 				if (parser.getEventType() != XmlPullParser.START_TAG) {
 					continue;
 				}
+				checkInterrupted();
 				graph.add(readVertex(parser, bounds));
 			}
-			return graph;
 		}
 
 		/**
@@ -302,14 +301,18 @@ public class Sig1337 implements ISig1337 {
 		 *             error while parsing
 		 * @throws IOException
 		 *             error with IO
+		 * @throws InterruptedException
 		 */
 		private IVertex readVertex(XmlPullParser parser, IBounds bounds)
-				throws XmlPullParserException, IOException {
+				throws XmlPullParserException, IOException,
+				InterruptedException {
+			checkInterrupted();
 			parser.require(XmlPullParser.START_TAG, null, VERTEX);
 			double x = Double.parseDouble(parser.getAttributeValue(null, X));
 			double y = Double.parseDouble(parser.getAttributeValue(null, X));
 			List<IPoint> list = new ArrayList<IPoint>();
 			do {
+				checkInterrupted();
 				try {
 					list.add(readPoint(parser, bounds));
 				} catch (XmlPullParserException e) {
@@ -332,9 +335,12 @@ public class Sig1337 implements ISig1337 {
 		 *             error while parsing.
 		 * @throws IOException
 		 *             error with IO.
+		 * @throws InterruptedException
 		 */
-		private IBounds readBounds(XmlPullParser parser)
-				throws XmlPullParserException, IOException {
+		private void readBounds(XmlPullParser parser, Bounds bounds)
+				throws XmlPullParserException, IOException,
+				InterruptedException {
+			checkInterrupted();
 			parser.nextTag();
 			parser.require(XmlPullParser.START_TAG, null, BOUNDS);
 			double minLat = Double.parseDouble(parser.getAttributeValue(null,
@@ -347,7 +353,10 @@ public class Sig1337 implements ISig1337 {
 					MAX_LON));
 			parser.nextTag();
 			parser.require(XmlPullParser.END_TAG, null, BOUNDS);
-			return new Bounds(minLat, minLon, maxLat, maxLon);
+			bounds.setMinLon(minLon);
+			bounds.setMinLat(minLat);
+			bounds.setMaxLon(maxLon);
+			bounds.setMaxLat(maxLat);
 		}
 
 		private static interface Initializer<T> {
@@ -366,39 +375,42 @@ public class Sig1337 implements ISig1337 {
 		 *             error while parsing.
 		 * @throws IOException
 		 *             error with IO.
+		 * @throws InterruptedException
 		 */
-		private IGraphics readGraphics(XmlPullParser parser, IBounds bounds)
-				throws XmlPullParserException, IOException {
+		private void readGraphics(XmlPullParser parser, Sig1337 sig)
+				throws XmlPullParserException, IOException,
+				InterruptedException {
+			checkInterrupted();
 			parser.nextTag();
 			parser.require(XmlPullParser.START_TAG, null, GRAPHICS);
 			// Bassins.
-			IStructures<IBassin> bassins = readStructures(parser, BASSINS,
-					BASSIN, bounds, new Initializer<IBassin>() {
+			readStructures(parser, BASSINS, BASSIN, sig.graphics.getBassins(),
+					sig.bounds, new Initializer<IBassin>() {
 						public IBassin initialize(String name,
 								List<ITriangles> triangles) {
 							return new Bassin(name, triangles);
 						}
 					});
 			// Forets.
-			IStructures<IForet> forets = readStructures(parser, FORETS, FORET,
-					bounds, new Initializer<IForet>() {
+			readStructures(parser, FORETS, FORET, sig.graphics.getForets(),
+					sig.bounds, new Initializer<IForet>() {
 						public IForet initialize(String name,
 								List<ITriangles> triangles) {
 							return new Foret(name, triangles);
 						}
 					});
 			// Buildings.
-			IStructures<IBuilding> buildings = readStructures(parser,
-					BUILDINGS, BUILDING, bounds, new Initializer<IBuilding>() {
+			readStructures(parser, BUILDINGS, BUILDING,
+					sig.graphics.getBuildings(), sig.bounds,
+					new Initializer<IBuilding>() {
 						public IBuilding initialize(String name,
 								List<ITriangles> triangles) {
 							return new Building(name, triangles);
 						}
 					});
-			IRoutes routes = readRoutes(parser, bounds);
+			readRoutes(parser, sig.graphics.getRoutes(), sig.bounds);
 			parser.nextTag();
 			parser.require(XmlPullParser.END_TAG, null, GRAPHICS);
-			return new Graphics(routes, buildings, forets, bassins);
 		}
 
 		/**
@@ -413,21 +425,24 @@ public class Sig1337 implements ISig1337 {
 		 *             error while parsing.
 		 * @throws IOException
 		 *             error with IO.
+		 * @throws InterruptedException
 		 */
-		private <T extends IStructure> IStructures<T> readStructures(
-				XmlPullParser parser, String tag, String tag2, IBounds bounds,
-				Initializer<T> init) throws XmlPullParserException, IOException {
+		private <T extends IStructure> void readStructures(
+				XmlPullParser parser, String tag, String tag2,
+				IStructures<T> structures, IBounds bounds, Initializer<T> init)
+				throws XmlPullParserException, IOException,
+				InterruptedException {
+			checkInterrupted();
 			parser.nextTag();
-			IStructures<T> structures = new Structures<T>();
 			parser.require(XmlPullParser.START_TAG, null, tag);
 			while (parser.next() != XmlPullParser.END_TAG) {
 				if (parser.getEventType() != XmlPullParser.START_TAG) {
 					continue;
 				}
+				checkInterrupted();
 				structures.add(readStructure(parser, tag2, bounds, init));
 			}
 			parser.require(XmlPullParser.END_TAG, null, tag);
-			return structures;
 		}
 
 		/**
@@ -442,10 +457,13 @@ public class Sig1337 implements ISig1337 {
 		 *             error while parsing.
 		 * @throws IOException
 		 *             error with IO.
+		 * @throws InterruptedException
 		 */
 		private <T extends IStructure> T readStructure(XmlPullParser parser,
 				String tag, IBounds bounds, Initializer<T> init)
-				throws XmlPullParserException, IOException {
+				throws XmlPullParserException, IOException,
+				InterruptedException {
+			checkInterrupted();
 			List<ITriangles> triangles = new ArrayList<ITriangles>();
 			parser.require(XmlPullParser.START_TAG, null, tag);
 			String name = parser.getAttributeValue(null, NAME);
@@ -453,6 +471,7 @@ public class Sig1337 implements ISig1337 {
 				if (parser.getEventType() != XmlPullParser.START_TAG) {
 					continue;
 				}
+				checkInterrupted();
 				triangles.add(readTriangles(parser, bounds));
 			}
 			parser.require(XmlPullParser.END_TAG, null, tag);
@@ -471,9 +490,12 @@ public class Sig1337 implements ISig1337 {
 		 *             error while parsing.
 		 * @throws IOException
 		 *             error with IO.
+		 * @throws InterruptedException
 		 */
 		private ITriangles readTriangles(XmlPullParser parser, IBounds bounds)
-				throws XmlPullParserException, IOException {
+				throws XmlPullParserException, IOException,
+				InterruptedException {
+			checkInterrupted();
 			parser.require(XmlPullParser.START_TAG, null, TRIANGLES);
 			TrianglesType type = null;
 			String s = parser.getAttributeValue(null, TYPE);
@@ -487,6 +509,7 @@ public class Sig1337 implements ISig1337 {
 				if (parser.getEventType() != XmlPullParser.START_TAG) {
 					continue;
 				}
+				checkInterrupted();
 				triangles.add(readTriangle(parser, bounds));
 			}
 			parser.require(XmlPullParser.END_TAG, null, TRIANGLES);
@@ -505,9 +528,12 @@ public class Sig1337 implements ISig1337 {
 		 *             error while parsing.
 		 * @throws IOException
 		 *             error with IO.
+		 * @throws InterruptedException
 		 */
 		private ITriangle readTriangle(XmlPullParser parser, IBounds bounds)
-				throws XmlPullParserException, IOException {
+				throws XmlPullParserException, IOException,
+				InterruptedException {
+			checkInterrupted();
 			parser.require(XmlPullParser.START_TAG, null, TRIANGLE);
 			parser.nextTag();
 			IPoint p1 = readPoint(parser, bounds);
@@ -532,20 +558,22 @@ public class Sig1337 implements ISig1337 {
 		 *             error while parsing.
 		 * @throws IOException
 		 *             error with IO.
+		 * @throws InterruptedException
 		 */
-		private IRoutes readRoutes(XmlPullParser parser, IBounds bounds)
-				throws XmlPullParserException, IOException {
+		private void readRoutes(XmlPullParser parser, IRoutes routes,
+				IBounds bounds) throws XmlPullParserException, IOException,
+				InterruptedException {
+			checkInterrupted();
 			parser.nextTag();
-			IRoutes routes = new Routes();
 			parser.require(XmlPullParser.START_TAG, null, ROUTES);
 			while (parser.next() != XmlPullParser.END_TAG) {
 				if (parser.getEventType() != XmlPullParser.START_TAG) {
 					continue;
 				}
+				checkInterrupted();
 				routes.addAll(readRoute(parser, bounds));
 			}
 			parser.require(XmlPullParser.END_TAG, null, ROUTES);
-			return routes;
 		}
 
 		/**
@@ -560,9 +588,12 @@ public class Sig1337 implements ISig1337 {
 		 *             error while parsing.
 		 * @throws IOException
 		 *             error with IO.
+		 * @throws InterruptedException
 		 */
 		private List<IRoute> readRoute(XmlPullParser parser, IBounds bounds)
-				throws XmlPullParserException, IOException {
+				throws XmlPullParserException, IOException,
+				InterruptedException {
+			checkInterrupted();
 			parser.require(XmlPullParser.START_TAG, null, ROUTE);
 			List<IRoute> l = new ArrayList<IRoute>();
 			RouteType type = RouteType.parse(parser.getAttributeValue(null,
@@ -573,6 +604,7 @@ public class Sig1337 implements ISig1337 {
 				if (parser.getEventType() != XmlPullParser.START_TAG) {
 					continue;
 				}
+				checkInterrupted();
 				IPoint to = readPoint(parser, bounds);
 				l.add(new Route(type, from, to));
 				from = to;
@@ -593,9 +625,12 @@ public class Sig1337 implements ISig1337 {
 		 *             error while parsing.
 		 * @throws IOException
 		 *             error with IO.
+		 * @throws InterruptedException
 		 */
 		private IPoint readPoint(XmlPullParser parser, IBounds bounds)
-				throws XmlPullParserException, IOException {
+				throws XmlPullParserException, IOException,
+				InterruptedException {
+			checkInterrupted();
 			parser.require(XmlPullParser.START_TAG, null, POINT);
 			float x = Float.parseFloat(parser.getAttributeValue(null, X));
 			float y = Float.parseFloat(parser.getAttributeValue(null, Y));
@@ -603,6 +638,14 @@ public class Sig1337 implements ISig1337 {
 			parser.require(XmlPullParser.END_TAG, null, POINT);
 			return new Point(x, y, x - bounds.getMinLon(), y
 					- bounds.getMinLat());
+		}
+
+		private void checkInterrupted() throws InterruptedException {
+			// Check if the thread is interrupted.
+			if (Thread.interrupted()) {
+				Thread.currentThread().interrupt();
+				throw new InterruptedException();
+			}
 		}
 
 	}

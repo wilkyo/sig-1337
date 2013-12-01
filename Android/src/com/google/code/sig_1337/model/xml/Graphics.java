@@ -37,13 +37,12 @@ public class Graphics implements IGraphics {
 	 * @param bassins
 	 *            bassins.
 	 */
-	public Graphics(IRoutes routes, IStructures<IBuilding> buildings,
-			IStructures<IForet> forets, IStructures<IBassin> bassins) {
+	public Graphics() {
 		super();
-		this.routes = routes;
-		this.buildings = buildings;
-		this.forets = forets;
-		this.bassins = bassins;
+		this.routes = new Routes();
+		this.buildings = new Structures<IBuilding>();
+		this.forets = new Structures<IForet>();
+		this.bassins = new Structures<IBassin>();
 	}
 
 	/**
