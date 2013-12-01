@@ -1,5 +1,8 @@
 package data.model.structure;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import data.model.Node;
 
 /**
@@ -24,6 +27,10 @@ public abstract class Structure {
 	 * Nodes forming the polygon.
 	 */
 	private Node[] nodes;
+	/**
+	 * Holes of the Structure.
+	 */
+	private List<Hole> holes;
 
 	private String geom;
 
@@ -38,7 +45,10 @@ public abstract class Structure {
 	public Structure(long id, String name, Node[] nodes, String geom) {
 		this.id = id;
 		this.name = name;
+		if (name == null)
+			this.name = "";
 		this.nodes = nodes;
+		this.holes = new ArrayList<Hole>();
 		this.geom = geom;
 	}
 
@@ -71,11 +81,27 @@ public abstract class Structure {
 		this.nodes = nodes;
 	}
 
-	public String getGeom() {
-		return geom;
+	/**
+	 * @return the holes
+	 */
+	public List<Hole> getHoles() {
+		return holes;
 	}
 
-	public void setGeom(String geom) {
-		this.geom = geom;
+	/**
+	 * Adds a Hole to the Building.
+	 * 
+	 * @param hole
+	 *            Hole to add.
+	 */
+	public void addHole(Hole hole) {
+		this.holes.add(hole);
+	}
+
+	/**
+	 * @return the geom
+	 */
+	public String getGeom() {
+		return geom;
 	}
 }

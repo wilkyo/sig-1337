@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT sig_1337 (bounds, graphics, graph)>
+
+<!ELEMENT bounds (#PCDATA)>
+	<!ATTLIST bounds minlat CDATA #REQUIRED>
+	<!ATTLIST bounds minlon CDATA #REQUIRED>
+	<!ATTLIST bounds maxlat CDATA #REQUIRED>
+	<!ATTLIST bounds maxlon CDATA #REQUIRED>
+
+<!ELEMENT graphics (bassins, forets, batiments, routes)>
+
+<!ELEMENT bassins (bassin*)>
+<!ELEMENT bassin (triangles+)>
+	<!ATTLIST bassin nom CDATA #REQUIRED>
+
+<!ELEMENT forets (foret*)>
+
+<!ELEMENT foret (triangles+)>
+	<!ATTLIST foret nom CDATA #REQUIRED>
+
+<!ELEMENT batiments (batiment*)>
+<!ELEMENT batiment (triangles+)>
+	<!ATTLIST batiment nom CDATA #IMPLIED>
+
+<!ELEMENT triangles (triangle*)>
+<!ELEMENT triangle (point, point, point)>
+
+<!ELEMENT routes (route*)>
+<!ELEMENT route (point+)>
+	<!ATTLIST route type (route | chemin) "cash">
+
+<!ELEMENT point EMPTY>
+	<!ATTLIST point x CDATA '0'>
+	<!ATTLIST point y CDATA '0'>
+
+<!ELEMENT graph (vertex*)>
+<!ELEMENT vertex EMPTY>
+	<!ATTLIST vertex x CDATA '0'>
+	<!ATTLIST vertex y CDATA '0'>
+

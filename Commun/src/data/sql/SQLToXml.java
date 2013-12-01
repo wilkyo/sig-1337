@@ -12,11 +12,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
@@ -247,7 +245,7 @@ public class SQLToXml {
 	 *            The Polyedre.
 	 * @return The XML String of the Polyedre.
 	 */
-	private static String polygonToXML(Polygone polygon) {
+	private static String triangleToXML(Polygone polygon) {
 		return "\t\t\t\t\t<triangle>\n" + "\t\t\t\t\t\t"
 				+ pointToXML(polygon.points[0]) + "\n" + "\t\t\t\t\t\t"
 				+ pointToXML(polygon.points[1]) + "\n" + "\t\t\t\t\t\t"
@@ -284,21 +282,26 @@ public class SQLToXml {
 
 	/**
 	 * Return the graph for routing
+	 * 
 	 * @param db
-	 * 		Connection to the SQL Database
-	 * @return
-	 * 		The graph
+	 *            Connection to the SQL Database
+	 * @return The graph
 	 */
 	private static Map<Point, ArrayList<Point>> getGraph(Connection db) {
 		Map<Point, ArrayList<Point>> map = new HashMap<Point, ArrayList<Point>>();
 		Statement s;
-		try{
+		try {
 			s = db.createStatement();
-			ResultSet result = s.executeQuery("SELECT * FROM " + SQLHelper.CUSTOM_GRAPH_SOURCE);
+			ResultSet result = s.executeQuery("SELECT * FROM "
+					+ SQLHelper.CUSTOM_GRAPH_SOURCE);
 			while (result.next()) {
-				Point ori = new Point(result.getDouble(SQLHelper.CUSTOM_GRAPH_POINT_X), result.getDouble(SQLHelper.CUSTOM_GRAPH_POINT_Y));
-				Point voisin = new Point(result.getDouble(SQLHelper.CUSTOM_GRAPH_VOISIN_X), result.getDouble(SQLHelper.CUSTOM_GRAPH_VOISIN_Y));
-				if(map.containsKey(ori))
+				Point ori = new Point(
+						result.getDouble(SQLHelper.CUSTOM_GRAPH_POINT_X),
+						result.getDouble(SQLHelper.CUSTOM_GRAPH_POINT_Y));
+				Point voisin = new Point(
+						result.getDouble(SQLHelper.CUSTOM_GRAPH_VOISIN_X),
+						result.getDouble(SQLHelper.CUSTOM_GRAPH_VOISIN_Y));
+				if (map.containsKey(ori))
 					map.get(ori).add(voisin);
 				else {
 					ArrayList<Point> list = new ArrayList<Point>();
@@ -306,11 +309,16 @@ public class SQLToXml {
 					map.put(ori, list);
 				}
 			}
-			result = s.executeQuery("SELECT * FROM " + SQLHelper.CUSTOM_GRAPH_TARGET);
+			result = s.executeQuery("SELECT * FROM "
+					+ SQLHelper.CUSTOM_GRAPH_TARGET);
 			while (result.next()) {
-				Point ori = new Point(result.getDouble(SQLHelper.CUSTOM_GRAPH_POINT_X), result.getDouble(SQLHelper.CUSTOM_GRAPH_POINT_Y));
-				Point voisin = new Point(result.getDouble(SQLHelper.CUSTOM_GRAPH_VOISIN_X), result.getDouble(SQLHelper.CUSTOM_GRAPH_VOISIN_Y));
-				if(map.containsKey(ori))
+				Point ori = new Point(
+						result.getDouble(SQLHelper.CUSTOM_GRAPH_POINT_X),
+						result.getDouble(SQLHelper.CUSTOM_GRAPH_POINT_Y));
+				Point voisin = new Point(
+						result.getDouble(SQLHelper.CUSTOM_GRAPH_VOISIN_X),
+						result.getDouble(SQLHelper.CUSTOM_GRAPH_VOISIN_Y));
+				if (map.containsKey(ori))
 					map.get(ori).add(voisin);
 				else {
 					ArrayList<Point> list = new ArrayList<Point>();
@@ -318,13 +326,45 @@ public class SQLToXml {
 					map.put(ori, list);
 				}
 			}
-		}
-		catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return map;
 	}
-	
+
+	/**
+	 * Returns the XML representation of the Structure.
+	 * 
+	 * @param structure
+	 *            The Structure to XMLize.
+	 * @param type
+	 * @return The XML String of the Structure.
+	 */
+	private static String structureToXML(Structure structure, String type) {
+		StringBuffer res = new StringBuffer();
+		res.append("\t\t\t<" + type + " nom=\"" + structure.getName() + "\">\n");
+		List<Polygone> triangles = Node.toPolygon(structure.getNodes())
+				.toTriangles();
+		res.append("\t\t\t\t<triangles>\n");
+		for (Polygone t : triangles) {
+			if (t.points.length == 3 && t.points[0] != null
+					&& t.points[1] != null && t.points[2] != null)
+				res.append(triangleToXML(t));
+		}
+		res.append("\t\t\t\t</triangles>\n");
+		for (Hole h : structure.getHoles()) {
+			List<Polygone> trianglesTrou = Node.toPolygon(h.getNodes())
+					.toTriangles();
+			res.append("\t\t\t\t<triangles type=\"trou\">\n");
+			for (Polygone t : trianglesTrou) {
+				res.append(triangleToXML(t));
+			}
+			res.append("\t\t\t\t</triangles>\n");
+		}
+		res.append("\t\t\t</" + type + ">\n");
+		return res.toString();
+	}
+
 	/**
 	 * Generates the XML for the Android application.
 	 * 
@@ -332,40 +372,42 @@ public class SQLToXml {
 	 * 
 	 * @param buildings
 	 * @param roads
-	 * @param graph 
+	 * @param forests
+	 * @param basins
+	 * @param graph
 	 * @param nodes
 	 */
 	private static void generateXML(String filename, List<Road> roads,
+			Map<Long, Basin> basins, Map<Long, Forest> forests,
 			Map<Long, Building> buildings, Map<Point, ArrayList<Point>> graph) {
 		StringBuffer buff = new StringBuffer();
 		buff.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+				+ "<!DOCTYPE sig_1337 SYSTEM \"sig_1337.dtd\">\n"
 				+ "<sig_1337>\n\t" + getBounds(filename) + "\n\t<graphics>\n");
+
+		/* Bassins */
+		System.out.println("Generating Basins...");
+		buff.append("\t\t<bassins>\n");
+		for (Basin b : basins.values()) {
+			buff.append(structureToXML(b, "bassin"));
+		}
+		buff.append("\t\t</bassins>\n");
+		System.out.println("Basins generated");
+
+		/* Forêts */
+		System.out.println("Generating Forests...");
+		buff.append("\t\t<forets>\n");
+		for (Forest f : forests.values()) {
+			buff.append(structureToXML(f, "foret"));
+		}
+		buff.append("\t\t</forets>\n");
+		System.out.println("Forests generated");
 
 		/* Bâtiments */
 		System.out.println("Generating Buildings...");
 		buff.append("\t\t<batiments>\n");
 		for (Building b : buildings.values()) {
-			buff.append("\t\t\t<batiment nom=\"" + b.getName() + "\">\n");
-
-			List<Polygone> triangles = Node.toPolygon(b.getNodes())
-					.toTriangles();
-			buff.append("\t\t\t\t<triangles>\n");
-			for (Polygone t : triangles) {
-				if (t.points.length == 3 && t.points[0] != null
-						&& t.points[1] != null && t.points[2] != null)
-					buff.append(polygonToXML(t));
-			}
-			buff.append("\t\t\t\t</triangles>\n");
-			for (Hole h : b.getHoles()) {
-				List<Polygone> trianglesTrou = Node.toPolygon(h.getNodes())
-						.toTriangles();
-				buff.append("\t\t\t\t<triangles type=\"trou\">\n");
-				for (Polygone t : trianglesTrou) {
-					buff.append(polygonToXML(t));
-				}
-				buff.append("\t\t\t\t</triangles>\n");
-			}
-			buff.append("\t\t\t</batiment>\n");
+			buff.append(structureToXML(b, "batiment"));
 		}
 		buff.append("\t\t</batiments>\n");
 		System.out.println("Buildings generated");
@@ -400,22 +442,24 @@ public class SQLToXml {
 			}
 			buff.append("\t\t\t<route"
 					+ (type != null ? " type=\"" + type + "\"" : "") + ">\n");
-			buff.append("\t\t\t\t" + pointToXML(r.getNodes()[0].toPoint())
-					+ "\n");
-			buff.append("\t\t\t\t" + pointToXML(r.getNodes()[1].toPoint())
-					+ "\n");
+			for (Node n : r.getNodes()) {
+				buff.append("\t\t\t\t" + pointToXML(n.toPoint()) + "\n");
+			}
 			buff.append("\t\t\t</route>\n");
 		}
 		buff.append("\t\t</routes>\n");
 		System.out.println("Roads generated");
 		System.out.println("Generating graph ...");
 		buff.append("\t</graphics>\n\t<graph>\n");
-		for (Point p : graph.keySet()) {
-			buff.append("\t\t<vertex x=\"" + p.x + "\" y=\"" + p.y + "\">\n");
-			for (Point voisin : graph.get(p)) {
-				buff.append("\t\t\t" + pointToXML(voisin) + "\n");
+		if (graph != null) { // TODO Plante chez Willy
+			for (Point p : graph.keySet()) {
+				buff.append("\t\t<vertex x=\"" + p.x + "\" y=\"" + p.y
+						+ "\">\n");
+				for (Point voisin : graph.get(p)) {
+					buff.append("\t\t\t" + pointToXML(voisin) + "\n");
+				}
+				buff.append("\t\t</vertex>\n");
 			}
-			buff.append("\t\t</vertex>\n");
 		}
 		System.out.println("Graph generated");
 		buff.append("\t</graph>\n</sig_1337>");
@@ -447,18 +491,22 @@ public class SQLToXml {
 			System.out.println("Preprocessing before XML...");
 			Map<Long, Node> nodes = getAllNodes(connection);
 			List<Road> roads = getAllRoads(connection, nodes);
-			Map<Long, Building> buildings = new HashMap<Long, Building>();//getAllBuildings(connection, nodes);
-			//getAllHoles(connection, nodes, buildings);
+			Map<Long, Building> buildings = getAllBuildings(connection, nodes);
+			Map<Long, Forest> forests = getAllForests(connection, nodes);
+			Map<Long, Basin> basins = getAllBasins(connection, nodes);
+			getAllHoles(connection, nodes, buildings);
 
-			Map<Point, ArrayList<Point>> graph = getGraph(connection);
-			
+			Map<Point, ArrayList<Point>> graph = null;// getGraph(connection);
+
 			System.out.println(nodes.size() + " nodes.");
 			System.out.println(roads.size() + " roads.");
+			System.out.println(basins.size() + " basins.");
+			System.out.println(forests.size() + " forests.");
 			System.out.println(buildings.size() + " buildings.");
 
 			connection.close();
 
-			generateXML(filename, roads, buildings,graph);
+			generateXML(filename, roads, basins, forests, buildings, graph);
 			System.out.println("XML generated.");
 		} catch (SQLException e) {
 			e.printStackTrace();
