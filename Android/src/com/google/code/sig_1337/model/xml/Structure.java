@@ -1,6 +1,7 @@
 package com.google.code.sig_1337.model.xml;
 
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public abstract class Structure implements IStructure {
 
@@ -21,10 +22,10 @@ public abstract class Structure implements IStructure {
 	 * @param triangles
 	 *            triangles.
 	 */
-	public Structure(String name, List<ITriangles> triangles) {
+	public Structure(String name) {
 		super();
 		this.name = name;
-		this.triangles = triangles;
+		this.triangles = new CopyOnWriteArrayList<ITriangles>();
 	}
 
 	/**

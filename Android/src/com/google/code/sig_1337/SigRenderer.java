@@ -1,6 +1,7 @@
 package com.google.code.sig_1337;
 
 import java.nio.FloatBuffer;
+import java.util.List;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -191,16 +192,22 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	 */
 	private void drawStructure(GL10 gl, IStructure structure) {
 		StructureType type = structure.getType();
-		for (ITriangles ts : structure.getTriangles()) {
-			// Color depending on the type.
-			FloatBuffer color = ts.getType().getColor(type);
-			// Draw the triangles.
-			for (ITriangle t : ts) {
-				// Draw the triangle.
-				gl.glVertexPointer(3, GL10.GL_FLOAT, 0, t.getVertexBuffer());
-				gl.glColorPointer(4, GL10.GL_FLOAT, 0, color);
-				gl.glDrawElements(GL10.GL_TRIANGLES, 3, GL10.GL_UNSIGNED_SHORT,
-						t.getIndexBuffer());
+		List<ITriangles> list = structure.getTriangles();
+		synchronized (list) {
+			for (ITriangles triangles : list) {
+				// Color depending on the type.
+				FloatBuffer color = triangles.getType().getColor(type);
+				// Draw the triangles.
+				synchronized (triangles) {
+					for (ITriangle t : triangles) {
+						// Draw the triangle.
+						gl.glVertexPointer(3, GL10.GL_FLOAT, 0,
+								t.getVertexBuffer());
+						gl.glColorPointer(4, GL10.GL_FLOAT, 0, color);
+						gl.glDrawElements(GL10.GL_TRIANGLES, 3,
+								GL10.GL_UNSIGNED_SHORT, t.getIndexBuffer());
+					}
+				}
 			}
 		}
 	}

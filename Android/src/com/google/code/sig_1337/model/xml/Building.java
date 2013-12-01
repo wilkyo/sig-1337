@@ -1,14 +1,13 @@
 package com.google.code.sig_1337.model.xml;
 
-import java.util.List;
 
 /**
  * Building.
  */
 public class Building extends Structure implements IBuilding {
 
-	public Building(String name, List<ITriangles> triangles) {
-		super(name, triangles);
+	public Building(String name) {
+		super(name);
 	}
 
 	public StructureType getType() {
