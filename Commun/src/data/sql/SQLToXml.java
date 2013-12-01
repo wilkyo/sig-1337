@@ -26,8 +26,11 @@ import com.google.code.sig_1337.model.xml.RouteType;
 
 import data.model.Node;
 import data.model.Road;
+import data.model.structure.Basin;
 import data.model.structure.Building;
+import data.model.structure.Forest;
 import data.model.structure.Hole;
+import data.model.structure.Structure;
 
 public class SQLToXml {
 
@@ -115,14 +118,16 @@ public class SQLToXml {
 			s = db.createStatement();
 			ResultSet result = s.executeQuery("SELECT * FROM "
 					+ SQLHelper.CUSTOM_TABLE_STRUCTURES + " WHERE "
-					+ SQLHelper.CUSTOM_TABLE_STRUCTURES_TYPE + " = 'building'");
+					+ SQLHelper.CUSTOM_TABLE_STRUCTURES_TYPE + " = '"
+					+ Structure.BUILDING + "'");
 			while (result.next()) {
 				Building tmp = new Building(
 						result.getInt(SQLHelper.CUSTOM_TABLE_STRUCTURES_ID),
 						result.getString(SQLHelper.CUSTOM_TABLE_STRUCTURES_NAME),
 						SQLHelper.getArray(
 								result.getArray(SQLHelper.CUSTOM_TABLE_STRUCTURES_NODES),
-								nodes));
+								nodes),
+						result.getString(SQLHelper.CUSTOM_TABLE_STRUCTURES_GEOM));
 				// Holes will be set in the getAllHoles method
 				buildings.put(tmp.getId(), tmp);
 			}
@@ -131,6 +136,62 @@ public class SQLToXml {
 			e.printStackTrace();
 		}
 		return buildings;
+	}
+
+	private static Map<Long, Forest> getAllForests(Connection db,
+			Map<Long, Node> nodes) {
+		Map<Long, Forest> forests = new HashMap<Long, Forest>();
+		Statement s;
+		try {
+			s = db.createStatement();
+			ResultSet result = s.executeQuery("SELECT * FROM "
+					+ SQLHelper.CUSTOM_TABLE_STRUCTURES + " WHERE "
+					+ SQLHelper.CUSTOM_TABLE_STRUCTURES_TYPE + " = '"
+					+ Structure.FOREST + "'");
+			while (result.next()) {
+				Forest tmp = new Forest(
+						result.getInt(SQLHelper.CUSTOM_TABLE_STRUCTURES_ID),
+						result.getString(SQLHelper.CUSTOM_TABLE_STRUCTURES_NAME),
+						SQLHelper.getArray(
+								result.getArray(SQLHelper.CUSTOM_TABLE_STRUCTURES_NODES),
+								nodes),
+						result.getString(SQLHelper.CUSTOM_TABLE_STRUCTURES_GEOM));
+				// Holes will be set in the getAllHoles method
+				forests.put(tmp.getId(), tmp);
+			}
+			s.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return forests;
+	}
+
+	private static Map<Long, Basin> getAllBasins(Connection db,
+			Map<Long, Node> nodes) {
+		Map<Long, Basin> basins = new HashMap<Long, Basin>();
+		Statement s;
+		try {
+			s = db.createStatement();
+			ResultSet result = s.executeQuery("SELECT * FROM "
+					+ SQLHelper.CUSTOM_TABLE_STRUCTURES + " WHERE "
+					+ SQLHelper.CUSTOM_TABLE_STRUCTURES_TYPE + " = '"
+					+ Structure.BASIN + "'");
+			while (result.next()) {
+				Basin tmp = new Basin(
+						result.getInt(SQLHelper.CUSTOM_TABLE_STRUCTURES_ID),
+						result.getString(SQLHelper.CUSTOM_TABLE_STRUCTURES_NAME),
+						SQLHelper.getArray(
+								result.getArray(SQLHelper.CUSTOM_TABLE_STRUCTURES_NODES),
+								nodes),
+						result.getString(SQLHelper.CUSTOM_TABLE_STRUCTURES_GEOM));
+				// Holes will be set in the getAllHoles method
+				basins.put(tmp.getId(), tmp);
+			}
+			s.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return basins;
 	}
 
 	/**

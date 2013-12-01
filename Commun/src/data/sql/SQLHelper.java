@@ -42,12 +42,13 @@ public class SQLHelper {
 	public static final String GEOMETRY_POLYGON_DIMENSIONS = "2";
 
 	/**
-	 * Constants for our custom roads table.
+	 * Constants for our custom nodes table.
 	 */
 	public static final String CUSTOM_TABLE_NODES = "sig1337_nodes";
 	public static final String CUSTOM_TABLE_NODES_ID = "id";
 	public static final String CUSTOM_TABLE_NODES_LAT = "lat";
 	public static final String CUSTOM_TABLE_NODES_LON = "lon";
+	public static final String CUSTOM_TABLE_NODES_GEOM = "geom";
 
 	/**
 	 * Constants for our custom roads table.
@@ -60,12 +61,13 @@ public class SQLHelper {
 	public static final String CUSTOM_TABLE_ROADS_GEOM = "geom";
 
 	/**
-	 * Constants for our custom buildings table.
+	 * Constants for our custom structures table.
 	 */
 	public static final String CUSTOM_TABLE_STRUCTURES = "sig1337_structures";
 	public static final String CUSTOM_TABLE_STRUCTURES_ID = "id";
 	public static final String CUSTOM_TABLE_STRUCTURES_NODES = "nodes";
 	public static final String CUSTOM_TABLE_STRUCTURES_NAME = "name";
+	public static final String CUSTOM_TABLE_STRUCTURES_GEOM = "geom";
 	public static final String CUSTOM_TABLE_STRUCTURES_TYPE = "type";
 
 	/**

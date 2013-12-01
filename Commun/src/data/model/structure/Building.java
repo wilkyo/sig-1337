@@ -25,8 +25,8 @@ public class Building extends Structure {
 	 * @param nodes
 	 *            Nodes forming the Building.
 	 */
-	public Building(long id, String name, Node[] nodes) {
-		super(id, name, nodes);
+	public Building(long id, String name, Node[] nodes, String geom) {
+		super(id, name, nodes, geom);
 		holes = new ArrayList<Hole>();
 	}
 

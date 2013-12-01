@@ -8,6 +8,10 @@ import data.model.Node;
  */
 public abstract class Structure {
 
+	public static final String BUILDING = "building";
+	public static final String FOREST = "forest";
+	public static final String BASIN = "basin";
+
 	/**
 	 * Structure's id.
 	 */
@@ -21,6 +25,8 @@ public abstract class Structure {
 	 */
 	private Node[] nodes;
 
+	private String geom;
+
 	/**
 	 * Initializes the Structure.
 	 * 
@@ -29,10 +35,11 @@ public abstract class Structure {
 	 * @param nodes
 	 *            Nodes forming the Structure.
 	 */
-	public Structure(long id, String name, Node[] nodes) {
+	public Structure(long id, String name, Node[] nodes, String geom) {
 		this.id = id;
 		this.name = name;
 		this.nodes = nodes;
+		this.geom = geom;
 	}
 
 	/**
@@ -62,5 +69,13 @@ public abstract class Structure {
 	 */
 	public void setNodes(Node[] nodes) {
 		this.nodes = nodes;
+	}
+
+	public String getGeom() {
+		return geom;
+	}
+
+	public void setGeom(String geom) {
+		this.geom = geom;
 	}
 }

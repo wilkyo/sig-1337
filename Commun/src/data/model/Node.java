@@ -8,6 +8,7 @@ public class Node {
 	private long id;
 	private double latitude;
 	private double longitude;
+	private String geom;
 
 	public Node(long id, double latitude, double longitude) {
 		setId(id);
@@ -40,7 +41,7 @@ public class Node {
 	}
 
 	public Point toPoint() {
-		return new Point( getLongitude(), getLatitude());
+		return new Point(getLongitude(), getLatitude());
 	}
 
 	public static Point[] toPointsArray(Node[] nodes) {
@@ -58,5 +59,13 @@ public class Node {
 	@Override
 	public String toString() {
 		return "Node [" + id + "]:(" + latitude + ", " + longitude + ")";
+	}
+
+	public String getGeom() {
+		return geom;
+	}
+
+	public void setGeom(String geom) {
+		this.geom = geom;
 	}
 }

@@ -6,6 +6,7 @@ import java.sql.Statement;
 import java.util.Arrays;
 
 import data.model.Road;
+import data.model.structure.Structure;
 
 public class SQLCreate {
 
@@ -14,7 +15,7 @@ public class SQLCreate {
 		System.out.println("Début création base de données");
 		if (dataBaseExists()) {
 			// Récupération des nodes
-			if (createTableNodes() && createTableBuildings()
+			if (createTableNodes() && createTableStructures()
 					&& createTableRoads() && createTableHoles()) {
 				result = true;
 			}
@@ -58,6 +59,8 @@ public class SQLCreate {
 					+ " integer NOT NULL,");
 			mySql.append(SQLHelper.CUSTOM_TABLE_NODES_LON
 					+ " integer NOT NULL,");
+			mySql.append(SQLHelper.CUSTOM_TABLE_NODES_GEOM
+					+ " geometry NOT NULL,");
 			mySql.append("CONSTRAINT " + SQLHelper.CUSTOM_TABLE_NODES
 					+ "_pkey PRIMARY KEY (" + SQLHelper.CUSTOM_TABLE_NODES_ID
 					+ ")");
@@ -72,8 +75,9 @@ public class SQLCreate {
 			mySql.append("INSERT INTO " + SQLHelper.CUSTOM_TABLE_NODES + " ");
 			mySql.append("(" + SQLHelper.CUSTOM_TABLE_NODES_ID + ", "
 					+ SQLHelper.CUSTOM_TABLE_NODES_LAT + ", "
-					+ SQLHelper.CUSTOM_TABLE_NODES_LON + ") ");
-			mySql.append("SELECT id, lat, lon ");
+					+ SQLHelper.CUSTOM_TABLE_NODES_LON + ", "
+					+ SQLHelper.CUSTOM_TABLE_NODES_GEOM + ") ");
+			mySql.append("SELECT id, lat, lon, ST_SetSRID(ST_MakePoint(lon,lat), 900913) ");
 			mySql.append("FROM " + SQLHelper.TABLE_NODES + ";");
 			s.execute(mySql.toString());
 
@@ -87,9 +91,9 @@ public class SQLCreate {
 		return result;
 	}
 
-	private static Boolean createTableBuildings() {
+	private static Boolean createTableStructures() {
 		Boolean result = true;
-		System.out.println("Début création Buildings");
+		System.out.println("Début création des structures");
 		try {
 			Class.forName(SQLHelper.SQL_DRIVER);
 			java.sql.Connection conn = DriverManager.getConnection(
@@ -107,7 +111,10 @@ public class SQLCreate {
 					+ " bigint NOT NULL,");
 			mySql.append(SQLHelper.CUSTOM_TABLE_STRUCTURES_NODES
 					+ " bigint[] NOT NULL,");
-			mySql.append(SQLHelper.CUSTOM_TABLE_STRUCTURES_NAME
+			mySql.append(SQLHelper.CUSTOM_TABLE_STRUCTURES_NAME + " text NULL,");
+			mySql.append(SQLHelper.CUSTOM_TABLE_STRUCTURES_GEOM
+					+ " geometry NOT NULL,");
+			mySql.append(SQLHelper.CUSTOM_TABLE_STRUCTURES_TYPE
 					+ " text NOT NULL,");
 			mySql.append("CONSTRAINT " + SQLHelper.CUSTOM_TABLE_STRUCTURES
 					+ "_pkey PRIMARY KEY ("
@@ -118,36 +125,80 @@ public class SQLCreate {
 					+ " OWNER TO postgres;");
 			s.execute(mySql.toString());
 
-			// Récupération des données
+			// Récupération des données pour les buildings
+			System.out.println("Début insertion des buildings");
 			mySql = new StringBuilder();
-			mySql.append("SELECT id, nodes, ");
-			// on récupère le nom du tableau "tags"
-			mySql.append("(regexp_split_to_array(substring(array_to_string(tags,',','') from 'name,(.*)'), ','))[1] ");
-			mySql.append("FROM " + SQLHelper.TABLE_WAYS + " ");
-			mySql.append("WHERE array_to_string(tags,',','') LIKE '%building%';");
-			ResultSet myResultSet = s.executeQuery(mySql.toString());
+			mySql.append("INSERT INTO " + SQLHelper.CUSTOM_TABLE_STRUCTURES
+					+ " ");
+			mySql.append("(" + SQLHelper.CUSTOM_TABLE_STRUCTURES_ID + ", "
+					+ SQLHelper.CUSTOM_TABLE_STRUCTURES_NODES + ", "
+					+ SQLHelper.CUSTOM_TABLE_STRUCTURES_NAME + ", "
+					+ SQLHelper.CUSTOM_TABLE_STRUCTURES_GEOM + ", "
+					+ SQLHelper.CUSTOM_TABLE_STRUCTURES_TYPE + ") ");
+			mySql.append("SELECT w.id, w.nodes, p.name, p.way, '"
+					+ Structure.BUILDING + "' AS typeStructure ");
+			mySql.append("FROM " + SQLHelper.TABLE_POLYGONS + " p ");
+			mySql.append("INNER JOIN " + SQLHelper.TABLE_WAYS
+					+ " w ON w.id = p.osm_id ");
+			mySql.append("WHERE p.building IS NOT NULL AND p.building != '';");
+			s.execute(mySql.toString());
+			System.out.println("Fin insertion des buildings");
+
+			// Récupération des données pour les forest
+			System.out.println("Début insertion des forests");
 			mySql = new StringBuilder();
-			while (myResultSet.next()) {
-				long id = myResultSet.getLong(1);
-				long[] nodes = SQLHelper.getLongArray(myResultSet.getArray(2));
-				String name = myResultSet.getString(3);
-				mySql.append("INSERT INTO " + SQLHelper.CUSTOM_TABLE_STRUCTURES
-						+ " ");
-				mySql.append("(" + SQLHelper.CUSTOM_TABLE_STRUCTURES_ID + ", "
-						+ SQLHelper.CUSTOM_TABLE_STRUCTURES_NODES + ", "
-						+ SQLHelper.CUSTOM_TABLE_STRUCTURES_NAME + ")");
-				mySql.append(" VALUES ");
-				mySql.append("("
-						+ id
-						+ ", '"
-						+ Arrays.toString(nodes).replace("[", "{")
-								.replace("]", "}")
-						+ "', "
-						+ (name != null ? "'" + name.replace("'", "''") + "' "
-								: "''") + "); ");
-			}
-			if (mySql.length() > 0)
-				s.execute(mySql.toString());
+			mySql.append("INSERT INTO " + SQLHelper.CUSTOM_TABLE_STRUCTURES
+					+ " ");
+			mySql.append("(" + SQLHelper.CUSTOM_TABLE_STRUCTURES_ID + ", "
+					+ SQLHelper.CUSTOM_TABLE_STRUCTURES_NODES + ", "
+					+ SQLHelper.CUSTOM_TABLE_STRUCTURES_NAME + ", "
+					+ SQLHelper.CUSTOM_TABLE_STRUCTURES_GEOM + ", "
+					+ SQLHelper.CUSTOM_TABLE_STRUCTURES_TYPE + ") ");
+			mySql.append("SELECT w.id, w.nodes, p.name, p.way, '"
+					+ Structure.FOREST + "' AS typeStructure ");
+			mySql.append("FROM " + SQLHelper.TABLE_POLYGONS + " p ");
+			mySql.append("INNER JOIN " + SQLHelper.TABLE_WAYS
+					+ " w ON w.id = p.osm_id ");
+			mySql.append("WHERE landuse = 'forest';");
+			s.execute(mySql.toString());
+			System.out.println("Fin insertion des forests");
+
+			// Récupération des données pour les forest
+			System.out.println("Début insertion des basins");
+			mySql = new StringBuilder();
+			mySql.append("INSERT INTO " + SQLHelper.CUSTOM_TABLE_STRUCTURES
+					+ " ");
+			mySql.append("(" + SQLHelper.CUSTOM_TABLE_STRUCTURES_ID + ", "
+					+ SQLHelper.CUSTOM_TABLE_STRUCTURES_NODES + ", "
+					+ SQLHelper.CUSTOM_TABLE_STRUCTURES_NAME + ", "
+					+ SQLHelper.CUSTOM_TABLE_STRUCTURES_GEOM + ", "
+					+ SQLHelper.CUSTOM_TABLE_STRUCTURES_TYPE + ") ");
+			mySql.append("SELECT w.id, w.nodes, p.name, p.way, '"
+					+ Structure.BASIN + "' AS typeStructure ");
+			mySql.append("FROM " + SQLHelper.TABLE_POLYGONS + " p ");
+			mySql.append("INNER JOIN " + SQLHelper.TABLE_WAYS
+					+ " w ON w.id = p.osm_id ");
+			mySql.append("WHERE landuse = 'basin';");
+			s.execute(mySql.toString());
+
+			// Petite correction pour le LAC (ID négatif ...)
+			mySql = new StringBuilder();
+			mySql.append("INSERT INTO " + SQLHelper.CUSTOM_TABLE_STRUCTURES
+					+ " ");
+			mySql.append("(" + SQLHelper.CUSTOM_TABLE_STRUCTURES_ID + ", "
+					+ SQLHelper.CUSTOM_TABLE_STRUCTURES_NODES + ", "
+					+ SQLHelper.CUSTOM_TABLE_STRUCTURES_NAME + ", "
+					+ SQLHelper.CUSTOM_TABLE_STRUCTURES_GEOM + ", "
+					+ SQLHelper.CUSTOM_TABLE_STRUCTURES_TYPE + ") ");
+			mySql.append("SELECT w.id, w.nodes, p.name, p.way, '"
+					+ Structure.BASIN + "' AS typeStructure ");
+			mySql.append("FROM " + SQLHelper.TABLE_POLYGONS + " p ");
+			mySql.append("INNER JOIN " + SQLHelper.TABLE_WAYS
+					+ " w ON w.id = 27435896 ");
+			mySql.append("WHERE landuse = 'basin' AND p.osm_id = -2418299;");
+			s.execute(mySql.toString());
+
+			System.out.println("Fin insertion des forests");
 
 			s.close();
 			conn.close();
@@ -155,7 +206,7 @@ public class SQLCreate {
 		} catch (Exception e) {
 			result = false;
 		}
-		System.out.println("Fin création Buildings");
+		System.out.println("Fin création des structures");
 		return result;
 	}
 
