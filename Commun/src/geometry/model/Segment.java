@@ -190,6 +190,15 @@ public class Segment {
 				+ Math.pow(fin.y - debut.y, 2));
 	}
 
+	public double determinant(Point point) {
+		return (fin.x - debut.x) * (point.y - debut.y) - (fin.y - debut.y)
+				* (point.x - debut.x);
+	}
+
+	public boolean auDessus(Point point) {
+		return determinant(point) > 0;
+	}
+
 	/**
 	 * {@inheritDoc}
 	 */

@@ -23,7 +23,7 @@ public class Polygone {
 	 * 
 	 * @param points
 	 */
-	public Polygone(Point[] points) {
+	public Polygone(Point... points) {
 		super();
 		this.points = points;
 	}
@@ -72,8 +72,8 @@ public class Polygone {
 	 * @return l'enveloppe convexe
 	 */
 	public ArrayList<Segment> envellopeConvex() {
-		//ArrayList<Segment> res = new ArrayList<Segment>();
-		//ArrayList<Point> pointtrie = new ArrayList<Point>();
+		// ArrayList<Segment> res = new ArrayList<Segment>();
+		// ArrayList<Point> pointtrie = new ArrayList<Point>();
 		Point P = points[0];
 		int index = 0;
 		int i = 0;
