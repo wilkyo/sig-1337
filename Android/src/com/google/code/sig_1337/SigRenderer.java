@@ -158,10 +158,10 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	 *            OpenGL.
 	 */
 	private void drawGraphics(GL10 gl) {
-		drawStructures(gl, sig.getGraphics().getBassins());
-		drawStructures(gl, sig.getGraphics().getForets());
-		drawStructures(gl, sig.getGraphics().getBuildings());
 		drawRoutes(gl);
+		drawStructures(gl, sig.getGraphics().getBuildings());
+		drawStructures(gl, sig.getGraphics().getForets());
+		drawStructures(gl, sig.getGraphics().getBassins());
 	}
 
 	/**
