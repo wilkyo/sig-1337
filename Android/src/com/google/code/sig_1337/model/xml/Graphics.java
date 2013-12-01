@@ -13,7 +13,17 @@ public class Graphics implements IGraphics {
 	/**
 	 * Buildings.
 	 */
-	private IBuildings buildings;
+	private IStructures<IBuilding> buildings;
+
+	/**
+	 * Forets.
+	 */
+	private IStructures<IForet> forets;
+
+	/**
+	 * Bassins.
+	 */
+	private IStructures<IBassin> bassins;
 
 	/**
 	 * Initializing constructor.
@@ -22,11 +32,18 @@ public class Graphics implements IGraphics {
 	 *            routes.
 	 * @param buildings
 	 *            buildings.
+	 * @param forets
+	 *            forets.
+	 * @param bassins
+	 *            bassins.
 	 */
-	public Graphics(IRoutes routes, IBuildings buildings) {
+	public Graphics(IRoutes routes, IStructures<IBuilding> buildings,
+			IStructures<IForet> forets, IStructures<IBassin> bassins) {
 		super();
 		this.routes = routes;
 		this.buildings = buildings;
+		this.forets = forets;
+		this.bassins = bassins;
 	}
 
 	/**
@@ -41,8 +58,24 @@ public class Graphics implements IGraphics {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IBuildings getBuildings() {
+	public IStructures<IBuilding> getBuildings() {
 		return buildings;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public IStructures<IForet> getForets() {
+		return forets;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public IStructures<IBassin> getBassins() {
+		return bassins;
 	}
 
 }

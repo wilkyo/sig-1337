@@ -10,7 +10,21 @@ public interface IGraphics {
 	 * 
 	 * @return the buildings.
 	 */
-	public IBuildings getBuildings();
+	public IStructures<IBuilding> getBuildings();
+
+	/**
+	 * Get the forests.
+	 * 
+	 * @return the forests.
+	 */
+	public IStructures<IForet> getForets();
+
+	/**
+	 * Get the bassins.
+	 * 
+	 * @return the bassins.
+	 */
+	public IStructures<IBassin> getBassins();
 
 	/**
 	 * Get the routes.

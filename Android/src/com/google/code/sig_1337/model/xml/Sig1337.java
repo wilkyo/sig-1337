@@ -151,6 +151,26 @@ public class Sig1337 implements ISig1337 {
 	private static final String GRAPHICS = "graphics";
 
 	/**
+	 * Name for the {@code bassins} tag.
+	 */
+	private static final String BASSINS = "bassins";
+
+	/**
+	 * Name for the {@code bassin} tag.
+	 */
+	private static final String BASSIN = "bassin";
+
+	/**
+	 * Name for the {@code forets} tag.
+	 */
+	private static final String FORETS = "forets";
+
+	/**
+	 * Name for the {@code foret} tag.
+	 */
+	private static final String FORET = "foret";
+
+	/**
 	 * Name for the {@code buildings} tag.
 	 */
 	private static final String BUILDINGS = "batiments";
@@ -209,7 +229,7 @@ public class Sig1337 implements ISig1337 {
 	 * Name for the {@code graph} tag.
 	 */
 	private static final String GRAPH = "graph";
-	
+
 	/**
 	 * Name for the {@code tag} tag.
 	 */
@@ -245,22 +265,24 @@ public class Sig1337 implements ISig1337 {
 
 		/**
 		 * Parse the graph.
+		 * 
 		 * @param parser
-		 * 				parser.
+		 *            parser.
 		 * @param bounds
-		 * 				map bounds.
-		 * @return	parsed graph.
+		 *            map bounds.
+		 * @return parsed graph.
 		 * @throws XmlPullParserException
-		 * 				error while parsing.
+		 *             error while parsing.
 		 * @throws IOException
-		 * 				error with IO.
+		 *             error with IO.
 		 */
-		private IGraph readGraph(XmlPullParser parser, IBounds bounds) throws XmlPullParserException, IOException {
+		private IGraph readGraph(XmlPullParser parser, IBounds bounds)
+				throws XmlPullParserException, IOException {
 			parser.nextTag();
 			parser.require(XmlPullParser.START_TAG, null, GRAPH);
 			IGraph graph = new Graph();
-			while(parser.next() != XmlPullParser.END_TAG) {
-				if(parser.getEventType() != XmlPullParser.START_TAG) {
+			while (parser.next() != XmlPullParser.END_TAG) {
+				if (parser.getEventType() != XmlPullParser.START_TAG) {
 					continue;
 				}
 				graph.add(readVertex(parser, bounds));
@@ -270,31 +292,34 @@ public class Sig1337 implements ISig1337 {
 
 		/**
 		 * Parse the sommet.
+		 * 
 		 * @param parser
-		 * 				parser
+		 *            parser
 		 * @param bounds
-		 * 				map bounds
-		 * @return	parsed sommet
+		 *            map bounds
+		 * @return parsed sommet
 		 * @throws XmlPullParserException
-		 * 				error while parsing
+		 *             error while parsing
 		 * @throws IOException
-		 * 				error with IO
+		 *             error with IO
 		 */
-		private IVertex readVertex(XmlPullParser parser, IBounds bounds) throws XmlPullParserException, IOException {
+		private IVertex readVertex(XmlPullParser parser, IBounds bounds)
+				throws XmlPullParserException, IOException {
 			parser.require(XmlPullParser.START_TAG, null, VERTEX);
 			double x = Double.parseDouble(parser.getAttributeValue(null, X));
 			double y = Double.parseDouble(parser.getAttributeValue(null, X));
 			List<IPoint> list = new ArrayList<IPoint>();
 			do {
-				try{
+				try {
 					list.add(readPoint(parser, bounds));
+				} catch (XmlPullParserException e) {
+					Log.d("pouet",
+							"Fin des voisins du sommet (TODO : virer le catch)");
 				}
-				catch (XmlPullParserException e) {
-					Log.d("pouet", "Fin des voisins du sommet (TODO : virer le catch)");
-				}
-			} while (! parser.getName().equals(VERTEX));
+			} while (!parser.getName().equals(VERTEX));
 			parser.require(XmlPullParser.END_TAG, null, VERTEX);
-			return new Vertex(x, y, x - bounds.getMinLon(), y - bounds.getMinLat(), list);
+			return new Vertex(x, y, x - bounds.getMinLon(), y
+					- bounds.getMinLat(), list);
 		}
 
 		/**
@@ -325,6 +350,10 @@ public class Sig1337 implements ISig1337 {
 			return new Bounds(minLat, minLon, maxLat, maxLon);
 		}
 
+		private static interface Initializer<T> {
+			public T initialize(String name, List<ITriangles> triangles);
+		}
+
 		/**
 		 * Parse the graphics.
 		 * 
@@ -342,11 +371,34 @@ public class Sig1337 implements ISig1337 {
 				throws XmlPullParserException, IOException {
 			parser.nextTag();
 			parser.require(XmlPullParser.START_TAG, null, GRAPHICS);
-			IBuildings buildings = readBuildings(parser, bounds);
+			// Bassins.
+			IStructures<IBassin> bassins = readStructures(parser, BASSINS,
+					BASSIN, bounds, new Initializer<IBassin>() {
+						public IBassin initialize(String name,
+								List<ITriangles> triangles) {
+							return new Bassin(name, triangles);
+						}
+					});
+			// Forets.
+			IStructures<IForet> forets = readStructures(parser, FORETS, FORET,
+					bounds, new Initializer<IForet>() {
+						public IForet initialize(String name,
+								List<ITriangles> triangles) {
+							return new Foret(name, triangles);
+						}
+					});
+			// Buildings.
+			IStructures<IBuilding> buildings = readStructures(parser,
+					BUILDINGS, BUILDING, bounds, new Initializer<IBuilding>() {
+						public IBuilding initialize(String name,
+								List<ITriangles> triangles) {
+							return new Building(name, triangles);
+						}
+					});
 			IRoutes routes = readRoutes(parser, bounds);
 			parser.nextTag();
 			parser.require(XmlPullParser.END_TAG, null, GRAPHICS);
-			return new Graphics(routes, buildings);
+			return new Graphics(routes, buildings, forets, bassins);
 		}
 
 		/**
@@ -362,19 +414,20 @@ public class Sig1337 implements ISig1337 {
 		 * @throws IOException
 		 *             error with IO.
 		 */
-		private IBuildings readBuildings(XmlPullParser parser, IBounds bounds)
-				throws XmlPullParserException, IOException {
+		private <T extends IStructure> IStructures<T> readStructures(
+				XmlPullParser parser, String tag, String tag2, IBounds bounds,
+				Initializer<T> init) throws XmlPullParserException, IOException {
 			parser.nextTag();
-			IBuildings buildings = new Buildings();
-			parser.require(XmlPullParser.START_TAG, null, BUILDINGS);
+			IStructures<T> structures = new Structures<T>();
+			parser.require(XmlPullParser.START_TAG, null, tag);
 			while (parser.next() != XmlPullParser.END_TAG) {
 				if (parser.getEventType() != XmlPullParser.START_TAG) {
 					continue;
 				}
-				buildings.add(readBuilding(parser, bounds));
+				structures.add(readStructure(parser, tag2, bounds, init));
 			}
-			parser.require(XmlPullParser.END_TAG, null, BUILDINGS);
-			return buildings;
+			parser.require(XmlPullParser.END_TAG, null, tag);
+			return structures;
 		}
 
 		/**
@@ -390,10 +443,11 @@ public class Sig1337 implements ISig1337 {
 		 * @throws IOException
 		 *             error with IO.
 		 */
-		private IBuilding readBuilding(XmlPullParser parser, IBounds bounds)
+		private <T extends IStructure> T readStructure(XmlPullParser parser,
+				String tag, IBounds bounds, Initializer<T> init)
 				throws XmlPullParserException, IOException {
 			List<ITriangles> triangles = new ArrayList<ITriangles>();
-			parser.require(XmlPullParser.START_TAG, null, BUILDING);
+			parser.require(XmlPullParser.START_TAG, null, tag);
 			String name = parser.getAttributeValue(null, NAME);
 			while (parser.next() != XmlPullParser.END_TAG) {
 				if (parser.getEventType() != XmlPullParser.START_TAG) {
@@ -401,8 +455,8 @@ public class Sig1337 implements ISig1337 {
 				}
 				triangles.add(readTriangles(parser, bounds));
 			}
-			parser.require(XmlPullParser.END_TAG, null, BUILDING);
-			return new Building(name, triangles);
+			parser.require(XmlPullParser.END_TAG, null, tag);
+			return init.initialize(name, triangles);
 		}
 
 		/**
@@ -455,8 +509,11 @@ public class Sig1337 implements ISig1337 {
 		private ITriangle readTriangle(XmlPullParser parser, IBounds bounds)
 				throws XmlPullParserException, IOException {
 			parser.require(XmlPullParser.START_TAG, null, TRIANGLE);
+			parser.nextTag();
 			IPoint p1 = readPoint(parser, bounds);
+			parser.nextTag();
 			IPoint p2 = readPoint(parser, bounds);
+			parser.nextTag();
 			IPoint p3 = readPoint(parser, bounds);
 			parser.nextTag();
 			parser.require(XmlPullParser.END_TAG, null, TRIANGLE);
@@ -485,7 +542,7 @@ public class Sig1337 implements ISig1337 {
 				if (parser.getEventType() != XmlPullParser.START_TAG) {
 					continue;
 				}
-				routes.add(readRoute(parser, bounds));
+				routes.addAll(readRoute(parser, bounds));
 			}
 			parser.require(XmlPullParser.END_TAG, null, ROUTES);
 			return routes;
@@ -504,16 +561,24 @@ public class Sig1337 implements ISig1337 {
 		 * @throws IOException
 		 *             error with IO.
 		 */
-		private IRoute readRoute(XmlPullParser parser, IBounds bounds)
+		private List<IRoute> readRoute(XmlPullParser parser, IBounds bounds)
 				throws XmlPullParserException, IOException {
 			parser.require(XmlPullParser.START_TAG, null, ROUTE);
+			List<IRoute> l = new ArrayList<IRoute>();
 			RouteType type = RouteType.parse(parser.getAttributeValue(null,
 					TYPE));
-			IPoint from = readPoint(parser, bounds);
-			IPoint to = readPoint(parser, bounds);
 			parser.nextTag();
+			IPoint from = readPoint(parser, bounds);
+			while (parser.next() != XmlPullParser.END_TAG) {
+				if (parser.getEventType() != XmlPullParser.START_TAG) {
+					continue;
+				}
+				IPoint to = readPoint(parser, bounds);
+				l.add(new Route(type, from, to));
+				from = to;
+			}
 			parser.require(XmlPullParser.END_TAG, null, ROUTE);
-			return new Route(type, from, to);
+			return l;
 		}
 
 		/**
@@ -531,7 +596,6 @@ public class Sig1337 implements ISig1337 {
 		 */
 		private IPoint readPoint(XmlPullParser parser, IBounds bounds)
 				throws XmlPullParserException, IOException {
-			parser.nextTag();
 			parser.require(XmlPullParser.START_TAG, null, POINT);
 			float x = Float.parseFloat(parser.getAttributeValue(null, X));
 			float y = Float.parseFloat(parser.getAttributeValue(null, Y));
@@ -587,7 +651,7 @@ public class Sig1337 implements ISig1337 {
 			sb.append(GRAPH);
 			sb.append(">\n");
 			for (IVertex vertex : graph) {
-				toString(sb,indent + INDENT, vertex);
+				toString(sb, indent + INDENT, vertex);
 			}
 			sb.append("</");
 			sb.append(GRAPH);
@@ -615,7 +679,7 @@ public class Sig1337 implements ISig1337 {
 			sb.append(vertex.getLatitude());
 			sb.append("\">\n");
 			for (IPoint point : vertex.getPoint()) {
-				toString(sb, indent+ INDENT, point);
+				toString(sb, indent + INDENT, point);
 			}
 			sb.append("</");
 			sb.append(VERTEX);
@@ -673,6 +737,8 @@ public class Sig1337 implements ISig1337 {
 			sb.append('<');
 			sb.append(GRAPHICS);
 			sb.append(">\n");
+			toString(sb, indent + INDENT, graphics.getBassins());
+			toString(sb, indent + INDENT, graphics.getForets());
 			toString(sb, indent + INDENT, graphics.getBuildings());
 			toString(sb, indent + INDENT, graphics.getRoutes());
 			sb.append(indent);
@@ -692,13 +758,13 @@ public class Sig1337 implements ISig1337 {
 		 *            buildings to format.
 		 */
 		private void toString(StringBuilder sb, String indent,
-				IBuildings buildings) {
+				IStructures<? extends IStructure> structures) {
 			sb.append(indent);
 			sb.append('<');
 			sb.append(BUILDINGS);
 			sb.append(">\n");
-			for (IBuilding b : buildings) {
-				toString(sb, indent + INDENT, b);
+			for (IStructure s : structures) {
+				toString(sb, indent + INDENT, s);
 			}
 			sb.append(indent);
 			sb.append("</");
@@ -717,14 +783,14 @@ public class Sig1337 implements ISig1337 {
 		 *            building to format.
 		 */
 		private void toString(StringBuilder sb, String indent,
-				IBuilding building) {
+				IStructure structure) {
 			sb.append(indent);
 			sb.append('<');
 			sb.append(BUILDING);
 			sb.append(" name=\"");
-			sb.append(building.getName());
+			sb.append(structure.getName());
 			sb.append("\">\n");
-			for (ITriangles triangles : building.getTriangles()) {
+			for (ITriangles triangles : structure.getTriangles()) {
 				toString(sb, indent + INDENT, triangles);
 			}
 			sb.append(indent);

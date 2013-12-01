@@ -11,16 +11,17 @@ import android.view.ScaleGestureDetector;
 import android.view.ScaleGestureDetector.SimpleOnScaleGestureListener;
 
 import com.google.code.sig_1337.model.xml.IBounds;
-import com.google.code.sig_1337.model.xml.IBuilding;
-import com.google.code.sig_1337.model.xml.IBuildings;
 import com.google.code.sig_1337.model.xml.IPoint;
 import com.google.code.sig_1337.model.xml.IRoute;
 import com.google.code.sig_1337.model.xml.IRoutes;
 import com.google.code.sig_1337.model.xml.ISig1337;
+import com.google.code.sig_1337.model.xml.IStructure;
+import com.google.code.sig_1337.model.xml.IStructures;
 import com.google.code.sig_1337.model.xml.ITriangle;
 import com.google.code.sig_1337.model.xml.ITriangles;
 import com.google.code.sig_1337.model.xml.RouteType;
 import com.google.code.sig_1337.model.xml.Sig1337;
+import com.google.code.sig_1337.model.xml.StructureType;
 
 /**
  * Render for {@code Sig1337}.
@@ -157,21 +158,23 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	 *            OpenGL.
 	 */
 	private void drawGraphics(GL10 gl) {
-		drawBuildings(gl);
+		drawStructures(gl, sig.getGraphics().getBassins());
+		drawStructures(gl, sig.getGraphics().getForets());
+		drawStructures(gl, sig.getGraphics().getBuildings());
 		drawRoutes(gl);
 	}
 
 	/**
-	 * Draw the buildings.
+	 * Draw the structures.
 	 * 
 	 * @param gl
 	 *            OpenGL.
 	 */
-	private void drawBuildings(GL10 gl) {
-		IBuildings l = sig.getGraphics().getBuildings();
-		if (l != null && !l.isEmpty()) {
-			for (IBuilding b : l) {
-				drawBuilding(gl, b);
+	private void drawStructures(GL10 gl,
+			IStructures<? extends IStructure> structures) {
+		if (structures != null && !structures.isEmpty()) {
+			for (IStructure structure : structures) {
+				drawStructure(gl, structure);
 			}
 		}
 	}
@@ -184,10 +187,11 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	 * @param building
 	 *            building to draw.
 	 */
-	private void drawBuilding(GL10 gl, IBuilding building) {
-		for (ITriangles ts : building.getTriangles()) {
+	private void drawStructure(GL10 gl, IStructure structure) {
+		StructureType type = structure.getType();
+		for (ITriangles ts : structure.getTriangles()) {
 			// Color depending on the type.
-			FloatBuffer color = ts.getType().getFill();
+			FloatBuffer color = ts.getType().getColor(type);
 			// Draw the triangles.
 			for (ITriangle t : ts) {
 				// Draw the triangle.
