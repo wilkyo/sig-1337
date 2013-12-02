@@ -1,7 +1,6 @@
-package geometry.itineraire;
+package com.google.code.sig_1337.itineraire;
 
-import geometry.model.Point;
-import geometry.model.Segment;
+import com.google.code.sig_1337.model.xml.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,7 +18,7 @@ public class Itineraire {
 		/**
 		 * Le chemin parcouru
 		 */
-		public ArrayList<Point> chemin;
+		public ArrayList<IPoint> chemin;
 		/**
 		 * Le coût de ce chemin
 		 */
@@ -29,8 +28,8 @@ public class Itineraire {
 		 * Crée l'état de départ
 		 * @param depart le point de l'etat
 		 */
-		public State(Point depart) {
-			chemin = new ArrayList<>();
+		public State(IPoint depart) {
+			chemin = new ArrayList<IPoint>();
 			chemin.add(depart);
 			this.value = 0;
 		}
@@ -40,7 +39,7 @@ public class Itineraire {
 		 * @param list le chemin
 		 * @param value le coût du chemin
 		 */
-		public State(ArrayList<Point> list, double value) {
+		public State(ArrayList<IPoint> list, double value) {
 			chemin = list;
 			this.value = value;
 		}
@@ -62,7 +61,7 @@ public class Itineraire {
 		 * Retourne le dernier point du chemin
 		 * @return
 		 */
-		public Point getHead() {
+		public IPoint getHead() {
 			return chemin.get(chemin.size() - 1);
 		}
 	}
@@ -80,12 +79,12 @@ public class Itineraire {
 	 * @return la liste des points du parcours commençant par le point d'arrivé,
 	 *         null si pas de chemin
 	 */
-	public static ArrayList<Point> CalculItineraire(Point depart, Point arrive,
-			HashMap<Point, ArrayList<Point>> listAdjacence) {
-		ArrayList<Point> res = new ArrayList<>();
+	public static ArrayList<IPoint> CalculItineraire(Point depart, Point arrive,
+			HashMap<IPoint, ArrayList<IPoint>> listAdjacence) {
+		ArrayList<IPoint> res = new ArrayList<IPoint>();
 		res.add(depart);
 		if (!depart.equals(arrive)) {
-			ArrayList<State> listState = new ArrayList<>();
+			ArrayList<State> listState = new ArrayList<State>();
 			listState.add(new State(depart));
 			return CalculItineraireRec(listState, arrive, listAdjacence);
 		}
@@ -99,9 +98,9 @@ public class Itineraire {
 	 * @param listAdjacence la liste d'adjacence
 	 * @return l'itinéraire calculé, null si aucun itinéraire
 	 */
-	private static ArrayList<Point> CalculItineraireRec(
+	private static ArrayList<IPoint> CalculItineraireRec(
 			ArrayList<State> listState, Point arrive,
-			HashMap<Point, ArrayList<Point>> listAdjacence) {
+			HashMap<IPoint, ArrayList<IPoint>> listAdjacence) {
 		if (listState.isEmpty())
 			return null;
 		else {
@@ -112,11 +111,11 @@ public class Itineraire {
 				return head.chemin;
 			else {
 				//je génère les nouveaux cas
-				ArrayList<Point> voisin = listAdjacence.get(head.getHead());
-				for (Point point : voisin) {
+				ArrayList<IPoint> voisin = listAdjacence.get(head.getHead());
+				for (IPoint point : voisin) {
 					// Evite de retourner dans un état précedant
 					if (!head.chemin.contains(point)) {
-						ArrayList<Point> newChemin = new ArrayList<>(
+						ArrayList<IPoint> newChemin = new ArrayList<IPoint>(
 								head.chemin);
 						newChemin.add(point);
 						State ajout = new State(newChemin, calculValue(
@@ -145,12 +144,17 @@ public class Itineraire {
 	 * @param arrive le point d'arrivé 
 	 * @return Le coût du chemin
 	 */
-	private static double calculValue(ArrayList<Point> chemin, Point arrive) {
+	private static double calculValue(ArrayList<IPoint> chemin, IPoint arrive) {
 		double res = 0;
 		for (int i = 0; i < chemin.size() - 1; i++) {
-			res += new Segment(chemin.get(i), chemin.get(i + 1)).longueur();
+			IPoint p1 = chemin.get(i);
+			IPoint p2 = chemin.get(i+1);
+			res += Math.sqrt(Math.pow(p2.getLongitude() - p1.getLongitude(), 2)
+					+ Math.pow(p2.getLatitude() - p1.getLatitude(), 2));
 		}
-		res += new Segment(chemin.get(chemin.size() - 1), arrive).longueur();
+		IPoint fin = chemin.get(chemin.size() - 1);
+		res += Math.sqrt(Math.pow(arrive.getLatitude() - fin.getLatitude(), 2)
+				+ Math.pow(arrive.getLongitude() - fin.getLongitude(), 2));
 		return res;
 	}
 
