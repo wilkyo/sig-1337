@@ -4,7 +4,6 @@ import geometry.model.Point;
 import geometry.model.Polygone;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -138,6 +137,15 @@ public class SQLToXml {
 		return buildings;
 	}
 
+	/**
+	 * Gets all the forests from the table.
+	 * 
+	 * @param db
+	 *            Connection to the SQL Database.
+	 * @param nodes
+	 *            The Map&lt;Integer, Node&gt; of the nodes.
+	 * @return The Map&lt;Integer, Forest&gt; of forests.
+	 */
 	private static Map<Long, Forest> getAllForests(Connection db,
 			Map<Long, Node> nodes) {
 		Map<Long, Forest> forests = new HashMap<Long, Forest>();
@@ -166,6 +174,15 @@ public class SQLToXml {
 		return forests;
 	}
 
+	/**
+	 * Gets all the basins from the table.
+	 * 
+	 * @param db
+	 *            Connection to the SQL Database.
+	 * @param nodes
+	 *            The Map&lt;Integer, Node&gt; of the nodes.
+	 * @return The Map&lt;Integer, Basin&gt; of buildings.
+	 */
 	private static Map<Long, Basin> getAllBasins(Connection db,
 			Map<Long, Node> nodes) {
 		Map<Long, Basin> basins = new HashMap<Long, Basin>();
@@ -204,9 +221,12 @@ public class SQLToXml {
 	 *            The Map&lt;Integer, Node&gt; of the nodes.
 	 * @param buildings
 	 *            The Map&lt;Integer, Building&gt; of the buildings.
+	 * @param basins
+	 * @param forests
 	 */
 	private static void getAllHoles(Connection db, Map<Long, Node> nodes,
-			Map<Long, Building> buildings) {
+			Map<Long, Building> buildings, Map<Long, Forest> forests,
+			Map<Long, Basin> basins) {
 		Statement s;
 		try {
 			s = db.createStatement();
@@ -219,12 +239,17 @@ public class SQLToXml {
 						SQLHelper.getArray(result
 								.getArray(SQLHelper.CUSTOM_TABLE_HOLES_NODES),
 								nodes));
-				if (buildings.get(tmp.getIdStructure()) != null) // c'est un
-																	// batiment
-				{
-					buildings.get(tmp.getIdStructure()).addHole(tmp);
-				}
-				;
+				Structure parent;
+				// C'est un batiment
+				if ((parent = buildings.get(tmp.getIdStructure())) == null)
+					// C'est une forêt
+					if ((parent = forests.get(tmp.getIdStructure())) == null)
+						// C'est un bassin
+						if ((parent = basins.get(tmp.getIdStructure())) == null)
+							// Ce n'est rien...
+							continue;
+				// Tout va bien
+				parent.addHole(tmp);
 			}
 			s.close();
 		} catch (SQLException e) {
@@ -382,7 +407,7 @@ public class SQLToXml {
 	 * @param graph
 	 * @param nodes
 	 */
-	private static void generateXML(String filename, List<Road> roads,
+	private static String generateXML(String filename, List<Road> roads,
 			Map<Long, Basin> basins, Map<Long, Forest> forests,
 			Map<Long, Building> buildings, Map<Point, ArrayList<Point>> graph) {
 		StringBuffer buff = new StringBuffer();
@@ -465,20 +490,15 @@ public class SQLToXml {
 		}
 		System.out.println("Graph generated");
 		buff.append("\t</graph>\n</sig_1337>");
-		try {
-			FileWriter out = new FileWriter(new File("files/map.xml"));
-			out.write(buff.toString());
-			out.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+
+		return buff.toString();
 	}
 
 	/**
 	 * Gets the data from the PostGIS database and generate the xml for the
 	 * Android application.
 	 */
-	public static void process(String filename) {
+	public static String process(String filename) {
 		Connection connection;
 
 		try {
@@ -496,7 +516,7 @@ public class SQLToXml {
 			Map<Long, Building> buildings = getAllBuildings(connection, nodes);
 			Map<Long, Forest> forests = getAllForests(connection, nodes);
 			Map<Long, Basin> basins = getAllBasins(connection, nodes);
-			getAllHoles(connection, nodes, buildings);
+			getAllHoles(connection, nodes, buildings, forests, basins);
 
 			Map<Point, ArrayList<Point>> graph = getGraph(connection);
 
@@ -508,12 +528,13 @@ public class SQLToXml {
 
 			connection.close();
 
-			generateXML(filename, roads, basins, forests, buildings, graph);
-			System.out.println("XML generated.");
+			return generateXML(filename, roads, basins, forests, buildings,
+					graph);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
+		return null;
 	}
 }
