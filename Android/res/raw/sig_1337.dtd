@@ -34,7 +34,6 @@
 	<!ATTLIST point y CDATA '0'>
 
 <!ELEMENT graph (vertex*)>
-<!ELEMENT vertex EMPTY>
+<!ELEMENT vertex (point*)>
 	<!ATTLIST vertex x CDATA '0'>
 	<!ATTLIST vertex y CDATA '0'>
-

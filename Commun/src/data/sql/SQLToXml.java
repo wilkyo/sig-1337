@@ -496,7 +496,7 @@ public class SQLToXml {
 			Map<Long, Basin> basins = getAllBasins(connection, nodes);
 			getAllHoles(connection, nodes, buildings);
 
-			Map<Point, ArrayList<Point>> graph = null;// getGraph(connection);
+			Map<Point, ArrayList<Point>> graph = getGraph(connection);
 
 			System.out.println(nodes.size() + " nodes.");
 			System.out.println(roads.size() + " roads.");
