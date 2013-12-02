@@ -179,6 +179,24 @@ public class SQLCreate {
 					+ " w ON w.id = p.osm_id ");
 			mySql.append("WHERE p.building IS NOT NULL AND p.building != '';");
 			s.execute(mySql.toString());
+
+			// On prend aussi ceux avec des trous ...
+			mySql = new StringBuilder();
+			mySql.append("INSERT INTO " + SQLHelper.CUSTOM_TABLE_STRUCTURES
+					+ " ");
+			mySql.append("(" + SQLHelper.CUSTOM_TABLE_STRUCTURES_ID + ", "
+					+ SQLHelper.CUSTOM_TABLE_STRUCTURES_NODES + ", "
+					+ SQLHelper.CUSTOM_TABLE_STRUCTURES_NAME + ", "
+					+ SQLHelper.CUSTOM_TABLE_STRUCTURES_GEOM + ", "
+					+ SQLHelper.CUSTOM_TABLE_STRUCTURES_TYPE + ") ");
+			mySql.append("SELECT w.id, w.nodes, p.name, p.way, '"
+					+ Structure.BUILDING + "' AS typeStructure ");
+			mySql.append("FROM " + SQLHelper.TABLE_POLYGONS + " p ");
+			mySql.append("INNER JOIN planet_osm_rels r ON ABS(p.osm_id) = r.id ");
+			mySql.append("INNER JOIN planet_osm_ways w ON ((r.members[2] = 'outer' AND w.id = CAST(SUBSTRING(r.members[1], 2) AS BIGINT)) OR (r.members[4] = 'outer' AND w.id = CAST(SUBSTRING(r.members[3], 2) AS BIGINT))) ");
+			mySql.append("WHERE p.osm_id < 0 AND p.building IS NOT NULL AND p.building != '';");
+			s.execute(mySql.toString());
+
 			System.out.println("Fin insertion des buildings");
 
 			// Récupération des données pour les forest
@@ -200,7 +218,7 @@ public class SQLCreate {
 			s.execute(mySql.toString());
 			System.out.println("Fin insertion des forests");
 
-			// Récupération des données pour les forest
+			// Récupération des données pour les basins
 			System.out.println("Début insertion des basins");
 			mySql = new StringBuilder();
 			mySql.append("INSERT INTO " + SQLHelper.CUSTOM_TABLE_STRUCTURES
@@ -218,7 +236,7 @@ public class SQLCreate {
 			mySql.append("WHERE landuse = 'basin';");
 			s.execute(mySql.toString());
 
-			// Petite correction pour le LAC (ID négatif ...)
+			// On prend aussi ceux avec des trous ...
 			mySql = new StringBuilder();
 			mySql.append("INSERT INTO " + SQLHelper.CUSTOM_TABLE_STRUCTURES
 					+ " ");
@@ -230,12 +248,12 @@ public class SQLCreate {
 			mySql.append("SELECT w.id, w.nodes, p.name, p.way, '"
 					+ Structure.BASIN + "' AS typeStructure ");
 			mySql.append("FROM " + SQLHelper.TABLE_POLYGONS + " p ");
-			mySql.append("INNER JOIN " + SQLHelper.TABLE_WAYS
-					+ " w ON w.id = 27435896 ");
-			mySql.append("WHERE landuse = 'basin' AND p.osm_id = -2418299;");
+			mySql.append("INNER JOIN planet_osm_rels r ON ABS(p.osm_id) = r.id ");
+			mySql.append("INNER JOIN planet_osm_ways w ON ((r.members[2] = 'outer' AND w.id = CAST(SUBSTRING(r.members[1], 2) AS BIGINT)) OR (r.members[4] = 'outer' AND w.id = CAST(SUBSTRING(r.members[3], 2) AS BIGINT))) ");
+			mySql.append("WHERE p.osm_id < 0 AND p.landuse = 'basin';");
 			s.execute(mySql.toString());
 
-			System.out.println("Fin insertion des forests");
+			System.out.println("Fin insertion des basins");
 
 			mySql = new StringBuilder();
 			mySql.append("DELETE FROM " + SQLHelper.TABLE_GEOMETRY_COLUMNS
@@ -418,7 +436,7 @@ public class SQLCreate {
 			mySql.append(SQLHelper.CUSTOM_TABLE_HOLES_ID + " bigint NOT NULL,");
 			mySql.append(SQLHelper.CUSTOM_TABLE_HOLES_NODES
 					+ " bigint[] NOT NULL,");
-			mySql.append(SQLHelper.CUSTOM_TABLE_HOLES_ID_BUILDING
+			mySql.append(SQLHelper.CUSTOM_TABLE_HOLES_ID_STRUCTURE
 					+ " bigint NOT NULL,");
 			mySql.append("CONSTRAINT " + SQLHelper.CUSTOM_TABLE_HOLES
 					+ "_pkey PRIMARY KEY (" + SQLHelper.CUSTOM_TABLE_HOLES_ID
@@ -434,7 +452,7 @@ public class SQLCreate {
 			mySql.append("INSERT INTO " + SQLHelper.CUSTOM_TABLE_HOLES + " ");
 			mySql.append("(" + SQLHelper.CUSTOM_TABLE_HOLES_ID + ", "
 					+ SQLHelper.CUSTOM_TABLE_HOLES_NODES + ", "
-					+ SQLHelper.CUSTOM_TABLE_HOLES_ID_BUILDING + ") ");
+					+ SQLHelper.CUSTOM_TABLE_HOLES_ID_STRUCTURE + ") ");
 			mySql.append("SELECT rel.id, ways2.nodes, builing.id ");
 			mySql.append("FROM " + SQLHelper.TABLE_RELS + " rel ");
 			mySql.append("INNER JOIN "
@@ -445,6 +463,20 @@ public class SQLCreate {
 					+ " ways2 ON ways2.Id = CAST(substring((regexp_split_to_array(array_to_string(rel.members,',',''),','))[1] from 2) AS bigint) ");
 			mySql.append("WHERE array_to_string(rel.members,',','') LIKE '%w%,inner,w%,outer%';");
 			s.execute(mySql.toString());
+
+			// Récupération des trous manquant
+			mySql = new StringBuilder();
+			mySql.append("INSERT INTO " + SQLHelper.CUSTOM_TABLE_HOLES + " ");
+			mySql.append("(" + SQLHelper.CUSTOM_TABLE_HOLES_ID + ", "
+					+ SQLHelper.CUSTOM_TABLE_HOLES_NODES + ", "
+					+ SQLHelper.CUSTOM_TABLE_HOLES_ID_STRUCTURE + ") ");
+			mySql.append("SELECT w.id, w.nodes, CASE WHEN r.members[2] = 'outer' THEN CAST(SUBSTRING(r.members[1], 2) AS BIGINT) ELSE CAST(SUBSTRING(r.members[3], 2) AS BIGINT) END ");
+			mySql.append("FROM planet_osm_polygon p ");
+			mySql.append("INNER JOIN planet_osm_rels r ON ABS(p.osm_id) = r.id ");
+			mySql.append("INNER JOIN planet_osm_ways w ON ((r.members[2] = 'inner' AND w.id = CAST(SUBSTRING(r.members[1], 2) AS BIGINT)) OR (r.members[4] = 'inner' AND w.id = CAST(SUBSTRING(r.members[3], 2) AS BIGINT))) ");
+			mySql.append("WHERE p.osm_id < 0 ");
+			s.execute(mySql.toString());
+
 			s.close();
 			conn.close();
 
