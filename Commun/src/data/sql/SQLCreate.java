@@ -1,10 +1,14 @@
 package data.sql;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Arrays;
 import java.util.List;
@@ -39,15 +43,16 @@ public class SQLCreate {
 			Statement s = conn.createStatement();
 			System.out.println("Lecture du fichier");
 			
-			List<String> list = Files.readAllLines(FileSystems.getDefault().getPath("files/oms_2po_4pgr.sql").getFileName(), StandardCharsets.UTF_8);
-			
-			System.out.println("Fin de la lecture");
-			
-			String sql = "";
-			for (String string : list) {
-				sql += string + "\n";
+			StringBuilder sql = new StringBuilder();
+
+			BufferedReader br = new BufferedReader(new FileReader("files/osm_2po_4pgr.sql"));
+			for (String line = br.readLine(); line != null; line = br.readLine()) {
+				sql.append(line);
 			}
-			s.execute(sql);
+			br.close();
+			
+			s.execute(sql.toString());
+			
 			conn.close();
 		} catch (Exception e) {
 			result = false;
