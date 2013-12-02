@@ -215,11 +215,11 @@ public class SQLToXml {
 			while (result.next()) {
 				Hole tmp = new Hole(
 						result.getInt(SQLHelper.CUSTOM_TABLE_HOLES_ID),
-						result.getInt(SQLHelper.CUSTOM_TABLE_HOLES_ID_BUILDING),
+						result.getInt(SQLHelper.CUSTOM_TABLE_HOLES_ID_STRUCTURE),
 						SQLHelper.getArray(result
 								.getArray(SQLHelper.CUSTOM_TABLE_HOLES_NODES),
 								nodes));
-				buildings.get(tmp.getIdBuilding()).addHole(tmp);
+				buildings.get(tmp.getIdStructure()).addHole(tmp);
 			}
 			s.close();
 		} catch (SQLException e) {

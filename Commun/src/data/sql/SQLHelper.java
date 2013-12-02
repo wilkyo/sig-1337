@@ -76,7 +76,7 @@ public class SQLHelper {
 	public static final String CUSTOM_TABLE_HOLES = "sig1337_holes";
 	public static final String CUSTOM_TABLE_HOLES_ID = "id";
 	public static final String CUSTOM_TABLE_HOLES_NODES = "nodes";
-	public static final String CUSTOM_TABLE_HOLES_ID_BUILDING = "id_building";
+	public static final String CUSTOM_TABLE_HOLES_ID_STRUCTURE = "id_structure";
 
 	/**
 	 * Constants for our custom graph table.

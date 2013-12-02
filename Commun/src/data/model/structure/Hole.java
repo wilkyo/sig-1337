@@ -8,9 +8,9 @@ import data.model.Node;
 public class Hole extends Structure {
 
 	/**
-	 * Id of the Building the Hole is part of.
+	 * Id of the structure the Hole is part of.
 	 */
-	private long idBuilding;
+	private long idStructure;
 
 	/**
 	 * Initializes the Hole.
@@ -22,16 +22,16 @@ public class Hole extends Structure {
 	 * @param nodes
 	 *            Nodes forming the Hole.
 	 */
-	public Hole(long id, long idBuilding, Node[] nodes) {
+	public Hole(long id, long idStructure, Node[] nodes) {
 		super(id, null, nodes, null);
-		this.idBuilding = idBuilding;
+		this.idStructure = idStructure;
 	}
 
 	/**
 	 * @return the idBuilding
 	 */
-	public long getIdBuilding() {
-		return idBuilding;
+	public long getIdStructure() {
+		return idStructure;
 	}
 
 }
