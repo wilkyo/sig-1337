@@ -37,4 +37,3 @@
 <!ELEMENT vertex (point*)>
 	<!ATTLIST vertex x CDATA '0'>
 	<!ATTLIST vertex y CDATA '0'>
-

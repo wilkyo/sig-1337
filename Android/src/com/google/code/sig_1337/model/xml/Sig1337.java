@@ -311,15 +311,12 @@ public class Sig1337 implements ISig1337 {
 			double x = Double.parseDouble(parser.getAttributeValue(null, X));
 			double y = Double.parseDouble(parser.getAttributeValue(null, X));
 			List<IPoint> list = new ArrayList<IPoint>();
-			do {
-				checkInterrupted();
-				try {
-					list.add(readPoint(parser, bounds));
-				} catch (XmlPullParserException e) {
-					Log.d("pouet",
-							"Fin des voisins du sommet (TODO : virer le catch)");
+			while(parser.next() != XmlPullParser.END_TAG) {
+				if(parser.getEventType() != XmlPullParser.START_TAG) {
+					continue;
 				}
-			} while (!parser.getName().equals(VERTEX));
+				list.add(readPoint(parser, bounds));
+			}
 			parser.require(XmlPullParser.END_TAG, null, VERTEX);
 			return new Vertex(x, y, x - bounds.getMinLon(), y
 					- bounds.getMinLat(), list);

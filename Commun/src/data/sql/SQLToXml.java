@@ -219,11 +219,15 @@ public class SQLToXml {
 						SQLHelper.getArray(result
 								.getArray(SQLHelper.CUSTOM_TABLE_HOLES_NODES),
 								nodes));
+<<<<<<< HEAD
 				if (buildings.get(tmp.getIdStructure()) != null) // c'est un
 																	// batiment
 				{
 					buildings.get(tmp.getIdStructure()).addHole(tmp);
 				}
+=======
+//				buildings.get(tmp.getIdStructure()).addHole(tmp);
+>>>>>>> ccee2d7d2bb39eee7bf997849264b3c007fe2f96
 			}
 			s.close();
 		} catch (SQLException e) {
@@ -497,7 +501,7 @@ public class SQLToXml {
 			Map<Long, Basin> basins = getAllBasins(connection, nodes);
 			getAllHoles(connection, nodes, buildings);
 
-			Map<Point, ArrayList<Point>> graph = new HashMap<Point, ArrayList<Point>>();// getGraph(connection);
+			Map<Point, ArrayList<Point>> graph = getGraph(connection);
 
 			System.out.println(nodes.size() + " nodes.");
 			System.out.println(roads.size() + " roads.");
@@ -516,3 +520,4 @@ public class SQLToXml {
 		}
 	}
 }
+	

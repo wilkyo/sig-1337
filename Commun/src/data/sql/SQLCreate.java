@@ -1,9 +1,17 @@
 package data.sql;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Arrays;
+import java.util.List;
 
 import data.model.Road;
 import data.model.structure.Structure;
@@ -16,11 +24,40 @@ public class SQLCreate {
 		if (dataBaseExists()) {
 			// Récupération des nodes
 			if (createTableNodes() && createTableStructures()
-					&& createTableRoads() && createTableHoles()) {
+					&& createTableRoads() && createTableHoles() && createTableGraph()) {
 				result = true;
 			}
 		}
 		System.out.println("Fin création base de données");
+		return result;
+	}
+
+	private static boolean createTableGraph() {
+		Boolean result = true;
+		System.out.println("Début création des tables du graphes");
+		try {
+			Class.forName(SQLHelper.SQL_DRIVER);
+			java.sql.Connection conn = DriverManager.getConnection(
+					SQLHelper.SERVER_URL + SQLHelper.DB_NAME,
+					SQLHelper.USERNAME, SQLHelper.PASSWORD);
+			Statement s = conn.createStatement();
+			System.out.println("Lecture du fichier");
+			
+			StringBuilder sql = new StringBuilder();
+
+			BufferedReader br = new BufferedReader(new FileReader("files/osm_2po_4pgr.sql"));
+			for (String line = br.readLine(); line != null; line = br.readLine()) {
+				sql.append(line);
+			}
+			br.close();
+			
+			s.execute(sql.toString());
+			
+			conn.close();
+		} catch (Exception e) {
+			result = false;
+		}
+		System.out.println("Fin création des tables du graphes");		
 		return result;
 	}
 
