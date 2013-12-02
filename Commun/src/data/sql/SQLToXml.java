@@ -219,15 +219,12 @@ public class SQLToXml {
 						SQLHelper.getArray(result
 								.getArray(SQLHelper.CUSTOM_TABLE_HOLES_NODES),
 								nodes));
-<<<<<<< HEAD
 				if (buildings.get(tmp.getIdStructure()) != null) // c'est un
 																	// batiment
 				{
 					buildings.get(tmp.getIdStructure()).addHole(tmp);
 				}
-=======
-//				buildings.get(tmp.getIdStructure()).addHole(tmp);
->>>>>>> ccee2d7d2bb39eee7bf997849264b3c007fe2f96
+				;
 			}
 			s.close();
 		} catch (SQLException e) {
@@ -520,4 +517,3 @@ public class SQLToXml {
 		}
 	}
 }
-	
