@@ -232,6 +232,19 @@ public class SQLCreate {
 
 			System.out.println("Fin insertion des forests");
 
+			mySql = new StringBuilder();
+			mySql.append("DELETE FROM " + SQLHelper.TABLE_GEOMETRY_COLUMNS
+					+ " WHERE f_table_name = '"
+					+ SQLHelper.CUSTOM_TABLE_STRUCTURES + "'; ");
+			mySql.append("INSERT INTO " + SQLHelper.TABLE_GEOMETRY_COLUMNS
+					+ " VALUES ('', '" + SQLHelper.DB_SCHEMA + "', '"
+					+ SQLHelper.CUSTOM_TABLE_STRUCTURES + "', '"
+					+ SQLHelper.CUSTOM_TABLE_STRUCTURES_GEOM + "', "
+					+ SQLHelper.GEOMETRY_POLYGON_DIMENSIONS + ", "
+					+ SQLHelper.OSM_SRID + ", '" + SQLHelper.GEOMETRY_POLYGON
+					+ "'); ");
+			s.execute(mySql.toString());
+
 			s.close();
 			conn.close();
 

@@ -1,6 +1,7 @@
 package com.google.code.sig_1337;
 
 import java.nio.FloatBuffer;
+import java.util.List;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -11,16 +12,17 @@ import android.view.ScaleGestureDetector;
 import android.view.ScaleGestureDetector.SimpleOnScaleGestureListener;
 
 import com.google.code.sig_1337.model.xml.IBounds;
-import com.google.code.sig_1337.model.xml.IBuilding;
-import com.google.code.sig_1337.model.xml.IBuildings;
 import com.google.code.sig_1337.model.xml.IPoint;
 import com.google.code.sig_1337.model.xml.IRoute;
 import com.google.code.sig_1337.model.xml.IRoutes;
 import com.google.code.sig_1337.model.xml.ISig1337;
+import com.google.code.sig_1337.model.xml.IStructure;
+import com.google.code.sig_1337.model.xml.IStructures;
 import com.google.code.sig_1337.model.xml.ITriangle;
 import com.google.code.sig_1337.model.xml.ITriangles;
 import com.google.code.sig_1337.model.xml.RouteType;
 import com.google.code.sig_1337.model.xml.Sig1337;
+import com.google.code.sig_1337.model.xml.StructureType;
 
 /**
  * Render for {@code Sig1337}.
@@ -106,11 +108,6 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	 */
 	public synchronized void setSig(ISig1337 sig) {
 		this.sig = sig;
-		IBounds bounds = sig.getBounds();
-		mapX = bounds.getMinLon();
-		mapY = bounds.getMinLat();
-		mapWidth = bounds.getMaxLon() - bounds.getMinLon();
-		mapHeight = bounds.getMaxLat() - bounds.getMinLat();
 	}
 
 	/**
@@ -129,6 +126,12 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 		gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
 		gl.glEnableClientState(GL10.GL_COLOR_ARRAY);
 
+		// Bounds.
+		IBounds bounds = sig.getBounds();
+		mapX = bounds.getMinLon();
+		mapY = bounds.getMinLat();
+		mapWidth = bounds.getMaxLon() - bounds.getMinLon();
+		mapHeight = bounds.getMaxLat() - bounds.getMinLat();
 		// Translate.
 		float cX = (float) (locationListener.getLongitude() - mapX);
 		float cY = (float) (locationListener.getLatitude() - mapY);
@@ -137,12 +140,11 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 		float rH = (float) ((2 / mapHeight));
 		float initialScale = (float) Math.max(rW, rH);
 		scale = initialScale * userScale;
-		testScale = scale / initialScale;
 		gl.glPushMatrix();
 		//
-		gl.glTranslatef(userDX / 1000, -userDY / 1000, 0);
-		gl.glScalef(scale, scale, 1);
-		gl.glTranslatef(-(float) cX, -(float) cY, 0);
+		gl.glScalef(200 * userScale, 200 * userScale, 1);
+		gl.glTranslatef(-(float) (cX - userDX / 100000f),
+				-(float) (cY + userDY / 100000f), 0);
 		drawGraphics(gl);
 		gl.glPopMatrix();
 
@@ -157,21 +159,25 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	 *            OpenGL.
 	 */
 	private void drawGraphics(GL10 gl) {
-		drawBuildings(gl);
 		drawRoutes(gl);
+		drawStructures(gl, sig.getGraphics().getBuildings());
+		drawStructures(gl, sig.getGraphics().getForets());
+		drawStructures(gl, sig.getGraphics().getBassins());
 	}
 
 	/**
-	 * Draw the buildings.
+	 * Draw the structures.
 	 * 
 	 * @param gl
 	 *            OpenGL.
 	 */
-	private void drawBuildings(GL10 gl) {
-		IBuildings l = sig.getGraphics().getBuildings();
-		if (l != null && !l.isEmpty()) {
-			for (IBuilding b : l) {
-				drawBuilding(gl, b);
+	private void drawStructures(GL10 gl,
+			IStructures<? extends IStructure> structures) {
+		synchronized (structures) {
+			if (structures != null && !structures.isEmpty()) {
+				for (IStructure structure : structures) {
+					drawStructure(gl, structure);
+				}
 			}
 		}
 	}
@@ -184,17 +190,24 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	 * @param building
 	 *            building to draw.
 	 */
-	private void drawBuilding(GL10 gl, IBuilding building) {
-		for (ITriangles ts : building.getTriangles()) {
-			// Color depending on the type.
-			FloatBuffer color = ts.getType().getFill();
-			// Draw the triangles.
-			for (ITriangle t : ts) {
-				// Draw the triangle.
-				gl.glVertexPointer(3, GL10.GL_FLOAT, 0, t.getVertexBuffer());
-				gl.glColorPointer(4, GL10.GL_FLOAT, 0, color);
-				gl.glDrawElements(GL10.GL_TRIANGLES, 3, GL10.GL_UNSIGNED_SHORT,
-						t.getIndexBuffer());
+	private void drawStructure(GL10 gl, IStructure structure) {
+		StructureType type = structure.getType();
+		List<ITriangles> list = structure.getTriangles();
+		synchronized (list) {
+			for (ITriangles triangles : list) {
+				// Color depending on the type.
+				FloatBuffer color = triangles.getType().getColor(type);
+				// Draw the triangles.
+				synchronized (triangles) {
+					for (ITriangle t : triangles) {
+						// Draw the triangle.
+						gl.glVertexPointer(3, GL10.GL_FLOAT, 0,
+								t.getVertexBuffer());
+						gl.glColorPointer(4, GL10.GL_FLOAT, 0, color);
+						gl.glDrawElements(GL10.GL_TRIANGLES, 3,
+								GL10.GL_UNSIGNED_SHORT, t.getIndexBuffer());
+					}
+				}
 			}
 		}
 	}
@@ -207,9 +220,11 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	 */
 	private void drawRoutes(GL10 gl) {
 		IRoutes l = sig.getGraphics().getRoutes();
-		if (l != null && !l.isEmpty()) {
-			for (IRoute r : l) {
-				drawRoute(gl, r);
+		synchronized (l) {
+			if (l != null && !l.isEmpty()) {
+				for (IRoute r : l) {
+					drawRoute(gl, r);
+				}
 			}
 		}
 	}

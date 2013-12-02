@@ -27,14 +27,22 @@
 
 <!ELEMENT routes (route*)>
 <!ELEMENT route (point+)>
+<<<<<<< HEAD
 	<!ATTLIST route type (route | chemin) "route">
+=======
+	<!ATTLIST route type (route | chemin) "chemin">
+>>>>>>> 90df03dd929b1ce7f15f45abc16434fea0d92d75
 
 <!ELEMENT point EMPTY>
 	<!ATTLIST point x CDATA '0'>
 	<!ATTLIST point y CDATA '0'>
 
 <!ELEMENT graph (vertex*)>
+<<<<<<< HEAD
 <!ELEMENT vertex (point+)>
+=======
+<!ELEMENT vertex (point*)>
+>>>>>>> 90df03dd929b1ce7f15f45abc16434fea0d92d75
 	<!ATTLIST vertex x CDATA '0'>
 	<!ATTLIST vertex y CDATA '0'>
 

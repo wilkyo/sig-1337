@@ -2,13 +2,11 @@ package com.google.code.sig_1337.model.xml;
 
 import java.util.concurrent.CopyOnWriteArrayList;
 
-/**
- * Routes.
- */
-public class Routes extends CopyOnWriteArrayList<IRoute> implements IRoutes {
+public class Structures<T extends IStructure> extends CopyOnWriteArrayList<T>
+		implements IStructures<T> {
 
 	/**
-	 * Default serial version UID.
+	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 

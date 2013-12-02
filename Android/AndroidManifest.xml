@@ -38,6 +38,11 @@
             android:name="com.google.code.sig_1337.RemoteActivity"
             android:label="@string/title_activity_remote" >
         </activity>
+
+        <service
+            android:name="com.google.code.sig_1337.LocalActivity$Sig1337Service"
+            android:exported="false" >
+        </service>
     </application>
 
 </manifest>

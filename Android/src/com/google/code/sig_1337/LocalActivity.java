@@ -3,17 +3,23 @@ package com.google.code.sig_1337;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import com.google.code.sig_1337.model.xml.Sig1337;
-import com.google.code.sig_1337.model.xml.Sig1337.Format;
-
+import android.app.Activity;
+import android.app.IntentService;
+import android.content.Context;
+import android.content.Intent;
+import android.content.res.Resources;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.app.Activity;
-import android.content.Context;
-import android.content.res.Resources;
 import android.view.Menu;
 
+import com.google.code.sig_1337.model.xml.Sig1337;
+
 public class LocalActivity extends Activity {
+
+	/**
+	 * Sig.
+	 */
+	private static Sig1337 sig;
 
 	/**
 	 * View.
@@ -41,10 +47,10 @@ public class LocalActivity extends Activity {
 		view = new SigView(this, locationListener);
 		setContentView(view);
 		try {
-			Resources r = getResources();
-			Sig1337 s = Sig1337.parse(r.openRawResource(R.raw.map));
-			l.info(new Format().toString(s));
-			view.setSig(s);
+			sig = new Sig1337();
+			view.setSig(sig);
+			Intent i = new Intent(this, Sig1337Service.class);
+			startService(i);
 		} catch (Exception e) {
 			l.log(Level.SEVERE, "", e);
 		}
@@ -76,6 +82,28 @@ public class LocalActivity extends Activity {
 	public void onResume() {
 		super.onResume();
 		view.onResume();
+	}
+
+	public static class Sig1337Service extends IntentService {
+
+		public Sig1337Service() {
+			super("Sig1337");
+		}
+
+		protected void onHandleIntent(Intent workIntent) {
+			try {
+				Resources r = getResources();
+				Sig1337.parse(r.openRawResource(R.raw.map), sig);
+			} catch (InterruptedException e) {
+				Logger l = Logger
+						.getLogger(LocalActivity.class.getSimpleName());
+				l.log(Level.SEVERE, e.getMessage(), e);
+			} catch (Exception e) {
+				Logger l = Logger
+						.getLogger(LocalActivity.class.getSimpleName());
+				l.log(Level.SEVERE, e.getMessage(), e);
+			}
+		}
 	}
 
 }

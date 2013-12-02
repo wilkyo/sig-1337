@@ -77,4 +77,20 @@ public class Bounds implements IBounds {
 		return maxLon;
 	}
 
+	public void setMinLat(double minLat) {
+		this.minLat = minLat;
+	}
+
+	public void setMinLon(double minLon) {
+		this.minLon = minLon;
+	}
+
+	public void setMaxLat(double maxLat) {
+		this.maxLat = maxLat;
+	}
+
+	public void setMaxLon(double maxLon) {
+		this.maxLon = maxLon;
+	}
+
 }

@@ -27,7 +27,7 @@
 
 <!ELEMENT routes (route*)>
 <!ELEMENT route (point+)>
-	<!ATTLIST route type (route | chemin) "cash">
+	<!ATTLIST route type (route | chemin) "chemin">
 
 <!ELEMENT point EMPTY>
 	<!ATTLIST point x CDATA '0'>

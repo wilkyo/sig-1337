@@ -1,11 +1,12 @@
 package com.google.code.sig_1337.model.xml;
 
-import java.util.ArrayList;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * Triangles.
  */
-public class Triangles extends ArrayList<ITriangle> implements ITriangles {
+public class Triangles extends CopyOnWriteArrayList<ITriangle> implements
+		ITriangles {
 
 	/**
 	 * Default serial version UID.
