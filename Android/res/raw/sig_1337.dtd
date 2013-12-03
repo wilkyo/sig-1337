@@ -23,6 +23,7 @@
 	<!ATTLIST batiment nom CDATA #IMPLIED>
 
 <!ELEMENT triangles (triangle*)>
+	<!ATTLIST triangles type CDATA #IMPLIED>
 <!ELEMENT triangle (point, point, point)>
 
 <!ELEMENT routes (route*)>
@@ -34,6 +35,7 @@
 	<!ATTLIST point y CDATA '0'>
 
 <!ELEMENT graph (vertex*)>
-<!ELEMENT vertex (point*)>
+<!ELEMENT vertex (point+)>
 	<!ATTLIST vertex x CDATA '0'>
 	<!ATTLIST vertex y CDATA '0'>
+
