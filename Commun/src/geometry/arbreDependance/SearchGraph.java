@@ -266,9 +266,17 @@ public class SearchGraph {
 		public void toXML(StringBuffer buff, String indent) {
 			buff.append(indent);
 			buff.append("<leaf id=\"");
-			buff.append(trapezoid.structure.getId());
+			if (trapezoid.structure != null) {
+				buff.append(trapezoid.structure.getId());
+			} else {
+				buff.append("");
+			}
 			buff.append("\" name=\"");
-			buff.append(trapezoid.structure.getName());
+			if (trapezoid.structure != null) {
+				buff.append(trapezoid.structure.getName());
+			} else {
+				buff.append("");
+			}
 			buff.append("\"/>\n");
 		}
 	}
