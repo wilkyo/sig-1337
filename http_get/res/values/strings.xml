@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">http_get</string>
+    <string name="texte">Http GET Demo\nPour ne pas tout casser dans le projet Android.\n
+        Dans les logs, si le serveur était lancé, on voit qu\'on a récupéré une grosse donnée</string>
+    <string name="textess">Http GET Demo\nPour ne pas tout casser dans le projet Android.\n
+        Ne soyons pas fous, je ne récupère que les 200 premiers caractères dans le champ texte.</string>
+    <string name="title_activity_main_sans_service">MainSansService</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+
+</resources>
