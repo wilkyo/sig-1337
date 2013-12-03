@@ -1,12 +1,14 @@
 package geometry.arbreDependance;
 
-import geometry.arbreDependance.SearchGraph.Node;
+import geometry.arbreDependance.SearchGraph.NodeHolder;
 import geometry.model.Point;
 import geometry.model.Segment;
+import data.model.structure.Structure;
 
 public class Trapezoid {
 
-	public Node leaf;
+	public Structure structure;
+	public NodeHolder leaf;
 	public Trapezoid leftTopNeighbor;
 	public Trapezoid leftBottomNeighbor;
 	public Trapezoid rightTopNeighbor;
@@ -52,10 +54,14 @@ public class Trapezoid {
 			st.a.leftBottomNeighbor = leftBottomNeighbor;
 			st.a.rightTopNeighbor = st.c;
 			st.a.rightBottomNeighbor = st.d;
-			if (leftTopNeighbor != null)
+			if (leftTopNeighbor != null) {
+				leftTopNeighbor.rightTopNeighbor = st.a;
 				leftTopNeighbor.rightBottomNeighbor = st.a;
-			if (leftBottomNeighbor != null)
+			}
+			if (leftBottomNeighbor != null) {
 				leftBottomNeighbor.rightTopNeighbor = st.a;
+				leftBottomNeighbor.rightBottomNeighbor = st.a;
+			}
 			// C.
 			st.c.leftTopNeighbor = st.a;
 			st.c.leftBottomNeighbor = st.a;
@@ -69,6 +75,14 @@ public class Trapezoid {
 			// D.
 			st.d.leftTopNeighbor = leftBottomNeighbor;
 			st.d.leftBottomNeighbor = leftBottomNeighbor;
+			if (leftTopNeighbor != null) {
+				leftTopNeighbor.rightTopNeighbor = st.c;
+				leftTopNeighbor.rightBottomNeighbor = st.c;
+			}
+			if (leftBottomNeighbor != null) {
+				leftBottomNeighbor.rightTopNeighbor = st.d;
+				leftBottomNeighbor.rightBottomNeighbor = st.d;
+			}
 		}
 		// B.
 		if (!q.equals(right)) {
@@ -78,10 +92,14 @@ public class Trapezoid {
 			st.b.leftBottomNeighbor = st.d;
 			st.b.rightTopNeighbor = rightTopNeighbor;
 			st.b.rightBottomNeighbor = rightBottomNeighbor;
-			if (rightTopNeighbor != null)
+			if (rightTopNeighbor != null) {
+				rightTopNeighbor.leftTopNeighbor = st.b;
 				rightTopNeighbor.leftBottomNeighbor = st.b;
-			if (rightBottomNeighbor != null)
+			}
+			if (rightBottomNeighbor != null) {
 				rightBottomNeighbor.leftTopNeighbor = st.b;
+				rightBottomNeighbor.leftBottomNeighbor = st.b;
+			}
 			// C.
 			st.c.rightTopNeighbor = st.b;
 			st.c.rightBottomNeighbor = st.b;
@@ -95,7 +113,22 @@ public class Trapezoid {
 			// D.
 			st.d.rightTopNeighbor = rightBottomNeighbor;
 			st.d.rightBottomNeighbor = rightBottomNeighbor;
+			if (rightTopNeighbor != null) {
+				rightTopNeighbor.leftTopNeighbor = st.c;
+				rightTopNeighbor.leftBottomNeighbor = st.c;
+			}
+			if (rightBottomNeighbor != null) {
+				rightBottomNeighbor.leftTopNeighbor = st.d;
+				rightBottomNeighbor.leftBottomNeighbor = st.d;
+			}
 		}
 		return st;
 	}
+
+	@Override
+	public String toString() {
+		return "Trapezoid [left=" + left + ", right=" + right + ", top=" + top
+				+ ", bottom=" + bottom + "]";
+	}
+
 }

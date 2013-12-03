@@ -6,16 +6,29 @@ import geometry.model.Segment;
 
 import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+
+import data.model.structure.Building;
+import data.model.structure.Structure;
 
 public class ArbreDependance {
 
-	public static ArbreDependance create(List<Polygone> polygons) {
+	public static ArbreDependance create(Collection<Building> collection) {
+		List<StructurePolygon> l = new ArrayList<StructurePolygon>();
+		for (Structure s : collection) {
+			l.add(new StructurePolygon(s));
+		}
+		return create3(l);
+	}
+
+	public static ArbreDependance create3(List<StructurePolygon> polygons) {
 		Point topLeft = null;
 		Point bottomRight = null;
 		List<Segment> l = new ArrayList<Segment>();
-		for (Polygone p : polygons) {
+		for (StructurePolygon sp : polygons) {
 			// Add segments.
+			Polygone p = sp.polygon;
 			Point[] points = p.points;
 			for (int i = 0; i < points.length - 1; ++i) {
 				l.add(new Segment(points[i], points[i + 1]));
@@ -34,38 +47,45 @@ public class ArbreDependance {
 			}
 		}
 		return trapezoidalMap(new Rectangle2D.Double(topLeft.x, topLeft.y,
-				bottomRight.x - topLeft.x, bottomRight.y - topLeft.y), l);
+				bottomRight.x - topLeft.x, bottomRight.y - topLeft.y), polygons);
 	}
 
 	private static ArbreDependance trapezoidalMap(Rectangle2D.Double bounds,
-			List<Segment> segments) {
+			List<StructurePolygon> polygons) {
 		SearchGraph graph = new SearchGraph(bounds);
 		TrapezoidalMap map = graph.getMap();
-		ArbreDependance ad = new ArbreDependance();
 		// Random permutation.
-		{
-			List<Segment> tmp = new ArrayList<Segment>(segments);
-			segments.clear();
-			for (Segment s : tmp) {
-				segments.add((int) (Math.random() * segments.size()), s);
+		randomize(polygons);
+		// For each polygon.
+		for (StructurePolygon sp : polygons) {
+			// Add the polygon to the map.
+			Polygone p = sp.polygon;
+			List<Segment> segments = randomize(p);
+			// For each segment.
+			for (Segment s : segments) {
+				// Find the set of trapezoids intersecting the segment.
+				Trapezoid[] l = followSegment(graph, s);
+				// Only one trapezoid.
+				if (l.length == 1) {
+					// Replace the trapezoid in the map.
+					SplitTrapezoid split = map.split(l[0], s);
+					// Replace the trapezoid in the graph.
+					l[0].leaf.split(split);
+				} else {
+					// More than one.
+					Split2Trapezoid split = map.split2(l, s);
+					// Replace the trapezoids in the graph.
+					graph.split2(split);
+				}
 			}
-			tmp.clear();
+			// Labels the trapezoids.
+			Trapezoid t = graph.locate(p.points[0]);
+			labelsLeft(sp.structure, t);
+			labelsRight(sp.structure, t);
 		}
-		// For each segment.
-		for (Segment s : segments) {
-			// Find the set of trapezoids intersecting the segment.
-			Trapezoid[] l = followSegment(graph, s);
-			// Only one trapezoid.
-			if (l.length == 1) {
-				// Replace the trapezoid in the map.
-				SplitTrapezoid split = map.split(l[0], s);
-				// Replace the trapezoid in the graph.
-				l[0].leaf.split(split);
-			} else {
-				// More than one.
-			}
-		}
-		return ad;
+		return new ArbreDependance(
+				polygons.toArray(new StructurePolygon[polygons.size()]), map,
+				graph);
 	}
 
 	/**
@@ -86,7 +106,7 @@ public class ArbreDependance {
 		l.add(d0);
 		// While q lies at the right of dj.
 		Trapezoid dj = d0;
-		while (q.x > dj.right.x) {
+		while (dj != null && dj.right != null && q.x > dj.right.x) {
 			// If dj.right is above the segment.
 			if (s.auDessus(dj.right)) {
 				dj = dj.rightBottomNeighbor;
@@ -94,9 +114,76 @@ public class ArbreDependance {
 				dj = dj.rightTopNeighbor;
 			}
 			// Add dj to the list.
-			l.add(dj);
+			if (dj != null) {
+				l.add(dj);
+			}
 		}
 		return l.toArray(new Trapezoid[l.size()]);
+	}
+
+	private static void randomize(List<StructurePolygon> polygons) {
+		List<StructurePolygon> tmp = new ArrayList<StructurePolygon>(polygons);
+		polygons.clear();
+		for (StructurePolygon s : tmp) {
+			polygons.add((int) (Math.random() * polygons.size()), s);
+		}
+		tmp.clear();
+	}
+
+	private static List<Segment> randomize(Polygone polygon) {
+		List<Segment> l = new ArrayList<Segment>();
+		Point[] pts = polygon.points;
+		for (int i = 0; i < pts.length - 1; ++i) {
+			l.add((int) (Math.random() * l.size()), new Segment(pts[i],
+					pts[i + 1]));
+		}
+		l.add((int) (Math.random() * l.size()), new Segment(
+				pts[pts.length - 1], pts[0]));
+		return l;
+	}
+
+	private static void labelsLeft(Structure structure, Trapezoid trapezoid) {
+		if (trapezoid != null) {
+			trapezoid.structure = structure;
+			labelsLeft(structure, trapezoid.leftTopNeighbor);
+			labelsLeft(structure, trapezoid.leftBottomNeighbor);
+		}
+	}
+
+	private static void labelsRight(Structure structure, Trapezoid trapezoid) {
+		if (trapezoid != null) {
+			trapezoid.structure = structure;
+			labelsRight(structure, trapezoid.rightTopNeighbor);
+			labelsRight(structure, trapezoid.rightBottomNeighbor);
+		}
+	}
+
+	private StructurePolygon[] polygons;
+	private TrapezoidalMap map;
+	private SearchGraph graph;
+
+	public ArbreDependance(StructurePolygon[] polygons, TrapezoidalMap map,
+			SearchGraph graph) {
+		super();
+		this.polygons = polygons;
+		this.map = map;
+		this.graph = graph;
+	}
+
+	public StructurePolygon[] getPolygons() {
+		return polygons;
+	}
+
+	public TrapezoidalMap getMap() {
+		return map;
+	}
+
+	public SearchGraph getGraph() {
+		return graph;
+	}
+
+	public void toXML(StringBuffer buff, String indent) {
+		graph.toXML(buff, indent);
 	}
 
 }

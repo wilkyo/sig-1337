@@ -1,5 +1,6 @@
 package data.sql;
 
+import geometry.arbreDependance.ArbreDependance;
 import geometry.model.Point;
 import geometry.model.Polygone;
 
@@ -409,7 +410,8 @@ public class SQLToXml {
 	 */
 	private static String generateXML(String filename, List<Road> roads,
 			Map<Long, Basin> basins, Map<Long, Forest> forests,
-			Map<Long, Building> buildings, Map<Point, ArrayList<Point>> graph) {
+			Map<Long, Building> buildings, Map<Point, ArrayList<Point>> graph,
+			ArbreDependance tree) {
 		StringBuffer buff = new StringBuffer();
 		buff.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 				+ "<!DOCTYPE sig_1337 SYSTEM \"sig_1337.dtd\">\n"
@@ -489,7 +491,11 @@ public class SQLToXml {
 			buff.append("\t\t</vertex>\n");
 		}
 		System.out.println("Graph generated");
-		buff.append("\t</graph>\n</sig_1337>");
+		System.out.println("Generating search graph...");
+		buff.append("\t</graph>\n\t<tree>\n");
+		tree.toXML(buff, "\t\t");
+		System.out.println("Search graph generated");
+		buff.append("\t</tree>\n</sig_1337>");
 
 		return buff.toString();
 	}
@@ -519,6 +525,8 @@ public class SQLToXml {
 			getAllHoles(connection, nodes, buildings, forests, basins);
 
 			Map<Point, ArrayList<Point>> graph = getGraph(connection);
+			
+			ArbreDependance tree = ArbreDependance.create(buildings.values());
 
 			System.out.println(nodes.size() + " nodes.");
 			System.out.println(roads.size() + " roads.");
@@ -529,7 +537,7 @@ public class SQLToXml {
 			connection.close();
 
 			return generateXML(filename, roads, basins, forests, buildings,
-					graph);
+					graph, tree);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
