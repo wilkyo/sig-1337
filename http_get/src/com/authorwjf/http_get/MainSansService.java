@@ -79,7 +79,8 @@ public class MainSansService extends Activity {
 			if (response != null) {
 				System.out.println("Length: " + response.length());
 				((EditText) findViewById(R.id.my_edit)).setText(response
-						.substring(0, 200));
+						.length() >= 200 ? response.substring(0, 200)
+						: response);
 			}
 			((Button) findViewById(R.id.button1)).setClickable(true);
 		}
