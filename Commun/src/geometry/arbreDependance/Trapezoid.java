@@ -30,6 +30,43 @@ public class Trapezoid {
 		this.bottom = bottom;
 	}
 
+	public void toXML(StringBuffer buff, String indent) {
+		buff.append(indent);
+		buff.append("<trapezoid left=\"");
+		if (left != null) {
+			buff.append(left.x);
+			buff.append(", ");
+			buff.append(left.y);
+		}
+		buff.append("\" right=\"");
+		if (right != null) {
+			buff.append(right.x);
+			buff.append(", ");
+			buff.append(right.y);
+		}
+		buff.append("\" top=\"");
+		if (top != null) {
+			buff.append(top.debut.x);
+			buff.append(", ");
+			buff.append(top.debut.y);
+			buff.append(", ");
+			buff.append(top.fin.x);
+			buff.append(", ");
+			buff.append(top.fin.y);
+		}
+		buff.append("\" bottom=\"");
+		if (bottom != null) {
+			buff.append(bottom.debut.x);
+			buff.append(", ");
+			buff.append(bottom.debut.y);
+			buff.append(", ");
+			buff.append(bottom.fin.x);
+			buff.append(", ");
+			buff.append(bottom.fin.y);
+		}
+		buff.append("\" />\n");
+	}
+
 	/**
 	 * Page 138.
 	 */
@@ -55,12 +92,16 @@ public class Trapezoid {
 			st.a.rightTopNeighbor = st.c;
 			st.a.rightBottomNeighbor = st.d;
 			if (leftTopNeighbor != null) {
-				leftTopNeighbor.rightTopNeighbor = st.a;
+				if (leftTopNeighbor.rightTopNeighbor == leftTopNeighbor.rightBottomNeighbor) {
+					leftTopNeighbor.rightTopNeighbor = st.a;
+				}
 				leftTopNeighbor.rightBottomNeighbor = st.a;
 			}
 			if (leftBottomNeighbor != null) {
+				if (leftBottomNeighbor.rightBottomNeighbor == leftBottomNeighbor.rightTopNeighbor) {
+					leftBottomNeighbor.rightBottomNeighbor = st.a;
+				}
 				leftBottomNeighbor.rightTopNeighbor = st.a;
-				leftBottomNeighbor.rightBottomNeighbor = st.a;
 			}
 			// C.
 			st.c.leftTopNeighbor = st.a;
@@ -69,19 +110,38 @@ public class Trapezoid {
 			st.d.leftTopNeighbor = st.a;
 			st.d.leftBottomNeighbor = st.a;
 		} else {
-			// C.
-			st.c.leftTopNeighbor = leftTopNeighbor;
-			st.c.leftBottomNeighbor = leftTopNeighbor;
-			// D.
-			st.d.leftTopNeighbor = leftBottomNeighbor;
-			st.d.leftBottomNeighbor = leftBottomNeighbor;
-			if (leftTopNeighbor != null) {
-				leftTopNeighbor.rightTopNeighbor = st.c;
-				leftTopNeighbor.rightBottomNeighbor = st.c;
+			// P equals the left point:
+			// - P is the left point of the bottom segment => D has no left
+			// neighbor.
+			// - P is the left point of the top segment => C has no left
+			// neighbor.
+			Trapezoid t = null;
+			if (bottom != null && p.equals(bottom.debut)) {
+				// C: there is a bottom segment and p equals its left point.
+				st.c.leftTopNeighbor = leftTopNeighbor;
+				st.c.leftBottomNeighbor = leftTopNeighbor;
+				t = st.c;
+			} else {
+				// D: there is a top segment and p equals its left point.
+				st.d.leftTopNeighbor = leftBottomNeighbor;
+				st.d.leftBottomNeighbor = leftBottomNeighbor;
+				t = st.d;
 			}
+			// Modify the right neighbor of the top left neighbor.
+			if (leftTopNeighbor != null) {
+				if (leftTopNeighbor.rightTopNeighbor == leftTopNeighbor.rightBottomNeighbor) {
+					// Top right neighbor was the same as the bottom right one.
+					leftTopNeighbor.rightTopNeighbor = t;
+				}
+				leftTopNeighbor.rightBottomNeighbor = t;
+			}
+			// Modify the right neighbor of the bottom left neighbor.
 			if (leftBottomNeighbor != null) {
-				leftBottomNeighbor.rightTopNeighbor = st.d;
-				leftBottomNeighbor.rightBottomNeighbor = st.d;
+				if (leftBottomNeighbor.rightBottomNeighbor == leftBottomNeighbor.rightTopNeighbor) {
+					// Bottom right neighbor was the same as the top right one.
+					leftBottomNeighbor.rightBottomNeighbor = t;
+				}
+				leftBottomNeighbor.rightTopNeighbor = t;
 			}
 		}
 		// B.
@@ -93,12 +153,16 @@ public class Trapezoid {
 			st.b.rightTopNeighbor = rightTopNeighbor;
 			st.b.rightBottomNeighbor = rightBottomNeighbor;
 			if (rightTopNeighbor != null) {
-				rightTopNeighbor.leftTopNeighbor = st.b;
+				if (rightTopNeighbor.leftTopNeighbor == rightTopNeighbor.leftBottomNeighbor) {
+					rightTopNeighbor.leftTopNeighbor = st.b;
+				}
 				rightTopNeighbor.leftBottomNeighbor = st.b;
 			}
 			if (rightBottomNeighbor != null) {
+				if (rightBottomNeighbor.leftBottomNeighbor == rightBottomNeighbor.leftTopNeighbor) {
+					rightBottomNeighbor.leftBottomNeighbor = st.b;
+				}
 				rightBottomNeighbor.leftTopNeighbor = st.b;
-				rightBottomNeighbor.leftBottomNeighbor = st.b;
 			}
 			// C.
 			st.c.rightTopNeighbor = st.b;
@@ -107,19 +171,38 @@ public class Trapezoid {
 			st.d.rightTopNeighbor = st.b;
 			st.d.rightBottomNeighbor = st.b;
 		} else {
-			// C.
-			st.c.rightTopNeighbor = rightTopNeighbor;
-			st.c.rightBottomNeighbor = rightTopNeighbor;
-			// D.
-			st.d.rightTopNeighbor = rightBottomNeighbor;
-			st.d.rightBottomNeighbor = rightBottomNeighbor;
-			if (rightTopNeighbor != null) {
-				rightTopNeighbor.leftTopNeighbor = st.c;
-				rightTopNeighbor.leftBottomNeighbor = st.c;
+			// Q equals the right point:
+			// - Q is the right point of the bottom segment => D has no right
+			// neighbor.
+			// - Q is the right point of the top segment => C has no right
+			// neighbor.
+			Trapezoid t = null;
+			if (bottom != null && q.equals(bottom.fin)) {
+				// C: there is a bottom segment and q equals its right point.
+				st.c.rightTopNeighbor = rightTopNeighbor;
+				st.c.rightBottomNeighbor = rightTopNeighbor;
+				t = st.c;
+			} else {
+				// D: there is a top segment and q equals its right point.
+				st.d.rightTopNeighbor = rightBottomNeighbor;
+				st.d.rightBottomNeighbor = rightBottomNeighbor;
+				t = st.d;
 			}
+			// Modify the left neighbor of the top right neighbor.
+			if (rightTopNeighbor != null) {
+				if (rightTopNeighbor.leftTopNeighbor == rightTopNeighbor.leftBottomNeighbor) {
+					// Top left neighbor was the same as the bottom left one.
+					rightTopNeighbor.leftTopNeighbor = t;
+				}
+				rightTopNeighbor.leftBottomNeighbor = t;
+			}
+			// Modify the left neighbor of the bottom right neighbor.
 			if (rightBottomNeighbor != null) {
-				rightBottomNeighbor.leftTopNeighbor = st.d;
-				rightBottomNeighbor.leftBottomNeighbor = st.d;
+				if (rightBottomNeighbor.leftBottomNeighbor == rightBottomNeighbor.leftTopNeighbor) {
+					// Bottom left neighbor was the same as the top left one.
+					rightBottomNeighbor.leftBottomNeighbor = t;
+				}
+				rightBottomNeighbor.leftTopNeighbor = t;
 			}
 		}
 		return st;

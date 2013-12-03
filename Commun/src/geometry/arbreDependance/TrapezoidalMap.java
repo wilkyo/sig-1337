@@ -26,6 +26,12 @@ public class TrapezoidalMap {
 		return trapezoids;
 	}
 
+	public void toXML(StringBuffer buff, String indent) {
+		for (Trapezoid t : trapezoids) {
+			t.toXML(buff, indent);
+		}
+	}
+
 	/**
 	 * Page 138.
 	 */

@@ -1,11 +1,9 @@
 package geometry.arbreDependance;
 
-import static org.junit.Assert.fail;
 import static org.junit.Assert.assertEquals;
-import geometry.arbreDependance.ArbreDependance;
+import static org.junit.Assert.fail;
+import geometry.arbreDependance.ArbreDependance.Callback;
 import geometry.gui.Panneau;
-import geometry.model.Point;
-import geometry.model.Segment;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -24,99 +22,64 @@ import javax.swing.JPanel;
 import org.junit.Before;
 import org.junit.Test;
 
+import data.model.Node;
+import data.model.structure.Building;
+
 public class ArbreDependanceTest {
 
 	Panneau panneau;
-	List<Segment> s;
+	List<Building> s;
 
 	@Before
 	public void setUp() throws Exception {
 		panneau = new Panneau();
-		s = new ArrayList<Segment>();
+		s = new ArrayList<Building>();
 	}
 
-	private void test(int nbTrapezoid) {
-		ArbreDependance ad = ArbreDependance.create2(s);
-		panneau.add(ad);
-		if (!Dialog.isCorrect(panneau)) {
-			fail();
-		}
-		if (nbTrapezoid > 0) {
-			assertEquals(nbTrapezoid, ad.getMap().getTrapezoids().size());
-		}
+	private void test() {
+		ArbreDependance.create(s, new Callback() {
+			public void action(ArbreDependance ad) {
+				StringBuffer sb = new StringBuffer();
+				ad.getMap().toXML(sb, "");
+				ad.toXML(sb, "");
+				System.out.println(sb.toString());
+				if (!Dialog.isCorrect(ad)) {
+					fail();
+				}
+			}
+		});
+	}
+
+	private Building b(Node... nodes) {
+		return new Building(1, "Test", nodes, null);
+	}
+
+	private Node n(double x, double y) {
+		return new Node(0, y, x);
 	}
 
 	@Test
 	public void testCreate21() {
-		s.add(new Segment(new Point(50, 100), new Point(150, 100)));
-		test(4);
-	}
-
-	@Test
-	public void testCreate22() {
-		s.add(new Segment(new Point(50, 100), new Point(150, 100)));
-		s.add(new Segment(new Point(250, 100), new Point(350, 100)));
-		test(7);
-	}
-
-	@Test
-	public void testCreate23() {
-		s.add(new Segment(new Point(50, 100), new Point(150, 100)));
-		s.add(new Segment(new Point(250, 100), new Point(350, 100)));
-		s.add(new Segment(new Point(100, 200), new Point(300, 200)));
-		test(0);
-	}
-
-	@Test
-	public void testCreate24() {
-		s.add(new Segment(new Point(50, 100), new Point(150, 100)));
-		s.add(new Segment(new Point(250, 100), new Point(350, 100)));
-		s.add(new Segment(new Point(100, 200), new Point(300, 200)));
-		s.add(new Segment(new Point(125, 240), new Point(325, 240)));
-		test(0);
-	}
-
-	@Test
-	public void testCreate25() {
-		s.add(new Segment(new Point(50, 100), new Point(150, 100)));
-		s.add(new Segment(new Point(250, 100), new Point(350, 100)));
-		s.add(new Segment(new Point(100, 50), new Point(300, 200)));
-		test(0);
-	}
-
-	@Test
-	public void testCreate26() {
-		s.add(new Segment(new Point(50, 200), new Point(100, 150)));
-		s.add(new Segment(new Point(50, 200), new Point(75, 225)));
-		s.add(new Segment(new Point(75, 225), new Point(300, 212)));
-		s.add(new Segment(new Point(300, 212), new Point(150, 120)));
-		test(0);
-	}
-
-	@Test
-	public void testCreate27() {
-		s.add(new Segment(new Point(50, 200), new Point(100, 150)));
-		s.add(new Segment(new Point(50, 200), new Point(75, 225)));
-		s.add(new Segment(new Point(75, 225), new Point(300, 212)));
-		s.add(new Segment(new Point(300, 212), new Point(150, 120)));
-		s.add(new Segment(new Point(50, 200), new Point(200, 175)));
-		test(0);
+		s.add(b(n(100, 200), n(190, 100), n(300, 150), n(210, 250)));
+		test();
 	}
 
 	public static class Dialog extends JDialog {
 
 		private static final long serialVersionUID = 1L;
 
-		public static boolean isCorrect(Panneau panneau) {
-			Dialog d = new Dialog(panneau);
+		public static boolean isCorrect(ArbreDependance ad) {
+			Dialog d = new Dialog(ad);
 			d.setVisible(true);
 			return d.result;
 		}
 
 		private boolean result;
 
-		public Dialog(Panneau panneau) {
+		public Dialog(ArbreDependance ad) {
 			super((Frame) null, true);
+			Panneau panneau = new Panneau();
+			panneau.add(ad);
 			JButton incorrect = new JButton("Incorrect");
 			JButton correct = new JButton("Correct");
 			JPanel boutons = new JPanel();

@@ -107,7 +107,7 @@ public class Point implements Comparable<Point> {
 	 * @return Vrai si les valeurs sont proche par rapport à EPSILON
 	 */
 	private static boolean proche(double x, double y) {
-		return (x-y < EPSILON) && (y-x < EPSILON);
+		return (x - y < EPSILON) && (y - x < EPSILON);
 	}
 
 	/**
@@ -127,6 +127,17 @@ public class Point implements Comparable<Point> {
 			return 1;
 		else
 			return 0;
+	}
+
+	public void sort(Point other) {
+		if (x > other.x) {
+			double t = x;
+			x = other.x;
+			other.x = t;
+			t = y;
+			y = other.y;
+			other.y = t;
+		}
 	}
 
 }
