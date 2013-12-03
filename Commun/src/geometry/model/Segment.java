@@ -5,7 +5,7 @@ package geometry.model;
  */
 public class Segment {
 	/**
-	 * Le point du début du segment
+	 * Le point du d��but du segment
 	 */
 	public Point debut;
 	/**
@@ -14,7 +14,7 @@ public class Segment {
 	public Point fin;
 
 	/**
-	 * Construit un segment à partir de deux point
+	 * Construit un segment �� partir de deux point
 	 * 
 	 * @param debut
 	 *            le point de debut
@@ -47,7 +47,7 @@ public class Segment {
 	/**
 	 * Trie le segment par ses valeurs en y puis en x
 	 * 
-	 * @return le segment trié
+	 * @return le segment tri��
 	 */
 	public Segment trie() {
 		assert !debut.equals(fin);
@@ -73,7 +73,7 @@ public class Segment {
 	 * @return
 	 */
 	public Point intersectionHorizontale(double y) {
-		if ((debut.y - y) * (fin.y - y) > 0) // debut, fin du m�me cot�
+		if ((debut.y - y) * (fin.y - y) > 0) // debut, fin du m���me cot���
 			return null;
 		else if (debut.y == fin.y) // segment horizontal
 			return null;
@@ -85,7 +85,7 @@ public class Segment {
 	}
 
 	/**
-	 * Calcule le produit scalaire avec le segment passé en paramêtre
+	 * Calcule le produit scalaire avec le segment pass�� en param��tre
 	 * 
 	 * @param s
 	 *            le segment avec qui calculer le produit scalaire
@@ -97,7 +97,7 @@ public class Segment {
 	}
 
 	/**
-	 * Calcule le produit vectoriel avec le segment passé en paramêtre
+	 * Calcule le produit vectoriel avec le segment pass�� en param��tre
 	 * 
 	 * @param s
 	 *            le segment avec qui calculer le produit vectoriel
@@ -109,18 +109,18 @@ public class Segment {
 	}
 
 	/**
-	 * Calcule l'homothétie sur le segment de coéfficiant lambda
+	 * Calcule l'homoth��tie sur le segment de co��fficiant lambda
 	 * 
 	 * @param lambda
-	 *            le coefficiant d'homothétie
-	 * @return le segment homothétié
+	 *            le coefficiant d'homoth��tie
+	 * @return le segment homoth��ti��
 	 */
 	public Segment homothetie(double lambda) {
 		return new Segment(debut.homothetie(lambda), fin.homothetie(lambda));
 	}
 
 	/**
-	 * Vérifie que le point p est dans le segment
+	 * V��rifie que le point p est dans le segment
 	 * 
 	 * @param p
 	 *            le point
@@ -157,7 +157,7 @@ public class Segment {
 	 * 
 	 * @param s
 	 *            le segment
-	 * @return le point au niveau de l'intersection, null si le point n'éxiste
+	 * @return le point au niveau de l'intersection, null si le point n'��xiste
 	 *         pas
 	 */
 	public Point intersection(Segment s) {
@@ -196,7 +196,16 @@ public class Segment {
 	}
 
 	public boolean auDessus(Point point) {
-		return determinant(point) > 0;
+		return determinant(point) < 0;
+	}
+
+	public double getY(double x) {
+		if (x >= debut.x && x <= fin.x) {
+			double m = (fin.y - debut.y) / (fin.x - debut.x);
+			return (m * (x - debut.x)) + debut.y;
+		} else {
+			return 0;
+		}
 	}
 
 	/**

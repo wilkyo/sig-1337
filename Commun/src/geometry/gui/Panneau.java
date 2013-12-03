@@ -1,16 +1,22 @@
 package geometry.gui;
 
+import geometry.arbreDependance.ArbreDependance;
+import geometry.arbreDependance.StructurePolygon;
+import geometry.arbreDependance.Trapezoid;
+import geometry.arbreDependance.TrapezoidalMap;
+import geometry.model.Point;
+import geometry.model.Polygone;
+import geometry.model.Segment;
+
+import java.awt.AlphaComposite;
 import java.awt.Color;
+import java.awt.Composite;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.util.ArrayList;
 
 import javax.swing.JPanel;
-
-import geometry.model.Point;
-import geometry.model.Polygone;
-import geometry.model.Segment;
 
 public class Panneau extends JPanel {
 	/**
@@ -20,6 +26,7 @@ public class Panneau extends JPanel {
 	ArrayList<Point> points = new ArrayList<Point>();
 	ArrayList<Segment> segments = new ArrayList<Segment>();
 	ArrayList<Polygone> polyedres = new ArrayList<Polygone>();
+	ArrayList<ArbreDependance> arbres = new ArrayList<ArbreDependance>();
 
 	public static final int TAILLEPOINT = 4;
 	private Point[] bounds;
@@ -46,6 +53,10 @@ public class Panneau extends JPanel {
 		polyedres.add(polyedre);
 	}
 
+	public void add(ArbreDependance arbre) {
+		arbres.add(arbre);
+	}
+
 	private void draw(Point point, Graphics g) {
 		double w = bounds[1].x - bounds[0].x;
 		double h = bounds[1].y - bounds[0].y;
@@ -62,6 +73,7 @@ public class Panneau extends JPanel {
 	private void draw(Segment segment, Graphics g) {
 		double w = bounds[1].x - bounds[0].x;
 		double h = bounds[1].y - bounds[0].y;
+		g.setColor(Color.black);
 		g.drawLine((int) ((segment.debut.x - bounds[0].x) * (getWidth() / w)),
 				(int) ((segment.debut.y - bounds[0].y) * (getHeight() / h)),
 				(int) ((segment.fin.x - bounds[0].x) * (getWidth() / w)),
@@ -89,12 +101,88 @@ public class Panneau extends JPanel {
 		g.setColor(Color.black);
 	}
 
+	private void draw(ArbreDependance arbre, Graphics g) {
+		// Map.
+		Graphics2D g2d = (Graphics2D) g;
+		Composite c = g2d.getComposite();
+		g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,
+				0.5f));
+		INDEX = 0;
+		TrapezoidalMap map = arbre.getMap();
+		for (Trapezoid t : map.getTrapezoids()) {
+			draw(t, g);
+			++INDEX;
+		}
+		g2d.setComposite(c);
+
+		// Structures.
+		StructurePolygon[] polygons = arbre.getPolygons();
+		for (int i = 0; i < polygons.length; ++i) {
+			draw(polygons[i].polygon, g);
+		}
+	}
+
+	static Color[] COLORS;
+	static int INDEX = 0;
+
+	static {
+		COLORS = new Color[256];
+		for (int i = 0; i < COLORS.length; ++i) {
+			COLORS[i] = new Color((int) (Math.random() * 128 + 64),
+					(int) (Math.random() * 128 + 64),
+					(int) (Math.random() * 128 + 64));
+		}
+	}
+
+	private void draw(Trapezoid trapezoid, Graphics g) {
+		double w = bounds[1].x - bounds[0].x;
+		double h = bounds[1].y - bounds[0].y;
+
+		Point left = trapezoid.left;
+		Point right = trapezoid.right;
+		Segment top = trapezoid.top;
+		Segment bottom = trapezoid.bottom;
+		g.setColor(COLORS[INDEX]);
+		int[] x = new int[4];
+		int[] y = new int[4];
+		// Left.
+		x[0] = 0;
+		if (left != null) {
+			x[0] = (int) (left.x * (getWidth() / w));
+		}
+		x[1] = x[0];
+		y[0] = 0;
+		if (top != null && left != null) {
+			y[0] = (int) (top.getY(left.x) * (getHeight() / h));
+		}
+		y[1] = (int) (getHeight() * (getHeight() / h));
+		if (bottom != null && left != null) {
+			y[1] = (int) (bottom.getY(left.x) * (getHeight() / h));
+		}
+		// Right.
+		x[2] = (int) (getWidth() * (getWidth() / w));
+		if (right != null) {
+			x[2] = (int) (right.x * (getWidth() / w));
+		}
+		x[3] = x[2];
+		y[2] = (int) (getHeight() * (getHeight() / h));
+		if (bottom != null && right != null) {
+			y[2] = (int) (bottom.getY(right.x) * (getHeight() / h));
+		}
+		y[3] = 0;
+		if (top != null && right != null) {
+			y[3] = (int) (top.getY(right.x) * (getHeight() / h));
+		}
+		g.fillPolygon(x, y, 4);
+		g.setColor(Color.black);
+	}
+
 	public void paint(Graphics g) {
 		super.paint(g);
 		Graphics2D g2d = (Graphics2D) g;
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
 				RenderingHints.VALUE_ANTIALIAS_ON);
-
+		g2d.clipRect(0, 0, getWidth(), getHeight());
 		for (Point p : points)
 			draw(p, g);
 
@@ -103,5 +191,8 @@ public class Panneau extends JPanel {
 
 		for (Polygone poly : polyedres)
 			draw(poly, g);
+
+		for (ArbreDependance arbre : arbres)
+			draw(arbre, g);
 	}
 }
