@@ -27,6 +27,7 @@ public class MainSansService extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_sans_service);
+		((EditText) findViewById(R.id.ipAddress)).setText(serverIP);
 	}
 
 	public void getMap(View v) {
@@ -61,6 +62,8 @@ public class MainSansService extends Activity {
 		protected String doInBackground(Void... params) {
 			HttpClient httpClient = new DefaultHttpClient();
 			HttpContext localContext = new BasicHttpContext();
+			serverIP = ((EditText) findViewById(R.id.ipAddress)).getText()
+					.toString();
 			HttpGet httpGet = new HttpGet("http://" + serverIP
 					+ ":8080/WebService/service/map");
 			String text = null;

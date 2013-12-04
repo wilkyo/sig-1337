@@ -2,9 +2,6 @@ package geometry.arbreDependance;
 
 import geometry.model.Segment;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Split2Trapezoid {
 
 	public Trapezoid[] initial;

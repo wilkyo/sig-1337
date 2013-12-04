@@ -3,6 +3,7 @@
 	<name>Commun</name>
 	<comment></comment>
 	<projects>
+		<project>Android</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

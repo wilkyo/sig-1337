@@ -5,7 +5,7 @@ package geometry.model;
  */
 public class Segment {
 	/**
-	 * Le point du d��but du segment
+	 * Le point du début du segment
 	 */
 	public Point debut;
 	/**
@@ -14,7 +14,7 @@ public class Segment {
 	public Point fin;
 
 	/**
-	 * Construit un segment �� partir de deux point
+	 * Construit un segment à partir de deux point
 	 * 
 	 * @param debut
 	 *            le point de debut
@@ -97,7 +97,7 @@ public class Segment {
 	}
 
 	/**
-	 * Calcule le produit vectoriel avec le segment pass�� en param��tre
+	 * Calcule le produit vectoriel avec le segment passé en paramètre
 	 * 
 	 * @param s
 	 *            le segment avec qui calculer le produit vectoriel
@@ -109,11 +109,11 @@ public class Segment {
 	}
 
 	/**
-	 * Calcule l'homoth��tie sur le segment de co��fficiant lambda
+	 * Calcule l'homothétie sur le segment de coéfficient lambda
 	 * 
 	 * @param lambda
-	 *            le coefficiant d'homoth��tie
-	 * @return le segment homoth��ti��
+	 *            le coefficiant d'homothétie
+	 * @return le segment homothétie
 	 */
 	public Segment homothetie(double lambda) {
 		return new Segment(debut.homothetie(lambda), fin.homothetie(lambda));
@@ -213,7 +213,6 @@ public class Segment {
 	 */
 	@Override
 	public int hashCode() {
-		// TODO Auto-generated method stub
 		return debut.hashCode() + fin.hashCode();
 	}
 }

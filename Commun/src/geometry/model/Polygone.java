@@ -113,21 +113,6 @@ public class Polygone {
 	}
 
 	/**
-	 * Calcule le produit vectoriel p1p2 . p1p3
-	 * 
-	 * @param p1
-	 *            le premier point
-	 * @param p2
-	 *            le deuxime point
-	 * @param p3
-	 *            le troisieme point
-	 * @return le produit vectoriel
-	 */
-	private double produitvectoriel(Point p1, Point p2, Point p3) {
-		return (p2.x - p1.x) * (p3.y - p1.y) - (p3.x - p1.x) * (p2.y - p1.y);
-	}
-
-	/**
 	 * Renvoie si le segment est a gauche du polyèdre
 	 * 
 	 * @TODO implementer la fonction si nécessaire ou la supprimer
