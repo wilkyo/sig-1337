@@ -399,7 +399,7 @@ public class Sig1337 implements ISig1337 {
 					sig.graphics.getBuildings(), sig.bounds,
 					new Initializer<IBuilding>() {
 						public IBuilding initialize(String name) {
-							return new Building(name);
+							return new Building(name, new ArrayList<IPoint>());
 						}
 					});
 			readRoutes(parser, sig.graphics.getRoutes(), sig.bounds);

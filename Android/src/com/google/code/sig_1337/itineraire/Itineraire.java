@@ -4,6 +4,7 @@ import com.google.code.sig_1337.model.xml.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Classe permettant de calculer l'itinéraire entre un point départ et un point
@@ -71,24 +72,28 @@ public class Itineraire {
 	 * d'oiseau avec arrivé + distance parcouru)
 	 * 
 	 * @param depart
-	 *            Le point de départ de l'itinéraire
+	 *            Le batiment de départ de l'itinéraire
 	 * @param arrive
-	 *            Le point d'arrivé de l'itinéaire
+	 *            Le batiment d'arrivé de l'itinéaire
 	 * @param listAdjacence
 	 *            La liste d'adjacence (un graphe)
 	 * @return la liste des points du parcours commençant par le point d'arrivé,
 	 *         null si pas de chemin
 	 */
-	public static ArrayList<IPoint> CalculItineraire(Point depart, Point arrive,
+	public static ArrayList<IPoint> CalculItineraire(IBuilding depart, IBuilding arrive,
 			HashMap<IPoint, ArrayList<IPoint>> listAdjacence) {
 		ArrayList<IPoint> res = new ArrayList<IPoint>();
-		res.add(depart);
-		if (!depart.equals(arrive)) {
-			ArrayList<State> listState = new ArrayList<State>();
-			listState.add(new State(depart));
-			return CalculItineraireRec(listState, arrive, listAdjacence);
+		ArrayList<State> liststate = new ArrayList<Itineraire.State>();
+		for (IPoint point : depart.getNeighborhood()) {
+			liststate.add(new State(point));
 		}
-		return res;
+		if (!depart.equals(arrive)) {
+			return CalculItineraireRec(liststate, arrive, listAdjacence);
+		}
+		else {
+			res.add(arrive.getNeighborhood().get(0));
+			return res;
+		}
 	}
 
 	/**
@@ -99,7 +104,7 @@ public class Itineraire {
 	 * @return l'itinéraire calculé, null si aucun itinéraire
 	 */
 	private static ArrayList<IPoint> CalculItineraireRec(
-			ArrayList<State> listState, Point arrive,
+			ArrayList<State> listState, IBuilding arrive,
 			HashMap<IPoint, ArrayList<IPoint>> listAdjacence) {
 		if (listState.isEmpty())
 			return null;
@@ -107,9 +112,11 @@ public class Itineraire {
 			// Je recupère le cas le plus intéressant
 			State head = listState.remove(0);
 			// je regarde si je suis à l'arrivé
-			if (head.getHead().equals(arrive))
+			if (arrive.getNeighborhood().contains(head.getHead()))
 				return head.chemin;
 			else {
+				//Calcul du milieu du batiment
+				IPoint milieu = calculMilieu(arrive);
 				//je génère les nouveaux cas
 				ArrayList<IPoint> voisin = listAdjacence.get(head.getHead());
 				for (IPoint point : voisin) {
@@ -119,7 +126,7 @@ public class Itineraire {
 								head.chemin);
 						newChemin.add(point);
 						State ajout = new State(newChemin, calculValue(
-								newChemin, arrive));
+								newChemin, milieu));
 						//insertion dans la liste du nouveau état
 						int i;
 						for (i = 0; i < listState.size(); i++) {
@@ -158,4 +165,18 @@ public class Itineraire {
 		return res;
 	}
 
+	
+	private static IPoint calculMilieu(IBuilding building) {
+		List<IPoint> list = building.getNeighborhood();
+		IPoint milieu = list.get(0);
+		for(int i = 1; i < list.size(); i++) {
+			IPoint p = list.get(i);
+			double lon = (milieu.getLongitude() + p.getLongitude())/2;
+			double rellon = (milieu.getRelativeLongitude() + p.getRelativeLongitude())/2;
+			double lat = (milieu.getLatitude() + p.getLatitude())/2;
+			double rellat = (milieu.getRelativeLatitude() + p.getRelativeLatitude())/2;
+			milieu = new Point(lon,lat,rellon,rellat);
+		}
+		return milieu;
+	}
 }

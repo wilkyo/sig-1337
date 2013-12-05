@@ -78,4 +78,15 @@ public class Point implements IPoint {
 		return relativeLatitude;
 	}
 
+	@Override
+	public boolean equals(Object o) {
+		if(o == null)
+			return false;
+		if(this == o)
+			return true;
+		if(this.getClass() != o.getClass())
+			return false;
+		Point p = (Point)o;
+		return (p.getLatitude() == latitude && p.getLongitude() == longitude);
+	}
 }

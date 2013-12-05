@@ -36,7 +36,8 @@ public class ItineraireActivity extends Activity {
 	
 	@Override
 	public void onBackPressed() {
-		setResult(RESULT_CANCELED);
+		Intent i = new Intent("Routage");		
+		setResult(RESULT_CANCELED, i);
 		super.onBackPressed();
 	}
 }
