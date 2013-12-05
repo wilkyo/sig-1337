@@ -3,8 +3,8 @@
 	<name>WebService</name>
 	<comment></comment>
 	<projects>
-		<project>Commun</project>
 		<project>Android</project>
+		<project>Commun</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
