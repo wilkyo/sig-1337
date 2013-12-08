@@ -1,5 +1,6 @@
 package geometry.arbreDependance;
 
+import geometry.model.OrderedSegment;
 import geometry.model.Point;
 import geometry.model.Segment;
 
@@ -22,6 +23,10 @@ public class SearchGraph {
 
 	public Trapezoid locate(Point point) {
 		return root.locate(point);
+	}
+
+	public Trapezoid locate(Point left, OrderedSegment segment) {
+		return root.locate(left, segment);
 	}
 
 	public void split2(Split2Trapezoid split) {
@@ -82,6 +87,12 @@ public class SearchGraph {
 		root.toXML(buff, indent);
 	}
 
+	public String toString() {
+		StringBuffer sb = new StringBuffer();
+		toXML(sb, "");
+		return sb.toString();
+	}
+
 	public static abstract class Node {
 
 		protected NodeHolder left;
@@ -102,6 +113,8 @@ public class SearchGraph {
 		}
 
 		public abstract Trapezoid locate(Point point);
+
+		public abstract Trapezoid locate(Point left, OrderedSegment segment);
 
 		public void split(SplitTrapezoid split) {
 		}
@@ -136,6 +149,10 @@ public class SearchGraph {
 			return inner.locate(point);
 		}
 
+		public Trapezoid locate(Point left, OrderedSegment segment) {
+			return inner.locate(left, segment);
+		}
+
 		public void split(SplitTrapezoid split) {
 			inner.split(split, this);
 		}
@@ -161,10 +178,18 @@ public class SearchGraph {
 		}
 
 		public Trapezoid locate(Point point) {
-			if (point.x < this.point.x) {
-				return left.locate(point);
-			} else {
+			if (point.equals(this.point) || point.x > this.point.x) {
 				return right.locate(point);
+			} else {
+				return left.locate(point);
+			}
+		}
+
+		public Trapezoid locate(Point left, OrderedSegment segment) {
+			if (left.equals(this.point) || left.x > this.point.x) {
+				return this.right.locate(left, segment);
+			} else {
+				return this.left.locate(left, segment);
 			}
 		}
 
@@ -205,6 +230,20 @@ public class SearchGraph {
 			}
 		}
 
+		public Trapezoid locate(Point left, OrderedSegment segment) {
+			if (segment.debut.equals(this.segment.debut)) {
+				if (segment.fin.y < this.segment.fin.y) {
+					return this.left.locate(left, segment);
+				} else {
+					return this.right.locate(left, segment);
+				}
+			} else if (this.segment.auDessus(left)) {
+				return this.left.locate(left, segment);
+			} else {
+				return this.right.locate(left, segment);
+			}
+		}
+
 		@Override
 		public void toXML(StringBuffer buff, String indent) {
 			buff.append(indent);
@@ -236,6 +275,11 @@ public class SearchGraph {
 
 		@Override
 		public Trapezoid locate(Point point) {
+			return trapezoid;
+		}
+
+		@Override
+		public Trapezoid locate(Point point, OrderedSegment segment) {
 			return trapezoid;
 		}
 

@@ -1,8 +1,8 @@
 package geometry.arbreDependance;
 
+import geometry.model.OrderedSegment;
 import geometry.model.Point;
 import geometry.model.Polygone;
-import geometry.model.Segment;
 
 import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
@@ -67,9 +67,9 @@ public class ArbreDependance {
 		for (StructurePolygon sp : polygons) {
 			// Add the polygon to the map.
 			Polygone p = sp.polygon;
-			List<Segment> segments = randomize(p);
+			List<OrderedSegment> segments = randomize(p);
 			// For each segment.
-			for (Segment s : segments) {
+			for (OrderedSegment s : segments) {
 				// Find the set of trapezoids intersecting the segment.
 				Trapezoid[] l = followSegment(graph, s);
 				// Only one trapezoid.
@@ -90,8 +90,7 @@ public class ArbreDependance {
 			}
 			// Labels the trapezoids.
 			Trapezoid t = graph.locate(p.points[0]);
-			labelsLeft(sp.structure, t);
-			labelsRight(sp.structure, t);
+			labels(sp.structure, t);
 		}
 		return ad;
 	}
@@ -99,17 +98,12 @@ public class ArbreDependance {
 	/**
 	 * Page 137.
 	 */
-	public static Trapezoid[] followSegment(SearchGraph d, Segment s) {
+	public static Trapezoid[] followSegment(SearchGraph d, OrderedSegment s) {
 		// Left point and right point of the segment.
-		Point p = new Point(s.debut);
-		Point q = new Point(s.fin);
-		if (q.x < p.x) {
-			Point tmp = q;
-			q = p;
-			p = tmp;
-		}
+		Point p = s.debut;
+		Point q = s.fin;
 		// Find d0.
-		Trapezoid d0 = d.locate(p);
+		Trapezoid d0 = d.locate(p, s);
 		List<Trapezoid> l = new ArrayList<Trapezoid>();
 		l.add(d0);
 		// While q lies at the right of dj.
@@ -138,8 +132,8 @@ public class ArbreDependance {
 		tmp.clear();
 	}
 
-	private static List<Segment> randomize(Polygone polygon) {
-		List<Segment> l = new ArrayList<Segment>();
+	private static List<OrderedSegment> randomize(Polygone polygon) {
+		List<OrderedSegment> l = new ArrayList<OrderedSegment>();
 		Point[] pts = polygon.points;
 		for (int i = 0; i < pts.length - 1; ++i) {
 			Point p = pts[i];
@@ -149,7 +143,7 @@ public class ArbreDependance {
 				p = q;
 				q = tmp;
 			}
-			l.add((int) (Math.random() * l.size()), new Segment(p, q));
+			l.add((int) (Math.random() * l.size()), new OrderedSegment(p, q));
 		}
 		Point p = pts[pts.length - 1];
 		Point q = pts[0];
@@ -158,23 +152,18 @@ public class ArbreDependance {
 			p = q;
 			q = tmp;
 		}
-		l.add((int) (Math.random() * l.size()), new Segment(p, q));
+		l.add((int) (Math.random() * l.size()), new OrderedSegment(p, q));
 		return l;
 	}
 
-	private static void labelsLeft(Structure structure, Trapezoid trapezoid) {
-		if (trapezoid != null) {
+	private static void labels(Structure structure, Trapezoid trapezoid) {
+		if (trapezoid != null && !trapezoid.colored) {
 			trapezoid.structure = structure;
-			labelsLeft(structure, trapezoid.leftTopNeighbor);
-			labelsLeft(structure, trapezoid.leftBottomNeighbor);
-		}
-	}
-
-	private static void labelsRight(Structure structure, Trapezoid trapezoid) {
-		if (trapezoid != null) {
-			trapezoid.structure = structure;
-			labelsRight(structure, trapezoid.rightTopNeighbor);
-			labelsRight(structure, trapezoid.rightBottomNeighbor);
+			trapezoid.colored = true;
+			labels(structure, trapezoid.leftTopNeighbor);
+			labels(structure, trapezoid.leftBottomNeighbor);
+			labels(structure, trapezoid.rightTopNeighbor);
+			labels(structure, trapezoid.rightBottomNeighbor);
 		}
 	}
 
@@ -204,6 +193,14 @@ public class ArbreDependance {
 
 	public void toXML(StringBuffer buff, String indent) {
 		graph.toXML(buff, indent);
+	}
+
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(map.toString());
+		sb.append('\n');
+		sb.append(graph.toString());
+		return sb.toString();
 	}
 
 }

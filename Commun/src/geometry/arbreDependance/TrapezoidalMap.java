@@ -1,7 +1,7 @@
 package geometry.arbreDependance;
 
+import geometry.model.OrderedSegment;
 import geometry.model.Point;
-import geometry.model.Segment;
 
 import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
@@ -32,10 +32,19 @@ public class TrapezoidalMap {
 		}
 	}
 
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		for (Trapezoid t : trapezoids) {
+			sb.append(t.toString());
+			sb.append('\n');
+		}
+		return sb.toString();
+	}
+
 	/**
 	 * Page 138.
 	 */
-	public SplitTrapezoid split(Trapezoid t, Segment s) {
+	public SplitTrapezoid split(Trapezoid t, OrderedSegment s) {
 		// Remove the trapezoid from the list.
 		trapezoids.remove(t);
 		// Split it.
@@ -53,7 +62,7 @@ public class TrapezoidalMap {
 	/**
 	 * Page 139.
 	 */
-	public Split2Trapezoid split2(Trapezoid[] l, Segment s) {
+	public Split2Trapezoid split2(Trapezoid[] l, OrderedSegment s) {
 		// Remove initial trapezoids.
 		for (int i = 0; i < l.length; ++i) {
 			trapezoids.remove(l[i]);
@@ -62,8 +71,8 @@ public class TrapezoidalMap {
 		Trapezoid right = l[l.length - 1];
 		Split2Trapezoid st = new Split2Trapezoid(l, s);
 		// Left point and right point.
-		Point p = new Point(s.debut);
-		Point q = new Point(s.fin);
+		Point p = s.debut;
+		Point q = s.fin;
 		if (q.x < p.x) {
 			Point tmp = q;
 			q = p;
@@ -74,129 +83,169 @@ public class TrapezoidalMap {
 			st.left = new Trapezoid(left.left, p, left.top, left.bottom);
 			st.left.leftTopNeighbor = left.leftTopNeighbor;
 			st.left.leftBottomNeighbor = left.leftBottomNeighbor;
+			Trapezoid.setRightNeighbor(left.leftTopNeighbor, left, st.left);
+			Trapezoid.setRightNeighbor(left.leftBottomNeighbor, left, st.left);
 			trapezoids.add(st.left);
 		}
 		if (!p.equals(right.right)) {
 			st.right = new Trapezoid(q, right.right, right.top, right.bottom);
 			st.right.rightTopNeighbor = right.rightTopNeighbor;
 			st.right.rightBottomNeighbor = right.rightBottomNeighbor;
+			Trapezoid.setLeftNeighbor(left.rightTopNeighbor, right, st.right);
+			Trapezoid
+					.setLeftNeighbor(left.rightBottomNeighbor, right, st.right);
 			trapezoids.add(st.right);
 		}
 		// Create bottom trapezoids.
-		st.bottom = new Trapezoid[l.length];
-		Point p2 = p;
-		for (int i = 0, j = 0; i < l.length; ++i) {
-			Trapezoid t = l[i];
-			if (i == l.length - 1) {
-				// Last trapezoid.
-				Trapezoid t2 = new Trapezoid(p2, q, s, t.bottom);
-				for (; j <= i; ++j) {
-					st.bottom[j] = t2;
+		{
+			st.bottom = new Trapezoid[l.length];
+			Point p2 = p;
+			for (int i = 0, j = 0; i < l.length; ++i) {
+				Trapezoid t = l[i];
+				if (i == l.length - 1) {
+					// Last trapezoid.
+					Trapezoid t2 = new Trapezoid(p2, q, s, t.bottom);
+					for (; j <= i; ++j) {
+						st.bottom[j] = t2;
+					}
+					trapezoids.add(t2);
+				} else if (!s.auDessus(t.right)) {
+					// If the right point is below the segment.
+					Trapezoid t2 = new Trapezoid(p2, t.right, s, t.bottom);
+					// If it isn't the first trapezoid.
+					for (; j <= i; ++j) {
+						st.bottom[j] = t2;
+					}
+					trapezoids.add(t2);
+					p2 = t.right;
 				}
-				trapezoids.add(t2);
-			} else if (!s.auDessus(t.right)) {
-				// If the right point is below the segment.
-				Trapezoid t2 = new Trapezoid(p2, t.right, s, t.bottom);
-				// If it isn't the first trapezoid.
-				for (; j <= i; ++j) {
-					st.bottom[j] = t2;
-				}
-				trapezoids.add(t2);
-				p2 = t.right;
 			}
-		}
-		// Link bottom trapezoids.
-		Trapezoid item0 = null;
-		for (int i = 0; i < st.bottom.length; ++i) {
-			Trapezoid item = st.bottom[i];
-			if (i == 0) {
-				// First trapezoid.
-				if (st.left != null) {
-					st.left.rightBottomNeighbor = item;
-					item.leftBottomNeighbor = st.left;
-					item.leftTopNeighbor = st.left;
-				} else {
-					item.leftBottomNeighbor = null;
-					item.leftTopNeighbor = null;
-				}
-			} else if (i == st.bottom.length - 1) {
-				// Last trapezoid.
-				if (st.right != null) {
-					st.right.leftBottomNeighbor = item;
-					item.rightBottomNeighbor = st.right;
-					item.rightTopNeighbor = st.right;
-				} else {
-					item.rightBottomNeighbor = null;
-					item.rightTopNeighbor = null;
-				}
-			} else if (item != item0) {
-				// Middle.
-				item0.rightTopNeighbor = item;
-				if (item0.rightBottomNeighbor == item0.rightTopNeighbor) {
-					item0.rightBottomNeighbor = item;
-				}
-				item.leftBottomNeighbor = item0;
-				item.leftTopNeighbor = item0;
-			}
-			item0 = item;
 		}
 		// Create top trapezoids.
-		st.top = new Trapezoid[l.length];
-		p2 = p;
-		for (int i = 0, j = 0; i < l.length; ++i) {
-			Trapezoid t = l[i];
-			if (i == l.length - 1) {
-				// Last trapezoid.
-				Trapezoid t2 = new Trapezoid(p2, q, t.top, s);
-				for (; j <= i; ++j) {
-					st.top[j] = t2;
+		{
+			st.top = new Trapezoid[l.length];
+			Point p2 = p;
+			for (int i = 0, j = 0; i < l.length; ++i) {
+				Trapezoid t = l[i];
+				if (i == l.length - 1) {
+					// Last trapezoid.
+					Trapezoid t2 = new Trapezoid(p2, q, t.top, s);
+					for (; j <= i; ++j) {
+						st.top[j] = t2;
+					}
+					trapezoids.add(t2);
+				} else if (s.auDessus(t.right)) {
+					// If the right point is above the segment.
+					Trapezoid t2 = new Trapezoid(p2, t.right, t.top, s);
+					// If it isn't the first trapezoid.
+					for (; j <= i; ++j) {
+						st.top[j] = t2;
+					}
+					trapezoids.add(t2);
+					p2 = t.right;
 				}
-				trapezoids.add(t2);
-			} else if (s.auDessus(t.right)) {
-				// If the right point is above the segment.
-				Trapezoid t2 = new Trapezoid(p2, t.right, t.top, s);
-				// If it isn't the first trapezoid.
-				for (; j <= i; ++j) {
-					st.top[j] = t2;
-				}
-				trapezoids.add(t2);
-				p2 = t.right;
 			}
 		}
-		// Link top trapezoids.
-		item0 = null;
-		for (int i = 0; i < st.top.length; ++i) {
-			Trapezoid item = st.top[i];
-			if (i == 0) {
-				// First trapezoid.
-				if (st.left != null) {
-					st.left.rightTopNeighbor = item;
-					item.leftBottomNeighbor = st.left;
-					item.leftTopNeighbor = st.left;
+		{
+			// Link fist trapezoids.
+			Trapezoid t = st.top[0];
+			Trapezoid b = st.bottom[0];
+			Trapezoid old = l[0];
+			t.rightTopNeighbor = old.rightTopNeighbor;
+			b.rightBottomNeighbor = old.rightBottomNeighbor;
+			if (st.left != null) {
+				st.left.rightTopNeighbor = t;
+				st.left.rightBottomNeighbor = b;
+				t.leftBottomNeighbor = st.left;
+				t.leftTopNeighbor = st.left;
+				b.leftBottomNeighbor = st.left;
+				b.leftTopNeighbor = st.left;
+			} else if (left.top != null && p.equals(left.top.debut)) {
+				if (left.bottom != null && p.equals(left.bottom.debut)) {
+					// No left neighbors.
 				} else {
-					item.leftBottomNeighbor = null;
-					item.leftTopNeighbor = null;
+					// Bottom left neighbors.
+					b.leftTopNeighbor = old.leftTopNeighbor;
+					b.leftBottomNeighbor = old.leftBottomNeighbor;
+					Trapezoid.setRightNeighbor(old.leftTopNeighbor, old, b);
+					Trapezoid.setRightNeighbor(old.leftBottomNeighbor, old, b);
 				}
-			} else if (i == st.top.length - 1) {
-				// Last trapezoid.
-				if (st.right != null) {
-					st.right.leftTopNeighbor = item;
-					item.rightBottomNeighbor = st.right;
-					item.rightTopNeighbor = st.right;
-				} else {
-					item.rightBottomNeighbor = null;
-					item.rightTopNeighbor = null;
-				}
-			} else if (item != item0) {
-				// Middle.
-				if (item0.rightTopNeighbor == item0.rightBottomNeighbor) {
-					item0.rightTopNeighbor = item;
-				}
-				item0.rightBottomNeighbor = item;
-				item.leftBottomNeighbor = item0;
-				item.leftTopNeighbor = item0;
+			} else if (left.bottom != null && p.equals(left.bottom.debut)) {
+				// Top left neighbors.
+				t.leftTopNeighbor = old.leftTopNeighbor;
+				t.leftBottomNeighbor = old.leftBottomNeighbor;
+				Trapezoid.setRightNeighbor(old.leftTopNeighbor, old, t);
+				Trapezoid.setRightNeighbor(old.leftBottomNeighbor, old, t);
+			} else {
+				// Both left neighbor.
+				t.leftTopNeighbor = old.leftTopNeighbor;
+				t.leftBottomNeighbor = old.leftTopNeighbor;
+				b.leftTopNeighbor = old.leftBottomNeighbor;
+				b.leftBottomNeighbor = old.leftBottomNeighbor;
+				Trapezoid.setRightNeighbor(old.leftTopNeighbor, old, t);
+				Trapezoid.setRightNeighbor(old.leftBottomNeighbor, old, b);
 			}
-			item0 = item;
+		}
+		{
+			// Link last trapezoids.
+			Trapezoid t = st.top[st.top.length - 1];
+			Trapezoid b = st.bottom[st.bottom.length - 1];
+			Trapezoid old = l[l.length - 1];
+			t.leftTopNeighbor = old.leftTopNeighbor;
+			b.leftBottomNeighbor = old.leftBottomNeighbor;
+			if (st.right != null) {
+				st.right.leftTopNeighbor = t;
+				st.right.leftBottomNeighbor = b;
+				t.rightBottomNeighbor = st.right;
+				t.rightTopNeighbor = st.right;
+				b.rightBottomNeighbor = st.right;
+				b.rightTopNeighbor = st.right;
+			} else if (right.top != null && q.equals(right.top.fin)) {
+				if (right.bottom != null && q.equals(right.bottom.fin)) {
+					// No right neighbors.
+				} else {
+					// Bottom right neighbors.
+					b.rightTopNeighbor = old.rightTopNeighbor;
+					b.rightBottomNeighbor = old.rightBottomNeighbor;
+					Trapezoid.setLeftNeighbor(old.rightTopNeighbor, old, b);
+					Trapezoid.setLeftNeighbor(old.rightBottomNeighbor, old, b);
+				}
+			} else if (right.bottom != null && q.equals(right.bottom.fin)) {
+				// Top right neighbors.
+				t.rightTopNeighbor = old.rightTopNeighbor;
+				t.rightBottomNeighbor = old.rightBottomNeighbor;
+				Trapezoid.setLeftNeighbor(old.rightTopNeighbor, old, t);
+				Trapezoid.setLeftNeighbor(old.rightBottomNeighbor, old, t);
+			} else {
+				// Both right neighbor.
+				t.rightTopNeighbor = old.rightTopNeighbor;
+				t.rightBottomNeighbor = old.rightTopNeighbor;
+				b.rightTopNeighbor = old.rightBottomNeighbor;
+				b.rightBottomNeighbor = old.rightBottomNeighbor;
+				Trapezoid.setLeftNeighbor(old.rightTopNeighbor, old, t);
+				Trapezoid.setLeftNeighbor(old.rightBottomNeighbor, old, b);
+			}
+		}
+		{
+			// Link middle trapezoids.
+			Trapezoid t0 = st.top[0];
+			Trapezoid b0 = st.bottom[0];
+			for (int i = 1; i < st.bottom.length; ++i) {
+				Trapezoid t = st.top[i];
+				Trapezoid b = st.bottom[i];
+				// Top.
+				if (t != t0) {
+					t0.rightBottomNeighbor = t;
+					t.leftBottomNeighbor = t0;
+				}
+				// Bottom.
+				if (b != b0) {
+					b0.rightTopNeighbor = b;
+					b.leftTopNeighbor = b0;
+				}
+				t0 = t;
+				b0 = b;
+			}
 		}
 		return st;
 	}

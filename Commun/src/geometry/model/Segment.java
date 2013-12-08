@@ -27,6 +27,12 @@ public class Segment {
 		this.fin = fin;
 	}
 
+	public Segment(Segment segment) {
+		super();
+		this.debut = new Point(segment.debut);
+		this.fin = new Point(segment.fin);
+	}
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -188,6 +194,10 @@ public class Segment {
 	public double longueur() {
 		return Math.sqrt(Math.pow(fin.x - debut.x, 2)
 				+ Math.pow(fin.y - debut.y, 2));
+	}
+
+	public double slope() {
+		return (fin.y - debut.y) / (fin.x - debut.x);
 	}
 
 	public double determinant(Point point) {

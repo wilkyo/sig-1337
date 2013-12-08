@@ -491,11 +491,11 @@ public class SQLToXml {
 			buff.append("\t\t</vertex>\n");
 		}
 		System.out.println("Graph generated");
-		//System.out.println("Generating search graph...");
-		//buff.append("\t</graph>\n\t<tree>\n");
-		//tree.toXML(buff, "\t\t");
-		//System.out.println("Search graph generated");
-		buff.append("\t</graph>\n</sig_1337>");
+		System.out.println("Generating search graph...");
+		buff.append("\t</graph>\n\t<tree>\n");
+		tree.toXML(buff, "\t\t");
+		System.out.println("Search graph generated");
+		buff.append("\t</tree>\n</sig_1337>");
 
 		return buff.toString();
 	}
@@ -526,7 +526,7 @@ public class SQLToXml {
 
 			Map<Point, ArrayList<Point>> graph = getGraph(connection);
 			
-			//ArbreDependance tree = ArbreDependance.create(buildings.values());
+			ArbreDependance tree = ArbreDependance.create(buildings.values());
 
 			System.out.println(nodes.size() + " nodes.");
 			System.out.println(roads.size() + " roads.");
@@ -537,7 +537,7 @@ public class SQLToXml {
 			connection.close();
 
 			return generateXML(filename, roads, basins, forests, buildings,
-					graph, null);
+					graph, tree);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {

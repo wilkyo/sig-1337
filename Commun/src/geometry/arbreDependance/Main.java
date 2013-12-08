@@ -1,7 +1,5 @@
 package geometry.arbreDependance;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
 import geometry.arbreDependance.ArbreDependance.Callback;
 import geometry.gui.Panneau;
 
@@ -19,48 +17,37 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import data.model.Node;
 import data.model.structure.Building;
 
-public class ArbreDependanceTest {
+public class Main {
 
-	Panneau panneau;
-	List<Building> s;
+	static Panneau panneau = new Panneau();
+	static List<Building> s = new ArrayList<Building>();
 
-	@Before
-	public void setUp() throws Exception {
-		panneau = new Panneau();
-		s = new ArrayList<Building>();
-	}
-
-	private void test() {
+	public static void test() {
 		ArbreDependance.create(s, new Callback() {
 			public void action(ArbreDependance ad) {
-				StringBuffer sb = new StringBuffer();
-				ad.getMap().toXML(sb, "");
-				ad.toXML(sb, "");
-				System.out.println(sb.toString());
+				System.out.println(ad.toString());
 				if (!Dialog.isCorrect(ad)) {
-					fail();
+					System.exit(0);
 				}
 			}
 		});
 	}
 
-	private Building b(Node... nodes) {
+	public static Building b(Node... nodes) {
 		return new Building(1, "Test", nodes, null);
 	}
 
-	private Node n(double x, double y) {
+	public static Node n(double x, double y) {
 		return new Node(0, y, x);
 	}
 
-	@Test
-	public void testCreate21() {
+	public static void main(String[] args) {
 		s.add(b(n(100, 200), n(190, 100), n(300, 150), n(210, 250)));
+		s.add(b(n(120, 70), n(130, 90), n(170, 80), n(140, 50)));
+		//s.add(b(n(10, 100), n(110, 110), n(200, 20), n(100, 10)));
 		test();
 	}
 
@@ -117,5 +104,4 @@ public class ArbreDependanceTest {
 		}
 
 	}
-
 }
