@@ -13,7 +13,7 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/Commun"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/Android"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/Android"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/Commun"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
