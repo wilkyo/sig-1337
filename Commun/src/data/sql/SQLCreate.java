@@ -188,7 +188,7 @@ public class SQLCreate {
 			mySql.append("FROM " + SQLHelper.TABLE_POLYGONS + " p ");
 			mySql.append("INNER JOIN planet_osm_rels r ON ABS(p.osm_id) = r.id ");
 			mySql.append("INNER JOIN planet_osm_ways w ON ((r.members[2] = 'outer' AND w.id = CAST(SUBSTRING(r.members[1], 2) AS BIGINT)) OR (r.members[4] = 'outer' AND w.id = CAST(SUBSTRING(r.members[3], 2) AS BIGINT))) ");
-			mySql.append("WHERE p.osm_id < 0 AND p.building IS NOT NULL AND p.building != '';");
+			mySql.append("WHERE p.osm_id < 0 AND p.building IS NOT NULL AND p.building != '' AND w.id NOT IN (SELECT id FROM sig1337_structures);");
 			s.execute(mySql.toString());
 
 			System.out.println("Fin insertion des buildings");
