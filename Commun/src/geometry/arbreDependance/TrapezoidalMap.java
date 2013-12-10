@@ -80,11 +80,6 @@ public class TrapezoidalMap {
 		// Left point and right point.
 		Point p = s.debut;
 		Point q = s.fin;
-		if (q.x < p.x) {
-			Point tmp = q;
-			q = p;
-			p = tmp;
-		}
 		// Create left and right trapezoids.
 		if (!p.equals(left.left)) {
 			st.left = new Trapezoid(left.left, p, left.top, left.bottom);
@@ -287,6 +282,7 @@ public class TrapezoidalMap {
 		Point right = trapezoid.right;
 		Segment top = trapezoid.top;
 		Segment bottom = trapezoid.bottom;
+		if(top == null || bottom == null) return;
 		g.setColor(new Color((int) (Math.random() * 128 + 64), (int) (Math
 				.random() * 128 + 64), (int) (Math.random() * 128 + 64)));
 		int[] x = new int[4];
@@ -301,17 +297,17 @@ public class TrapezoidalMap {
 		if (top != null && left != null) {
 			y[0] = (int) ((top.getY(left.x) - bounds.y) * h);
 		}
-		y[1] = (int) (bounds.getHeight() * h);
+		y[1] = img.getHeight();
 		if (bottom != null && left != null) {
 			y[1] = (int) ((bottom.getY(left.x) - bounds.y) * h);
 		}
 		// Right.
-		x[2] = (int) (bounds.getWidth() * w);
+		x[2] = img.getWidth();
 		if (right != null) {
 			x[2] = (int) ((right.x - bounds.x) * w);
 		}
 		x[3] = x[2];
-		y[2] = (int) (bounds.getHeight() * h);
+		y[2] = img.getHeight();
 		if (bottom != null && right != null) {
 			y[2] = (int) ((bottom.getY(right.x) - bounds.y) * h);
 		}

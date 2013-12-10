@@ -208,17 +208,21 @@ public class SearchGraph {
 		}
 
 		public Trapezoid locate(Point point) {
-			if (point.equals(this.point) || point.x > this.point.x) {
+			switch (ArbreDependance.compare(this.point, point)) {
+			case 0:
+			case 1:
 				return right.locate(point);
-			} else {
+			default:
 				return left.locate(point);
 			}
 		}
 
 		public Trapezoid locate(Point left, OrderedSegment segment) {
-			if (left.equals(this.point) || left.x > this.point.x) {
+			switch (ArbreDependance.compare(this.point, left)) {
+			case 0:
+			case 1:
 				return this.right.locate(left, segment);
-			} else {
+			default:
 				return this.left.locate(left, segment);
 			}
 		}

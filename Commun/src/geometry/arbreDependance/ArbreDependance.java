@@ -21,6 +21,20 @@ import data.model.structure.Structure;
 
 public class ArbreDependance {
 
+	public static int compare(Point p, Point q) {
+		if (p.x < q.x) {
+			return 1;
+		} else if (p.x > q.x) {
+			return -1;
+		} else if (p.y < q.y) {
+			return 1;
+		} else if (p.y > q.y) {
+			return -1;
+		} else {
+			return 0;
+		}
+	}
+
 	public static interface Callback {
 		public void action(ArbreDependance ad);
 	}
@@ -213,15 +227,18 @@ public class ArbreDependance {
 	}
 
 	public void out(File file) throws IOException {
-		BufferedImage img = new BufferedImage((int) (bounds.getWidth() * 200000),
-				(int) (bounds.getHeight() * 200000), BufferedImage.TYPE_INT_ARGB);
+		BufferedImage img = new BufferedImage(
+				(int) (bounds.getWidth() * 200000),
+				(int) (bounds.getHeight() * 200000),
+				BufferedImage.TYPE_INT_ARGB);
 		out(img);
 		ImageIO.write(img, "png", file);
 	}
 
 	public void out(BufferedImage img) {
 		Graphics2D g2d = (Graphics2D) img.getGraphics();
-		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+				RenderingHints.VALUE_ANTIALIAS_ON);
 		map.out(bounds, img, g2d);
 	}
 
