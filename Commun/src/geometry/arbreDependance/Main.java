@@ -37,7 +37,7 @@ public class Main {
 	}
 
 	public static Building b(Node... nodes) {
-		return new Building(1, "Test", nodes, null);
+		return new Building(1, "Test", nodes, null, null);
 	}
 
 	public static Node n(double x, double y) {

@@ -69,6 +69,7 @@ public class SQLHelper {
 	public static final String CUSTOM_TABLE_STRUCTURES_NAME = "name";
 	public static final String CUSTOM_TABLE_STRUCTURES_GEOM = "geom";
 	public static final String CUSTOM_TABLE_STRUCTURES_TYPE = "type";
+	public static final String CUSTOM_TABLE_STRUCTURES_NEIGHBORS = "neighbors";
 
 	/**
 	 * Constants for our custom holes table.
