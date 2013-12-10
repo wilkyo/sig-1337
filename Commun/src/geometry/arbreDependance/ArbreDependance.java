@@ -5,6 +5,7 @@ import geometry.model.Point;
 import geometry.model.Polygone;
 
 import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -220,6 +221,7 @@ public class ArbreDependance {
 
 	public void out(BufferedImage img) {
 		Graphics2D g2d = (Graphics2D) img.getGraphics();
+		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		map.out(bounds, img, g2d);
 	}
 

@@ -287,7 +287,8 @@ public class TrapezoidalMap {
 		Point right = trapezoid.right;
 		Segment top = trapezoid.top;
 		Segment bottom = trapezoid.bottom;
-		g.setColor(Panneau.COLORS[Panneau.INDEX]);
+		g.setColor(new Color((int) (Math.random() * 128 + 64), (int) (Math
+				.random() * 128 + 64), (int) (Math.random() * 128 + 64)));
 		int[] x = new int[4];
 		int[] y = new int[4];
 		// Left.
