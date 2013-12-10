@@ -129,8 +129,8 @@ public class Panneau extends JPanel {
 		 */
 	}
 
-	static Color[] COLORS;
-	static int INDEX = 0;
+	public static Color[] COLORS;
+	public static int INDEX = 0;
 
 	static {
 		COLORS = new Color[256];

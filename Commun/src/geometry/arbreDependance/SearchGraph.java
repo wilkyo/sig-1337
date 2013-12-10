@@ -42,18 +42,48 @@ public class SearchGraph {
 			split.right.leaf = leafRight;
 		}
 		NodeHolder[] leafTop = new NodeHolder[split.top.length];
-		for (int i = 0; i < split.top.length; ++i) {
-			Trapezoid t = split.top[i];
-			NodeHolder n = new NodeHolder(new Leaf(t));
-			t.leaf = n;
-			leafTop[i] = n;
+		{
+			Trapezoid t0 = null;
+			NodeHolder n = null;
+			for (int i = 0; i < split.top.length; ++i) {
+				Trapezoid t = split.top[i];
+				if (t != t0) {
+					n = new NodeHolder(new Leaf(t));
+					t.leaf = n;
+					t0 = t;
+				}
+				leafTop[i] = n;
+			}
 		}
 		NodeHolder[] leafBottom = new NodeHolder[split.bottom.length];
-		for (int i = 0; i < split.bottom.length; ++i) {
-			Trapezoid t = split.bottom[i];
-			NodeHolder n = new NodeHolder(new Leaf(t));
-			t.leaf = n;
-			leafBottom[i] = n;
+		{
+			Trapezoid t0 = null;
+			NodeHolder n = null;
+			for (int i = 0; i < split.bottom.length; ++i) {
+				Trapezoid t = split.bottom[i];
+				if (t != t0) {
+					n = new NodeHolder(new Leaf(t));
+					t.leaf = n;
+					t0 = t;
+				}
+				leafBottom[i] = n;
+			}
+		}
+		//
+		if ((split.left != null && split.left.leaf == null)
+				|| (split.right != null && split.right.leaf == null)) {
+			throw new NullPointerException();
+		} else {
+			for (Trapezoid tr : split.top) {
+				if (tr.leaf == null) {
+					throw new NullPointerException();
+				}
+			}
+			for (Trapezoid tr : split.bottom) {
+				if (tr.leaf == null) {
+					throw new NullPointerException();
+				}
+			}
 		}
 		// Segment.
 		Point p = new Point(split.segment.debut);

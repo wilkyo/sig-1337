@@ -1,9 +1,16 @@
 package geometry.arbreDependance;
 
+import geometry.gui.Panneau;
 import geometry.model.OrderedSegment;
 import geometry.model.Point;
+import geometry.model.Segment;
 
+import java.awt.AlphaComposite;
+import java.awt.Color;
+import java.awt.Composite;
+import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -248,5 +255,81 @@ public class TrapezoidalMap {
 			}
 		}
 		return st;
+	}
+
+	public void out(Rectangle2D.Double bounds, BufferedImage img, Graphics2D g) {
+		Composite c = g.getComposite();
+		g.setComposite(AlphaComposite
+				.getInstance(AlphaComposite.SRC_OVER, 0.5f));
+		Panneau.INDEX = 0;
+		for (Trapezoid t : trapezoids) {
+			out(bounds, img, g, t);
+			++Panneau.INDEX;
+			Panneau.INDEX %= 256;
+		}
+		g.setComposite(c);
+		for (Trapezoid t : trapezoids) {
+			if (t.bottom != null) {
+				out(bounds, img, g, t.bottom);
+			}
+			if (t.top != null) {
+				out(bounds, img, g, t.top);
+			}
+		}
+	}
+
+	public void out(Rectangle2D.Double bounds, BufferedImage img, Graphics2D g,
+			Trapezoid trapezoid) {
+		double w = img.getWidth() / bounds.getWidth();
+		double h = img.getHeight() / bounds.getHeight();
+
+		Point left = trapezoid.left;
+		Point right = trapezoid.right;
+		Segment top = trapezoid.top;
+		Segment bottom = trapezoid.bottom;
+		g.setColor(Panneau.COLORS[Panneau.INDEX]);
+		int[] x = new int[4];
+		int[] y = new int[4];
+		// Left.
+		x[0] = 0;
+		if (left != null) {
+			x[0] = (int) ((left.x - bounds.x) * w);
+		}
+		x[1] = x[0];
+		y[0] = 0;
+		if (top != null && left != null) {
+			y[0] = (int) ((top.getY(left.x) - bounds.y) * h);
+		}
+		y[1] = (int) (bounds.getHeight() * h);
+		if (bottom != null && left != null) {
+			y[1] = (int) ((bottom.getY(left.x) - bounds.y) * h);
+		}
+		// Right.
+		x[2] = (int) (bounds.getWidth() * w);
+		if (right != null) {
+			x[2] = (int) ((right.x - bounds.x) * w);
+		}
+		x[3] = x[2];
+		y[2] = (int) (bounds.getHeight() * h);
+		if (bottom != null && right != null) {
+			y[2] = (int) ((bottom.getY(right.x) - bounds.y) * h);
+		}
+		y[3] = 0;
+		if (top != null && right != null) {
+			y[3] = (int) ((top.getY(right.x) - bounds.y) * h);
+		}
+		g.fillPolygon(x, y, 4);
+		g.setColor(Color.black);
+	}
+
+	public void out(Rectangle2D.Double bounds, BufferedImage img, Graphics2D g,
+			OrderedSegment segment) {
+		double w = img.getWidth() / bounds.getWidth();
+		double h = img.getHeight() / bounds.getHeight();
+		g.setColor(Color.black);
+		g.drawLine((int) ((segment.debut.x - bounds.x) * w),
+				(int) ((segment.debut.y - bounds.y) * h),
+				(int) ((segment.fin.x - bounds.x) * w),
+				(int) ((segment.fin.y - bounds.y) * h));
 	}
 }

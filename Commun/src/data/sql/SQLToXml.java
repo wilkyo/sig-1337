@@ -525,8 +525,13 @@ public class SQLToXml {
 			getAllHoles(connection, nodes, buildings, forests, basins);
 
 			Map<Point, ArrayList<Point>> graph = getGraph(connection);
-			
+
 			ArbreDependance tree = ArbreDependance.create(buildings.values());
+			try {
+				tree.out(new File("files/tree.png"));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 
 			System.out.println(nodes.size() + " nodes.");
 			System.out.println(roads.size() + " roads.");

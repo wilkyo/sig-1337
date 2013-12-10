@@ -4,10 +4,16 @@ import geometry.model.OrderedSegment;
 import geometry.model.Point;
 import geometry.model.Polygone;
 
+import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+
+import javax.imageio.ImageIO;
 
 import data.model.structure.Building;
 import data.model.structure.Structure;
@@ -58,7 +64,7 @@ public class ArbreDependance {
 			List<StructurePolygon> polygons, Callback callback) {
 		SearchGraph graph = new SearchGraph(bounds);
 		TrapezoidalMap map = graph.getMap();
-		ArbreDependance ad = new ArbreDependance(
+		ArbreDependance ad = new ArbreDependance(bounds,
 				polygons.toArray(new StructurePolygon[polygons.size()]), map,
 				graph);
 		// Random permutation.
@@ -167,13 +173,15 @@ public class ArbreDependance {
 		}
 	}
 
+	private Rectangle2D.Double bounds;
 	private StructurePolygon[] polygons;
 	private TrapezoidalMap map;
 	private SearchGraph graph;
 
-	public ArbreDependance(StructurePolygon[] polygons, TrapezoidalMap map,
-			SearchGraph graph) {
+	public ArbreDependance(Rectangle2D.Double bounds,
+			StructurePolygon[] polygons, TrapezoidalMap map, SearchGraph graph) {
 		super();
+		this.bounds = bounds;
 		this.polygons = polygons;
 		this.map = map;
 		this.graph = graph;
@@ -201,6 +209,18 @@ public class ArbreDependance {
 		sb.append('\n');
 		sb.append(graph.toString());
 		return sb.toString();
+	}
+
+	public void out(File file) throws IOException {
+		BufferedImage img = new BufferedImage((int) (bounds.getWidth() * 200000),
+				(int) (bounds.getHeight() * 200000), BufferedImage.TYPE_INT_ARGB);
+		out(img);
+		ImageIO.write(img, "png", file);
+	}
+
+	public void out(BufferedImage img) {
+		Graphics2D g2d = (Graphics2D) img.getGraphics();
+		map.out(bounds, img, g2d);
 	}
 
 }
