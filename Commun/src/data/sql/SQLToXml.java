@@ -127,7 +127,10 @@ public class SQLToXml {
 						SQLHelper.getArray(
 								result.getArray(SQLHelper.CUSTOM_TABLE_STRUCTURES_NODES),
 								nodes),
-						result.getString(SQLHelper.CUSTOM_TABLE_STRUCTURES_GEOM));
+						result.getString(SQLHelper.CUSTOM_TABLE_STRUCTURES_GEOM),
+						SQLHelper.getArray(
+								result.getArray(SQLHelper.CUSTOM_TABLE_STRUCTURES_NEIGHBORS),
+								nodes));
 				// Holes will be set in the getAllHoles method
 				buildings.put(tmp.getId(), tmp);
 			}
@@ -391,6 +394,13 @@ public class SQLToXml {
 				res.append(triangleToXML(t));
 			}
 			res.append("\t\t\t\t</triangles>\n");
+		}
+		if (structure.getNodes() != null && structure.getNodes().length > 0) {
+			res.append("\t\t\t\t<voisins>\n");
+			for (Node n : structure.getNodes()) {
+				res.append(pointToXML(new Point(n.toPoint())));
+			}
+			res.append("\t\t\t\t</voisins>\n");
 		}
 		res.append("\t\t\t</" + type + ">\n");
 		return res.toString();

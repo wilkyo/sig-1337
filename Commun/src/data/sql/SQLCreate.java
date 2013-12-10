@@ -4,10 +4,17 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
+import sun.security.util.BigInt;
+import data.model.Node;
 import data.model.Road;
+import data.model.structure.Building;
 import data.model.structure.Structure;
 
 public class SQLCreate {
@@ -18,7 +25,8 @@ public class SQLCreate {
 		if (dataBaseExists()) {
 			// Récupération des nodes
 			if (createTableNodes() && createTableStructures()
-					&& createTableRoads() && createTableHoles() && createTableGraph()) {
+					&& createTableRoads() && createTableHoles()
+					&& createTableGraph() && addStructuresNeighbors()) {
 				result = true;
 			}
 		}
@@ -36,22 +44,24 @@ public class SQLCreate {
 					SQLHelper.USERNAME, SQLHelper.PASSWORD);
 			Statement s = conn.createStatement();
 			System.out.println("Lecture du fichier");
-			
+
 			StringBuilder sql = new StringBuilder();
 
-			BufferedReader br = new BufferedReader(new FileReader("files/osm_2po_4pgr.sql"));
-			for (String line = br.readLine(); line != null; line = br.readLine()) {
+			BufferedReader br = new BufferedReader(new FileReader(
+					"files/osm_2po_4pgr.sql"));
+			for (String line = br.readLine(); line != null; line = br
+					.readLine()) {
 				sql.append(line);
 			}
 			br.close();
-			
+
 			s.execute(sql.toString());
-			
+
 			conn.close();
 		} catch (Exception e) {
 			result = false;
 		}
-		System.out.println("Fin création des tables du graphes");		
+		System.out.println("Fin création des tables du graphes");
 		return result;
 	}
 
@@ -147,6 +157,8 @@ public class SQLCreate {
 					+ " geometry NOT NULL,");
 			mySql.append(SQLHelper.CUSTOM_TABLE_STRUCTURES_TYPE
 					+ " text NOT NULL,");
+			mySql.append(SQLHelper.CUSTOM_TABLE_STRUCTURES_NEIGHBORS
+					+ " bigint[] NULL,");
 			mySql.append("CONSTRAINT " + SQLHelper.CUSTOM_TABLE_STRUCTURES
 					+ "_pkey PRIMARY KEY ("
 					+ SQLHelper.CUSTOM_TABLE_STRUCTURES_ID + ")");
@@ -478,6 +490,81 @@ public class SQLCreate {
 			result = false;
 		}
 		System.out.println("Fin création Holes");
+		return result;
+	}
+
+	private static Boolean addStructuresNeighbors() {
+		Boolean result = true;
+		System.out.println("Début ajout voisins buildings");
+		try {
+			java.sql.Connection conn = DriverManager.getConnection(
+					SQLHelper.SERVER_URL + SQLHelper.DB_NAME,
+					SQLHelper.USERNAME, SQLHelper.PASSWORD);
+			Statement s;
+
+			// Récupération des buildings
+			Map<Long, Building> buildings = new HashMap<Long, Building>();
+
+			s = conn.createStatement();
+			ResultSet res = s.executeQuery("SELECT * FROM "
+					+ SQLHelper.CUSTOM_TABLE_STRUCTURES + " WHERE "
+					+ SQLHelper.CUSTOM_TABLE_STRUCTURES_TYPE + " = '"
+					+ Structure.BUILDING + "'");
+			while (res.next()) {
+				Building tmp = new Building(
+						res.getInt(SQLHelper.CUSTOM_TABLE_STRUCTURES_ID),
+						res.getString(SQLHelper.CUSTOM_TABLE_STRUCTURES_NAME),
+						null,
+						res.getString(SQLHelper.CUSTOM_TABLE_STRUCTURES_GEOM),
+						null);
+				// Holes will be set in the getAllHoles method
+				buildings.put(tmp.getId(), tmp);
+			}
+
+			for (Long key : buildings.keySet()) {
+				Building b = buildings.get(key);
+				s = conn.createStatement();
+				ArrayList<Long> lstNeighbors = new ArrayList<Long>();
+				res = s.executeQuery("SELECT r.nodes, (ST_DumpPoints(r.geom)).path[1], ST_DISTANCE((ST_DumpPoints(r.geom)).geom, (SELECT s.geom FROM sig1337_structures s WHERE s.id ="
+						+ b.getId()
+						+ ")) AS DIST FROM "
+						+ SQLHelper.CUSTOM_TABLE_ROADS + " r ORDER BY DIST ");
+				while (res.next()) {
+					double dist = res.getDouble(3);
+					if (dist < 80) {
+						long[] idNodes = SQLHelper
+								.getLongArray(res.getArray(1));
+						int pos = res.getInt(2);
+						if (idNodes != null && idNodes.length >= pos && pos > 0) {
+							lstNeighbors.add(idNodes[pos - 1]);
+						}
+					} else {
+						break;
+					}
+				}
+
+				if (lstNeighbors.size() > 0) {
+					s = conn.createStatement();
+					String sNeighbors = "";
+					for (int i = 0; i < lstNeighbors.size(); i++) {
+						if (i == 0) {
+							sNeighbors += lstNeighbors.get(i).toString();
+						} else {
+							sNeighbors += "," + lstNeighbors.get(i).toString();
+						}
+					}
+					s.executeUpdate("UPDATE "
+							+ SQLHelper.CUSTOM_TABLE_STRUCTURES + " SET "
+							+ SQLHelper.CUSTOM_TABLE_STRUCTURES_NEIGHBORS
+							+ " = '{" + sNeighbors + "}' WHERE "
+							+ SQLHelper.CUSTOM_TABLE_STRUCTURES_ID + " = "
+							+ b.getId());
+				}
+			}
+		} catch (Exception e) {
+			result = false;
+		}
+		System.out.println("Fin ajout voisins buildings");
 		return result;
 	}
 }

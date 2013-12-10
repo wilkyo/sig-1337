@@ -19,8 +19,10 @@
 	<!ATTLIST foret nom CDATA #REQUIRED>
 
 <!ELEMENT batiments (batiment*)>
-<!ELEMENT batiment (triangles+)>
+<!ELEMENT batiment (triangles+, voisins*)>
 	<!ATTLIST batiment nom CDATA #IMPLIED>
+
+<!ELEMENT voisins (point*)>
 
 <!ELEMENT triangles (triangle*)>
 	<!ATTLIST triangles type CDATA #IMPLIED>
