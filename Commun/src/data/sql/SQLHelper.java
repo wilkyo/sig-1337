@@ -17,6 +17,7 @@ public class SQLHelper {
 	public static final String OSM_SRID = "900913";
 	public static final String USERNAME = "admin";
 	public static final String PASSWORD = "admin";
+	public static final String OWNER = "postgres";
 
 	/**
 	 * Constants for the tables' name.

@@ -4,15 +4,12 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import sun.security.util.BigInt;
-import data.model.Node;
 import data.model.Road;
 import data.model.structure.Building;
 import data.model.structure.Structure;
@@ -108,7 +105,7 @@ public class SQLCreate {
 			mySql.append(")");
 			mySql.append("WITH (OIDS=FALSE);");
 			mySql.append("ALTER TABLE " + SQLHelper.CUSTOM_TABLE_NODES
-					+ " OWNER TO postgres;");
+					+ " OWNER TO " + SQLHelper.OWNER + ";");
 			s.execute(mySql.toString());
 
 			// Récupération des données
@@ -165,7 +162,7 @@ public class SQLCreate {
 			mySql.append(")");
 			mySql.append("WITH (OIDS=FALSE);");
 			mySql.append("ALTER TABLE " + SQLHelper.CUSTOM_TABLE_STRUCTURES
-					+ " OWNER TO postgres;");
+					+ " OWNER TO " + SQLHelper.OWNER + ";");
 			s.execute(mySql.toString());
 
 			// Récupération des données pour les buildings
@@ -312,7 +309,7 @@ public class SQLCreate {
 			mySql.append(")");
 			mySql.append("WITH (OIDS=FALSE);");
 			mySql.append("ALTER TABLE " + SQLHelper.CUSTOM_TABLE_ROADS
-					+ " OWNER TO postgres;");
+					+ " OWNER TO " + SQLHelper.OWNER + ";");
 			s.execute(mySql.toString());
 
 			// Récupération des données
@@ -450,7 +447,7 @@ public class SQLCreate {
 			mySql.append(")");
 			mySql.append("WITH (OIDS=FALSE);");
 			mySql.append("ALTER TABLE " + SQLHelper.CUSTOM_TABLE_HOLES
-					+ " OWNER TO postgres;");
+					+ " OWNER TO " + SQLHelper.OWNER + ";");
 			s.execute(mySql.toString());
 
 			// Récupération des données
