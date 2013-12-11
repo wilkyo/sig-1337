@@ -37,7 +37,7 @@
             android:label="@string/title_activity_local" >
         </activity>
         <activity
-            android:name="com.google.code.sig_1337.RemoteActivity"
+            android:name="com.google.code.sig_1337.remote.RemoteActivity"
             android:label="@string/title_activity_remote" >
         </activity>
 
