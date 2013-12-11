@@ -15,12 +15,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="110dp"
-        android:text="Local" />
+        android:onClick="onClickLocal"
+        android:text="@string/main_button_local" />
 
     <Button
         android:id="@+id/remote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Remote" />
+        android:onClick="onClickRemote"
+        android:text="@string/main_button_remote" />
 
 </LinearLayout>

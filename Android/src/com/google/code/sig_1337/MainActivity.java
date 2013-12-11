@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
 
 public class MainActivity extends Activity {
 
@@ -27,20 +25,14 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		((Button) findViewById(R.id.local))
-				.setOnClickListener(new OnClickListener() {
-					public void onClick(View v) {
-						startActivity(new Intent(MainActivity.this,
-								LocalActivity.class));
-					}
-				});
-		((Button) findViewById(R.id.remote))
-				.setOnClickListener(new OnClickListener() {
-					public void onClick(View v) {
-						startActivity(new Intent(MainActivity.this,
-								RemoteActivity.class));
-					}
-				});
+	}
+
+	public void onClickLocal(View v) {
+		startActivity(new Intent(this, LocalActivity.class));
+	}
+
+	public void onClickRemote(View v) {
+		startActivity(new Intent(this, RemoteActivity.class));
 	}
 
 	/**

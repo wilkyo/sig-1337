@@ -21,18 +21,18 @@ import android.widget.EditText;
 
 public class MainSansService extends Activity {
 
-	private String serverIP = "192.168.1.4";
+	private String serverIP = "192.168.43.104";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_sans_service);
 		((EditText) findViewById(R.id.ipAddress)).setText(serverIP);
+		new LongRunningGetIO().execute();
 	}
 
 	public void getMap(View v) {
-		((Button) findViewById(R.id.button1)).setClickable(false);
-		new LongRunningGetIO().execute();
+//		((Button) findViewById(R.id.button1)).setClickable(false);
 	}
 
 	@Override

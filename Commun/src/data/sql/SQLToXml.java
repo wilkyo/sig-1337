@@ -395,12 +395,15 @@ public class SQLToXml {
 			}
 			res.append("\t\t\t\t</triangles>\n");
 		}
-		if (structure.getNodes() != null && structure.getNodes().length > 0) {
-			res.append("\t\t\t\t<voisins>\n");
-			for (Node n : structure.getNodes()) {
-				res.append(pointToXML(new Point(n.toPoint())));
+		if (type.equals("batiment")) {
+			Building b = (Building) structure;
+			if (b.getNeighbors() != null && b.getNeighbors().length > 0) {
+				res.append("\t\t\t\t<voisins>\n");
+				for (Node n : b.getNeighbors()) {
+					res.append(pointToXML(new Point(n.toPoint())));
+				}
+				res.append("\t\t\t\t</voisins>\n");
 			}
-			res.append("\t\t\t\t</voisins>\n");
 		}
 		res.append("\t\t\t</" + type + ">\n");
 		return res.toString();
