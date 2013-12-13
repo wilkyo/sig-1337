@@ -1,4 +1,7 @@
-package com.google.code.sig_1337.model.xml;
+package com.google.code.sig_1337.model.xml.structure;
+
+import com.google.code.sig_1337.model.xml.IVoisins;
+import com.google.code.sig_1337.model.xml.Voisins;
 
 /**
  * Building.

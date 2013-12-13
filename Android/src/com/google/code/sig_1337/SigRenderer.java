@@ -11,18 +11,18 @@ import android.opengl.GLSurfaceView;
 import android.view.ScaleGestureDetector;
 import android.view.ScaleGestureDetector.SimpleOnScaleGestureListener;
 
+import com.google.code.sig_1337.model.ISig1337;
+import com.google.code.sig_1337.model.Sig1337Base;
 import com.google.code.sig_1337.model.xml.IBounds;
 import com.google.code.sig_1337.model.xml.IPoint;
-import com.google.code.sig_1337.model.xml.IRoute;
-import com.google.code.sig_1337.model.xml.IRoutes;
-import com.google.code.sig_1337.model.xml.ISig1337;
-import com.google.code.sig_1337.model.xml.IStructure;
-import com.google.code.sig_1337.model.xml.IStructures;
 import com.google.code.sig_1337.model.xml.ITriangle;
 import com.google.code.sig_1337.model.xml.ITriangles;
-import com.google.code.sig_1337.model.xml.RouteType;
-import com.google.code.sig_1337.model.xml.Sig1337;
-import com.google.code.sig_1337.model.xml.StructureType;
+import com.google.code.sig_1337.model.xml.route.IRoute;
+import com.google.code.sig_1337.model.xml.route.IRoutes;
+import com.google.code.sig_1337.model.xml.route.RouteType;
+import com.google.code.sig_1337.model.xml.structure.IStructure;
+import com.google.code.sig_1337.model.xml.structure.IStructures;
+import com.google.code.sig_1337.model.xml.structure.StructureType;
 
 /**
  * Render for {@code Sig1337}.
@@ -286,8 +286,8 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	@Override
 	public void onSurfaceCreated(GL10 gl, EGLConfig config) {
 		gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT, GL10.GL_FASTEST);
-		gl.glClearColor(Sig1337.BACKGROUND_RED, Sig1337.BACKGROUND_GREEN,
-				Sig1337.BACKGROUND_BLUE, 1);
+		gl.glClearColor(Sig1337Base.BACKGROUND_RED,
+				Sig1337Base.BACKGROUND_GREEN, Sig1337Base.BACKGROUND_BLUE, 1);
 		gl.glEnable(GL10.GL_DEPTH_TEST);
 	}
 

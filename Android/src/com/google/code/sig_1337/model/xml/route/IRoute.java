@@ -1,7 +1,9 @@
-package com.google.code.sig_1337.model.xml;
+package com.google.code.sig_1337.model.xml.route;
 
 import java.nio.FloatBuffer;
 import java.nio.ShortBuffer;
+
+import com.google.code.sig_1337.model.xml.IPoint;
 
 /**
  * Interface for routes.

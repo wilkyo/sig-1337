@@ -3,6 +3,7 @@ package com.google.code.sig_1337.itineraire;
 import android.util.Log;
 
 import com.google.code.sig_1337.model.xml.*;
+import com.google.code.sig_1337.model.xml.structure.IBuilding;
 
 import java.util.ArrayList;
 import java.util.List;

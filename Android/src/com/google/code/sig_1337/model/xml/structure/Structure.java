@@ -1,7 +1,11 @@
-package com.google.code.sig_1337.model.xml;
+package com.google.code.sig_1337.model.xml.structure;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
+
+import com.google.code.sig_1337.model.xml.ITriangles;
+import com.google.code.sig_1337.model.xml.IVoisins;
+import com.google.code.sig_1337.model.xml.Voisins;
 
 public abstract class Structure implements IStructure {
 

@@ -1,5 +1,11 @@
 package com.google.code.sig_1337.model.xml;
 
+import com.google.code.sig_1337.model.xml.route.IRoutes;
+import com.google.code.sig_1337.model.xml.structure.IBassin;
+import com.google.code.sig_1337.model.xml.structure.IBuilding;
+import com.google.code.sig_1337.model.xml.structure.IForet;
+import com.google.code.sig_1337.model.xml.structure.IStructures;
+
 /**
  * Interface for a list of elements to display.
  */
@@ -32,5 +38,10 @@ public interface IGraphics {
 	 * @return the routes.
 	 */
 	public IRoutes getRoutes();
+
+	/**
+	 * Clear the graphics.
+	 */
+	public void clear();
 
 }
