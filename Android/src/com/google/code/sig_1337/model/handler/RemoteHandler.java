@@ -13,6 +13,7 @@ import com.google.code.sig_1337.model.xml.IGraphics;
 import com.google.code.sig_1337.model.xml.IPoint;
 import com.google.code.sig_1337.model.xml.ITriangle;
 import com.google.code.sig_1337.model.xml.ITriangles;
+import com.google.code.sig_1337.model.xml.IVoisins;
 import com.google.code.sig_1337.model.xml.Point;
 import com.google.code.sig_1337.model.xml.Triangle;
 import com.google.code.sig_1337.model.xml.Triangles;
@@ -137,6 +138,11 @@ public class RemoteHandler<U extends ISig1337> implements IHandler<U> {
 	 */
 	protected static final String POINT = "point";
 
+	/**
+	 * Name for the {@code voisins} tag.
+	 */
+	protected static final String VOISINS = "voisins";
+	
 	/**
 	 * Name for the {@code x} attribute.
 	 */
@@ -320,10 +326,43 @@ public class RemoteHandler<U extends ISig1337> implements IHandler<U> {
 				continue;
 			}
 			checkInterrupted();
-			readTriangles(parser, t.getTriangles(), bounds);
+			if(parser.getName().equals(TRIANGLES))
+				readTriangles(parser, t.getTriangles(), bounds);
+			else if(parser.getName().equals(VOISINS)) {
+				IBuilding b = (IBuilding) t;
+				readVoisins(parser, b.getVoisins(), bounds);
+			}
 		}
 		parser.require(XmlPullParser.END_TAG, null, tag);
 		return t;
+	}
+
+	/**
+	 * Parse the neighborhood.
+	 * @param parser
+	 * 			  parser.
+	 * @param voisins
+	 * 			  the neighborhood.
+	 * @param bounds
+	 * 			  map bounds.
+	 * @throws XmlPullParserException
+	 * 			  Error while parsing the XML.
+	 * @throws IOException
+	 * 			  Error with IO.
+	 * @throws InterruptedException
+	 */
+	protected void readVoisins(XmlPullParser parser, IVoisins voisins,
+			IBounds bounds) throws XmlPullParserException, IOException, InterruptedException {
+		checkInterrupted();
+		parser.require(XmlPullParser.START_TAG, null, VOISINS);
+		while(parser.next() != XmlPullParser.END_TAG) {
+			if(parser.getEventType() != XmlPullParser.START_TAG) {
+				continue;
+			}
+			checkInterrupted();
+			voisins.add(readPoint(parser, bounds));
+		}
+		parser.require(XmlPullParser.END_TAG, null, VOISINS);
 	}
 
 	/**
