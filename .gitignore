@@ -4,4 +4,4 @@ bin
 *.log
 algogeo
 RemoteSystemsTempFiles
-*.xml
+map.xml

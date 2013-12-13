@@ -22,7 +22,7 @@ import javax.xml.parsers.SAXParserFactory;
 
 import org.xml.sax.SAXException;
 
-import com.google.code.sig_1337.model.xml.RouteType;
+import com.google.code.sig_1337.model.xml.route.RouteType;
 
 import data.model.Node;
 import data.model.Road;
