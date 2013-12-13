@@ -12,8 +12,9 @@ public enum StructureType {
 		 * {@inheritDoc}
 		 */
 		@Override
-		public FloatBuffer getColor() {
-			return BASSIN;
+		public void fill(FloatBuffer colorBuffer) {
+			colorBuffer.put(BASSIN);
+			BASSIN.position(0);
 		}
 
 	},
@@ -23,8 +24,9 @@ public enum StructureType {
 		 * {@inheritDoc}
 		 */
 		@Override
-		public FloatBuffer getColor() {
-			return FORET;
+		public void fill(FloatBuffer colorBuffer) {
+			colorBuffer.put(FORET);
+			FORET.position(0);
 		}
 
 	},
@@ -34,8 +36,9 @@ public enum StructureType {
 		 * {@inheritDoc}
 		 */
 		@Override
-		public FloatBuffer getColor() {
-			return BUILDING;
+		public void fill(FloatBuffer colorBuffer) {
+			colorBuffer.put(BUILDING);
+			BUILDING.position(0);
 		}
 
 	};
@@ -83,10 +86,11 @@ public enum StructureType {
 	}
 
 	/**
-	 * Get the color.
+	 * Fill the given buffer.
 	 * 
-	 * @return color.
+	 * @param colorBuffer
+	 *            color buffer.
 	 */
-	public abstract FloatBuffer getColor();
+	public abstract void fill(FloatBuffer colorBuffer);
 
 }

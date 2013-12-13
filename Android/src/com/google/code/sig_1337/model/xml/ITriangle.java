@@ -30,17 +30,11 @@ public interface ITriangle {
 	public IPoint getP3();
 
 	/**
-	 * Get the vertex buffer.
+	 * Fill the given buffers.
 	 * 
-	 * @return the vertex buffer.
+	 * @param vertexBuffer
+	 *            vertex buffer.
 	 */
-	public FloatBuffer getVertexBuffer();
-
-	/**
-	 * Get the index buffer.
-	 * 
-	 * @return the index buffer.
-	 */
-	public ShortBuffer getIndexBuffer();
+	public void fill(FloatBuffer vertexBuffer);
 
 }

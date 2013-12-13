@@ -288,9 +288,10 @@ public class RemoteHandler<U extends ISig1337> implements IHandler<U> {
 				continue;
 			}
 			checkInterrupted();
-			readStructure(parser, tag2, structures, bounds, init);
+			structures.add(readStructure(parser, tag2, bounds, init));
 		}
 		parser.require(XmlPullParser.END_TAG, null, tag);
+		structures.done();
 	}
 
 	/**
@@ -300,30 +301,29 @@ public class RemoteHandler<U extends ISig1337> implements IHandler<U> {
 	 *            parser.
 	 * @param bounds
 	 *            map bounds.
-	 * @return parsed building.
+	 * @return parsed structure.
 	 * @throws XmlPullParserException
 	 *             error while parsing.
 	 * @throws IOException
 	 *             error with IO.
 	 * @throws InterruptedException
 	 */
-	protected <T extends IStructure> void readStructure(XmlPullParser parser,
-			String tag, IStructures<T> structures, IBounds bounds,
-			Initializer<T> init) throws XmlPullParserException, IOException,
-			InterruptedException {
+	protected <T extends IStructure> T readStructure(XmlPullParser parser,
+			String tag, IBounds bounds, Initializer<T> init)
+			throws XmlPullParserException, IOException, InterruptedException {
 		checkInterrupted();
 		parser.require(XmlPullParser.START_TAG, null, tag);
 		String name = parser.getAttributeValue(null, NAME);
+		T t = init.initialize(name);
 		while (parser.next() != XmlPullParser.END_TAG) {
 			if (parser.getEventType() != XmlPullParser.START_TAG) {
 				continue;
 			}
 			checkInterrupted();
-			T t = init.initialize(name);
-			structures.add(t);
 			readTriangles(parser, t.getTriangles(), bounds);
 		}
 		parser.require(XmlPullParser.END_TAG, null, tag);
+		return t;
 	}
 
 	/**

@@ -14,7 +14,7 @@ public class DataGenerator {
 		FileWriter out;
 		try {
 			out = new FileWriter(new File("files/map.xml"));
-			out.write(SQLToXml.process("files/Universite.osm"));
+			out.write(SQLToXml.process("files/Universite.osm", false));
 			out.close();
 		} catch (IOException e) {
 			e.printStackTrace();

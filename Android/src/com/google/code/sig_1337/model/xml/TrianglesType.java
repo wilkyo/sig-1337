@@ -19,8 +19,8 @@ public enum TrianglesType {
 		 * {@inheritDoc}
 		 */
 		@Override
-		public FloatBuffer getColor(StructureType type) {
-			return type.getColor();
+		public void fill(FloatBuffer colorBuffer, StructureType type) {
+			type.fill(colorBuffer);
 		}
 
 	},
@@ -34,8 +34,9 @@ public enum TrianglesType {
 		 * {@inheritDoc}
 		 */
 		@Override
-		public FloatBuffer getColor(StructureType type) {
-			return Sig1337Base.BACKGROUND_COLOR;
+		public void fill(FloatBuffer colorBuffer, StructureType type) {
+			colorBuffer.put(Sig1337Base.BACKGROUND_COLOR);
+			Sig1337Base.BACKGROUND_COLOR.position(0);
 		}
 
 	};
@@ -81,10 +82,13 @@ public enum TrianglesType {
 	}
 
 	/**
-	 * Get the fill color.
+	 * Fill the given buffer.
 	 * 
-	 * @return fill color.
+	 * @param colorBuffer
+	 *            color buffer.
+	 * @param type
+	 *            type of the structure.
 	 */
-	public abstract FloatBuffer getColor(StructureType type);
+	public abstract void fill(FloatBuffer colorBuffer, StructureType type);
 
 }
