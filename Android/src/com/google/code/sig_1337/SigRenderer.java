@@ -173,42 +173,11 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	 */
 	private void drawStructures(GL10 gl,
 			IStructures<? extends IStructure> structures) {
-		synchronized (structures) {
-			if (structures != null && !structures.isEmpty()) {
-				for (IStructure structure : structures) {
-					drawStructure(gl, structure);
-				}
-			}
-		}
-	}
-
-	/**
-	 * Draw the given building.
-	 * 
-	 * @param gl
-	 *            OpenGL.
-	 * @param building
-	 *            building to draw.
-	 */
-	private void drawStructure(GL10 gl, IStructure structure) {
-		StructureType type = structure.getType();
-		List<ITriangles> list = structure.getTriangles();
-		synchronized (list) {
-			for (ITriangles triangles : list) {
-				// Color depending on the type.
-				FloatBuffer color = triangles.getType().getColor(type);
-				// Draw the triangles.
-				synchronized (triangles) {
-					for (ITriangle t : triangles) {
-						// Draw the triangle.
-						gl.glVertexPointer(3, GL10.GL_FLOAT, 0,
-								t.getVertexBuffer());
-						gl.glColorPointer(4, GL10.GL_FLOAT, 0, color);
-						gl.glDrawElements(GL10.GL_TRIANGLES, 3,
-								GL10.GL_UNSIGNED_SHORT, t.getIndexBuffer());
-					}
-				}
-			}
+		if (structures.isLoaded()) {
+			gl.glVertexPointer(3, GL10.GL_FLOAT, 0,
+					structures.getVertexBuffer());
+			gl.glColorPointer(4, GL10.GL_FLOAT, 0, structures.getColorBuffer());
+			gl.glDrawArrays(GL10.GL_TRIANGLES, 0, structures.getIndexCount());
 		}
 	}
 

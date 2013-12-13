@@ -11,20 +11,20 @@ public interface IStructure {
 	 * 
 	 * @return its type.
 	 */
-	public abstract StructureType getType();
+	public StructureType getType();
 
 	/**
 	 * Get its name.
 	 * 
 	 * @return its name.
 	 */
-	public abstract String getName();
+	public String getName();
 
 	/**
 	 * Get the triangles.
 	 * 
 	 * @return the triangles.
 	 */
-	public abstract List<ITriangles> getTriangles();
+	public List<ITriangles> getTriangles();
 
 }

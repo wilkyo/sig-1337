@@ -10,11 +10,12 @@ public abstract class Structure implements IStructure {
 	/**
 	 * Its name.
 	 */
-	protected final String name;
+	private final String name;
+
 	/**
 	 * Triangles.
 	 */
-	protected final List<ITriangles> triangles;
+	private final List<ITriangles> triangles;
 
 	/**
 	 * Initializing constructor.
