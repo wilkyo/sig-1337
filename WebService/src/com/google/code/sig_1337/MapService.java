@@ -21,9 +21,9 @@ public class MapService {
 	@Produces({ MediaType.APPLICATION_XML })
 	public String getXML() {
 		System.out.println("XML");
-		return SQLToXml.process(new File(context
-				.getRealPath("/WEB-INF/files/Universite.osm"))
-				.getAbsolutePath());
+		return SQLToXml.process(
+				new File(context.getRealPath("/WEB-INF/files/Universite.osm"))
+						.getAbsolutePath(), true);
 	}
 
 	// This method is called if JSON is requested
@@ -31,9 +31,9 @@ public class MapService {
 	@Produces({ MediaType.APPLICATION_JSON })
 	public String getJSON() {
 		System.out.println("JSON");
-		return SQLToXml.process(new File(context
-				.getRealPath("/WEB-INF/files/Universite.osm"))
-				.getAbsolutePath());
+		return SQLToXml.process(
+				new File(context.getRealPath("/WEB-INF/files/Universite.osm"))
+						.getAbsolutePath(), true);
 	}
 
 	// This can be used to test the integration with the browser
@@ -41,9 +41,9 @@ public class MapService {
 	@Produces({ MediaType.TEXT_HTML })
 	public String getHTML() {
 		System.out.println("HTML");
-		return SQLToXml.process(new File(context
-				.getRealPath("/WEB-INF/files/Universite.osm"))
-				.getAbsolutePath());
+		return SQLToXml.process(
+				new File(context.getRealPath("/WEB-INF/files/Universite.osm"))
+						.getAbsolutePath(), true);
 	}
 
 }

@@ -13,6 +13,7 @@ import org.apache.http.protocol.HttpContext;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 
 public class LongRunningGetIO extends AsyncTask<Void, Void, String> {
 
@@ -60,6 +61,8 @@ public class LongRunningGetIO extends AsyncTask<Void, Void, String> {
 			System.out.println("Length: " + response.length());
 			if (response.length() >= 200)
 				((RemoteActivity) mContext).createMap(response);
+			else
+				Log.v(this.getClass().getSimpleName(), response);
 		}
 	}
 }

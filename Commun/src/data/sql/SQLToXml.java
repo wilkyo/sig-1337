@@ -22,7 +22,7 @@ import javax.xml.parsers.SAXParserFactory;
 
 import org.xml.sax.SAXException;
 
-import com.google.code.sig_1337.model.xml.RouteType;
+import com.google.code.sig_1337.model.xml.route.RouteType;
 
 import data.model.Node;
 import data.model.Road;
@@ -400,7 +400,8 @@ public class SQLToXml {
 			if (b.getNeighbors() != null && b.getNeighbors().length > 0) {
 				res.append("\t\t\t\t<voisins>\n");
 				for (Node n : b.getNeighbors()) {
-					res.append(pointToXML(new Point(n.toPoint())));
+					res.append("\t\t\t\t\t"
+							+ pointToXML(new Point(n.toPoint())) + "\n");
 				}
 				res.append("\t\t\t\t</voisins>\n");
 			}
@@ -419,12 +420,13 @@ public class SQLToXml {
 	 * @param forests
 	 * @param basins
 	 * @param graph
+	 * @param isRemote
 	 * @param nodes
 	 */
 	private static String generateXML(String filename, List<Road> roads,
 			Map<Long, Basin> basins, Map<Long, Forest> forests,
 			Map<Long, Building> buildings, Map<Point, ArrayList<Point>> graph,
-			ArbreDependance tree) {
+			ArbreDependance tree, boolean isRemote) {
 		StringBuffer buff = new StringBuffer();
 		buff.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 				+ "<!DOCTYPE sig_1337 SYSTEM \"sig_1337.dtd\">\n"
@@ -494,21 +496,25 @@ public class SQLToXml {
 		}
 		buff.append("\t\t</routes>\n");
 		System.out.println("Roads generated");
-		System.out.println("Generating graph...");
-		buff.append("\t</graphics>\n\t<graph>\n");
-		for (Point p : graph.keySet()) {
-			buff.append("\t\t<vertex x=\"" + p.x + "\" y=\"" + p.y + "\">\n");
-			for (Point voisin : graph.get(p)) {
-				buff.append("\t\t\t" + pointToXML(voisin) + "\n");
+		if (!isRemote) {
+			System.out.println("Generating graph...");
+			buff.append("\t</graphics>\n\t<graph>\n");
+			for (Point p : graph.keySet()) {
+				buff.append("\t\t<vertex x=\"" + p.x + "\" y=\"" + p.y
+						+ "\">\n");
+				for (Point voisin : graph.get(p)) {
+					buff.append("\t\t\t" + pointToXML(voisin) + "\n");
+				}
+				buff.append("\t\t</vertex>\n");
 			}
-			buff.append("\t\t</vertex>\n");
+			System.out.println("Graph generated");
+			System.out.println("Generating search graph...");
+			buff.append("\t</graph>\n\t<tree>\n");
+			tree.toXML(buff, "\t\t");
+			System.out.println("Search graph generated");
+			buff.append("\t</tree>\n");
 		}
-		System.out.println("Graph generated");
-		System.out.println("Generating search graph...");
-		buff.append("\t</graph>\n\t<tree>\n");
-		tree.toXML(buff, "\t\t");
-		System.out.println("Search graph generated");
-		buff.append("\t</tree>\n</sig_1337>");
+		buff.append("</sig_1337>");
 
 		return buff.toString();
 	}
@@ -517,7 +523,7 @@ public class SQLToXml {
 	 * Gets the data from the PostGIS database and generate the xml for the
 	 * Android application.
 	 */
-	public static String process(String filename) {
+	public static String process(String filename, boolean isRemote) {
 		Connection connection;
 
 		try {
@@ -537,13 +543,17 @@ public class SQLToXml {
 			Map<Long, Basin> basins = getAllBasins(connection, nodes);
 			getAllHoles(connection, nodes, buildings, forests, basins);
 
-			Map<Point, ArrayList<Point>> graph = getGraph(connection);
+			Map<Point, ArrayList<Point>> graph = !isRemote ? getGraph(connection)
+					: null;
 
-			ArbreDependance tree = ArbreDependance.create(buildings.values());
-			try {
-				tree.out(new File("files/tree.png"));
-			} catch (IOException e) {
-				e.printStackTrace();
+			ArbreDependance tree = null;
+			if (!isRemote) {
+				tree = ArbreDependance.create(buildings.values());
+				try {
+					tree.out(new File("files/tree.png"));
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
 
 			System.out.println(nodes.size() + " nodes.");
@@ -555,7 +565,7 @@ public class SQLToXml {
 			connection.close();
 
 			return generateXML(filename, roads, basins, forests, buildings,
-					graph, tree);
+					graph, tree, isRemote);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
