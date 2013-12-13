@@ -4,6 +4,8 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 
+import com.google.code.sig_1337.model.Sig1337Base;
+
 public enum StructureType {
 
 	Bassin {
@@ -12,9 +14,8 @@ public enum StructureType {
 		 * {@inheritDoc}
 		 */
 		@Override
-		public void fill(FloatBuffer colorBuffer) {
-			colorBuffer.put(BASSIN);
-			BASSIN.position(0);
+		public FloatBuffer getFill() {
+			return BASSIN;
 		}
 
 	},
@@ -24,9 +25,8 @@ public enum StructureType {
 		 * {@inheritDoc}
 		 */
 		@Override
-		public void fill(FloatBuffer colorBuffer) {
-			colorBuffer.put(FORET);
-			FORET.position(0);
+		public FloatBuffer getFill() {
+			return FORET;
 		}
 
 	},
@@ -36,9 +36,8 @@ public enum StructureType {
 		 * {@inheritDoc}
 		 */
 		@Override
-		public void fill(FloatBuffer colorBuffer) {
-			colorBuffer.put(BUILDING);
-			BUILDING.position(0);
+		public FloatBuffer getFill() {
+			return BUILDING;
 		}
 
 	};
@@ -86,11 +85,19 @@ public enum StructureType {
 	}
 
 	/**
-	 * Fill the given buffer.
+	 * Get the fill color.
 	 * 
-	 * @param colorBuffer
-	 *            color buffer.
+	 * @return fill color.
 	 */
-	public abstract void fill(FloatBuffer colorBuffer);
+	public abstract FloatBuffer getFill();
+
+	/**
+	 * Get the hole color.
+	 * 
+	 * @return hole color.
+	 */
+	public FloatBuffer getHole() {
+		return Sig1337Base.BACKGROUND_COLOR;
+	}
 
 }

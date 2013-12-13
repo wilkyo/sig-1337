@@ -5,6 +5,13 @@ import java.nio.FloatBuffer;
 public interface IStructures<T extends IStructure> extends Iterable<T> {
 
 	/**
+	 * Get the type.
+	 * 
+	 * @return the type.
+	 */
+	public StructureType getType();
+
+	/**
 	 * Add the given structure.
 	 * 
 	 * @param structure
@@ -41,20 +48,27 @@ public interface IStructures<T extends IStructure> extends Iterable<T> {
 	 * 
 	 * @return the vertex buffer.
 	 */
-	public FloatBuffer getVertexBuffer();
+	public FloatBuffer getFilledVertexBuffer();
 
 	/**
-	 * Get the color buffer.
+	 * Get the vertex buffer.
 	 * 
-	 * @return the color buffer.
+	 * @return the vertex buffer.
 	 */
-	public FloatBuffer getColorBuffer();
+	public FloatBuffer getHoleVertexBuffer();
 
 	/**
 	 * Get the number of index in the buffer.
 	 * 
 	 * @return the number of index in the buffer.
 	 */
-	public int getIndexCount();
+	public int getFilledIndexCount();
+
+	/**
+	 * Get the number of index in the buffer.
+	 * 
+	 * @return the number of index in the buffer.
+	 */
+	public int getHoleIndexCount();
 
 }

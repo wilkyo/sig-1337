@@ -1,10 +1,5 @@
 package com.google.code.sig_1337.model.xml;
 
-import java.nio.FloatBuffer;
-
-import com.google.code.sig_1337.model.Sig1337Base;
-import com.google.code.sig_1337.model.xml.structure.StructureType;
-
 /**
  * Enum for triangles types.
  */
@@ -13,33 +8,12 @@ public enum TrianglesType {
 	/**
 	 * Filled.
 	 */
-	Filled("") {
-
-		/**
-		 * {@inheritDoc}
-		 */
-		@Override
-		public void fill(FloatBuffer colorBuffer, StructureType type) {
-			type.fill(colorBuffer);
-		}
-
-	},
+	Filled(""),
 
 	/**
 	 * Hole.
 	 */
-	Hole("trou") {
-
-		/**
-		 * {@inheritDoc}
-		 */
-		@Override
-		public void fill(FloatBuffer colorBuffer, StructureType type) {
-			colorBuffer.put(Sig1337Base.BACKGROUND_COLOR);
-			Sig1337Base.BACKGROUND_COLOR.position(0);
-		}
-
-	};
+	Hole("trou");
 
 	/**
 	 * Parse the given string to the corresponding triangles type.
@@ -80,15 +54,5 @@ public enum TrianglesType {
 	public String getName() {
 		return name;
 	}
-
-	/**
-	 * Fill the given buffer.
-	 * 
-	 * @param colorBuffer
-	 *            color buffer.
-	 * @param type
-	 *            type of the structure.
-	 */
-	public abstract void fill(FloatBuffer colorBuffer, StructureType type);
 
 }

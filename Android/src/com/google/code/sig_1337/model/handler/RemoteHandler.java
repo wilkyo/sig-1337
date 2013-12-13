@@ -17,7 +17,7 @@ import com.google.code.sig_1337.model.xml.Point;
 import com.google.code.sig_1337.model.xml.Triangle;
 import com.google.code.sig_1337.model.xml.Triangles;
 import com.google.code.sig_1337.model.xml.TrianglesType;
-import com.google.code.sig_1337.model.xml.route.IRoutes;
+import com.google.code.sig_1337.model.xml.route.IRoutesMap;
 import com.google.code.sig_1337.model.xml.route.Route;
 import com.google.code.sig_1337.model.xml.route.RouteType;
 import com.google.code.sig_1337.model.xml.structure.Bassin;
@@ -407,7 +407,7 @@ public class RemoteHandler<U extends ISig1337> implements IHandler<U> {
 	 *             error with IO.
 	 * @throws InterruptedException
 	 */
-	protected void readRoutes(XmlPullParser parser, IRoutes routes,
+	protected void readRoutes(XmlPullParser parser, IRoutesMap routes,
 			IBounds bounds) throws XmlPullParserException, IOException,
 			InterruptedException {
 		checkInterrupted();
@@ -421,6 +421,7 @@ public class RemoteHandler<U extends ISig1337> implements IHandler<U> {
 			readRoute(parser, routes, bounds);
 		}
 		parser.require(XmlPullParser.END_TAG, null, ROUTES);
+		routes.done();
 	}
 
 	/**
@@ -437,23 +438,24 @@ public class RemoteHandler<U extends ISig1337> implements IHandler<U> {
 	 *             error with IO.
 	 * @throws InterruptedException
 	 */
-	protected void readRoute(XmlPullParser parser, IRoutes routes,
+	protected void readRoute(XmlPullParser parser, IRoutesMap routes,
 			IBounds bounds) throws XmlPullParserException, IOException,
 			InterruptedException {
 		checkInterrupted();
 		parser.require(XmlPullParser.START_TAG, null, ROUTE);
 		RouteType type = RouteType.parse(parser.getAttributeValue(null, TYPE));
+		List<IPoint> points = new ArrayList<IPoint>();
 		parser.nextTag();
-		IPoint from = readPoint(parser, bounds);
+		points.add(readPoint(parser, bounds));
 		while (parser.next() != XmlPullParser.END_TAG) {
 			if (parser.getEventType() != XmlPullParser.START_TAG) {
 				continue;
 			}
 			checkInterrupted();
-			IPoint to = readPoint(parser, bounds);
-			routes.add(new Route(type, from, to));
-			from = to;
+			points.add(readPoint(parser, bounds));
 		}
+		routes.get(type).add(
+				new Route(type, points.toArray(new IPoint[points.size()])));
 		parser.require(XmlPullParser.END_TAG, null, ROUTE);
 	}
 

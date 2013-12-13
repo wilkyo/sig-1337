@@ -1,7 +1,6 @@
 package com.google.code.sig_1337.model.xml;
 
 import java.nio.FloatBuffer;
-import java.nio.ShortBuffer;
 
 /**
  * Interface for triangles.
