@@ -1,4 +1,4 @@
-package com.google.code.sig_1337.model.xml;
+package com.google.code.sig_1337.model.xml.structure;
 
 
 public class Foret extends Structure implements IForet {

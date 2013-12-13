@@ -7,7 +7,7 @@ import android.support.v4.view.MotionEventCompat;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 
-import com.google.code.sig_1337.model.xml.Sig1337;
+import com.google.code.sig_1337.model.ISig1337;
 
 /**
  * OpenGL view.
@@ -72,7 +72,7 @@ public class SigView extends GLSurfaceView {
 	 * @param sig
 	 *            new value.
 	 */
-	public void setSig(Sig1337 sig) {
+	public void setSig(ISig1337 sig) {
 		renderer.setSig(sig);
 	}
 

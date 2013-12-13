@@ -12,5 +12,7 @@
     <string name="start_itineraire">Start</string>
     <string name="target_itineraire">Destination</string>
     <string name="valider_dest">Go to destination</string>
+    <string name="title_activity_activity_base">ActivityBase</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>

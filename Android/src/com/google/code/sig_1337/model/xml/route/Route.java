@@ -1,9 +1,11 @@
-package com.google.code.sig_1337.model.xml;
+package com.google.code.sig_1337.model.xml.route;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import java.nio.ShortBuffer;
+
+import com.google.code.sig_1337.model.xml.IPoint;
 
 public class Route implements IRoute {
 

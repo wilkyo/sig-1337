@@ -1,6 +1,8 @@
-package com.google.code.sig_1337.model.xml;
+package com.google.code.sig_1337.model.xml.structure;
 
 import java.util.List;
+
+import com.google.code.sig_1337.model.xml.IPoint;
 
 
 /**

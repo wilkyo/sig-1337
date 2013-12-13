@@ -1,5 +1,13 @@
 package com.google.code.sig_1337.model.xml;
 
+import com.google.code.sig_1337.model.xml.route.IRoutes;
+import com.google.code.sig_1337.model.xml.route.Routes;
+import com.google.code.sig_1337.model.xml.structure.IBassin;
+import com.google.code.sig_1337.model.xml.structure.IBuilding;
+import com.google.code.sig_1337.model.xml.structure.IForet;
+import com.google.code.sig_1337.model.xml.structure.IStructures;
+import com.google.code.sig_1337.model.xml.structure.Structures;
+
 /**
  * Graphics.
  */
@@ -75,6 +83,17 @@ public class Graphics implements IGraphics {
 	@Override
 	public IStructures<IBassin> getBassins() {
 		return bassins;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void clear() {
+		routes.clear();
+		buildings.clear();
+		forets.clear();
+		bassins.clear();
 	}
 
 }

@@ -2,6 +2,9 @@ package com.google.code.sig_1337.model.xml;
 
 import java.nio.FloatBuffer;
 
+import com.google.code.sig_1337.model.Sig1337Base;
+import com.google.code.sig_1337.model.xml.structure.StructureType;
+
 /**
  * Enum for triangles types.
  */
@@ -32,7 +35,7 @@ public enum TrianglesType {
 		 */
 		@Override
 		public FloatBuffer getColor(StructureType type) {
-			return Sig1337.BACKGROUND_COLOR;
+			return Sig1337Base.BACKGROUND_COLOR;
 		}
 
 	};

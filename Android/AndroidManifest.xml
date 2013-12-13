@@ -50,6 +50,10 @@
             android:name="com.google.code.sig_1337.ItineraireActivity"
             android:label="@string/title_activity_itineraire" >
         </activity>
+        <activity
+            android:name="com.google.code.sig_1337.ActivityBase"
+            android:label="@string/title_activity_activity_base" >
+        </activity>
     </application>
 
 </manifest>
