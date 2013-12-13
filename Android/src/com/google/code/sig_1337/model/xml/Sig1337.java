@@ -5,8 +5,8 @@ import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -227,10 +227,15 @@ public class Sig1337 implements ISig1337 {
 	private static final String GRAPH = "graph";
 
 	/**
-	 * Name for the {@code tag} tag.
+	 * Name for the {@code vertex} tag.
 	 */
 	private static final String VERTEX = "vertex";
 
+	/**
+	 * Name for the {@code voisin} tag.
+	 */
+	private static final String VOISINS = "voisins";
+	
 	/**
 	 * Handler for the {@code XmlPullParser}.
 	 */
@@ -285,7 +290,8 @@ public class Sig1337 implements ISig1337 {
 					continue;
 				}
 				checkInterrupted();
-				graph.add(readVertex(parser, bounds));
+				IVertex v = readVertex(parser, bounds);
+				graph.put(new Point(v.getLongitude(), v.getLongitude(), v.getRelativeLongitude(), v.getRelativeLatitude()), v.getPoint());
 			}
 		}
 
@@ -309,8 +315,8 @@ public class Sig1337 implements ISig1337 {
 			checkInterrupted();
 			parser.require(XmlPullParser.START_TAG, null, VERTEX);
 			double x = Double.parseDouble(parser.getAttributeValue(null, X));
-			double y = Double.parseDouble(parser.getAttributeValue(null, X));
-			List<IPoint> list = new ArrayList<IPoint>();
+			double y = Double.parseDouble(parser.getAttributeValue(null, Y));
+			List<IPoint> list = new CopyOnWriteArrayList<IPoint>();
 			while(parser.next() != XmlPullParser.END_TAG) {
 				if(parser.getEventType() != XmlPullParser.START_TAG) {
 					continue;
@@ -399,7 +405,7 @@ public class Sig1337 implements ISig1337 {
 					sig.graphics.getBuildings(), sig.bounds,
 					new Initializer<IBuilding>() {
 						public IBuilding initialize(String name) {
-							return new Building(name, new ArrayList<IPoint>());
+							return new Building(name);
 						}
 					});
 			readRoutes(parser, sig.graphics.getRoutes(), sig.bounds);
@@ -467,9 +473,43 @@ public class Sig1337 implements ISig1337 {
 				checkInterrupted();
 				T t = init.initialize(name);
 				structures.add(t);
-				readTriangles(parser, t.getTriangles(), bounds);
+				if(parser.getName().equals(TRIANGLES)) {
+					readTriangles(parser, t.getTriangles(), bounds);
+				}
+				if(parser.getName().equals(VOISINS) && tag.equals(BUILDING)) {
+					IBuilding b = (IBuilding)t;
+					readVoisins(parser, b.getVoisins(), bounds);
+				}
 			}
 			parser.require(XmlPullParser.END_TAG, null, tag);
+		}
+
+		/**
+		 * Parse a voisins.
+		 * 
+		 * @param parser
+		 * 			  parser.
+		 * @param voisins
+		 * 			  voisins.
+		 * @param bounds
+		 * 			  map bounds.
+		 * @throws InterruptedException
+		 * @throws XmlPullParserException
+		 * 			  error while parsing.
+		 * @throws IOException
+		 * 			  error with IO.
+		 */
+		private void readVoisins(XmlPullParser parser, IVoisins voisins,
+				IBounds bounds) throws InterruptedException, XmlPullParserException, IOException {
+			checkInterrupted();
+			parser.require(XmlPullParser.START_TAG, null, VOISINS);
+			while(parser.next() != XmlPullParser.END_TAG) {
+				if(parser.getEventType() != XmlPullParser.START_TAG) {
+					continue;
+				}
+				voisins.add(readPoint(parser, bounds));
+			}
+			parser.require(XmlPullParser.END_TAG, null, VOISINS);
 		}
 
 		/**
@@ -513,7 +553,7 @@ public class Sig1337 implements ISig1337 {
 
 		/**
 		 * Parse a triangle.
-		 * 
+		 * 	
 		 * @param parser
 		 *            parser.
 		 * @param bounds
@@ -686,9 +726,7 @@ public class Sig1337 implements ISig1337 {
 			sb.append('<');
 			sb.append(GRAPH);
 			sb.append(">\n");
-			for (IVertex vertex : graph) {
-				toString(sb, indent + INDENT, vertex);
-			}
+			
 			sb.append("</");
 			sb.append(GRAPH);
 			sb.append(">\n");

@@ -92,4 +92,17 @@ public class Vertex implements IVertex {
 		return list;
 	}
 
+	@Override
+	public boolean equals(Object o) {
+		if(o == null)
+			return false;
+		if(o == this)
+			return true;
+		if(o.getClass() == Point.class)
+			return new Point(longitude, latitude, relativeLongitude, relativeLatitude).equals(o);
+		if(o.getClass() != Vertex.class)
+			return false;
+		Vertex ver = (Vertex)o;
+		return new Point(longitude, latitude, relativeLongitude, relativeLatitude).equals(new Point(ver.longitude, ver.latitude, ver.relativeLongitude, ver.relativeLatitude));
+	}
 }

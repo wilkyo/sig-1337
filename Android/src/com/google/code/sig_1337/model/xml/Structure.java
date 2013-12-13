@@ -14,6 +14,8 @@ public abstract class Structure implements IStructure {
 	 */
 	protected final List<ITriangles> triangles;
 
+	protected final IVoisins voisins;
+	
 	/**
 	 * Initializing constructor.
 	 * 
@@ -26,6 +28,7 @@ public abstract class Structure implements IStructure {
 		super();
 		this.name = name;
 		this.triangles = new CopyOnWriteArrayList<ITriangles>();
+		this.voisins = new Voisins();
 	}
 
 	/**
@@ -43,5 +46,5 @@ public abstract class Structure implements IStructure {
 	public List<ITriangles> getTriangles() {
 		return triangles;
 	}
-
+	
 }

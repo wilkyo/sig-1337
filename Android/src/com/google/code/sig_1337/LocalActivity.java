@@ -2,6 +2,7 @@ package com.google.code.sig_1337;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -16,7 +17,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.code.sig_1337.itineraire.Itineraire;
 import com.google.code.sig_1337.model.xml.IBuilding;
+import com.google.code.sig_1337.model.xml.IPoint;
 import com.google.code.sig_1337.model.xml.Sig1337;
 
 public class LocalActivity extends Activity {
@@ -119,8 +122,11 @@ public class LocalActivity extends Activity {
 			ArrayList<String> l = new ArrayList<String>();
 			for (IBuilding building : sig.getGraphics().getBuildings()) {
 				String name = building.getName();
-				if(name != null && !name.equals("") && !l.contains(name))
-					 l.add(building.getName());
+				if(name != null && !name.equals("") && !l.contains(name)) {
+					if(building.getVoisins().size() != 0) {
+						l.add(building.getName());
+					}
+				}
 			}			
 			Intent i = new Intent(this,ItineraireActivity.class);
 			liste = l.toArray(liste);
@@ -135,7 +141,31 @@ public class LocalActivity extends Activity {
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if(data.getAction().equals("Routage")) {
 			if(requestCode == resultCode) {
-				Log.d("pouet", "Do the routage from " + data.getStringExtra("Source") + " to " + data.getStringExtra("Target"));
+				IBuilding depart = null, arrive = null;
+				for (IBuilding building : sig.getGraphics().getBuildings()) {
+					if(building.getName().equals(data.getStringExtra("Source")) && building.getVoisins().size() != 0){
+						depart = building;
+						break;
+					}
+				}
+				for (IBuilding building : sig.getGraphics().getBuildings()) {
+					if(building.getName().equals(data.getStringExtra("Target")) && building.getVoisins().size() != 0){
+						arrive = building;
+						break;
+					}
+				}
+				if(arrive != null && depart != null) {
+					List<IPoint> iti = Itineraire.CalculItineraire(depart, arrive, sig.getGraph());
+					if(iti != null) {
+						String s = "";
+						for (IPoint iPoint : iti) {
+							s = s + iPoint.toString();
+						}
+						Log.d("pouet", s);
+					}
+					else
+						Log.d("pouet", "No path");
+				}
 			}
 			else {
 				Log.d("pouet", "Do nothing.");

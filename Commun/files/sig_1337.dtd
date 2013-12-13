@@ -10,12 +10,12 @@
 <!ELEMENT graphics (bassins, forets, batiments, routes)>
 
 <!ELEMENT bassins (bassin*)>
-<!ELEMENT bassin (triangles+)>
+<!ELEMENT bassin (triangles+,voisins)>
 	<!ATTLIST bassin nom CDATA #REQUIRED>
 
 <!ELEMENT forets (foret*)>
 
-<!ELEMENT foret (triangles+)>
+<!ELEMENT foret (triangles+,voisins)>
 	<!ATTLIST foret nom CDATA #REQUIRED>
 
 <!ELEMENT batiments (batiment*)>
@@ -40,4 +40,5 @@
 <!ELEMENT vertex (point+)>
 	<!ATTLIST vertex x CDATA '0'>
 	<!ATTLIST vertex y CDATA '0'>
+
 
