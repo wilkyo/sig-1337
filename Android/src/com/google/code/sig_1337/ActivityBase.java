@@ -41,7 +41,7 @@ public abstract class ActivityBase extends Activity {
 			// Set the sig in the view.
 			view.setSig(sig);
 			// Load the sig.
-			sig.load();
+			loadSig1337();
 		} catch (Exception e) {
 			l.log(Level.SEVERE, "", e);
 		}
