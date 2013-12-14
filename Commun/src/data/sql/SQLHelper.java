@@ -15,6 +15,7 @@ public class SQLHelper {
 	public static final String DB_SCHEMA = "public";
 	public static final String DB_NAME = "sig_1337";
 	public static final String OSM_SRID = "900913";
+	public static final String REAL_SRID = "4326";
 	public static final String USERNAME = "admin";
 	public static final String PASSWORD = "admin";
 	public static final String OWNER = "postgres";
