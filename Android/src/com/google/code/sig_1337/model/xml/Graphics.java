@@ -1,11 +1,12 @@
 package com.google.code.sig_1337.model.xml;
 
-import com.google.code.sig_1337.model.xml.route.IRoutes;
-import com.google.code.sig_1337.model.xml.route.Routes;
+import com.google.code.sig_1337.model.xml.route.IRoutesMap;
+import com.google.code.sig_1337.model.xml.route.RoutesMap;
 import com.google.code.sig_1337.model.xml.structure.IBassin;
 import com.google.code.sig_1337.model.xml.structure.IBuilding;
 import com.google.code.sig_1337.model.xml.structure.IForet;
 import com.google.code.sig_1337.model.xml.structure.IStructures;
+import com.google.code.sig_1337.model.xml.structure.StructureType;
 import com.google.code.sig_1337.model.xml.structure.Structures;
 
 /**
@@ -16,7 +17,7 @@ public class Graphics implements IGraphics {
 	/**
 	 * Routes.
 	 */
-	private IRoutes routes;
+	private IRoutesMap routes;
 
 	/**
 	 * Buildings.
@@ -47,17 +48,17 @@ public class Graphics implements IGraphics {
 	 */
 	public Graphics() {
 		super();
-		this.routes = new Routes();
-		this.buildings = new Structures<IBuilding>();
-		this.forets = new Structures<IForet>();
-		this.bassins = new Structures<IBassin>();
+		this.routes = new RoutesMap();
+		this.buildings = new Structures<IBuilding>(StructureType.Building);
+		this.forets = new Structures<IForet>(StructureType.Foret);
+		this.bassins = new Structures<IBassin>(StructureType.Bassin);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IRoutes getRoutes() {
+	public IRoutesMap getRoutes() {
 		return routes;
 	}
 

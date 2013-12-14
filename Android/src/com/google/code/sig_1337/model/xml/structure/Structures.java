@@ -19,6 +19,11 @@ public class Structures<T extends IStructure> implements IStructures<T> {
 	private final List<T> inner;
 
 	/**
+	 * Type.
+	 */
+	private final StructureType type;
+
+	/**
 	 * If the structures have been loaded.
 	 */
 	private boolean loaded;
@@ -26,34 +31,48 @@ public class Structures<T extends IStructure> implements IStructures<T> {
 	/**
 	 * Total number of vertex.
 	 */
-	private int vertexCount;
+	private int filledVertexCount;
 
 	/**
-	 * Total number of colors.
+	 * Total number of vertex.
 	 */
-	private int colorCount;
+	private int holeVertexCount;
 
 	/**
 	 * Total number of index.
 	 */
-	private int indexCount;
+	private int filledIndexCount;
+
+	/**
+	 * Total number of index.
+	 */
+	private int holeIndexCount;
 
 	/**
 	 * Vertex buffer.
 	 */
-	private FloatBuffer vertexBuffer;
+	private FloatBuffer filledVertexBuffer;
 
 	/**
-	 * Color buffer.
+	 * Vertex buffer.
 	 */
-	private FloatBuffer colorBuffer;
+	private FloatBuffer holeVertexBuffer;
 
 	/**
 	 * Default constructor.
 	 */
-	public Structures() {
+	public Structures(StructureType type) {
 		super();
 		inner = new ArrayList<T>();
+		this.type = type;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public StructureType getType() {
+		return type;
 	}
 
 	/**
@@ -62,13 +81,20 @@ public class Structures<T extends IStructure> implements IStructures<T> {
 	@Override
 	public void add(T structure) {
 		inner.add(structure);
-		int s = 0;
 		for (ITriangles triangles : structure.getTriangles()) {
-			s += triangles.size();
+			int s = triangles.size();
+			switch (triangles.getType()) {
+			case Filled:
+				filledVertexCount += s * 9;
+				filledIndexCount += s * 3;
+				break;
+			case Hole:
+				holeVertexCount += s * 9;
+				holeIndexCount += s * 3;
+				break;
+			default:
+			}
 		}
-		vertexCount += s * 9;
-		colorCount += s * 4 * 3;
-		indexCount += s * 3;
 	}
 
 	/**
@@ -78,16 +104,17 @@ public class Structures<T extends IStructure> implements IStructures<T> {
 	public void clear() {
 		inner.clear();
 		loaded = false;
-		vertexCount = 0;
-		colorCount = 0;
-		indexCount = 0;
-		if (vertexBuffer != null) {
-			vertexBuffer.clear();
-			vertexBuffer = null;
+		filledVertexCount = 0;
+		holeVertexCount = 0;
+		filledIndexCount = 0;
+		holeIndexCount = 0;
+		if (filledVertexBuffer != null) {
+			filledVertexBuffer.clear();
+			filledVertexBuffer = null;
 		}
-		if (colorBuffer != null) {
-			colorBuffer.clear();
-			colorBuffer = null;
+		if (holeVertexBuffer != null) {
+			holeVertexBuffer.clear();
+			holeVertexBuffer = null;
 		}
 	}
 
@@ -121,29 +148,35 @@ public class Structures<T extends IStructure> implements IStructures<T> {
 	@Override
 	public void done() {
 		// Create the buffer, vertexCount * sizeof(float).
-		ByteBuffer bb = ByteBuffer.allocateDirect(vertexCount * 4);
+		ByteBuffer bb = ByteBuffer.allocateDirect(filledVertexCount * 4);
 		bb.order(ByteOrder.nativeOrder());
-		vertexBuffer = bb.asFloatBuffer();
-		// Create the buffer, colorCount * sizeof(float).
-		bb = ByteBuffer.allocateDirect(colorCount * 4);
+		filledVertexBuffer = bb.asFloatBuffer();
+		// Create the buffer, vertexCount * sizeof(float).
+		bb = ByteBuffer.allocateDirect(holeVertexCount * 4);
 		bb.order(ByteOrder.nativeOrder());
-		colorBuffer = bb.asFloatBuffer();
+		holeVertexBuffer = bb.asFloatBuffer();
 		// For all the structures.
 		for (T structure : inner) {
-			StructureType structureType = structure.getType();
 			// For all the lists of triangles.
 			for (ITriangles triangles : structure.getTriangles()) {
 				TrianglesType type = triangles.getType();
 				// For all the triangles.
 				for (ITriangle triangle : triangles) {
-					triangle.fill(vertexBuffer);
-					type.fill(colorBuffer, structureType);
+					switch (type) {
+					case Filled:
+						triangle.fill(filledVertexBuffer);
+						break;
+					case Hole:
+						triangle.fill(holeVertexBuffer);
+						break;
+					default:
+					}
 				}
 			}
 		}
 		// Reset the position.
-		vertexBuffer.position(0);
-		colorBuffer.position(0);
+		filledVertexBuffer.position(0);
+		holeVertexBuffer.position(0);
 		// Set loaded to true.
 		loaded = true;
 	}
@@ -152,24 +185,32 @@ public class Structures<T extends IStructure> implements IStructures<T> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public FloatBuffer getVertexBuffer() {
-		return vertexBuffer;
+	public FloatBuffer getFilledVertexBuffer() {
+		return filledVertexBuffer;
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public FloatBuffer getColorBuffer() {
-		return colorBuffer;
+	public FloatBuffer getHoleVertexBuffer() {
+		return holeVertexBuffer;
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public int getIndexCount() {
-		return indexCount;
+	public int getFilledIndexCount() {
+		return filledIndexCount;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int getHoleIndexCount() {
+		return holeIndexCount;
 	}
 
 }
