@@ -11,7 +11,6 @@ import android.util.Xml;
 import com.google.code.sig_1337.model.handler.RemoteHandler;
 import com.google.code.sig_1337.model.xml.IItineraire;
 import com.google.code.sig_1337.model.xml.structure.IBuilding;
-import com.google.code.sig_1337.model.xml.structure.IStructure;
 
 /**
  * Remote sig.
@@ -43,8 +42,17 @@ public class RemoteSig1337 extends Sig1337Base implements IRemoteSig1337 {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IStructure getStructure(double x, double y) {
-		// TODO Parler avec le WebService, j'imagine
+	public int getStructureId(double x, double y) {
+		// TODO Tu imagine bien.
+		return 0;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getStructureName(double x, double y) {
+		// TODO Tu imagine bien.
 		return null;
 	}
 	

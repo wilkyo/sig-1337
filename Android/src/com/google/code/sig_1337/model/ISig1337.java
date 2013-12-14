@@ -9,7 +9,6 @@ import com.google.code.sig_1337.model.xml.IBounds;
 import com.google.code.sig_1337.model.xml.IGraphics;
 import com.google.code.sig_1337.model.xml.IItineraire;
 import com.google.code.sig_1337.model.xml.structure.IBuilding;
-import com.google.code.sig_1337.model.xml.structure.IStructure;
 
 /**
  * Interface for the sig.
@@ -51,15 +50,26 @@ public interface ISig1337 {
 			IOException, InterruptedException;
 
 	/**
-	 * Get the structure at the given coordinates.
+	 * Get the id of the structure at the given coordinates.
 	 * 
 	 * @param x
 	 *            longitude.
 	 * @param y
 	 *            latitude.
-	 * @return the structure.
+	 * @return the id of the structure.
 	 */
-	public IStructure getStructure(double x, double y);
+	public int getStructureId(double x, double y);
+
+	/**
+	 * Get the name of the structure at the given coordinates.
+	 * 
+	 * @param x
+	 *            longitude.
+	 * @param y
+	 *            latitude.
+	 * @return the name of the structure.
+	 */
+	public String getStructureName(double x, double y);
 
 	/**
 	 * Get the itineraire from one point to another.

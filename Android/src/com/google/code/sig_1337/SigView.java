@@ -4,8 +4,11 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.opengl.GLSurfaceView;
 import android.support.v4.view.MotionEventCompat;
+import android.view.GestureDetector;
+import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
+import android.view.ScaleGestureDetector.SimpleOnScaleGestureListener;
 
 import com.google.code.sig_1337.model.ISig1337;
 
@@ -21,9 +24,24 @@ public class SigView extends GLSurfaceView {
 	private SigRenderer renderer;
 
 	/**
+	 * Scale listener.
+	 */
+	private ScaleListener scaleListener;
+
+	/**
 	 * Scale detector.
 	 */
 	private ScaleGestureDetector scaleDetector;
+
+	/**
+	 * Gesture listener.
+	 */
+	private GestureListener gestureListener;
+
+	/**
+	 * Gesture detector.
+	 */
+	private GestureDetector gestureDetector;
 
 	/**
 	 * Pointer id for dragging.
@@ -61,8 +79,10 @@ public class SigView extends GLSurfaceView {
 	public SigView(Context context, MyLocationListener locationListener) {
 		super(context);
 		renderer = new SigRenderer(context, locationListener);
-		scaleDetector = new ScaleGestureDetector(context,
-				renderer.getScaleListener());
+		scaleListener = new ScaleListener();
+		scaleDetector = new ScaleGestureDetector(context, scaleListener);
+		gestureListener = new GestureListener();
+		gestureDetector = new GestureDetector(context, gestureListener);
 		setRenderer(renderer);
 	}
 
@@ -83,6 +103,7 @@ public class SigView extends GLSurfaceView {
 	public boolean onTouchEvent(MotionEvent event) {
 		// Scale.
 		scaleDetector.onTouchEvent(event);
+		gestureDetector.onTouchEvent(event);
 
 		// Drag.
 		final int action = MotionEventCompat.getActionMasked(event);
@@ -147,6 +168,38 @@ public class SigView extends GLSurfaceView {
 		}
 		}
 		return true;
+	}
+
+	/**
+	 * Custom scale listener.
+	 */
+	private class ScaleListener extends SimpleOnScaleGestureListener {
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public boolean onScale(ScaleGestureDetector detector) {
+			renderer.onScale(detector.getScaleFactor());
+			return true;
+		}
+
+	}
+
+	/**
+	 * Listener for the single tap event.
+	 */
+	private class GestureListener extends SimpleOnGestureListener {
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public boolean onSingleTapConfirmed(MotionEvent event) {
+			renderer.onTap(event.getX(), event.getY());
+			return true;
+		}
+
 	}
 
 }
