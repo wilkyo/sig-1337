@@ -142,7 +142,7 @@ public class RemoteHandler<U extends ISig1337> implements IHandler<U> {
 	 * Name for the {@code voisins} tag.
 	 */
 	protected static final String VOISINS = "voisins";
-	
+
 	/**
 	 * Name for the {@code x} attribute.
 	 */
@@ -326,9 +326,9 @@ public class RemoteHandler<U extends ISig1337> implements IHandler<U> {
 				continue;
 			}
 			checkInterrupted();
-			if(parser.getName().equals(TRIANGLES))
+			if (parser.getName().equals(TRIANGLES))
 				readTriangles(parser, t.getTriangles(), bounds);
-			else if(parser.getName().equals(VOISINS)) {
+			else if (parser.getName().equals(VOISINS)) {
 				IBuilding b = (IBuilding) t;
 				readVoisins(parser, b.getVoisins(), bounds);
 			}
@@ -339,24 +339,26 @@ public class RemoteHandler<U extends ISig1337> implements IHandler<U> {
 
 	/**
 	 * Parse the neighborhood.
+	 * 
 	 * @param parser
-	 * 			  parser.
+	 *            parser.
 	 * @param voisins
-	 * 			  the neighborhood.
+	 *            the neighborhood.
 	 * @param bounds
-	 * 			  map bounds.
+	 *            map bounds.
 	 * @throws XmlPullParserException
-	 * 			  Error while parsing the XML.
+	 *             Error while parsing the XML.
 	 * @throws IOException
-	 * 			  Error with IO.
+	 *             Error with IO.
 	 * @throws InterruptedException
 	 */
 	protected void readVoisins(XmlPullParser parser, IVoisins voisins,
-			IBounds bounds) throws XmlPullParserException, IOException, InterruptedException {
+			IBounds bounds) throws XmlPullParserException, IOException,
+			InterruptedException {
 		checkInterrupted();
 		parser.require(XmlPullParser.START_TAG, null, VOISINS);
-		while(parser.next() != XmlPullParser.END_TAG) {
-			if(parser.getEventType() != XmlPullParser.START_TAG) {
+		while (parser.next() != XmlPullParser.END_TAG) {
+			if (parser.getEventType() != XmlPullParser.START_TAG) {
 				continue;
 			}
 			checkInterrupted();

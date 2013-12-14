@@ -12,6 +12,7 @@ import com.google.code.sig_1337.model.handler.LocalHandler;
 import com.google.code.sig_1337.model.xml.Graph;
 import com.google.code.sig_1337.model.xml.IGraph;
 import com.google.code.sig_1337.model.xml.IItineraire;
+import com.google.code.sig_1337.model.xml.Tree;
 import com.google.code.sig_1337.model.xml.structure.IStructure;
 
 /**
@@ -26,11 +27,17 @@ public class LocalSig1337 extends Sig1337Base implements ILocalSig1337 {
 	private final IGraph graph;
 
 	/**
+	 * Tree.
+	 */
+	private final Tree tree;
+
+	/**
 	 * Default constructor.
 	 */
 	public LocalSig1337() {
 		super();
 		graph = new Graph();
+		tree = new Tree(null);
 	}
 
 	/**
@@ -39,6 +46,14 @@ public class LocalSig1337 extends Sig1337Base implements ILocalSig1337 {
 	@Override
 	public IGraph getGraph() {
 		return graph;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Tree getTree() {
+		return tree;
 	}
 
 	/**
