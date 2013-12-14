@@ -10,6 +10,44 @@ import java.nio.FloatBuffer;
 public enum RouteType {
 
 	/**
+	 * Itineraire.
+	 */
+	Itineraire("itineraire") {
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public FloatBuffer getFill() {
+			return ITINERAIRE_FILL;
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public FloatBuffer getStroke() {
+			return ITINERAIRE_STROKE;
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public float getFillSize() {
+			return Route.getFillSize();
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public float getStrokeSize() {
+			return Route.getStrokeSize();
+		}
+
+	},
+	/**
 	 * Path.
 	 */
 	Path("chemin") {
@@ -87,6 +125,16 @@ public enum RouteType {
 	};
 
 	/**
+	 * Fill color for itineraires.
+	 */
+	private static final FloatBuffer ITINERAIRE_FILL;
+
+	/**
+	 * Stroke color for itineraires.
+	 */
+	private static final FloatBuffer ITINERAIRE_STROKE;
+
+	/**
 	 * Fill color for paths.
 	 */
 	private static final FloatBuffer PATH_FILL;
@@ -107,41 +155,53 @@ public enum RouteType {
 	private static final FloatBuffer ROUTE_STROKE;
 
 	static {
-		ByteBuffer bb = ByteBuffer.allocateDirect(64);
+		ByteBuffer bb = ByteBuffer.allocateDirect(12);
+		bb.order(ByteOrder.nativeOrder());
+		ITINERAIRE_FILL = bb.asFloatBuffer();
+		float r = 117f / 255f;
+		float g = 213f / 255f;
+		float b = 253f / 255f;
+		ITINERAIRE_FILL.put(new float[] { r, g, b });
+		ITINERAIRE_FILL.position(0);
+		bb = ByteBuffer.allocateDirect(12);
+		bb.order(ByteOrder.nativeOrder());
+		ITINERAIRE_STROKE = bb.asFloatBuffer();
+		r = 105f / 255f;
+		g = 126f / 255f;
+		b = 143f / 255f;
+		ITINERAIRE_STROKE.put(new float[] { r, g, b });
+		ITINERAIRE_STROKE.position(0);
+		bb = ByteBuffer.allocateDirect(12);
 		bb.order(ByteOrder.nativeOrder());
 		PATH_FILL = bb.asFloatBuffer();
-		float r = 253f / 255f;
-		float g = 250f / 255f;
-		float b = 240f / 255f;
-		PATH_FILL.put(new float[] { r, g, b, 1, r, g, b, 1, r, g, b, 1, r, g,
-				b, 1 });
+		r = 253f / 255f;
+		g = 250f / 255f;
+		b = 240f / 255f;
+		PATH_FILL.put(new float[] { r, g, b });
 		PATH_FILL.position(0);
-		bb = ByteBuffer.allocateDirect(64);
+		bb = ByteBuffer.allocateDirect(12);
 		bb.order(ByteOrder.nativeOrder());
 		PATH_STROKE = bb.asFloatBuffer();
 		r = 188f / 255f;
 		g = 182f / 255f;
 		b = 174f / 255f;
-		PATH_STROKE.put(new float[] { r, g, b, 1, r, g, b, 1, r, g, b, 1, r, g,
-				b, 1 });
+		PATH_STROKE.put(new float[] { r, g, b });
 		PATH_STROKE.position(0);
-		bb = ByteBuffer.allocateDirect(64);
+		bb = ByteBuffer.allocateDirect(12);
 		bb.order(ByteOrder.nativeOrder());
 		ROUTE_FILL = bb.asFloatBuffer();
 		r = 253f / 255f;
 		g = 212f / 255f;
 		b = 117f / 255f;
-		ROUTE_FILL.put(new float[] { r, g, b, 1, r, g, b, 1, r, g, b, 1, r, g,
-				b, 1, });
+		ROUTE_FILL.put(new float[] { r, g, b, });
 		ROUTE_FILL.position(0);
-		bb = ByteBuffer.allocateDirect(64);
+		bb = ByteBuffer.allocateDirect(12);
 		bb.order(ByteOrder.nativeOrder());
 		ROUTE_STROKE = bb.asFloatBuffer();
 		r = 143f / 255f;
 		g = 125f / 255f;
 		b = 105f / 255f;
-		ROUTE_STROKE.put(new float[] { r, g, b, 1, r, g, b, 1, r, g, b, 1, r,
-				g, b, 1 });
+		ROUTE_STROKE.put(new float[] { r, g, b });
 		ROUTE_STROKE.position(0);
 	}
 

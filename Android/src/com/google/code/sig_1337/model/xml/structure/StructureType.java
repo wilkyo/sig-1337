@@ -58,29 +58,29 @@ public enum StructureType {
 	private static final FloatBuffer BUILDING;
 
 	static {
-		ByteBuffer bb = ByteBuffer.allocateDirect(48);
+		ByteBuffer bb = ByteBuffer.allocateDirect(12);
 		bb.order(ByteOrder.nativeOrder());
 		BASSIN = bb.asFloatBuffer();
 		float r = 190f / 255f;
 		float g = 208f / 255f;
 		float b = 222f / 255f;
-		BASSIN.put(new float[] { r, g, b, 1, r, g, b, 1, r, g, b, 1 });
+		BASSIN.put(new float[] { r, g, b });
 		BASSIN.position(0);
-		bb = ByteBuffer.allocateDirect(48);
+		bb = ByteBuffer.allocateDirect(12);
 		bb.order(ByteOrder.nativeOrder());
 		FORET = bb.asFloatBuffer();
 		r = 205f / 255f;
 		g = 213f / 255f;
 		b = 132f / 255f;
-		FORET.put(new float[] { r, g, b, 1, r, g, b, 1, r, g, b, 1 });
+		FORET.put(new float[] { r, g, b });
 		FORET.position(0);
-		bb = ByteBuffer.allocateDirect(48);
+		bb = ByteBuffer.allocateDirect(12);
 		bb.order(ByteOrder.nativeOrder());
 		BUILDING = bb.asFloatBuffer();
 		r = 188f / 255f;
 		g = 182f / 255f;
 		b = 174f / 255f;
-		BUILDING.put(new float[] { r, g, b, 1, r, g, b, 1, r, g, b, 1 });
+		BUILDING.put(new float[] { r, g, b });
 		BUILDING.position(0);
 	}
 

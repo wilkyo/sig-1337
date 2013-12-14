@@ -12,9 +12,13 @@ import android.opengl.GLSurfaceView;
 
 import com.google.code.sig_1337.model.ISig1337;
 import com.google.code.sig_1337.model.Sig1337Base;
+import com.google.code.sig_1337.model.xml.IItineraire;
+import com.google.code.sig_1337.model.xml.IPoint;
 import com.google.code.sig_1337.model.xml.route.IRoutes;
 import com.google.code.sig_1337.model.xml.route.IRoutesMap;
+import com.google.code.sig_1337.model.xml.route.Route;
 import com.google.code.sig_1337.model.xml.route.RouteType;
+import com.google.code.sig_1337.model.xml.route.Routes;
 import com.google.code.sig_1337.model.xml.structure.IStructure;
 import com.google.code.sig_1337.model.xml.structure.IStructures;
 
@@ -54,6 +58,8 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 
 	private int height;
 
+	private IRoutes itineraire;
+
 	/**
 	 * Initializing constructor.
 	 * 
@@ -75,6 +81,24 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	 */
 	public synchronized void setSig(ISig1337 sig) {
 		this.sig = sig;
+	}
+
+	/**
+	 * Called when an itineraire has been selected.
+	 * 
+	 * @param itineraire
+	 *            selected itineraire.
+	 */
+	public void onItineraire(IItineraire itineraire) {
+		if (itineraire == null) {
+			this.itineraire = null;
+		} else {
+			Routes routes = new Routes();
+			routes.add(new Route(RouteType.Itineraire, itineraire
+					.toArray(new IPoint[itineraire.size()])));
+			routes.done();
+			this.itineraire = routes;
+		}
 	}
 
 	/**
@@ -205,10 +229,15 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	 *            OpenGL.
 	 */
 	private void drawGraphics(GL10 gl) {
+		gl.glDisableClientState(GL10.GL_COLOR_ARRAY);
+		if (itineraire != null && itineraire.isLoaded()) {
+			drawRoutes(gl, RouteType.Itineraire, itineraire);
+		}
 		drawRoutes(gl);
 		drawStructures(gl, sig.getGraphics().getBuildings());
 		drawStructures(gl, sig.getGraphics().getForets());
 		drawStructures(gl, sig.getGraphics().getBassins());
+		gl.glEnableClientState(GL10.GL_COLOR_ARRAY);
 	}
 
 	/**
@@ -220,22 +249,20 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	private void drawStructures(GL10 gl,
 			IStructures<? extends IStructure> structures) {
 		if (structures.isLoaded()) {
-			gl.glDisableClientState(GL10.GL_COLOR_ARRAY);
 			// Fill.
 			FloatBuffer color = structures.getType().getFill();
 			gl.glVertexPointer(3, GL10.GL_FLOAT, 0,
 					structures.getFilledVertexBuffer());
-			gl.glColor4f(color.get(0), color.get(1), color.get(2), color.get(3));
+			gl.glColor4f(color.get(0), color.get(1), color.get(2), 1);
 			gl.glDrawArrays(GL10.GL_TRIANGLES, 0,
 					structures.getFilledIndexCount());
 			// Hole.
 			color = structures.getType().getHole();
 			gl.glVertexPointer(3, GL10.GL_FLOAT, 0,
 					structures.getHoleVertexBuffer());
-			gl.glColor4f(color.get(0), color.get(1), color.get(2), color.get(3));
+			gl.glColor4f(color.get(0), color.get(1), color.get(2), 1);
 			gl.glDrawArrays(GL10.GL_TRIANGLES, 0,
 					structures.getHoleIndexCount());
-			gl.glEnableClientState(GL10.GL_COLOR_ARRAY);
 		}
 	}
 
@@ -248,30 +275,32 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	private void drawRoutes(GL10 gl) {
 		IRoutesMap routes = sig.getGraphics().getRoutes();
 		if (routes.isLoaded()) {
-			gl.glDisableClientState(GL10.GL_COLOR_ARRAY);
 			// For each type of route.
 			for (Entry<RouteType, IRoutes> e : routes) {
-				// Draw all the routes of this type.
-				RouteType t = e.getKey();
-				IRoutes r = e.getValue();
-				// Fill.
-				FloatBuffer color = t.getFill();
-				gl.glVertexPointer(3, GL10.GL_FLOAT, 0, r.getFillVertexBuffer());
-				gl.glColor4f(color.get(0), color.get(1), color.get(2),
-						color.get(3));
-				gl.glDrawElements(GL10.GL_TRIANGLES, r.getIndexCount(),
-						GL10.GL_UNSIGNED_SHORT, r.getIndexBuffer());
-				// Stroke.
-				color = t.getStroke();
-				gl.glVertexPointer(3, GL10.GL_FLOAT, 0,
-						r.getStrokeVertexBuffer());
-				gl.glColor4f(color.get(0), color.get(1), color.get(2),
-						color.get(3));
-				gl.glDrawElements(GL10.GL_TRIANGLES, r.getIndexCount(),
-						GL10.GL_UNSIGNED_SHORT, r.getIndexBuffer());
+				drawRoutes(gl, e.getKey(), e.getValue());
 			}
-			gl.glEnableClientState(GL10.GL_COLOR_ARRAY);
 		}
+	}
+
+	/**
+	 * Draw the routes.
+	 * 
+	 * @param gl
+	 *            OpenGL.
+	 */
+	private void drawRoutes(GL10 gl, RouteType type, IRoutes routes) {
+		// Fill.
+		FloatBuffer color = type.getFill();
+		gl.glVertexPointer(3, GL10.GL_FLOAT, 0, routes.getFillVertexBuffer());
+		gl.glColor4f(color.get(0), color.get(1), color.get(2), 1);
+		gl.glDrawElements(GL10.GL_TRIANGLES, routes.getIndexCount(),
+				GL10.GL_UNSIGNED_SHORT, routes.getIndexBuffer());
+		// Stroke.
+		color = type.getStroke();
+		gl.glVertexPointer(3, GL10.GL_FLOAT, 0, routes.getStrokeVertexBuffer());
+		gl.glColor4f(color.get(0), color.get(1), color.get(2), 1);
+		gl.glDrawElements(GL10.GL_TRIANGLES, routes.getIndexCount(),
+				GL10.GL_UNSIGNED_SHORT, routes.getIndexBuffer());
 	}
 
 	/**
