@@ -76,10 +76,13 @@ public class SigView extends GLSurfaceView {
 	 *            the context.
 	 * @param locationListener
 	 *            location listener.
+	 * @param sensorListener
+	 *            sensor listener.
 	 */
-	public SigView(Context context, MyLocationListener locationListener) {
+	public SigView(Context context, MyLocationListener locationListener,
+			MySensorListener sensorListener) {
 		super(context);
-		renderer = new SigRenderer(context, locationListener);
+		renderer = new SigRenderer(context, locationListener, sensorListener);
 		scaleListener = new ScaleListener();
 		scaleDetector = new ScaleGestureDetector(context, scaleListener);
 		gestureListener = new GestureListener();
