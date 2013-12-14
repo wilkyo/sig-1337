@@ -35,13 +35,11 @@ public abstract class Sig1337Base implements ISig1337 {
 	public static final FloatBuffer BACKGROUND_COLOR;
 
 	static {
-		ByteBuffer bb = ByteBuffer.allocateDirect(48);
+		ByteBuffer bb = ByteBuffer.allocateDirect(12);
 		bb.order(ByteOrder.nativeOrder());
 		BACKGROUND_COLOR = bb.asFloatBuffer();
 		BACKGROUND_COLOR.put(new float[] { BACKGROUND_RED, BACKGROUND_GREEN,
-				BACKGROUND_BLUE, 1, BACKGROUND_RED, BACKGROUND_GREEN,
-				BACKGROUND_BLUE, 1, BACKGROUND_RED, BACKGROUND_GREEN,
-				BACKGROUND_BLUE, 1 });
+				BACKGROUND_BLUE });
 		BACKGROUND_COLOR.position(0);
 	}
 

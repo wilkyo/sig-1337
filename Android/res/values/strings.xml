@@ -14,5 +14,6 @@
     <string name="valider_dest">Go to destination</string>
     <string name="title_activity_activity_base">ActivityBase</string>
     <string name="hello_world">Hello world!</string>
+    <string name="no_path">No Path.</string>
 
 </resources>

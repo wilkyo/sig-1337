@@ -2,7 +2,6 @@ package com.google.code.sig_1337;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -16,12 +15,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.google.code.sig_1337.itineraire.Itineraire;
 import com.google.code.sig_1337.model.ISig1337;
-import com.google.code.sig_1337.model.LocalSig1337;
 import com.google.code.sig_1337.model.xml.IItineraire;
 import com.google.code.sig_1337.model.xml.IPoint;
 import com.google.code.sig_1337.model.xml.structure.IBuilding;
+import com.google.code.sig_1337.model.xml.structure.IStructures;
 
 public abstract class ActivityBase extends Activity {
 
@@ -110,7 +108,8 @@ public abstract class ActivityBase extends Activity {
 			ArrayList<String> l = new ArrayList<String>();
 			for (IBuilding building : getSig1337().getGraphics().getBuildings()) {
 				String name = building.getName();
-				if (name != null && !name.equals("") && !l.contains(name) && building.getVoisins().size() != 0)
+				if (name != null && !name.equals("") && !l.contains(name)
+						&& building.getVoisins().size() != 0)
 					l.add(building.getName());
 			}
 			Intent i = new Intent(this, ItineraireActivity.class);
@@ -128,30 +127,25 @@ public abstract class ActivityBase extends Activity {
 			if (requestCode == resultCode) {
 				String bdepart = data.getStringExtra("Source");
 				String barrive = data.getStringExtra("Target");
-				IBuilding depart=null,arrive=null;
-				for (IBuilding b : getSig1337().getGraphics().getBuildings()) {
-					if(b.getName().equals(bdepart) && b.getVoisins().size() != 0) {
-						depart = b;
-						break;
-					}
-				}
-				for (IBuilding b : getSig1337().getGraphics().getBuildings()) {
-					if(b.getName().equals(barrive) && b.getVoisins().size() != 0) {
-						arrive = b;
-						break;
-					}
-				}
-				if(depart != null && arrive != null) {
-					IItineraire iti = getSig1337().getItineraire(depart, arrive);
-					if(iti != null) {
-						String s ="";
+				IStructures<IBuilding> buildings = getSig1337().getGraphics()
+						.getBuildings();
+				IBuilding depart = buildings.get(bdepart);
+				IBuilding arrive = buildings.get(barrive);
+				if ((depart != null && depart.getVoisins().size() != 0)
+						&& (arrive != null && arrive.getVoisins().size() != 0)) {
+					IItineraire iti = getSig1337()
+							.getItineraire(depart, arrive);
+					view.onItineraire(iti);
+					if (iti != null) {
+						// Debug.
+						String s = "";
 						for (IPoint iPoint : iti) {
-							s+=iPoint.toString() + " ";
+							s += iPoint.toString() + " ";
 						}
-						Log.d("pouet",s);
+						Log.d("pouet", s);
 					} else {
 						Log.d("pouet","No path.");
-						Toast.makeText(this, "No path", Toast.LENGTH_SHORT).show();
+						Toast.makeText(this, R.string.no_path, Toast.LENGTH_SHORT).show();
 					}
 				}
 			} else {

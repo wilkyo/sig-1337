@@ -101,6 +101,21 @@ public class Structures<T extends IStructure> implements IStructures<T> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public T get(String name) {
+		if (name != null) {
+			for (T t : inner) {
+				if (name.equals(t.getName())) {
+					return t;
+				}
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public void clear() {
 		inner.clear();
 		loaded = false;

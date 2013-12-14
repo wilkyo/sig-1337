@@ -20,6 +20,15 @@ public interface IStructures<T extends IStructure> extends Iterable<T> {
 	public void add(T structure);
 
 	/**
+	 * Get the structure with the given name.
+	 * 
+	 * @param name
+	 *            name of the structure.
+	 * @return corresponding structure.
+	 */
+	public T get(String name);
+
+	/**
 	 * Clear the list.
 	 */
 	public void clear();
