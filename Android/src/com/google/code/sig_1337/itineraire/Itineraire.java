@@ -21,7 +21,7 @@ public class Itineraire {
 		/**
 		 * Le chemin parcouru
 		 */
-		public ArrayList<IPoint> chemin;
+		public List<IPoint> chemin;
 		/**
 		 * Le coût de ce chemin
 		 */
@@ -31,10 +31,10 @@ public class Itineraire {
 		 * Crée l'état de départ
 		 * @param depart le point de l'etat
 		 */
-		public State(IPoint depart) {
+		public State(IPoint depart, double value) {
 			chemin = new ArrayList<IPoint>();
 			chemin.add(depart);
-			this.value = 0;
+			this.value = value;
 		}
 
 		/**
@@ -42,7 +42,7 @@ public class Itineraire {
 		 * @param list le chemin
 		 * @param value le coût du chemin
 		 */
-		public State(ArrayList<IPoint> list, double value) {
+		public State(List<IPoint> list, double value) {
 			chemin = list;
 			this.value = value;
 		}
@@ -82,15 +82,27 @@ public class Itineraire {
 	 * @return la liste des points du parcours commençant par le point d'arrivé,
 	 *         null si pas de chemin
 	 */
-	public static ArrayList<IPoint> CalculItineraire(IBuilding depart, IBuilding arrive,
+	public static List<IPoint> CalculItineraire(IBuilding depart, IBuilding arrive,
 			IGraph iGraph) {
 		ArrayList<IPoint> res = new ArrayList<IPoint>();
+		IPoint milieu = calculMilieu(arrive);
 		if (!depart.equals(arrive)) {
 			ArrayList<State> liststate = new ArrayList<Itineraire.State>();
 			for (IPoint point : depart.getVoisins()) {
 				for (IPoint pingraph: iGraph.keySet()) {
 					if(pingraph.equals(point)) {
-						liststate.add(new State(pingraph));
+						List<IPoint> l = new ArrayList<IPoint>();
+						l.add(pingraph);
+						State t = new State(l,calculValue(l, milieu));
+						int i;
+						for (i = 0; i < liststate.size();i++) {
+							if(liststate.get(i).compareTo(t) == 1) {
+								liststate.add(i, t);
+								break;
+							}
+						}
+						if(i == liststate.size())
+							liststate.add(t);
 						break;
 					}
 				}
@@ -107,12 +119,16 @@ public class Itineraire {
 
 	/**
 	 * 
-	 * @param listState la liste des états à traiter classer par coût
-	 * @param arrive Le point d'arrive
-	 * @param iGraph la liste d'adjacence
-	 * @return l'itinéraire calculé, null si aucun itinéraire
+	 * @param listState
+	 * 				  la liste des états à traiter classer par coût
+	 * @param arrive
+	 * 				  Le point d'arrive
+	 * @param iGraph
+	 * 				  le graphe
+	 * @return
+	 * 				  l'itinéraire calculé, null si aucun itinéraire
 	 */
-	private static ArrayList<IPoint> CalculItineraireRec(
+	private static List<IPoint> CalculItineraireRec(
 			ArrayList<State> listState, IBuilding arrive,
 			IGraph iGraph) {
 		if (listState.isEmpty())
@@ -163,7 +179,7 @@ public class Itineraire {
 	 * @param arrive le point d'arrivé 
 	 * @return Le coût du chemin
 	 */
-	private static double calculValue(ArrayList<IPoint> chemin, IPoint arrive) {
+	private static double calculValue(List<IPoint> chemin, IPoint arrive) {
 		double res = 0;
 		for (int i = 0; i < chemin.size() - 1; i++) {
 			IPoint p1 = chemin.get(i);

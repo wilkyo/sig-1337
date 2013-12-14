@@ -91,7 +91,7 @@ public class LocalHandler<T extends ILocalSig1337> extends RemoteHandler<T> {
 		checkInterrupted();
 		parser.require(XmlPullParser.START_TAG, null, VERTEX);
 		double x = Double.parseDouble(parser.getAttributeValue(null, X));
-		double y = Double.parseDouble(parser.getAttributeValue(null, X));
+		double y = Double.parseDouble(parser.getAttributeValue(null, Y));
 		List<IPoint> list = new ArrayList<IPoint>();
 		while (parser.next() != XmlPullParser.END_TAG) {
 			if (parser.getEventType() != XmlPullParser.START_TAG) {

@@ -89,13 +89,13 @@ public class Point implements IPoint {
 		if(this.getClass() != o.getClass())
 			return false;
 		Point p = (Point)o;
-		return close(p.getLatitude(), latitude) && close(p.getLongitude(), longitude);
+		return (close(p.getLatitude(), latitude) && close(p.getLongitude(), longitude));
 	}
 	
 	private final static double EPSILON = 0.000001;
 	
 	private boolean close(double  x, double y) {
-		return (x - y < EPSILON) && (x - y > -EPSILON);
+		return (x - y < EPSILON) && (y - x < EPSILON);
 	}
 	
 	@Override
