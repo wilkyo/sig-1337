@@ -5,6 +5,7 @@ import android.util.Log;
 import com.google.code.sig_1337.model.xml.*;
 import com.google.code.sig_1337.model.xml.structure.IBuilding;
 
+import java.nio.charset.CoderMalfunctionError;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,28 +22,18 @@ public class Itineraire {
 		/**
 		 * Le chemin parcouru
 		 */
-		public List<IPoint> chemin;
+		public IItineraire chemin;
 		/**
 		 * Le coût de ce chemin
 		 */
 		public double value;
 
 		/**
-		 * Crée l'état de départ
-		 * @param depart le point de l'etat
-		 */
-		public State(IPoint depart, double value) {
-			chemin = new ArrayList<IPoint>();
-			chemin.add(depart);
-			this.value = value;
-		}
-
-		/**
 		 * Créer un noeud avec le chemin list et le coût value
 		 * @param list le chemin
 		 * @param value le coût du chemin
 		 */
-		public State(List<IPoint> list, double value) {
+		public State(IItineraire list, double value) {
 			chemin = list;
 			this.value = value;
 		}
@@ -82,16 +73,16 @@ public class Itineraire {
 	 * @return la liste des points du parcours commençant par le point d'arrivé,
 	 *         null si pas de chemin
 	 */
-	public static List<IPoint> CalculItineraire(IBuilding depart, IBuilding arrive,
+	public static IItineraire CalculItineraire(IBuilding depart, IBuilding arrive,
 			IGraph iGraph) {
-		ArrayList<IPoint> res = new ArrayList<IPoint>();
+		IItineraire res = new com.google.code.sig_1337.model.xml.Itineraire();
 		IPoint milieu = calculMilieu(arrive);
 		if (!depart.equals(arrive)) {
 			ArrayList<State> liststate = new ArrayList<Itineraire.State>();
 			for (IPoint point : depart.getVoisins()) {
 				for (IPoint pingraph: iGraph.keySet()) {
 					if(pingraph.equals(point)) {
-						List<IPoint> l = new ArrayList<IPoint>();
+						IItineraire l = new com.google.code.sig_1337.model.xml.Itineraire();
 						l.add(pingraph);
 						State t = new State(l,calculValue(l, milieu));
 						int i;
@@ -128,7 +119,7 @@ public class Itineraire {
 	 * @return
 	 * 				  l'itinéraire calculé, null si aucun itinéraire
 	 */
-	private static List<IPoint> CalculItineraireRec(
+	private static IItineraire CalculItineraireRec(
 			ArrayList<State> listState, IBuilding arrive,
 			IGraph iGraph) {
 		if (listState.isEmpty())
@@ -150,8 +141,8 @@ public class Itineraire {
 				for (IPoint point : voisin) {
 					// Evite de retourner dans un état précedant
 					if (!head.chemin.contains(point)) {
-						ArrayList<IPoint> newChemin = new ArrayList<IPoint>(
-								head.chemin);
+						IItineraire newChemin = new com.google.code.sig_1337.model.xml.Itineraire();
+						newChemin.addAll(head.chemin);
 						newChemin.add(point);
 						State ajout = new State(newChemin, calculValue(
 								newChemin, milieu));
