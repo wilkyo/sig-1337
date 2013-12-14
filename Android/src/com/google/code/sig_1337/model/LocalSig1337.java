@@ -13,7 +13,6 @@ import com.google.code.sig_1337.model.xml.Graph;
 import com.google.code.sig_1337.model.xml.IGraph;
 import com.google.code.sig_1337.model.xml.IItineraire;
 import com.google.code.sig_1337.model.xml.Tree;
-import com.google.code.sig_1337.model.xml.structure.IStructure;
 
 /**
  * Local version of the sig.<br/>
@@ -81,9 +80,16 @@ public class LocalSig1337 extends Sig1337Base implements ILocalSig1337 {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IStructure getStructure(double x, double y) {
-		// TODO Auto-generated method stub
-		return null;
+	public int getStructureId(double x, double y) {
+		return tree.locate(x, y).getId();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getStructureName(double x, double y) {
+		return tree.locate(x, y).getName();
 	}
 
 	/**

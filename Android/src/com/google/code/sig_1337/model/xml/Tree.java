@@ -28,7 +28,11 @@ public class Tree {
 	 * @return corresponding leaf node.
 	 */
 	public ILeaf locate(double x, double y) {
-		return root.locate(x, y);
+		if (root == null) {
+			return Leaf.NULL;
+		} else {
+			return root.locate(x, y);
+		}
 	}
 
 	/**
@@ -81,6 +85,11 @@ public class Tree {
 	public static class Leaf implements ILeaf {
 
 		/**
+		 * Null leaf.
+		 */
+		public static final Leaf NULL = new Leaf(-1, "");
+
+		/**
 		 * Structure id.
 		 */
 		private final int id;
@@ -101,7 +110,11 @@ public class Tree {
 		public Leaf(int id, String name) {
 			super();
 			this.id = id;
-			this.name = name;
+			if (name == null || name.equals("")) {
+				this.name = null;
+			} else {
+				this.name = name;
+			}
 		}
 
 		/**
