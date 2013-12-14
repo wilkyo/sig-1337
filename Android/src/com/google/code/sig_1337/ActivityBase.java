@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.code.sig_1337.itineraire.Itineraire;
 import com.google.code.sig_1337.model.ISig1337;
@@ -149,7 +150,8 @@ public abstract class ActivityBase extends Activity {
 						}
 						Log.d("pouet",s);
 					} else {
-						Log.d("pouet","No path.");						
+						Log.d("pouet","No path.");
+						Toast.makeText(this, "No path", Toast.LENGTH_SHORT).show();
 					}
 				}
 			} else {
