@@ -15,12 +15,12 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
-public class LongRunningGetIO extends AsyncTask<Void, Void, String> {
+public class AsyncTaskGetMap extends AsyncTask<Void, Void, String> {
 
 	private Context mContext;
 	private String serverIP;
 
-	public LongRunningGetIO(Context mContext, String serverIP) {
+	public AsyncTaskGetMap(Context mContext, String serverIP) {
 		this.mContext = mContext;
 		this.serverIP = serverIP;
 	}

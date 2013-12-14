@@ -17,6 +17,12 @@ import com.google.code.sig_1337.model.xml.structure.IBuilding;
  */
 public class RemoteSig1337 extends Sig1337Base implements IRemoteSig1337 {
 
+	private String serverIP;
+
+	public RemoteSig1337(String serverIP) {
+		this.serverIP = serverIP;
+	}
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -55,7 +61,7 @@ public class RemoteSig1337 extends Sig1337Base implements IRemoteSig1337 {
 		// TODO Tu imagine bien.
 		return null;
 	}
-	
+
 	/**
 	 * {@inheritDoc}
 	 */

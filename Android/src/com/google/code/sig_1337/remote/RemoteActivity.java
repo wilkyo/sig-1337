@@ -29,7 +29,7 @@ public class RemoteActivity extends ActivityBase {
 	@Override
 	protected ISig1337 getSig1337() {
 		if (sig == null) {
-			sig = new RemoteSig1337();
+			sig = new RemoteSig1337(SERVER_IP);
 		}
 		return sig;
 	}
@@ -39,7 +39,7 @@ public class RemoteActivity extends ActivityBase {
 	 */
 	@Override
 	protected void loadSig1337() {
-		new LongRunningGetIO(this, SERVER_IP).execute();
+		new AsyncTaskGetMap(this, SERVER_IP).execute();
 	}
 
 	public void createMap(String xml) {
