@@ -8,6 +8,8 @@ import java.util.logging.Logger;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,21 +30,38 @@ public abstract class ActivityBase extends Activity {
 	private SigView view;
 
 	/**
+	 * Location manager.
+	 */
+	private LocationManager locationManager;
+
+	/**
 	 * GPS listener.
 	 */
 	private MyLocationListener locationListener;
+
+	/**
+	 * Sensor manager.
+	 */
+	private SensorManager sensorManager;
+
+	/**
+	 * Sensor listener.
+	 */
+	private MySensorListener sensorListener;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		// GPS.
-		LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+		locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 		locationListener = new MockLocationListener(); // TODO
-		lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0,
-				locationListener);
+		// Sensor.
+		sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+		sensorListener = new MySensorListener();
+		//
 		final Logger l = Logger.getLogger("Pouet");
 		//
-		view = new SigView(this, locationListener);
+		view = new SigView(this, locationListener, sensorListener);
 		setContentView(view);
 		try {
 			// Create and get the sig.
@@ -73,6 +92,9 @@ public abstract class ActivityBase extends Activity {
 	public void onPause() {
 		super.onPause();
 		view.onPause();
+		// Detach the listeners.
+		locationManager.removeUpdates(locationListener);
+		sensorManager.unregisterListener(sensorListener);
 	}
 
 	/**
@@ -82,6 +104,21 @@ public abstract class ActivityBase extends Activity {
 	public void onResume() {
 		super.onResume();
 		view.onResume();
+		// Attach the listeners.
+		locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0,
+				0, locationListener);
+		Logger.getLogger("pouet")
+				.info(sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
+						+ " ");
+		Logger.getLogger("pouet").info(
+				sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD)
+						+ " ");
+		sensorManager.registerListener(sensorListener,
+				sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
+				SensorManager.SENSOR_DELAY_NORMAL);
+		sensorManager.registerListener(sensorListener,
+				sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD),
+				SensorManager.SENSOR_DELAY_NORMAL);
 	}
 
 	/**
