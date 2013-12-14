@@ -1,5 +1,7 @@
 package com.google.code.sig_1337.model.xml;
 
-public interface IItineraire {
+import java.util.List;
+
+public interface IItineraire extends List<IPoint>{
 
 }

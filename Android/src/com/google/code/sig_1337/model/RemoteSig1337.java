@@ -10,6 +10,7 @@ import android.util.Xml;
 
 import com.google.code.sig_1337.model.handler.RemoteHandler;
 import com.google.code.sig_1337.model.xml.IItineraire;
+import com.google.code.sig_1337.model.xml.structure.IBuilding;
 
 /**
  * Remote sig.
@@ -54,13 +55,13 @@ public class RemoteSig1337 extends Sig1337Base implements IRemoteSig1337 {
 		// TODO Tu imagine bien.
 		return null;
 	}
-
+	
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IItineraire getItineraire(double x1, double y1, double x2, double y2) {
-		// TODO Parler avec le WebService, j'imagine
+	public IItineraire getItineraire(IBuilding start, IBuilding end) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 

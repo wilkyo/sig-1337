@@ -8,11 +8,13 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import android.util.Xml;
 
+import com.google.code.sig_1337.itineraire.Itineraire;
 import com.google.code.sig_1337.model.handler.LocalHandler;
 import com.google.code.sig_1337.model.xml.Graph;
 import com.google.code.sig_1337.model.xml.IGraph;
 import com.google.code.sig_1337.model.xml.IItineraire;
 import com.google.code.sig_1337.model.xml.Tree;
+import com.google.code.sig_1337.model.xml.structure.IBuilding;
 
 /**
  * Local version of the sig.<br/>
@@ -96,9 +98,7 @@ public class LocalSig1337 extends Sig1337Base implements ILocalSig1337 {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IItineraire getItineraire(double x1, double y1, double x2, double y2) {
-		// TODO Auto-generated method stub
-		return null;
+	public IItineraire getItineraire(IBuilding start, IBuilding end) {
+		return Itineraire.CalculItineraire(start, end, graph);
 	}
-
 }

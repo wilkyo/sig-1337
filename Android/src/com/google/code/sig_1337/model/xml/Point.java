@@ -119,11 +119,11 @@ public class Point implements IPoint {
 	}
 
 	private final static double EPSILON = 0.000001;
-
-	private boolean close(double x, double y) {
-		return (x - y < EPSILON) && (x - y > -EPSILON);
+	
+	private boolean close(double  x, double y) {
+		return (x - y < EPSILON) && (y - x < EPSILON);
 	}
-
+	
 	@Override
 	public String toString() {
 		String s = "";

@@ -5,6 +5,7 @@ import android.util.Log;
 import com.google.code.sig_1337.model.xml.*;
 import com.google.code.sig_1337.model.xml.structure.IBuilding;
 
+import java.nio.charset.CoderMalfunctionError;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,28 +22,18 @@ public class Itineraire {
 		/**
 		 * Le chemin parcouru
 		 */
-		public ArrayList<IPoint> chemin;
+		public IItineraire chemin;
 		/**
 		 * Le coût de ce chemin
 		 */
 		public double value;
 
 		/**
-		 * Crée l'état de départ
-		 * @param depart le point de l'etat
-		 */
-		public State(IPoint depart) {
-			chemin = new ArrayList<IPoint>();
-			chemin.add(depart);
-			this.value = 0;
-		}
-
-		/**
 		 * Créer un noeud avec le chemin list et le coût value
 		 * @param list le chemin
 		 * @param value le coût du chemin
 		 */
-		public State(ArrayList<IPoint> list, double value) {
+		public State(IItineraire list, double value) {
 			chemin = list;
 			this.value = value;
 		}
@@ -82,15 +73,27 @@ public class Itineraire {
 	 * @return la liste des points du parcours commençant par le point d'arrivé,
 	 *         null si pas de chemin
 	 */
-	public static ArrayList<IPoint> CalculItineraire(IBuilding depart, IBuilding arrive,
+	public static IItineraire CalculItineraire(IBuilding depart, IBuilding arrive,
 			IGraph iGraph) {
-		ArrayList<IPoint> res = new ArrayList<IPoint>();
+		IItineraire res = new com.google.code.sig_1337.model.xml.Itineraire();
+		IPoint milieu = calculMilieu(arrive);
 		if (!depart.equals(arrive)) {
 			ArrayList<State> liststate = new ArrayList<Itineraire.State>();
 			for (IPoint point : depart.getVoisins()) {
 				for (IPoint pingraph: iGraph.keySet()) {
 					if(pingraph.equals(point)) {
-						liststate.add(new State(pingraph));
+						IItineraire l = new com.google.code.sig_1337.model.xml.Itineraire();
+						l.add(pingraph);
+						State t = new State(l,calculValue(l, milieu));
+						int i;
+						for (i = 0; i < liststate.size();i++) {
+							if(liststate.get(i).compareTo(t) == 1) {
+								liststate.add(i, t);
+								break;
+							}
+						}
+						if(i == liststate.size())
+							liststate.add(t);
 						break;
 					}
 				}
@@ -107,12 +110,16 @@ public class Itineraire {
 
 	/**
 	 * 
-	 * @param listState la liste des états à traiter classer par coût
-	 * @param arrive Le point d'arrive
-	 * @param iGraph la liste d'adjacence
-	 * @return l'itinéraire calculé, null si aucun itinéraire
+	 * @param listState
+	 * 				  la liste des états à traiter classer par coût
+	 * @param arrive
+	 * 				  Le point d'arrive
+	 * @param iGraph
+	 * 				  le graphe
+	 * @return
+	 * 				  l'itinéraire calculé, null si aucun itinéraire
 	 */
-	private static ArrayList<IPoint> CalculItineraireRec(
+	private static IItineraire CalculItineraireRec(
 			ArrayList<State> listState, IBuilding arrive,
 			IGraph iGraph) {
 		if (listState.isEmpty())
@@ -134,8 +141,8 @@ public class Itineraire {
 				for (IPoint point : voisin) {
 					// Evite de retourner dans un état précedant
 					if (!head.chemin.contains(point)) {
-						ArrayList<IPoint> newChemin = new ArrayList<IPoint>(
-								head.chemin);
+						IItineraire newChemin = new com.google.code.sig_1337.model.xml.Itineraire();
+						newChemin.addAll(head.chemin);
 						newChemin.add(point);
 						State ajout = new State(newChemin, calculValue(
 								newChemin, milieu));
@@ -163,7 +170,7 @@ public class Itineraire {
 	 * @param arrive le point d'arrivé 
 	 * @return Le coût du chemin
 	 */
-	private static double calculValue(ArrayList<IPoint> chemin, IPoint arrive) {
+	private static double calculValue(List<IPoint> chemin, IPoint arrive) {
 		double res = 0;
 		for (int i = 0; i < chemin.size() - 1; i++) {
 			IPoint p1 = chemin.get(i);

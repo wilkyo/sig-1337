@@ -8,6 +8,7 @@ import org.xmlpull.v1.XmlPullParserException;
 import com.google.code.sig_1337.model.xml.IBounds;
 import com.google.code.sig_1337.model.xml.IGraphics;
 import com.google.code.sig_1337.model.xml.IItineraire;
+import com.google.code.sig_1337.model.xml.structure.IBuilding;
 
 /**
  * Interface for the sig.
@@ -83,6 +84,6 @@ public interface ISig1337 {
 	 *            second point y-coordinate.
 	 * @return the itineraire.
 	 */
-	public IItineraire getItineraire(double x1, double y1, double x2, double y2);
+	public IItineraire getItineraire(IBuilding start, IBuilding end);
 
 }

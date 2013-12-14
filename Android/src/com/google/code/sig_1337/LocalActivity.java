@@ -2,6 +2,7 @@ package com.google.code.sig_1337;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -10,8 +11,11 @@ import android.content.Intent;
 import android.util.Log;
 import android.view.MenuItem;
 
+import com.google.code.sig_1337.itineraire.Itineraire;
 import com.google.code.sig_1337.model.ISig1337;
 import com.google.code.sig_1337.model.LocalSig1337;
+import com.google.code.sig_1337.model.xml.IPoint;
+import com.google.code.sig_1337.model.xml.Voisins;
 import com.google.code.sig_1337.model.xml.structure.IBuilding;
 
 public class LocalActivity extends ActivityBase {
@@ -65,39 +69,5 @@ public class LocalActivity extends ActivityBase {
 				l.log(Level.SEVERE, e.getMessage(), e);
 			}
 		}
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		boolean action = false;
-		if (item.getItemId() == R.id.itineraire) {
-			String[] liste = {};
-			ArrayList<String> l = new ArrayList<String>();
-			for (IBuilding building : sig.getGraphics().getBuildings()) {
-				String name = building.getName();
-				if (name != null && !name.equals("") && !l.contains(name))
-					l.add(building.getName());
-			}
-			Intent i = new Intent(this, ItineraireActivity.class);
-			liste = l.toArray(liste);
-			Arrays.sort(liste);
-			i.putExtra("Nombat", liste);
-			startActivityForResult(i, 1);
-		}
-		return action;
-	}
-
-	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		if (data.getAction().equals("Routage")) {
-			if (requestCode == resultCode) {
-				Log.d("pouet",
-						"Do the routage from " + data.getStringExtra("Source")
-								+ " to " + data.getStringExtra("Target"));
-			} else {
-				Log.d("pouet", "Do nothing.");
-			}
-		}
-		super.onActivityResult(requestCode, resultCode, data);
 	}
 }
