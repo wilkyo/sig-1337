@@ -5,7 +5,6 @@ import java.util.List;
 import com.google.code.sig_1337.model.xml.ITriangles;
 
 public interface IStructure {
-
 	/**
 	 * Get its type.
 	 * 

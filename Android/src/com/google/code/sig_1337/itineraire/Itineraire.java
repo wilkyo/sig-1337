@@ -1,10 +1,11 @@
 package com.google.code.sig_1337.itineraire;
 
+import android.util.Log;
+
 import com.google.code.sig_1337.model.xml.*;
 import com.google.code.sig_1337.model.xml.structure.IBuilding;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -76,23 +77,30 @@ public class Itineraire {
 	 *            Le batiment de départ de l'itinéraire
 	 * @param arrive
 	 *            Le batiment d'arrivé de l'itinéaire
-	 * @param listAdjacence
+	 * @param iGraph
 	 *            La liste d'adjacence (un graphe)
 	 * @return la liste des points du parcours commençant par le point d'arrivé,
 	 *         null si pas de chemin
 	 */
 	public static ArrayList<IPoint> CalculItineraire(IBuilding depart, IBuilding arrive,
-			HashMap<IPoint, ArrayList<IPoint>> listAdjacence) {
+			IGraph iGraph) {
 		ArrayList<IPoint> res = new ArrayList<IPoint>();
-		ArrayList<State> liststate = new ArrayList<Itineraire.State>();
-		for (IPoint point : depart.getNeighborhood()) {
-			liststate.add(new State(point));
-		}
 		if (!depart.equals(arrive)) {
-			return CalculItineraireRec(liststate, arrive, listAdjacence);
+			ArrayList<State> liststate = new ArrayList<Itineraire.State>();
+			for (IPoint point : depart.getVoisins()) {
+				for (IPoint pingraph: iGraph.keySet()) {
+					if(pingraph.equals(point)) {
+						liststate.add(new State(pingraph));
+						break;
+					}
+				}
+			}
+			if(liststate.size()==0)
+				Log.d("pouet", "why?");
+			return CalculItineraireRec(liststate, arrive, iGraph);
 		}
 		else {
-			res.add(arrive.getNeighborhood().get(0));
+			res.add(arrive.getVoisins().get(0));
 			return res;
 		}
 	}
@@ -101,25 +109,28 @@ public class Itineraire {
 	 * 
 	 * @param listState la liste des états à traiter classer par coût
 	 * @param arrive Le point d'arrive
-	 * @param listAdjacence la liste d'adjacence
+	 * @param iGraph la liste d'adjacence
 	 * @return l'itinéraire calculé, null si aucun itinéraire
 	 */
 	private static ArrayList<IPoint> CalculItineraireRec(
 			ArrayList<State> listState, IBuilding arrive,
-			HashMap<IPoint, ArrayList<IPoint>> listAdjacence) {
+			IGraph iGraph) {
 		if (listState.isEmpty())
 			return null;
 		else {
 			// Je recupère le cas le plus intéressant
 			State head = listState.remove(0);
 			// je regarde si je suis à l'arrivé
-			if (arrive.getNeighborhood().contains(head.getHead()))
+			if (arrive.getVoisins().contains(head.getHead()))
 				return head.chemin;
 			else {
 				//Calcul du milieu du batiment
 				IPoint milieu = calculMilieu(arrive);
 				//je génère les nouveaux cas
-				ArrayList<IPoint> voisin = listAdjacence.get(head.getHead());
+				
+				List<IPoint> voisin = iGraph.get(head.getHead());
+				if(voisin == null)
+					voisin = new ArrayList<IPoint>();
 				for (IPoint point : voisin) {
 					// Evite de retourner dans un état précedant
 					if (!head.chemin.contains(point)) {
@@ -141,7 +152,7 @@ public class Itineraire {
 					}
 				}
 				//appel récursif pour traiter les nouveaux états
-				return CalculItineraireRec(listState, arrive, listAdjacence);
+				return CalculItineraireRec(listState, arrive, iGraph);
 			}
 		}
 	}
@@ -168,7 +179,7 @@ public class Itineraire {
 
 	
 	private static IPoint calculMilieu(IBuilding building) {
-		List<IPoint> list = building.getNeighborhood();
+		List<IPoint> list = building.getVoisins();
 		IPoint milieu = list.get(0);
 		for(int i = 1; i < list.size(); i++) {
 			IPoint p = list.get(i);

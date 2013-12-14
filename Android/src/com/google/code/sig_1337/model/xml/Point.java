@@ -1,5 +1,7 @@
 package com.google.code.sig_1337.model.xml;
 
+import android.util.Log;
+
 /**
  * Point.
  */
@@ -87,6 +89,19 @@ public class Point implements IPoint {
 		if(this.getClass() != o.getClass())
 			return false;
 		Point p = (Point)o;
-		return (p.getLatitude() == latitude && p.getLongitude() == longitude);
+		return close(p.getLatitude(), latitude) && close(p.getLongitude(), longitude);
+	}
+	
+	private final static double EPSILON = 0.000001;
+	
+	private boolean close(double  x, double y) {
+		return (x - y < EPSILON) && (x - y > -EPSILON);
+	}
+	
+	@Override
+	public String toString() {
+		String s  = "";
+		s += "longitude:" + longitude + " latitude:" + latitude;
+		return s;
 	}
 }

@@ -7,10 +7,12 @@ import java.util.List;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
+
 import com.google.code.sig_1337.model.ILocalSig1337;
 import com.google.code.sig_1337.model.xml.IBounds;
 import com.google.code.sig_1337.model.xml.IGraph;
 import com.google.code.sig_1337.model.xml.IPoint;
+import com.google.code.sig_1337.model.xml.Point;
 import com.google.code.sig_1337.model.xml.IVertex;
 import com.google.code.sig_1337.model.xml.Vertex;
 
@@ -65,7 +67,8 @@ public class LocalHandler<T extends ILocalSig1337> extends RemoteHandler<T> {
 				continue;
 			}
 			checkInterrupted();
-			graph.add(readVertex(parser, bounds));
+			IVertex vertex = readVertex(parser, bounds);
+			graph.put(new Point(vertex.getLongitude(),vertex.getLatitude(),vertex.getRelativeLongitude(),vertex.getRelativeLatitude()), vertex.getPoint());
 		}
 	}
 
