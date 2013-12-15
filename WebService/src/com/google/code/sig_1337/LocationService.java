@@ -21,8 +21,8 @@ public class LocationService {
 			MediaType.TEXT_HTML })
 	public String getNearestBuiding(@PathParam("lat") double latitude,
 			@PathParam("lon") double longitude) {
-		System.out.println("getNearestBuiding(" + latitude + ", " + longitude
-				+ ")");
+		System.out.println("/WebService/service/location/building/" + latitude
+				+ "/" + longitude);
 		return LocationHelper.getNearestBuilding(latitude, longitude, false);
 	}
 
@@ -34,8 +34,9 @@ public class LocationService {
 			@PathParam("fromlon") double srcLongitude,
 			@PathParam("tolat") double destLatitude,
 			@PathParam("tolon") double destLongitude) {
-		System.out.println("getDirection(" + srcLatitude + ", " + srcLongitude
-				+ " -> " + destLatitude + ", " + destLongitude + ")");
+		System.out.println("/WebService/service/location/direction/"
+				+ srcLatitude + "/" + srcLongitude + "/" + destLatitude + "/"
+				+ destLongitude);
 		return LocationHelper.getDirection(srcLatitude, srcLongitude,
 				destLatitude, destLongitude);
 	}

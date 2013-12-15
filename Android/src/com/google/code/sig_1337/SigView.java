@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.opengl.GLSurfaceView;
 import android.support.v4.view.MotionEventCompat;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;
@@ -210,6 +211,7 @@ public class SigView extends GLSurfaceView {
 		 */
 		@Override
 		public boolean onSingleTapConfirmed(MotionEvent event) {
+			Log.d("pouet", "onSingleTapConfirmed: " + event.toString());
 			renderer.onTap(event.getX(), event.getY());
 			return true;
 		}

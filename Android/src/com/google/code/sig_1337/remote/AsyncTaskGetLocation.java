@@ -11,9 +11,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.protocol.HttpContext;
 
-import android.content.Context;
 import android.os.AsyncTask;
-import android.util.Log;
 
 public class AsyncTaskGetLocation  extends AsyncTask<Void, Void, String> {
 
@@ -48,7 +46,7 @@ public class AsyncTaskGetLocation  extends AsyncTask<Void, Void, String> {
 		HttpClient httpClient = new DefaultHttpClient();
 		HttpContext localContext = new BasicHttpContext();
 		HttpGet httpGet = new HttpGet("http://" + serverIP
-				+ ":8080/WebService/service/building/" + this.lat + "/" + this.lon + "/");
+				+ ":8080/WebService/service/location/building/" + this.lat + "/" + this.lon + "/");
 		String text = null;
 		try {
 			HttpResponse response = httpClient.execute(httpGet, localContext);

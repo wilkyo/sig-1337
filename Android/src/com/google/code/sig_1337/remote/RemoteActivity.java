@@ -26,7 +26,6 @@ public class RemoteActivity extends ActivityBase {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		this.serverIP = this.getIntent().getStringExtra("serverIP");
-		Log.v("pouet", serverIP);
 		super.onCreate(savedInstanceState);
 	}
 

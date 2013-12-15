@@ -7,6 +7,7 @@ import java.util.concurrent.ExecutionException;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
+import android.util.Log;
 import android.util.Xml;
 
 import com.google.code.sig_1337.model.handler.RemoteHandler;
@@ -51,16 +52,20 @@ public class RemoteSig1337 extends Sig1337Base implements IRemoteSig1337 {
 	 */
 	@Override
 	public int getStructureId(double x, double y) {
+		Log.v("pouet", "getStructureId");
 		int res = -1;
 		try {
-			String json = new AsyncTaskGetLocation(serverIP, x, y).get();
+			AsyncTaskGetLocation task = new AsyncTaskGetLocation(serverIP, y, x);
+			task.execute();
+			String json = task.get();
 			if (json != null && json.length() > 0) {
 				String[] jsonElements = json.split("\",\"");
 				if (jsonElements != null && jsonElements.length > 0) {
 					for (String jsonElement : jsonElements) {
 						jsonElement = jsonElement.replace("\"", "");
 						String[] jsonValues = jsonElement.split(":");
-						if (jsonValues != null && jsonValues.length == 2 && jsonValues[0].equals("id")) {
+						if (jsonValues != null && jsonValues.length == 2
+								&& jsonValues[0].equals("id")) {
 							res = Integer.parseInt(jsonValues[1]);
 							break;
 						}
@@ -72,6 +77,7 @@ public class RemoteSig1337 extends Sig1337Base implements IRemoteSig1337 {
 		} catch (ExecutionException e) {
 			e.printStackTrace();
 		}
+		Log.v("pouet", "res = " + res);
 		return res;
 	}
 
@@ -80,16 +86,20 @@ public class RemoteSig1337 extends Sig1337Base implements IRemoteSig1337 {
 	 */
 	@Override
 	public String getStructureName(double x, double y) {
+		Log.v("pouet", "getStructureName");
 		String res = "";
 		try {
-			String json = new AsyncTaskGetLocation(serverIP, x, y).get();
+			AsyncTaskGetLocation task = new AsyncTaskGetLocation(serverIP, y, x);
+			task.execute();
+			String json = task.get();
 			if (json != null && json.length() > 0) {
 				String[] jsonElements = json.split("\",\"");
 				if (jsonElements != null && jsonElements.length > 0) {
 					for (String jsonElement : jsonElements) {
 						jsonElement = jsonElement.replace("\"", "");
 						String[] jsonValues = jsonElement.split(":");
-						if (jsonValues != null && jsonValues.length == 2 && jsonValues[0].equals("name")) {
+						if (jsonValues != null && jsonValues.length == 2
+								&& jsonValues[0].equals("name")) {
 							res = jsonValues[1];
 							break;
 						}
@@ -101,6 +111,7 @@ public class RemoteSig1337 extends Sig1337Base implements IRemoteSig1337 {
 		} catch (ExecutionException e) {
 			e.printStackTrace();
 		}
+		Log.v("pouet", "res = " + res);
 		return res;
 	}
 
