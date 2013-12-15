@@ -6,3 +6,4 @@ algogeo
 RemoteSystemsTempFiles
 map.xml
 */build/
+*.class
