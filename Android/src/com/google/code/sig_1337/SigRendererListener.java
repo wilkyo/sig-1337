@@ -1,10 +1,8 @@
 package com.google.code.sig_1337;
 
-import java.util.EventListener;
-
 import com.google.code.sig_1337.model.xml.structure.IStructure;
 
-public interface SigRendererListener extends EventListener {
+public interface SigRendererListener {
 
 	/**
 	 * Called when a structure has been selected by user.
