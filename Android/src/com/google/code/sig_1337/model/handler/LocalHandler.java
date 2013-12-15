@@ -2,22 +2,25 @@ package com.google.code.sig_1337.model.handler;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
 import com.google.code.sig_1337.model.ILocalSig1337;
+import com.google.code.sig_1337.model.xml.ArbreDecision;
+import com.google.code.sig_1337.model.xml.ArbreDecision.BoundingBox;
+import com.google.code.sig_1337.model.xml.ArbreDecision.INode;
+import com.google.code.sig_1337.model.xml.ArbreDecision.Leaf;
+import com.google.code.sig_1337.model.xml.ArbreDecision.Node;
+import com.google.code.sig_1337.model.xml.ArbreDecision.NullNode;
 import com.google.code.sig_1337.model.xml.IBounds;
 import com.google.code.sig_1337.model.xml.IGraph;
 import com.google.code.sig_1337.model.xml.IPoint;
 import com.google.code.sig_1337.model.xml.IVertex;
 import com.google.code.sig_1337.model.xml.Point;
-import com.google.code.sig_1337.model.xml.Tree;
-import com.google.code.sig_1337.model.xml.Tree.INode;
-import com.google.code.sig_1337.model.xml.Tree.Leaf;
-import com.google.code.sig_1337.model.xml.Tree.XNode;
-import com.google.code.sig_1337.model.xml.Tree.YNode;
 import com.google.code.sig_1337.model.xml.Vertex;
 
 /**
@@ -44,14 +47,29 @@ public class LocalHandler<T extends ILocalSig1337> extends RemoteHandler<T> {
 	private static final String TREE = "tree";
 
 	/**
-	 * Name for the {@code xnode} tag.
+	 * Name for the {@code boundingBoxes} tag.
 	 */
-	private static final String XNODE = "xnode";
+	private static final String BOUNDING_BOXES = "boundingBoxes";
 
 	/**
-	 * Name for the {@code ynode} tag.
+	 * Name for the {@code boundingBox} tag.
 	 */
-	private static final String YNODE = "ynode";
+	private static final String BOUNDING_BOX = "boundingBox";
+
+	/**
+	 * Name for the {@code nodes} tag.
+	 */
+	private static final String NODES = "nodes";
+
+	/**
+	 * Name for the {@code node} tag.
+	 */
+	private static final String NODE = "node";
+
+	/**
+	 * Name for the {@code null} tag.
+	 */
+	private static final String NULL = "null";
 
 	/**
 	 * Name for the {@code leaf} tag.
@@ -175,14 +193,58 @@ public class LocalHandler<T extends ILocalSig1337> extends RemoteHandler<T> {
 	 *             error with IO.
 	 * @throws InterruptedException
 	 */
-	private void readTree(XmlPullParser parser, Tree tree)
+	private void readTree(XmlPullParser parser, ArbreDecision tree)
 			throws XmlPullParserException, IOException, InterruptedException {
 		checkInterrupted();
 		parser.nextTag();
 		parser.require(XmlPullParser.START_TAG, null, TREE);
-		tree.root = readNode(parser);
+		Map<Long, BoundingBox> map = readBoundingBoxes(parser);
+		tree.root = readNodes(parser, map);
 		parser.nextTag();
 		parser.require(XmlPullParser.END_TAG, null, TREE);
+	}
+
+	private Map<Long, BoundingBox> readBoundingBoxes(XmlPullParser parser)
+			throws XmlPullParserException, IOException, InterruptedException {
+		checkInterrupted();
+		parser.nextTag();
+		parser.require(XmlPullParser.START_TAG, null, BOUNDING_BOXES);
+		Map<Long, BoundingBox> map = new HashMap<Long, BoundingBox>();
+		while (parser.next() != XmlPullParser.END_TAG) {
+			if (parser.getEventType() != XmlPullParser.START_TAG) {
+				continue;
+			}
+			readBoundingBox(parser, map);
+		}
+		parser.require(XmlPullParser.END_TAG, null, BOUNDING_BOXES);
+		return map;
+	}
+
+	private void readBoundingBox(XmlPullParser parser,
+			Map<Long, BoundingBox> map) throws XmlPullParserException,
+			IOException, InterruptedException {
+		checkInterrupted();
+		parser.require(XmlPullParser.START_TAG, null, BOUNDING_BOX);
+		long id = Long.parseLong(parser.getAttributeValue(null, ID));
+		String name = parser.getAttributeValue(null, NAME);
+		double x1 = Double.parseDouble(parser.getAttributeValue(null, X1));
+		double y1 = Double.parseDouble(parser.getAttributeValue(null, Y1));
+		double x2 = Double.parseDouble(parser.getAttributeValue(null, X2));
+		double y2 = Double.parseDouble(parser.getAttributeValue(null, Y2));
+		parser.nextTag();
+		parser.require(XmlPullParser.END_TAG, null, BOUNDING_BOX);
+		map.put(id, new BoundingBox(name, x1, y1, x2, y2));
+	}
+
+	private INode readNodes(XmlPullParser parser, Map<Long, BoundingBox> map)
+			throws XmlPullParserException, IOException, InterruptedException {
+		checkInterrupted();
+		parser.nextTag();
+		parser.require(XmlPullParser.START_TAG, null, NODES);
+		INode node = readNode(parser, map);
+		parser.nextTag();
+		parser.require(XmlPullParser.END_TAG, null, NODES);
+		return node;
 	}
 
 	/**
@@ -198,57 +260,67 @@ public class LocalHandler<T extends ILocalSig1337> extends RemoteHandler<T> {
 	 *             error with IO.
 	 * @throws InterruptedException
 	 */
-	private INode readNode(XmlPullParser parser) throws XmlPullParserException,
-			IOException, InterruptedException {
+	private INode readNode(XmlPullParser parser, Map<Long, BoundingBox> map)
+			throws XmlPullParserException, IOException, InterruptedException {
 		checkInterrupted();
 		if (parser.nextTag() != XmlPullParser.START_TAG) {
 			throw new IOException();
 		} else {
 			String name = parser.getName();
-			if (name.equals(XNODE)) {
-				return readXNode(parser);
-			} else if (name.equals(YNODE)) {
-				return readYNode(parser);
+			if (name.equals(NODE)) {
+				return readCNode(parser, map);
+			} else if (name.equals(NULL)) {
+				return readNullNode(parser);
 			} else if (name.equals(LEAF)) {
-				return readLeaf(parser);
+				return readLeaf(parser, map);
 			} else {
 				throw new IOException();
 			}
 		}
 	}
 
-	private INode readXNode(XmlPullParser parser)
+	private INode readCNode(XmlPullParser parser, Map<Long, BoundingBox> map)
 			throws XmlPullParserException, IOException, InterruptedException {
-		float x = Float.parseFloat(parser.getAttributeValue(null, X));
-		float y = Float.parseFloat(parser.getAttributeValue(null, Y));
-		INode left = readNode(parser);
-		INode right = readNode(parser);
+		double x = Double.parseDouble(parser.getAttributeValue(null, X));
+		double y = Double.parseDouble(parser.getAttributeValue(null, Y));
+		INode topLeft = readNode(parser, map);
+		INode topRight = readNode(parser, map);
+		INode bottomLeft = readNode(parser, map);
+		INode bottomRight = readNode(parser, map);
 		parser.nextTag();
-		parser.require(XmlPullParser.END_TAG, null, XNODE);
-		return new XNode(x, y, left, right);
+		parser.require(XmlPullParser.END_TAG, null, NODE);
+		return new Node(topLeft, topRight, bottomLeft, bottomRight, x, y);
 	}
 
-	private INode readYNode(XmlPullParser parser)
+	private INode readNullNode(XmlPullParser parser)
 			throws XmlPullParserException, IOException, InterruptedException {
-		float x1 = Float.parseFloat(parser.getAttributeValue(null, X1));
-		float y1 = Float.parseFloat(parser.getAttributeValue(null, Y1));
-		float x2 = Float.parseFloat(parser.getAttributeValue(null, X2));
-		float y2 = Float.parseFloat(parser.getAttributeValue(null, Y2));
-		INode top = readNode(parser);
-		INode bottom = readNode(parser);
 		parser.nextTag();
-		parser.require(XmlPullParser.END_TAG, null, YNODE);
-		return new YNode(x1, y1, x2, y2, top, bottom);
+		parser.require(XmlPullParser.END_TAG, null, NULL);
+		return NullNode.NULL;
 	}
 
-	private INode readLeaf(XmlPullParser parser) throws XmlPullParserException,
-			IOException, InterruptedException {
-		String s = parser.getAttributeValue(null, ID);
-		int id = s.equals("") ? -1 : Integer.parseInt(s);
-		String name = parser.getAttributeValue(null, NAME);
-		parser.nextTag();
+	private INode readLeaf(XmlPullParser parser, Map<Long, BoundingBox> map)
+			throws XmlPullParserException, IOException, InterruptedException {
+		List<BoundingBox> l = new ArrayList<BoundingBox>();
+		while (parser.next() != XmlPullParser.END_TAG) {
+			if (parser.getEventType() != XmlPullParser.START_TAG) {
+				continue;
+			}
+			l.add(readLeafBoundingBox(parser, map));
+		}
 		parser.require(XmlPullParser.END_TAG, null, LEAF);
-		return new Leaf(id, name);
+		return new Leaf(l);
+	}
+
+	private BoundingBox readLeafBoundingBox(XmlPullParser parser,
+			Map<Long, BoundingBox> map) throws XmlPullParserException,
+			IOException, InterruptedException {
+		checkInterrupted();
+		parser.require(XmlPullParser.START_TAG, null, BOUNDING_BOX);
+		long id = Long.parseLong(parser.getAttributeValue(null, ID));
+		parser.nextTag();
+		parser.require(XmlPullParser.END_TAG, null, BOUNDING_BOX);
+		return map.get(id);
 	}
 
 }
