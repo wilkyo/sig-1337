@@ -4,8 +4,10 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import com.google.code.sig_1337.model.xml.ITriangle;
 import com.google.code.sig_1337.model.xml.ITriangles;
@@ -17,6 +19,11 @@ public class Structures<T extends IStructure> implements IStructures<T> {
 	 * Inner list.
 	 */
 	private final List<T> inner;
+
+	/**
+	 * Structures by name.
+	 */
+	private final Map<String, T> map;
 
 	/**
 	 * Type.
@@ -64,6 +71,7 @@ public class Structures<T extends IStructure> implements IStructures<T> {
 	public Structures(StructureType type) {
 		super();
 		inner = new ArrayList<T>();
+		map = new HashMap<String, T>();
 		this.type = type;
 	}
 
@@ -81,6 +89,7 @@ public class Structures<T extends IStructure> implements IStructures<T> {
 	@Override
 	public void add(T structure) {
 		inner.add(structure);
+		map.put(structure.getName(), structure);
 		for (ITriangles triangles : structure.getTriangles()) {
 			int s = triangles.size();
 			switch (triangles.getType()) {
@@ -102,14 +111,11 @@ public class Structures<T extends IStructure> implements IStructures<T> {
 	 */
 	@Override
 	public T get(String name) {
-		if (name != null) {
-			for (T t : inner) {
-				if (name.equals(t.getName())) {
-					return t;
-				}
-			}
+		if (name == null) {
+			return null;
+		} else {
+			return map.get(name);
 		}
-		return null;
 	}
 
 	/**
@@ -118,6 +124,7 @@ public class Structures<T extends IStructure> implements IStructures<T> {
 	@Override
 	public void clear() {
 		inner.clear();
+		map.clear();
 		loaded = false;
 		filledVertexCount = 0;
 		holeVertexCount = 0;

@@ -3,8 +3,9 @@ package com.google.code.sig_1337;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
+import java.util.List;
 import java.util.Map.Entry;
-import java.util.logging.Logger;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -75,6 +76,11 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	private User user;
 
 	/**
+	 * Listeners.
+	 */
+	private final List<SigRendererListener> listeners;
+
+	/**
 	 * Initializing constructor.
 	 * 
 	 * @param context
@@ -90,6 +96,27 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 		this.locationListener = locationListener;
 		this.sensorListener = sensorListener;
 		user = new User();
+		listeners = new CopyOnWriteArrayList<SigRendererListener>();
+	}
+
+	/**
+	 * Add the given listener.
+	 * 
+	 * @param listener
+	 *            listener to add.
+	 */
+	public void add(SigRendererListener listener) {
+		listeners.add(listener);
+	}
+
+	/**
+	 * Remove the given listener.
+	 * 
+	 * @param listener
+	 *            listener to remove.
+	 */
+	public void remove(SigRendererListener listener) {
+		listeners.remove(listener);
 	}
 
 	/**
@@ -142,50 +169,6 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	public float getCenterY() {
 		return (float) (locationListener.getLatitude() - sig.getBounds()
 				.getMinLat());
-	}
-
-	/**
-	 * Get the translated x-coordinate.<br/>
-	 * <br/>
-	 * This is the center x-coordinate minus the user horizontal translation.
-	 * 
-	 * @return the translated x-coordinate.
-	 */
-	public float getTranslatedX() {
-		return getCenterX() - userDX;
-	}
-
-	/**
-	 * Get the translated y-coordinate.<br/>
-	 * <br/>
-	 * This is the center y-coordinate minus the user vertical translation.
-	 * 
-	 * @return the translated y-coordinate.
-	 */
-	public float getTranslatedY() {
-		return getCenterY() + userDY;
-	}
-
-	/**
-	 * Get the translated x-coordinate.
-	 * 
-	 * @param x
-	 *            x-coordinate.
-	 * @return the translated x-coordinate.
-	 */
-	public float getTranslatedX(double x) {
-		return (float) (x - sig.getBounds().getMinLon()) - userDX;
-	}
-
-	/**
-	 * Get the translated y-coordinate.
-	 * 
-	 * @param y
-	 *            y-coordinate.
-	 * @return the translated y-coordinate.
-	 */
-	public float getTranslatedY(double y) {
-		return (float) (y - sig.getBounds().getMinLat()) + userDY;
 	}
 
 	/**
@@ -396,8 +379,8 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	 *            Vertical dragging.
 	 */
 	public void onDrag(float dX, float dY) {
-		userDX += dX / 100000f;
-		userDY += dY / 100000f;
+		userDX += (dX / 100000f) / userScale;
+		userDY += (dY / 100000f) / userScale;
 	}
 
 	/**
@@ -410,9 +393,12 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	 */
 	public void onTap(float x, float y) {
 		Point2D p = screenToMap(x, y);
-		Logger.getLogger("pouet").info(p.x + " " + p.y);
-		String name = sig.getStructureName(p.x, p.y);
-		Logger.getLogger("pouet").info("Name: " + name);
+		IStructure structure = sig.getStructure(p.x, p.y);
+		synchronized (listeners) {
+			for (SigRendererListener l : listeners) {
+				l.onStructureSelected(structure);
+			}
+		}
 	}
 
 	/**
@@ -435,24 +421,21 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	 * @return new coordinates.
 	 */
 	public Point2D screenToMap(double x, double y) {
-		Logger.getLogger("pouet").info("Screen: " + x + " " + y);
-		// Screen to projection.
-		x = ((x - width / 2f) / (width / 2f)) * ratio;
-		y = ((y - height / 2f) / (height / 2f)) * 1;
-		// Remove scale factor and center.
-		Logger.getLogger("pouet").info(
-				"Center: " + getTranslatedX() + " " + getTranslatedY());
+		// Scale to OpenGL.
+		x = ((x - (width / 2f)) / (width / 2f)) * ratio;
+		y = ((y - (height / 2f)) / (height / 2f) * 1);
+		// Remove scale.
 		x /= getScaleX();
 		y /= getScaleY();
-		// User translation.
-		x -= userDX;
-		y += userDY;
-		Logger.getLogger("pouet").info("User: " + x + " " + y);
-		x = ((x + userDX) + ((getTranslatedX() + userDX) - locationListener
-				.getLongitude())) * -1;
-		y = ((y - userDY) + ((getTranslatedY() - userDY) - locationListener
-				.getLatitude())) * -1;
-		Logger.getLogger("pouet").info("Absolute: " + x + " " + y);
+		// Center.
+		double cX = getCenterX() - userDX;
+		double cY = getCenterY() + userDY;
+		// Remove distance from center.
+		x = x + cX;
+		y = cY - y;
+		// Position.
+		x = (x + sig.getBounds().getMinLon());
+		y = (y + sig.getBounds().getMinLat());
 		return new Point2D(x, y);
 	}
 
@@ -466,16 +449,22 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	 * @return new coordinates.
 	 */
 	public Point2D mapToScreen(double x, double y) {
-		// Absolute to relative.
-		x -= sig.getBounds().getMinLon();
-		y -= sig.getBounds().getMinLat();
-		// User translation.
-		x -= userDX;
-		y += userDY;
+		// Center.
+		double cX = getCenterX() - userDX;
+		double cY = getCenterY() + userDY;
+		// Position.
+		x = (x - sig.getBounds().getMinLon());
+		y = (y - sig.getBounds().getMinLat());
 		// Distance from center.
-		x -= getTranslatedX();
-		y -= getTranslatedY();
-		return null;
+		x = x - cX;
+		y = cY - y;
+		// Scale.
+		x *= getScaleX();
+		y *= getScaleY();
+		// Scale to screen.
+		x = (x / ratio) * (width / 2f) + (width / 2f);
+		y = (y / 1) * (height / 2f) + (height / 2f);
+		return new Point2D(x, y);
 	}
 
 	private static class Point2D {

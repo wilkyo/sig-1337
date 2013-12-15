@@ -68,9 +68,9 @@ public class LocationHelper {
 						+ result.getString(SQLHelper.CUSTOM_TABLE_STRUCTURES_NAME)
 						+ "\",\""
 						+ SQLHelper.CUSTOM_TABLE_STRUCTURES_GEOM
-						+ "\":\""
+						+ "\":"
 						+ result.getString(SQLHelper.CUSTOM_TABLE_STRUCTURES_GEOM)
-						+ "\"}";
+						+ "}";
 			}
 			s.close();
 			connection.close();

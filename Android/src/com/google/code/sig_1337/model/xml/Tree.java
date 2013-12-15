@@ -67,7 +67,7 @@ public class Tree {
 		 *            y-coordinate.
 		 * @return corresponding id.
 		 */
-		public int getId();
+		public long getId();
 
 		/**
 		 * Get the name of the structure at the given coordinates.
@@ -129,7 +129,7 @@ public class Tree {
 		 * {@inheritDoc}
 		 */
 		@Override
-		public int getId() {
+		public long getId() {
 			return id;
 		}
 

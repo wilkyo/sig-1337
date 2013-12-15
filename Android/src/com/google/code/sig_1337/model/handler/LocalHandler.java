@@ -84,6 +84,11 @@ public class LocalHandler<T extends ILocalSig1337> extends RemoteHandler<T> {
 	protected static final String ID = "id";
 
 	/**
+	 * Name for the {@code name} attribute.
+	 */
+	protected static final String NAME = "name";
+
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override

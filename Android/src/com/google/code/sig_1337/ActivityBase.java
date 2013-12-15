@@ -2,6 +2,7 @@ package com.google.code.sig_1337;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -21,9 +22,16 @@ import com.google.code.sig_1337.model.ISig1337;
 import com.google.code.sig_1337.model.xml.IItineraire;
 import com.google.code.sig_1337.model.xml.IPoint;
 import com.google.code.sig_1337.model.xml.structure.IBuilding;
+import com.google.code.sig_1337.model.xml.structure.IStructure;
 import com.google.code.sig_1337.model.xml.structure.IStructures;
 
-public abstract class ActivityBase extends Activity {
+public abstract class ActivityBase extends Activity implements
+		SigRendererListener {
+
+	/**
+	 * Choice for the starting location.
+	 */
+	private static final String MA_POSITION = "Ma position";
 
 	/**
 	 * View.
@@ -68,7 +76,7 @@ public abstract class ActivityBase extends Activity {
 			// Create and get the sig.
 			ISig1337 sig = getSig1337();
 			// Set the sig in the view.
-			view.setSig(sig);
+			view.getRenderer().setSig(sig);
 			// Load the sig.
 			loadSig1337();
 		} catch (Exception e) {
@@ -94,6 +102,7 @@ public abstract class ActivityBase extends Activity {
 		super.onPause();
 		view.onPause();
 		// Detach the listeners.
+		view.getRenderer().remove(this);
 		locationManager.removeUpdates(locationListener);
 		sensorManager.unregisterListener(sensorListener);
 	}
@@ -106,14 +115,9 @@ public abstract class ActivityBase extends Activity {
 		super.onResume();
 		view.onResume();
 		// Attach the listeners.
+		view.getRenderer().add(this);
 		locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0,
 				0, locationListener);
-		Logger.getLogger("pouet")
-				.info(sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
-						+ " ");
-		Logger.getLogger("pouet").info(
-				sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD)
-						+ " ");
 		sensorManager.registerListener(sensorListener,
 				sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
 				SensorManager.SENSOR_DELAY_NORMAL);
@@ -150,8 +154,9 @@ public abstract class ActivityBase extends Activity {
 					l.add(building.getName());
 			}
 			Intent i = new Intent(this, ItineraireActivity.class);
+			Collections.sort(l);
+			l.add(0, MA_POSITION);
 			liste = l.toArray(liste);
-			Arrays.sort(liste);
 			i.putExtra("Nombat", liste);
 			startActivityForResult(i, 1);
 		}
@@ -166,13 +171,31 @@ public abstract class ActivityBase extends Activity {
 				String barrive = data.getStringExtra("Target");
 				IStructures<IBuilding> buildings = getSig1337().getGraphics()
 						.getBuildings();
-				IBuilding depart = buildings.get(bdepart);
-				IBuilding arrive = buildings.get(barrive);
+				IBuilding depart = null;
+				if (MA_POSITION.equals(bdepart)) {
+					// Get the name of the structure at our location.
+					String name = getSig1337().getStructureName(
+							locationListener.getLongitude(),
+							locationListener.getLatitude());
+					// Get the corresponding building.
+					depart = buildings.get(name);
+				} else {
+					depart = buildings.get(bdepart);
+				}
+				IBuilding arrive = null;
+				if (MA_POSITION.equals(barrive)) {
+					String name = getSig1337().getStructureName(
+							locationListener.getLongitude(),
+							locationListener.getLatitude());
+					arrive = buildings.get(name);
+				} else {
+					arrive = buildings.get(barrive);
+				}
 				if ((depart != null && depart.getVoisins().size() != 0)
 						&& (arrive != null && arrive.getVoisins().size() != 0)) {
 					IItineraire iti = getSig1337()
 							.getItineraire(depart, arrive);
-					view.onItineraire(iti);
+					view.getRenderer().onItineraire(iti);
 					if (iti != null) {
 						// Debug.
 						String s = "";
@@ -191,4 +214,15 @@ public abstract class ActivityBase extends Activity {
 		}
 		super.onActivityResult(requestCode, resultCode, data);
 	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void onStructureSelected(IStructure structure) {
+		if (structure != null) {
+			Toast.makeText(this, structure.getName(), Toast.LENGTH_LONG).show();
+		}
+	}
+
 }
