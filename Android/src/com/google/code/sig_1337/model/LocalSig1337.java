@@ -82,7 +82,7 @@ public class LocalSig1337 extends Sig1337Base implements ILocalSig1337 {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public int getStructureId(double x, double y) {
+	public long getStructureId(double x, double y) {
 		return tree.locate(x, y).getId();
 	}
 
