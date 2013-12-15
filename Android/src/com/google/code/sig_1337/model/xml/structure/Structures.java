@@ -3,8 +3,10 @@ package com.google.code.sig_1337.model.xml.structure;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import com.google.code.sig_1337.model.xml.ITriangle;
@@ -14,9 +16,14 @@ import com.google.code.sig_1337.model.xml.TrianglesType;
 public class Structures<T extends IStructure> implements IStructures<T> {
 
 	/**
+	 * Inner list.
+	 */
+	private final List<T> inner;
+
+	/**
 	 * Structures by name.
 	 */
-	private final Map<String, T> inner;
+	private final Map<String, T> map;
 
 	/**
 	 * Type.
@@ -63,7 +70,8 @@ public class Structures<T extends IStructure> implements IStructures<T> {
 	 */
 	public Structures(StructureType type) {
 		super();
-		inner = new HashMap<String, T>();
+		inner = new ArrayList<T>();
+		map = new HashMap<String, T>();
 		this.type = type;
 	}
 
@@ -80,7 +88,8 @@ public class Structures<T extends IStructure> implements IStructures<T> {
 	 */
 	@Override
 	public void add(T structure) {
-		inner.put(structure.getName(), structure);
+		inner.add(structure);
+		map.put(structure.getName(), structure);
 		for (ITriangles triangles : structure.getTriangles()) {
 			int s = triangles.size();
 			switch (triangles.getType()) {
@@ -105,7 +114,7 @@ public class Structures<T extends IStructure> implements IStructures<T> {
 		if (name == null) {
 			return null;
 		} else {
-			return inner.get(name);
+			return map.get(name);
 		}
 	}
 
@@ -115,6 +124,7 @@ public class Structures<T extends IStructure> implements IStructures<T> {
 	@Override
 	public void clear() {
 		inner.clear();
+		map.clear();
 		loaded = false;
 		filledVertexCount = 0;
 		holeVertexCount = 0;
@@ -151,7 +161,7 @@ public class Structures<T extends IStructure> implements IStructures<T> {
 	 */
 	@Override
 	public Iterator<T> iterator() {
-		return inner.values().iterator();
+		return inner.iterator();
 	}
 
 	/**
@@ -168,7 +178,7 @@ public class Structures<T extends IStructure> implements IStructures<T> {
 		bb.order(ByteOrder.nativeOrder());
 		holeVertexBuffer = bb.asFloatBuffer();
 		// For all the structures.
-		for (T structure : inner.values()) {
+		for (T structure : inner) {
 			// For all the lists of triangles.
 			for (ITriangles triangles : structure.getTriangles()) {
 				TrianglesType type = triangles.getType();
