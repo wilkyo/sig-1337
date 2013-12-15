@@ -3,8 +3,9 @@ package com.google.code.sig_1337;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
+import java.util.List;
 import java.util.Map.Entry;
-import java.util.logging.Logger;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -75,6 +76,11 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	private User user;
 
 	/**
+	 * Listeners.
+	 */
+	private final List<SigRendererListener> listeners;
+
+	/**
 	 * Initializing constructor.
 	 * 
 	 * @param context
@@ -90,6 +96,27 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 		this.locationListener = locationListener;
 		this.sensorListener = sensorListener;
 		user = new User();
+		listeners = new CopyOnWriteArrayList<SigRendererListener>();
+	}
+
+	/**
+	 * Add the given listener.
+	 * 
+	 * @param listener
+	 *            listener to add.
+	 */
+	public void add(SigRendererListener listener) {
+		listeners.add(listener);
+	}
+
+	/**
+	 * Remove the given listener.
+	 * 
+	 * @param listener
+	 *            listener to remove.
+	 */
+	public void remove(SigRendererListener listener) {
+		listeners.remove(listener);
 	}
 
 	/**
@@ -365,13 +392,13 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	 *            y-coordinate.
 	 */
 	public void onTap(float x, float y) {
-		Logger.getLogger("pouet").info("screen " + x + " " + y);
 		Point2D p = screenToMap(x, y);
-		Logger.getLogger("pouet").info("map: " + p.x + " " + p.y);
-		Point2D p2 = mapToScreen(p.x, p.y);
-		Logger.getLogger("pouet").info("screen " + p2.x + " " + p2.y);
-		String name = sig.getStructureName(p.x, p.y);
-		Logger.getLogger("pouet").info("Name: " + name);
+		IStructure structure = sig.getStructure(p.x, p.y);
+		synchronized (listeners) {
+			for (SigRendererListener l : listeners) {
+				l.onStructureSelected(structure);
+			}
+		}
 	}
 
 	/**

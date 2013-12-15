@@ -11,9 +11,6 @@ import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.ScaleGestureDetector.SimpleOnScaleGestureListener;
 
-import com.google.code.sig_1337.model.ISig1337;
-import com.google.code.sig_1337.model.xml.IItineraire;
-
 /**
  * OpenGL view.
  */
@@ -91,24 +88,8 @@ public class SigView extends GLSurfaceView {
 		setRenderer(renderer);
 	}
 
-	/**
-	 * Set the sig.
-	 * 
-	 * @param sig
-	 *            new value.
-	 */
-	public void setSig(ISig1337 sig) {
-		renderer.setSig(sig);
-	}
-
-	/**
-	 * Called when an itineraire has been selected.
-	 * 
-	 * @param itineraire
-	 *            selected itineraire.
-	 */
-	public void onItineraire(IItineraire itineraire) {
-		renderer.onItineraire(itineraire);
+	public SigRenderer getRenderer() {
+		return renderer;
 	}
 
 	/**

@@ -4,6 +4,7 @@ import com.google.code.sig_1337.model.xml.route.IRoutesMap;
 import com.google.code.sig_1337.model.xml.structure.IBassin;
 import com.google.code.sig_1337.model.xml.structure.IBuilding;
 import com.google.code.sig_1337.model.xml.structure.IForet;
+import com.google.code.sig_1337.model.xml.structure.IStructure;
 import com.google.code.sig_1337.model.xml.structure.IStructures;
 
 /**
@@ -38,6 +39,15 @@ public interface IGraphics {
 	 * @return the routes.
 	 */
 	public IRoutesMap getRoutes();
+
+	/**
+	 * Get the structure with the given name.
+	 * 
+	 * @param name
+	 *            name of the structure.
+	 * @return the structure.
+	 */
+	public IStructure getStructure(String name);
 
 	/**
 	 * Clear the graphics.
