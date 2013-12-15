@@ -1,5 +1,7 @@
 package com.google.code.sig_1337;
 
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import java.util.Map.Entry;
 import java.util.logging.Logger;
@@ -10,8 +12,8 @@ import javax.microedition.khronos.opengles.GL10;
 import android.content.Context;
 import android.opengl.GLSurfaceView;
 
+import com.google.code.sig_1337.model.Color;
 import com.google.code.sig_1337.model.ISig1337;
-import com.google.code.sig_1337.model.Sig1337Base;
 import com.google.code.sig_1337.model.xml.IItineraire;
 import com.google.code.sig_1337.model.xml.IPoint;
 import com.google.code.sig_1337.model.xml.route.IRoutes;
@@ -26,6 +28,11 @@ import com.google.code.sig_1337.model.xml.structure.IStructures;
  * Render for {@code Sig1337}.
  */
 public class SigRenderer implements GLSurfaceView.Renderer {
+
+	/**
+	 * Scale of the user icon.
+	 */
+	private static final float USER_SCALE = 0.75f;
 
 	/**
 	 * User scale factor.
@@ -48,9 +55,14 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	private ISig1337 sig;
 
 	/**
-	 * GPS listener.
+	 * Location listener.
 	 */
 	private MyLocationListener locationListener;
+
+	/**
+	 * Sensor listener.
+	 */
+	private MySensorListener sensorListener;
 
 	private float ratio;
 
@@ -60,17 +72,24 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 
 	private IRoutes itineraire;
 
+	private User user;
+
 	/**
 	 * Initializing constructor.
 	 * 
 	 * @param context
 	 *            context.
-	 * @param GPS
-	 *            listener.
+	 * @param locationListener
+	 *            location listener.
+	 * @param sensorListener
+	 *            sensor listener.
 	 */
-	public SigRenderer(Context context, MyLocationListener locationListener) {
+	public SigRenderer(Context context, MyLocationListener locationListener,
+			MySensorListener sensorListener) {
 		super();
 		this.locationListener = locationListener;
+		this.sensorListener = sensorListener;
+		user = new User();
 	}
 
 	/**
@@ -210,16 +229,19 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 		gl.glLoadIdentity();
 
 		gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
-		gl.glEnableClientState(GL10.GL_COLOR_ARRAY);
+		gl.glDisableClientState(GL10.GL_COLOR_ARRAY);
 
-		gl.glPushMatrix();
-		gl.glScalef(getScaleX(), getScaleY(), 1);
-		gl.glTranslatef(-getTranslatedX(), -getTranslatedY(), 0);
-		drawGraphics(gl);
-		gl.glPopMatrix();
+		{
+			gl.glPushMatrix();
+			gl.glScalef(getScaleX(), getScaleY(), 1);
+			gl.glTranslatef(userDX, -userDY, 0);
+			drawUser(gl);
+			gl.glTranslatef(-getCenterX(), -getCenterY(), 0);
+			drawGraphics(gl);
+			gl.glPopMatrix();
+		}
 
 		gl.glDisableClientState(GL10.GL_VERTEX_ARRAY);
-		gl.glDisableClientState(GL10.GL_COLOR_ARRAY);
 	}
 
 	/**
@@ -229,7 +251,6 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	 *            OpenGL.
 	 */
 	private void drawGraphics(GL10 gl) {
-		gl.glDisableClientState(GL10.GL_COLOR_ARRAY);
 		if (itineraire != null && itineraire.isLoaded()) {
 			drawRoutes(gl, RouteType.Itineraire, itineraire);
 		}
@@ -237,7 +258,45 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 		drawStructures(gl, sig.getGraphics().getBuildings());
 		drawStructures(gl, sig.getGraphics().getForets());
 		drawStructures(gl, sig.getGraphics().getBassins());
-		gl.glEnableClientState(GL10.GL_COLOR_ARRAY);
+	}
+
+	/**
+	 * Draw the user.
+	 * 
+	 * @param gl
+	 *            OpenGL.
+	 */
+	private void drawUser(GL10 gl) {
+		gl.glPushMatrix();
+		gl.glScalef(USER_SCALE, USER_SCALE, 1);
+		gl.glRotatef((float) (Math.toDegrees(sensorListener.getRotation())), 0,
+				0, -1);
+		{
+			// Fill.
+			gl.glVertexPointer(3, GL10.GL_FLOAT, 0, user.fillVertexBuffer);
+			gl.glColor4f(Color.LIGHT_BLUE.red, Color.LIGHT_BLUE.green,
+					Color.LIGHT_BLUE.blue, 1);
+			gl.glDrawArrays(GL10.GL_TRIANGLE_FAN, 0, user.vertexCount);
+			// Stroke.
+			gl.glVertexPointer(3, GL10.GL_FLOAT, 0, user.strokeVertexBuffer);
+			gl.glColor4f(Color.DARK_BLUE.red, Color.DARK_BLUE.green,
+					Color.DARK_BLUE.blue, 1);
+			gl.glDrawArrays(GL10.GL_TRIANGLE_FAN, 0, user.vertexCount);
+		}
+		{
+			// Fill.
+			gl.glVertexPointer(3, GL10.GL_FLOAT, 0, user.fillVertexBufferArrow);
+			gl.glColor4f(Color.LIGHT_BLUE.red, Color.LIGHT_BLUE.green,
+					Color.LIGHT_BLUE.blue, 1);
+			gl.glDrawArrays(GL10.GL_TRIANGLES, 0, user.vertexCountArrow);
+			// Stroke.
+			gl.glVertexPointer(3, GL10.GL_FLOAT, 0,
+					user.strokeVertexBufferArrow);
+			gl.glColor4f(Color.DARK_BLUE.red, Color.DARK_BLUE.green,
+					Color.DARK_BLUE.blue, 1);
+			gl.glDrawArrays(GL10.GL_TRIANGLES, 0, user.vertexCountArrow);
+		}
+		gl.glPopMatrix();
 	}
 
 	/**
@@ -250,17 +309,17 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 			IStructures<? extends IStructure> structures) {
 		if (structures.isLoaded()) {
 			// Fill.
-			FloatBuffer color = structures.getType().getFill();
+			Color color = structures.getType().getFill();
 			gl.glVertexPointer(3, GL10.GL_FLOAT, 0,
 					structures.getFilledVertexBuffer());
-			gl.glColor4f(color.get(0), color.get(1), color.get(2), 1);
+			gl.glColor4f(color.red, color.green, color.blue, 1);
 			gl.glDrawArrays(GL10.GL_TRIANGLES, 0,
 					structures.getFilledIndexCount());
 			// Hole.
 			color = structures.getType().getHole();
 			gl.glVertexPointer(3, GL10.GL_FLOAT, 0,
 					structures.getHoleVertexBuffer());
-			gl.glColor4f(color.get(0), color.get(1), color.get(2), 1);
+			gl.glColor4f(color.red, color.green, color.blue, 1);
 			gl.glDrawArrays(GL10.GL_TRIANGLES, 0,
 					structures.getHoleIndexCount());
 		}
@@ -290,15 +349,15 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	 */
 	private void drawRoutes(GL10 gl, RouteType type, IRoutes routes) {
 		// Fill.
-		FloatBuffer color = type.getFill();
+		Color color = type.getFill();
 		gl.glVertexPointer(3, GL10.GL_FLOAT, 0, routes.getFillVertexBuffer());
-		gl.glColor4f(color.get(0), color.get(1), color.get(2), 1);
+		gl.glColor4f(color.red, color.green, color.blue, 1);
 		gl.glDrawElements(GL10.GL_TRIANGLES, routes.getIndexCount(),
 				GL10.GL_UNSIGNED_SHORT, routes.getIndexBuffer());
 		// Stroke.
 		color = type.getStroke();
 		gl.glVertexPointer(3, GL10.GL_FLOAT, 0, routes.getStrokeVertexBuffer());
-		gl.glColor4f(color.get(0), color.get(1), color.get(2), 1);
+		gl.glColor4f(color.red, color.green, color.blue, 1);
 		gl.glDrawElements(GL10.GL_TRIANGLES, routes.getIndexCount(),
 				GL10.GL_UNSIGNED_SHORT, routes.getIndexBuffer());
 	}
@@ -323,8 +382,8 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	@Override
 	public void onSurfaceCreated(GL10 gl, EGLConfig config) {
 		gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT, GL10.GL_FASTEST);
-		gl.glClearColor(Sig1337Base.BACKGROUND_RED,
-				Sig1337Base.BACKGROUND_GREEN, Sig1337Base.BACKGROUND_BLUE, 1);
+		gl.glClearColor(Color.BACKGROUND.red, Color.BACKGROUND.green,
+				Color.BACKGROUND.blue, 1);
 		gl.glEnable(GL10.GL_DEPTH_TEST);
 	}
 
@@ -430,6 +489,116 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 			this.y = y;
 		}
 
+	}
+
+	private static class User {
+
+		/**
+		 * Radius for the circle of the user icon.
+		 */
+		private static final float USER_RADIUS = 0.0001f;
+
+		/**
+		 * Distance between the circle and the arrow of the user icon.
+		 */
+		private static final float USER_DISTANCE_ARROW = USER_RADIUS * 0.875f;
+
+		/**
+		 * Size for the arrow of the user icon.
+		 */
+		private static final float USER_SIZE_ARROW = 0.0001f;
+
+		/**
+		 * Number of vertex for the circle of the user icon.
+		 */
+		private static final int USER_VERTEX = 12;
+
+		/**
+		 * Vertex buffer.
+		 */
+		private FloatBuffer fillVertexBuffer;
+
+		/**
+		 * Vertex buffer.
+		 */
+		private FloatBuffer strokeVertexBuffer;
+
+		/**
+		 * Vertex buffer.
+		 */
+		private FloatBuffer fillVertexBufferArrow;
+
+		/**
+		 * Vertex buffer.
+		 */
+		private FloatBuffer strokeVertexBufferArrow;
+
+		/**
+		 * Number of vertex.
+		 */
+		private int vertexCount;
+
+		/**
+		 * Number of vertex.
+		 */
+		private int vertexCountArrow;
+
+		public User() {
+			vertexCount = USER_VERTEX + 2;
+			vertexCountArrow = 3;
+			// Circle.
+			ByteBuffer bb = ByteBuffer.allocateDirect(vertexCount * 3 * 4);
+			bb.order(ByteOrder.nativeOrder());
+			fillVertexBuffer = bb.asFloatBuffer();
+			bb = ByteBuffer.allocateDirect(vertexCount * 3 * 4);
+			bb.order(ByteOrder.nativeOrder());
+			strokeVertexBuffer = bb.asFloatBuffer();
+			fill(fillVertexBuffer, USER_VERTEX, USER_RADIUS);
+			fill(strokeVertexBuffer, USER_VERTEX, USER_RADIUS * 1.25f);
+			// Arrow.
+			bb = ByteBuffer.allocateDirect(vertexCountArrow * 3 * 4);
+			bb.order(ByteOrder.nativeOrder());
+			fillVertexBufferArrow = bb.asFloatBuffer();
+			bb = ByteBuffer.allocateDirect(vertexCountArrow * 3 * 4);
+			bb.order(ByteOrder.nativeOrder());
+			strokeVertexBufferArrow = bb.asFloatBuffer();
+			fillArrow(fillVertexBufferArrow, USER_DISTANCE_ARROW,
+					USER_SIZE_ARROW);
+			fillArrow(strokeVertexBufferArrow, USER_DISTANCE_ARROW * 0.875f,
+					USER_SIZE_ARROW * 1.5f);
+		}
+
+		private void fill(FloatBuffer vertexBuffer, int vertex, float radius) {
+			double step = (Math.PI * 2) / vertex;
+			double a = 0;
+			vertexBuffer.put(0f);
+			vertexBuffer.put(0f);
+			vertexBuffer.put(0f);
+			for (int i = 0; i < vertex; ++i) {
+				vertexBuffer.put((float) (Math.cos(a) * radius));
+				vertexBuffer.put((float) (Math.sin(a) * radius));
+				vertexBuffer.put(0);
+				a += step;
+			}
+			vertexBuffer.put((float) (Math.cos(0) * radius));
+			vertexBuffer.put((float) (Math.sin(0) * radius));
+			vertexBuffer.put(0);
+			vertexBuffer.position(0);
+		}
+
+		private void fillArrow(FloatBuffer vertexBuffer, float distance,
+				float size) {
+			vertexBuffer.put((float) (distance));
+			vertexBuffer.put((float) (size));
+			vertexBuffer.put((float) (0));
+			vertexBuffer.put((float) (distance));
+			vertexBuffer.put((float) (-size));
+			vertexBuffer.put((float) (0));
+			vertexBuffer.put((float) (distance + size * 1.5f));
+			vertexBuffer.put((float) (0));
+			vertexBuffer.put((float) (0));
+			vertexBuffer.position(0);
+		}
 	}
 
 }

@@ -95,6 +95,7 @@ public class Triangulation {
 				} else {
 					sommets.remove(i);
 					cpt = 0;
+					i = i % sommets.size();
 				}
 			}
 			cpt++;

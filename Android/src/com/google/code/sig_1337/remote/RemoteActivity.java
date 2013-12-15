@@ -6,6 +6,7 @@ import java.io.InputStream;
 
 import org.xmlpull.v1.XmlPullParserException;
 
+import android.os.Bundle;
 import android.util.Log;
 
 import com.google.code.sig_1337.ActivityBase;
@@ -20,8 +21,13 @@ public class RemoteActivity extends ActivityBase {
 	 */
 	private static ISig1337 sig;
 
-	// TODO
-	private static final String SERVER_IP = "192.168.1.4";
+	private String serverIP;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		this.serverIP = this.getIntent().getStringExtra("serverIP");
+		super.onCreate(savedInstanceState);
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -29,7 +35,7 @@ public class RemoteActivity extends ActivityBase {
 	@Override
 	protected ISig1337 getSig1337() {
 		if (sig == null) {
-			sig = new RemoteSig1337();
+			sig = new RemoteSig1337(serverIP);
 		}
 		return sig;
 	}
@@ -39,7 +45,7 @@ public class RemoteActivity extends ActivityBase {
 	 */
 	@Override
 	protected void loadSig1337() {
-		new LongRunningGetIO(this, SERVER_IP).execute();
+		new AsyncTaskGetMap(this, serverIP).execute();
 	}
 
 	public void createMap(String xml) {

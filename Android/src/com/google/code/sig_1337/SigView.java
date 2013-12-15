@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.opengl.GLSurfaceView;
 import android.support.v4.view.MotionEventCompat;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;
@@ -76,10 +77,13 @@ public class SigView extends GLSurfaceView {
 	 *            the context.
 	 * @param locationListener
 	 *            location listener.
+	 * @param sensorListener
+	 *            sensor listener.
 	 */
-	public SigView(Context context, MyLocationListener locationListener) {
+	public SigView(Context context, MyLocationListener locationListener,
+			MySensorListener sensorListener) {
 		super(context);
-		renderer = new SigRenderer(context, locationListener);
+		renderer = new SigRenderer(context, locationListener, sensorListener);
 		scaleListener = new ScaleListener();
 		scaleDetector = new ScaleGestureDetector(context, scaleListener);
 		gestureListener = new GestureListener();
@@ -207,6 +211,7 @@ public class SigView extends GLSurfaceView {
 		 */
 		@Override
 		public boolean onSingleTapConfirmed(MotionEvent event) {
+			Log.d("pouet", "onSingleTapConfirmed: " + event.toString());
 			renderer.onTap(event.getX(), event.getY());
 			return true;
 		}

@@ -2,20 +2,29 @@ package com.google.code.sig_1337.model;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.concurrent.ExecutionException;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
+import android.util.Log;
 import android.util.Xml;
 
 import com.google.code.sig_1337.model.handler.RemoteHandler;
 import com.google.code.sig_1337.model.xml.IItineraire;
 import com.google.code.sig_1337.model.xml.structure.IBuilding;
+import com.google.code.sig_1337.remote.AsyncTaskGetLocation;
 
 /**
  * Remote sig.
  */
 public class RemoteSig1337 extends Sig1337Base implements IRemoteSig1337 {
+
+	private String serverIP;
+
+	public RemoteSig1337(String serverIP) {
+		this.serverIP = serverIP;
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -43,8 +52,33 @@ public class RemoteSig1337 extends Sig1337Base implements IRemoteSig1337 {
 	 */
 	@Override
 	public int getStructureId(double x, double y) {
-		// TODO Tu imagine bien.
-		return 0;
+		Log.v("pouet", "getStructureId");
+		int res = -1;
+		try {
+			AsyncTaskGetLocation task = new AsyncTaskGetLocation(serverIP, y, x);
+			task.execute();
+			String json = task.get();
+			if (json != null && json.length() > 0) {
+				String[] jsonElements = json.split("\",\"");
+				if (jsonElements != null && jsonElements.length > 0) {
+					for (String jsonElement : jsonElements) {
+						jsonElement = jsonElement.replace("\"", "");
+						String[] jsonValues = jsonElement.split(":");
+						if (jsonValues != null && jsonValues.length == 2
+								&& jsonValues[0].equals("id")) {
+							res = Integer.parseInt(jsonValues[1]);
+							break;
+						}
+					}
+				}
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			e.printStackTrace();
+		}
+		Log.v("pouet", "res = " + res);
+		return res;
 	}
 
 	/**
@@ -52,10 +86,35 @@ public class RemoteSig1337 extends Sig1337Base implements IRemoteSig1337 {
 	 */
 	@Override
 	public String getStructureName(double x, double y) {
-		// TODO Tu imagine bien.
-		return null;
+		Log.v("pouet", "getStructureName");
+		String res = "";
+		try {
+			AsyncTaskGetLocation task = new AsyncTaskGetLocation(serverIP, y, x);
+			task.execute();
+			String json = task.get();
+			if (json != null && json.length() > 0) {
+				String[] jsonElements = json.split("\",\"");
+				if (jsonElements != null && jsonElements.length > 0) {
+					for (String jsonElement : jsonElements) {
+						jsonElement = jsonElement.replace("\"", "");
+						String[] jsonValues = jsonElement.split(":");
+						if (jsonValues != null && jsonValues.length == 2
+								&& jsonValues[0].equals("name")) {
+							res = jsonValues[1];
+							break;
+						}
+					}
+				}
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			e.printStackTrace();
+		}
+		Log.v("pouet", "res = " + res);
+		return res;
 	}
-	
+
 	/**
 	 * {@inheritDoc}
 	 */

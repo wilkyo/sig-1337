@@ -14,13 +14,14 @@ import org.apache.http.protocol.HttpContext;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
 
-public class LongRunningGetIO extends AsyncTask<Void, Void, String> {
+public class AsyncTaskGetMap extends AsyncTask<Void, Void, String> {
 
 	private Context mContext;
 	private String serverIP;
 
-	public LongRunningGetIO(Context mContext, String serverIP) {
+	public AsyncTaskGetMap(Context mContext, String serverIP) {
 		this.mContext = mContext;
 		this.serverIP = serverIP;
 	}
@@ -59,10 +60,13 @@ public class LongRunningGetIO extends AsyncTask<Void, Void, String> {
 	protected void onPostExecute(String response) {
 		if (response != null) {
 			System.out.println("Length: " + response.length());
-			if (response.length() >= 200)
+			if (response.length() >= 2000) {
 				((RemoteActivity) mContext).createMap(response);
-			else
+			} else {
+				Toast.makeText(mContext, "Erreur de connexion au serveur...",
+						Toast.LENGTH_LONG).show();
 				Log.v(this.getClass().getSimpleName(), response);
+			}
 		}
 	}
 }
