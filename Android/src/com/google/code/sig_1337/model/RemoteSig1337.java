@@ -3,10 +3,16 @@ package com.google.code.sig_1337.model;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
+import android.util.JsonReader;
 import android.util.Log;
 import android.util.Xml;
 
@@ -49,32 +55,29 @@ public class RemoteSig1337 extends Sig1337Base implements IRemoteSig1337 {
 
 	/**
 	 * {@inheritDoc}
+	 * @throws  
 	 */
 	@Override
-	public int getStructureId(double x, double y) {
+	public long getStructureId(double x, double y) {
 		Log.v("pouet", "getStructureId");
-		int res = -1;
+		long res = -1;
 		try {
 			AsyncTaskGetLocation task = new AsyncTaskGetLocation(serverIP, y, x);
 			task.execute();
-			String json = task.get();
+			String json = task.get(3, TimeUnit.SECONDS);
 			if (json != null && json.length() > 0) {
-				String[] jsonElements = json.split("\",\"");
-				if (jsonElements != null && jsonElements.length > 0) {
-					for (String jsonElement : jsonElements) {
-						jsonElement = jsonElement.replace("\"", "");
-						String[] jsonValues = jsonElement.split(":");
-						if (jsonValues != null && jsonValues.length == 2
-								&& jsonValues[0].equals("id")) {
-							res = Integer.parseInt(jsonValues[1]);
-							break;
-						}
-					}
-				}
+			JSONParser parser = new JSONParser();
+			Object obj = parser.parse(json);
+			JSONObject jsonObject = (JSONObject) obj;
+				res = (Long) jsonObject.get("id");
 			}
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		} catch (ExecutionException e) {
+			e.printStackTrace();
+		} catch (ParseException e) {
+			e.printStackTrace();
+		} catch (TimeoutException e) {
 			e.printStackTrace();
 		}
 		Log.v("pouet", "res = " + res);
@@ -91,24 +94,20 @@ public class RemoteSig1337 extends Sig1337Base implements IRemoteSig1337 {
 		try {
 			AsyncTaskGetLocation task = new AsyncTaskGetLocation(serverIP, y, x);
 			task.execute();
-			String json = task.get();
+			String json = task.get(3, TimeUnit.SECONDS);
 			if (json != null && json.length() > 0) {
-				String[] jsonElements = json.split("\",\"");
-				if (jsonElements != null && jsonElements.length > 0) {
-					for (String jsonElement : jsonElements) {
-						jsonElement = jsonElement.replace("\"", "");
-						String[] jsonValues = jsonElement.split(":");
-						if (jsonValues != null && jsonValues.length == 2
-								&& jsonValues[0].equals("name")) {
-							res = jsonValues[1];
-							break;
-						}
-					}
-				}
+			JSONParser parser = new JSONParser();
+			Object obj = parser.parse(json);
+			JSONObject jsonObject = (JSONObject) obj;
+				res = (String) jsonObject.get("name");
 			}
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		} catch (ExecutionException e) {
+			e.printStackTrace();
+		} catch (ParseException e) {
+			e.printStackTrace();
+		} catch (TimeoutException e) {
 			e.printStackTrace();
 		}
 		Log.v("pouet", "res = " + res);

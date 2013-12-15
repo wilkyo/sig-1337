@@ -58,7 +58,7 @@ public interface ISig1337 {
 	 *            latitude.
 	 * @return the id of the structure.
 	 */
-	public int getStructureId(double x, double y);
+	public long getStructureId(double x, double y);
 
 	/**
 	 * Get the name of the structure at the given coordinates.
