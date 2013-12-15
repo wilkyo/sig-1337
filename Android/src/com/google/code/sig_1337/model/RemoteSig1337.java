@@ -2,6 +2,7 @@ package com.google.code.sig_1337.model;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.concurrent.ExecutionException;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -11,6 +12,7 @@ import android.util.Xml;
 import com.google.code.sig_1337.model.handler.RemoteHandler;
 import com.google.code.sig_1337.model.xml.IItineraire;
 import com.google.code.sig_1337.model.xml.structure.IBuilding;
+import com.google.code.sig_1337.remote.AsyncTaskGetLocation;
 
 /**
  * Remote sig.
@@ -49,8 +51,28 @@ public class RemoteSig1337 extends Sig1337Base implements IRemoteSig1337 {
 	 */
 	@Override
 	public int getStructureId(double x, double y) {
-		// TODO Tu imagine bien.
-		return 0;
+		int res = -1;
+		try {
+			String json = new AsyncTaskGetLocation(serverIP, x, y).get();
+			if (json != null && json.length() > 0) {
+				String[] jsonElements = json.split("\",\"");
+				if (jsonElements != null && jsonElements.length > 0) {
+					for (String jsonElement : jsonElements) {
+						jsonElement = jsonElement.replace("\"", "");
+						String[] jsonValues = jsonElement.split(":");
+						if (jsonValues != null && jsonValues.length == 2 && jsonValues[0] == "id") {
+							res = Integer.parseInt(jsonValues[1]);
+							break;
+						}
+					}
+				}
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			e.printStackTrace();
+		}
+		return res;
 	}
 
 	/**
@@ -58,8 +80,28 @@ public class RemoteSig1337 extends Sig1337Base implements IRemoteSig1337 {
 	 */
 	@Override
 	public String getStructureName(double x, double y) {
-		// TODO Tu imagine bien.
-		return null;
+		String res = "";
+		try {
+			String json = new AsyncTaskGetLocation(serverIP, x, y).get();
+			if (json != null && json.length() > 0) {
+				String[] jsonElements = json.split("\",\"");
+				if (jsonElements != null && jsonElements.length > 0) {
+					for (String jsonElement : jsonElements) {
+						jsonElement = jsonElement.replace("\"", "");
+						String[] jsonValues = jsonElement.split(":");
+						if (jsonValues != null && jsonValues.length == 2 && jsonValues[0] == "name") {
+							res = jsonValues[1];
+							break;
+						}
+					}
+				}
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			e.printStackTrace();
+		}
+		return res;
 	}
 
 	/**

@@ -70,7 +70,7 @@ public class LocationHelper {
 						+ SQLHelper.CUSTOM_TABLE_STRUCTURES_GEOM
 						+ "\":\""
 						+ result.getString(SQLHelper.CUSTOM_TABLE_STRUCTURES_GEOM)
-						+ "}";
+						+ "\"}";
 			}
 			s.close();
 			connection.close();
