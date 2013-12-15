@@ -34,8 +34,6 @@ import data.model.structure.Structure;
 
 public class SQLToXml {
 
-	public static final double ORIGIN_SHIFT = 200 * Math.PI * 6378137 / 2.0;
-
 	/**
 	 * Gets all the nodes from the table.
 	 * 
@@ -48,15 +46,39 @@ public class SQLToXml {
 		Statement s;
 		try {
 			s = db.createStatement();
-			ResultSet result = s.executeQuery("SELECT * FROM "
-					+ SQLHelper.CUSTOM_TABLE_NODES);
+			/*
+			 * SELECT tmp_nodes.id, ST_X(ST_Transform(tmp_nodes.way, 4326)) AS
+			 * x, ST_Y(ST_Transform(tmp_nodes.way, 4326)) AS y FROM (SELECT id,
+			 * ST_Transform(ST_GeomFromText( CONCAT('POINT(', lon / 100, ' ',
+			 * lat / 100, ')') , 900913), 4326) AS way FROM planet_osm_nodes)
+			 * tmp_nodes;
+			 */
+			ResultSet result = s.executeQuery("SELECT tmp_nodes."
+					+ SQLHelper.CUSTOM_TABLE_NODES_ID
+					// LAT
+					+ ", ST_Y(ST_Transform(tmp_nodes."
+					+ SQLHelper.CUSTOM_TABLE_NODES_GEOM
+					+ ", "
+					+ SQLHelper.REAL_SRID
+					+ ")) AS "
+					+ SQLHelper.CUSTOM_TABLE_NODES_LAT
+					// LON
+					+ ", ST_X(ST_Transform(tmp_nodes."
+					+ SQLHelper.CUSTOM_TABLE_NODES_GEOM + ", "
+					+ SQLHelper.REAL_SRID + ")) AS "
+					+ SQLHelper.CUSTOM_TABLE_NODES_LON + " FROM (SELECT "
+					+ SQLHelper.CUSTOM_TABLE_NODES_ID
+					+ ", ST_Transform(ST_GeomFromText(CONCAT('POINT(', "
+					+ SQLHelper.CUSTOM_TABLE_NODES_LON + " / 100, ' ', "
+					+ SQLHelper.CUSTOM_TABLE_NODES_LAT
+					+ " / 100, ')'), 900913), 4326) AS "
+					+ SQLHelper.CUSTOM_TABLE_NODES_GEOM + " FROM "
+					+ SQLHelper.CUSTOM_TABLE_NODES + ") tmp_nodes");
 			while (result.next()) {
 				Node tmp = new Node(
 						result.getLong(SQLHelper.CUSTOM_TABLE_NODES_ID),
-						((result.getInt(SQLHelper.CUSTOM_TABLE_NODES_LAT) / ORIGIN_SHIFT) * 180.0),
-						((result.getInt(SQLHelper.CUSTOM_TABLE_NODES_LON) / ORIGIN_SHIFT) * 180.0));
-				tmp.setLatitude((180 / Math.PI * (2 * Math.atan(Math.exp(tmp
-						.getLatitude() * Math.PI / 180.0)) - Math.PI / 2.0)));
+						result.getDouble(SQLHelper.CUSTOM_TABLE_NODES_LAT),
+						result.getDouble(SQLHelper.CUSTOM_TABLE_NODES_LON));
 				nodes.put(tmp.getId(), tmp);
 			}
 			s.close();
