@@ -1,6 +1,6 @@
 package data.sql;
 
-import geometry.arbreDependance.ArbreDependance;
+import geometry.arbreDependance2.ArbreDecision;
 import geometry.model.Point;
 import geometry.model.Polygone;
 
@@ -448,7 +448,7 @@ public class SQLToXml {
 	private static String generateXML(String filename, List<Road> roads,
 			Map<Long, Basin> basins, Map<Long, Forest> forests,
 			Map<Long, Building> buildings, Map<Point, ArrayList<Point>> graph,
-			ArbreDependance tree, boolean isRemote) {
+			ArbreDecision tree, boolean isRemote) {
 		StringBuffer buff = new StringBuffer();
 		buff.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 				+ "<!DOCTYPE sig_1337 SYSTEM \"sig_1337.dtd\">\n"
@@ -568,14 +568,9 @@ public class SQLToXml {
 			Map<Point, ArrayList<Point>> graph = !isRemote ? getGraph(connection)
 					: null;
 
-			ArbreDependance tree = null;
+			ArbreDecision tree = null;
 			if (!isRemote) {
-				tree = ArbreDependance.create(buildings.values());
-				try {
-					tree.out(new File("files/tree.png"));
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+				tree = ArbreDecision.create(buildings.values());
 			}
 
 			System.out.println(nodes.size() + " nodes.");
