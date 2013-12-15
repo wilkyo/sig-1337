@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.widget.EditText;
 
 import com.google.code.sig_1337.remote.RemoteActivity;
 
@@ -20,6 +21,8 @@ public class MainActivity extends Activity {
 	 */
 	private MyLocationListener locationListener;
 
+	private static final String SERVER_IP = "192.168.1.4";
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -27,6 +30,7 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		((EditText) findViewById(R.id.ipAddress)).setText(SERVER_IP);
 	}
 
 	public void onClickLocal(View v) {
@@ -34,7 +38,10 @@ public class MainActivity extends Activity {
 	}
 
 	public void onClickRemote(View v) {
-		startActivity(new Intent(this, RemoteActivity.class));
+		Intent i = new Intent(this, RemoteActivity.class);
+		i.putExtra("serverIP", ((EditText) findViewById(R.id.ipAddress))
+				.getText().toString());
+		startActivity(i);
 	}
 
 	/**
