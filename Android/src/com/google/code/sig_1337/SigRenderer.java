@@ -352,8 +352,8 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	 *            Vertical dragging.
 	 */
 	public void onDrag(float dX, float dY) {
-		userDX += dX / 100000f;
-		userDY += dY / 100000f;
+		userDX += (dX / 100000f) / userScale;
+		userDY += (dY / 100000f) / userScale;
 	}
 
 	/**
