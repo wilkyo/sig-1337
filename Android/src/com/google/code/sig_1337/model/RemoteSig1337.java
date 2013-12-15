@@ -60,7 +60,7 @@ public class RemoteSig1337 extends Sig1337Base implements IRemoteSig1337 {
 					for (String jsonElement : jsonElements) {
 						jsonElement = jsonElement.replace("\"", "");
 						String[] jsonValues = jsonElement.split(":");
-						if (jsonValues != null && jsonValues.length == 2 && jsonValues[0] == "id") {
+						if (jsonValues != null && jsonValues.length == 2 && jsonValues[0].equals("id")) {
 							res = Integer.parseInt(jsonValues[1]);
 							break;
 						}
@@ -89,7 +89,7 @@ public class RemoteSig1337 extends Sig1337Base implements IRemoteSig1337 {
 					for (String jsonElement : jsonElements) {
 						jsonElement = jsonElement.replace("\"", "");
 						String[] jsonValues = jsonElement.split(":");
-						if (jsonValues != null && jsonValues.length == 2 && jsonValues[0] == "name") {
+						if (jsonValues != null && jsonValues.length == 2 && jsonValues[0].equals("name")) {
 							res = jsonValues[1];
 							break;
 						}
