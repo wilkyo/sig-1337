@@ -23,6 +23,7 @@ public class ItineraireActivity extends Activity {
 		
 		spinner_source.setAdapter(adapter);
 		spinner_target.setAdapter(adapter);
+		spinner_target.setSelection(1);
 	}
 
 	
