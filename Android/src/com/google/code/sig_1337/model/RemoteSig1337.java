@@ -90,7 +90,7 @@ public class RemoteSig1337 extends Sig1337Base implements IRemoteSig1337 {
 	@Override
 	public String getStructureName(double x, double y) {
 		Log.v("pouet", "getStructureName");
-		String res = "";
+		String res = null;
 		try {
 			AsyncTaskGetLocation task = new AsyncTaskGetLocation(serverIP, y, x);
 			task.execute();
@@ -111,6 +111,8 @@ public class RemoteSig1337 extends Sig1337Base implements IRemoteSig1337 {
 			e.printStackTrace();
 		}
 		Log.v("pouet", "res = " + res);
+		if (res != null && res.equals(""))
+			res = null;
 		return res;
 	}
 
