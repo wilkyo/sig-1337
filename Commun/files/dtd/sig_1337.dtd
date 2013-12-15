@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!ELEMENT sig_1337 (bounds, graphics, graph)>
+<!ELEMENT sig_1337 (bounds, graphics, graph, tree)>
 
 <!ELEMENT bounds (#PCDATA)>
 	<!ATTLIST bounds minlat CDATA #REQUIRED>
@@ -10,17 +10,19 @@
 <!ELEMENT graphics (bassins, forets, batiments, routes)>
 
 <!ELEMENT bassins (bassin*)>
-<!ELEMENT bassin (triangles+)>
+<!ELEMENT bassin (triangles+,voisins*)>
 	<!ATTLIST bassin nom CDATA #REQUIRED>
 
 <!ELEMENT forets (foret*)>
 
-<!ELEMENT foret (triangles+)>
+<!ELEMENT foret (triangles+,voisins*)>
 	<!ATTLIST foret nom CDATA #REQUIRED>
 
 <!ELEMENT batiments (batiment*)>
-<!ELEMENT batiment (triangles+)>
+<!ELEMENT batiment (triangles+, voisins*)>
 	<!ATTLIST batiment nom CDATA #IMPLIED>
+
+<!ELEMENT voisins (point*)>
 
 <!ELEMENT triangles (triangle*)>
 	<!ATTLIST triangles type CDATA #IMPLIED>
@@ -38,4 +40,18 @@
 <!ELEMENT vertex (point+)>
 	<!ATTLIST vertex x CDATA '0'>
 	<!ATTLIST vertex y CDATA '0'>
+	
+<!ELEMENT tree (xnode)>
+<!ELEMENT xnode (leaf*,(ynode|xnode)*)>
+	<!ATTLIST xnode x CDATA '0'>
+	<!ATTLIST xnode y CDATA '0'>
+<!ELEMENT ynode (leaf*,(xnode|ynode)*)>
+	<!ATTLIST ynode x1 CDATA '0'>
+	<!ATTLIST ynode x2 CDATA '0'>
+	<!ATTLIST ynode y1 CDATA '0'>
+	<!ATTLIST ynode y2 CDATA '0'>
+<!ELEMENT leaf EMPTY>
+	<!ATTLIST leaf id CDATA '0'>
+	<!ATTLIST leaf name CDATA ''>
+
 
