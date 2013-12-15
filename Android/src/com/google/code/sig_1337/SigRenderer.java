@@ -3,11 +3,12 @@ package com.google.code.sig_1337;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
+import java.util.List;
 import java.util.Map.Entry;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-import javax.swing.event.EventListenerList;
 
 import android.content.Context;
 import android.opengl.GLSurfaceView;
@@ -77,7 +78,7 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	/**
 	 * Listeners.
 	 */
-	private final EventListenerList listeners;
+	private final List<SigRendererListener> listeners;
 
 	/**
 	 * Initializing constructor.
@@ -95,7 +96,7 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 		this.locationListener = locationListener;
 		this.sensorListener = sensorListener;
 		user = new User();
-		listeners = new EventListenerList();
+		listeners = new CopyOnWriteArrayList<SigRendererListener>();
 	}
 
 	/**
@@ -105,7 +106,7 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	 *            listener to add.
 	 */
 	public void add(SigRendererListener listener) {
-		listeners.add(SigRendererListener.class, listener);
+		listeners.add(listener);
 	}
 
 	/**
@@ -115,7 +116,7 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	 *            listener to remove.
 	 */
 	public void remove(SigRendererListener listener) {
-		listeners.remove(SigRendererListener.class, listener);
+		listeners.remove(listener);
 	}
 
 	/**
@@ -393,9 +394,10 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	public void onTap(float x, float y) {
 		Point2D p = screenToMap(x, y);
 		IStructure structure = sig.getStructure(p.x, p.y);
-		for (SigRendererListener l : listeners
-				.getListeners(SigRendererListener.class)) {
-			l.onStructureSelected(structure);
+		synchronized (listeners) {
+			for (SigRendererListener l : listeners) {
+				l.onStructureSelected(structure);
+			}
 		}
 	}
 
