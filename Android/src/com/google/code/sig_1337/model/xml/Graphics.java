@@ -5,6 +5,7 @@ import com.google.code.sig_1337.model.xml.route.RoutesMap;
 import com.google.code.sig_1337.model.xml.structure.IBassin;
 import com.google.code.sig_1337.model.xml.structure.IBuilding;
 import com.google.code.sig_1337.model.xml.structure.IForet;
+import com.google.code.sig_1337.model.xml.structure.IStructure;
 import com.google.code.sig_1337.model.xml.structure.IStructures;
 import com.google.code.sig_1337.model.xml.structure.StructureType;
 import com.google.code.sig_1337.model.xml.structure.Structures;
@@ -84,6 +85,23 @@ public class Graphics implements IGraphics {
 	@Override
 	public IStructures<IBassin> getBassins() {
 		return bassins;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public IStructure getStructure(String name) {
+		IStructure s = buildings.get(name);
+		if (s != null)
+			return s;
+		s = forets.get(name);
+		if (s != null)
+			return s;
+		s = bassins.get(name);
+		if (s != null)
+			return s;
+		return null;
 	}
 
 	/**

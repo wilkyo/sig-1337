@@ -3,9 +3,9 @@ package com.google.code.sig_1337.model.xml.structure;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
+import java.util.Map;
 
 import com.google.code.sig_1337.model.xml.ITriangle;
 import com.google.code.sig_1337.model.xml.ITriangles;
@@ -14,9 +14,9 @@ import com.google.code.sig_1337.model.xml.TrianglesType;
 public class Structures<T extends IStructure> implements IStructures<T> {
 
 	/**
-	 * Inner list.
+	 * Structures by name.
 	 */
-	private final List<T> inner;
+	private final Map<String, T> inner;
 
 	/**
 	 * Type.
@@ -63,7 +63,7 @@ public class Structures<T extends IStructure> implements IStructures<T> {
 	 */
 	public Structures(StructureType type) {
 		super();
-		inner = new ArrayList<T>();
+		inner = new HashMap<String, T>();
 		this.type = type;
 	}
 
@@ -80,7 +80,7 @@ public class Structures<T extends IStructure> implements IStructures<T> {
 	 */
 	@Override
 	public void add(T structure) {
-		inner.add(structure);
+		inner.put(structure.getName(), structure);
 		for (ITriangles triangles : structure.getTriangles()) {
 			int s = triangles.size();
 			switch (triangles.getType()) {
@@ -102,14 +102,11 @@ public class Structures<T extends IStructure> implements IStructures<T> {
 	 */
 	@Override
 	public T get(String name) {
-		if (name != null) {
-			for (T t : inner) {
-				if (name.equals(t.getName())) {
-					return t;
-				}
-			}
+		if (name == null) {
+			return null;
+		} else {
+			return inner.get(name);
 		}
-		return null;
 	}
 
 	/**
@@ -154,7 +151,7 @@ public class Structures<T extends IStructure> implements IStructures<T> {
 	 */
 	@Override
 	public Iterator<T> iterator() {
-		return inner.iterator();
+		return inner.values().iterator();
 	}
 
 	/**
@@ -171,7 +168,7 @@ public class Structures<T extends IStructure> implements IStructures<T> {
 		bb.order(ByteOrder.nativeOrder());
 		holeVertexBuffer = bb.asFloatBuffer();
 		// For all the structures.
-		for (T structure : inner) {
+		for (T structure : inner.values()) {
 			// For all the lists of triangles.
 			for (ITriangles triangles : structure.getTriangles()) {
 				TrianglesType type = triangles.getType();

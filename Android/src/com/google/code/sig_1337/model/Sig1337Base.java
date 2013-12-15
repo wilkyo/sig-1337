@@ -4,6 +4,7 @@ import com.google.code.sig_1337.model.xml.Bounds;
 import com.google.code.sig_1337.model.xml.Graphics;
 import com.google.code.sig_1337.model.xml.IBounds;
 import com.google.code.sig_1337.model.xml.IGraphics;
+import com.google.code.sig_1337.model.xml.structure.IStructure;
 
 /**
  * Base for the sig.
@@ -55,6 +56,22 @@ public abstract class Sig1337Base implements ISig1337 {
 	@Override
 	public IGraphics getGraphics() {
 		return graphics;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public IStructure getStructure(String name) {
+		return graphics.getStructure(name);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public IStructure getStructure(double x, double y) {
+		return getStructure(getStructureName(x, y));
 	}
 
 }
