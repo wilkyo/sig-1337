@@ -2,6 +2,7 @@ package com.google.code.sig_1337;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -26,6 +27,11 @@ import com.google.code.sig_1337.model.xml.structure.IStructures;
 
 public abstract class ActivityBase extends Activity implements
 		SigRendererListener {
+
+	/**
+	 * Choice for the starting location.
+	 */
+	private static final String MA_POSITION = "Ma position";
 
 	/**
 	 * View.
@@ -148,8 +154,9 @@ public abstract class ActivityBase extends Activity implements
 					l.add(building.getName());
 			}
 			Intent i = new Intent(this, ItineraireActivity.class);
+			Collections.sort(l);
+			l.add(0, MA_POSITION);
 			liste = l.toArray(liste);
-			Arrays.sort(liste);
 			i.putExtra("Nombat", liste);
 			startActivityForResult(i, 1);
 		}
@@ -164,8 +171,26 @@ public abstract class ActivityBase extends Activity implements
 				String barrive = data.getStringExtra("Target");
 				IStructures<IBuilding> buildings = getSig1337().getGraphics()
 						.getBuildings();
-				IBuilding depart = buildings.get(bdepart);
-				IBuilding arrive = buildings.get(barrive);
+				IBuilding depart = null;
+				if (MA_POSITION.equals(bdepart)) {
+					// Get the name of the structure at our location.
+					String name = getSig1337().getStructureName(
+							locationListener.getLongitude(),
+							locationListener.getLatitude());
+					// Get the corresponding building.
+					depart = buildings.get(name);
+				} else {
+					depart = buildings.get(bdepart);
+				}
+				IBuilding arrive = null;
+				if (MA_POSITION.equals(barrive)) {
+					String name = getSig1337().getStructureName(
+							locationListener.getLongitude(),
+							locationListener.getLatitude());
+					arrive = buildings.get(name);
+				} else {
+					arrive = buildings.get(barrive);
+				}
 				if ((depart != null && depart.getVoisins().size() != 0)
 						&& (arrive != null && arrive.getVoisins().size() != 0)) {
 					IItineraire iti = getSig1337()
