@@ -79,7 +79,7 @@ public class Segment {
 	 * @return
 	 */
 	public Point intersectionHorizontale(double y) {
-		if ((debut.y - y) * (fin.y - y) > 0) // debut, fin du m���me cot���
+		if ((debut.y - y) * (fin.y - y) > 0) // debut, fin du même coté
 			return null;
 		else if (debut.y == fin.y) // segment horizontal
 			return null;
@@ -163,7 +163,7 @@ public class Segment {
 	 * 
 	 * @param s
 	 *            le segment
-	 * @return le point au niveau de l'intersection, null si le point n'��xiste
+	 * @return le point au niveau de l'intersection, null si le point n'existe
 	 *         pas
 	 */
 	public Point intersection(Segment s) {
