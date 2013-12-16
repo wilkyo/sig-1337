@@ -1,6 +1,6 @@
 format 75
 "bouml"
-  revision 7
+  revision 9
   modified_by 42 "Willy"
 
 
@@ -4019,6 +4019,946 @@ ${members}}
 	    java "${type}"
 	    classrelation_ref 144170 // <realization>
 	  b parent class_ref 144042 // SigRendererListener
+      end
+
+      attribute 171946 "view"
+	private type class_ref 160298 // SigView
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 172074 "locationManager"
+	private explicit_type "LocationManager"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 172202 "locationListener"
+	private explicit_type "LocationListener"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 172330 "sensorManager"
+	private explicit_type "SensorManager"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 172458 "sensorListener"
+	private explicit_type "MySensorListener"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      classrelation 171818 // <composition>
+	relation 168618 *---
+	  a role_name "" multiplicity "1" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 171818 // <composition>
+	  b role_name "" multiplicity "1" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 171946 // <composition>
+      end
+
+      classrelation 172074 // <composition>
+	relation 168746 *---
+	  a role_name "" multiplicity "1" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 172074 // <composition>
+	  b role_name "" multiplicity "1" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 172202 // <composition>
+      end
+
+      classrelation 173354 // <dependency>
+	relation 169898 -_->
+	  a default
+	    classrelation_ref 173354 // <dependency>
+	  b parent class_ref 169642 // ItineraireActivity
+      end
+    end
+
+    class 168490 "SensorEventListener"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+    end
+
+    class 168618 "MySensorListener"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 171562 // <realization>
+	relation 168362 -_-|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 171562 // <realization>
+	  b parent class_ref 168490 // SensorEventListener
+      end
+
+      attribute 172586 "rotation"
+	private explicit_type "float"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 172714 "gravity"
+	private explicit_type "float[]"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 172842 "geomag"
+	private explicit_type "float[]"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 172970 "values"
+	private explicit_type "float[]"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      operation 175786 "getRotation"
+	public explicit_return_type "float"
+	nparams 0
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      classrelation 171946 // <composition>
+	relation_ref 168618 // <composition>
+      end
+    end
+
+    class 168746 "LocationListener"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+    end
+
+    class 168874 "MyLocationListener"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 171690 // <realization>
+	relation 168490 -_-|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 171690 // <realization>
+	  b parent class_ref 168746 // LocationListener
+      end
+
+      attribute 173098 "latitude"
+	private explicit_type "double"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 173226 "longitude"
+	private explicit_type "double"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 173354 "bearing"
+	private explicit_type "float"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      operation 176170 "getLatitude"
+	public explicit_return_type "double"
+	nparams 0
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      operation 176298 "getLongitude"
+	public explicit_return_type "double"
+	nparams 0
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      operation 176426 "getBearing"
+	public explicit_return_type "float"
+	nparams 0
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      classrelation 172202 // <composition>
+	relation_ref 168746 // <composition>
+      end
+    end
+
+    class 169002 "MainActivity"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 172330 // <generalisation>
+	relation 168874 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 172330 // <generalisation>
+	  b parent class_ref 143914 // Activity
+      end
+
+      operation 176554 "onClickLocal"
+	public explicit_return_type ""
+	nparams 1
+	  param in name "v" explicit_type "View"
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      operation 176682 "onClickRemote"
+	public explicit_return_type ""
+	nparams 1
+	  param in name "v" explicit_type "View"
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      classrelation 172842 // <dependency>
+	relation 169386 -_->
+	  a default
+	    classrelation_ref 172842 // <dependency>
+	  b parent class_ref 169130 // LocalActivity
+      end
+
+      classrelation 172970 // <dependency>
+	relation 169514 -_->
+	  a default
+	    classrelation_ref 172970 // <dependency>
+	  b parent class_ref 169258 // RemoteActivity
+      end
+    end
+
+    class 169130 "LocalActivity"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 172458 // <generalisation>
+	relation 169002 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 172458 // <generalisation>
+	  b parent class_ref 143786 // ActivityBase
+      end
+
+      attribute 173482 "sig"
+	private type class_ref 160554 // ISig1337
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      classrelation 173098 // <dependency>
+	relation 169642 -_->
+	  a default
+	    classrelation_ref 173098 // <dependency>
+	  b parent class_ref 169514 // Sig1337Service
+      end
+    end
+
+    class 169258 "RemoteActivity"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 172586 // <generalisation>
+	relation 169130 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 172586 // <generalisation>
+	  b parent class_ref 143786 // ActivityBase
+      end
+
+      attribute 173610 "sig"
+	private type class_ref 160554 // ISig1337
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 173738 "serverIP"
+	private explicit_type "string"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      operation 176810 "createMap"
+	public explicit_return_type ""
+	nparams 1
+	  param in name "xml" explicit_type "string"
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+    end
+
+    class 169386 "IntentService"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+    end
+
+    class 169514 "Sig1337Service"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 172714 // <generalisation>
+	relation 169258 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 172714 // <generalisation>
+	  b parent class_ref 169386 // IntentService
+      end
+    end
+
+    class 169642 "ItineraireActivity"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 173226 // <generalisation>
+	relation 169770 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 173226 // <generalisation>
+	  b parent class_ref 143914 // Activity
+      end
+
+      attribute 173866 "spinner_source"
+	private explicit_type "Spinner"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 173994 "spinner_target"
+	private explicit_type "Spinner"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      operation 176938 "valide"
+	public explicit_return_type ""
+	nparams 1
+	  param in name "v" explicit_type "View"
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      classrelation 173610 // <composition>
+	relation 170154 *---
+	  a role_name "" multiplicity "1" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 173610 // <composition>
+	  b role_name "" multiplicity "*" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 173738 // <composition>
+      end
+    end
+
+    class 169770 "Parcelable"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+    end
+
+    class 169898 "ItineraireItem"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 173482 // <realization>
+	relation 170026 -_-|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 173482 // <realization>
+	  b parent class_ref 169770 // Parcelable
+      end
+
+      classrelation 173738 // <composition>
+	relation_ref 170154 // <composition>
+      end
+
+      attribute 174122 "id"
+	private explicit_type "long"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 174250 "name"
+	private explicit_type "string"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+    end
+
+    classdiagram 161066 "AndroidSIG"
+      draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+      size A4
+    end
+
+    class 176426 "IRemoteSig1337"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 180266 // <generalisation>
+	relation 176682 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 180266 // <generalisation>
+	  b parent class_ref 160554 // ISig1337
+      end
+    end
+
+    class 176554 "ILocalSig1337"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 180394 // <generalisation>
+	relation 176810 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 180394 // <generalisation>
+	  b parent class_ref 160554 // ISig1337
+      end
+
+      operation 183466 "getGraph"
+	public explicit_return_type "IGraph"
+	nparams 0
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      operation 183594 "getTree"
+	public return_type class_ref 137258 // ArbreDecision
+	nparams 0
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+    end
+
+    class 176682 "Sig1337Base"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      attribute 180778 "bounds"
+	protected type class_ref 160810 // Bounds
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 180906 "graphics"
+	protected type class_ref 160938 // IGraphics
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      classrelation 180522 // <realization>
+	relation 176938 -_-|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 180522 // <realization>
+	  b parent class_ref 160554 // ISig1337
+      end
+    end
+
+    class 176810 "LocalSig1337"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 180650 // <generalisation>
+	relation 177066 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 180650 // <generalisation>
+	  b parent class_ref 176682 // Sig1337Base
+      end
+
+      classrelation 180778 // <realization>
+	relation 177194 -_-|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 180778 // <realization>
+	  b parent class_ref 176554 // ILocalSig1337
+      end
+
+      attribute 181034 "graph"
+	private explicit_type "IGraph"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 181162 "tree"
+	private type class_ref 137258 // ArbreDecision
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+    end
+
+    class 176938 "RemoteSig1337"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 180906 // <generalisation>
+	relation 177322 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 180906 // <generalisation>
+	  b parent class_ref 176682 // Sig1337Base
+      end
+
+      classrelation 181034 // <realization>
+	relation 177450 -_-|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 181034 // <realization>
+	  b parent class_ref 176426 // IRemoteSig1337
+      end
+
+      attribute 181290 "serverIP"
+	private explicit_type "string"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      classrelation 181418 // <dependency>
+	relation 177834 -_->
+	  a default
+	    classrelation_ref 181418 // <dependency>
+	  b parent class_ref 177322 // AsyncTaskGetLocation
+      end
+
+      classrelation 181674 // <dependency>
+	relation 178090 -_->
+	  a default
+	    classrelation_ref 181674 // <dependency>
+	  b parent class_ref 177450 // AsyncTaskGetItineraire
+      end
+    end
+
+    class 177066 "AsyncTask"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+    end
+
+    class 177194 "AsyncTaskGetMap"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 181162 // <generalisation>
+	relation 177578 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 181162 // <generalisation>
+	  b parent class_ref 177066 // AsyncTask
+      end
+
+      attribute 181418 "mContext"
+	private explicit_type "Context"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 181546 "serverIP"
+	private explicit_type "string"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+    end
+
+    class 177322 "AsyncTaskGetLocation"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 181290 // <generalisation>
+	relation 177706 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 181290 // <generalisation>
+	  b parent class_ref 177066 // AsyncTask
+      end
+
+      attribute 181674 "serverIP"
+	private explicit_type "string"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 181802 "lat"
+	private explicit_type "double"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 181930 "lon"
+	private explicit_type "double"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+    end
+
+    class 177450 "AsyncTaskGetItineraire"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 181546 // <generalisation>
+	relation 177962 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 181546 // <generalisation>
+	  b parent class_ref 177066 // AsyncTask
+      end
+
+      attribute 182058 "serverIP"
+	private explicit_type "string"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 182186 "start"
+	private explicit_type "long"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 182314 "end"
+	private explicit_type "long"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
       end
     end
   end

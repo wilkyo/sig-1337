@@ -57,6 +57,7 @@ public class AsyncTaskGetMap extends AsyncTask<Void, Void, String> {
 		return text;
 	}
 
+	@Override
 	protected void onPostExecute(String response) {
 		if (response != null) {
 			System.out.println("Length: " + response.length());
