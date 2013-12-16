@@ -203,11 +203,6 @@ public class ArbreDecision {
 		private final long id;
 
 		/**
-		 * Structure name.
-		 */
-		private final String name;
-
-		/**
 		 * Top-left x-coordinate.
 		 */
 		private final double x1;
@@ -243,11 +238,9 @@ public class ArbreDecision {
 		 * @param y2
 		 *            bottom-right y-coordinate.
 		 */
-		public BoundingBox(long id, String name, double x1, double y1,
-				double x2, double y2) {
+		public BoundingBox(long id, double x1, double y1, double x2, double y2) {
 			super();
 			this.id = id;
-			this.name = name;
 			this.x1 = x1;
 			this.y1 = y1;
 			this.x2 = x2;
@@ -261,15 +254,6 @@ public class ArbreDecision {
 		 */
 		public long getId() {
 			return id;
-		}
-
-		/**
-		 * Get the structure name.
-		 * 
-		 * @return the structure name.
-		 */
-		public String getName() {
-			return name;
 		}
 
 	}

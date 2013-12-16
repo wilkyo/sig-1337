@@ -92,6 +92,8 @@ public class Graphics implements IGraphics {
 	 */
 	@Override
 	public IStructure getStructure(long id) {
+		if (id == -1)
+			return null;
 		IStructure s = buildings.get(id);
 		if (s != null)
 			return s;

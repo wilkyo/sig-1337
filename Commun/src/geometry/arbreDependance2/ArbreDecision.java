@@ -356,8 +356,6 @@ public class ArbreDecision {
 			buff.append(id);
 			buff.append("\" sId=\"");
 			buff.append(building.getId());
-			buff.append("\" name=\"");
-			buff.append(building.getName());
 			buff.append("\" x1=\"");
 			buff.append(x);
 			buff.append("\" y1=\"");
