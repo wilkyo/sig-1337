@@ -1,0 +1,69 @@
+format 75
+
+classcanvas 128042 class_ref 153002 // YNode
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 391 252 2000
+end
+classcanvas 128170 class_ref 152874 // XNode
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 284 253 2000
+end
+classcanvas 128298 class_ref 152746 // Leaf.
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 555 244 2000
+end
+classcanvas 128426 class_ref 152618 // ILeaf
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 543 129 2006
+end
+classcanvas 128682 class_ref 152490 // INode.
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 286 139 3005
+end
+classcanvas 129450 class_ref 152362 // Tree
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 285 18 3011
+end
+relationcanvas 128554 relation_ref 152106 // <realization>
+  from ref 128298 z 2007 to ref 128426
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 128810 relation_ref 152490 // <realization>
+  decenter_begin 246
+  decenter_end 656
+  from ref 128042 z 3006 to ref 128682
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 128938 relation_ref 152618 // <composition>
+  decenter_begin 773
+  decenter_end 907
+  from ref 128042 z 3006 to ref 128682
+  no_role_a no_role_b
+  multiplicity_a_pos 446 194 3000 multiplicity_b_pos 436 233 3000
+end
+relationcanvas 129066 relation_ref 152234 // <realization>
+  decenter_end 296
+  from ref 128170 z 3006 to ref 128682
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 129194 relation_ref 152362 // <composition>
+  decenter_begin 282
+  decenter_end 107
+  from ref 128170 z 3006 to ref 128682
+  no_role_a no_role_b
+  multiplicity_a_pos 290 194 3000 multiplicity_b_pos 280 234 3000
+end
+relationcanvas 129322 relation_ref 151978 // <generalisation>
+  from ref 128426 z 3006 to ref 128682
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 129578 relation_ref 151850 // <composition>
+  from ref 129450 z 3012 to ref 128682
+  no_role_a no_role_b
+  multiplicity_a_pos 366 120 3000 multiplicity_b_pos 356 83 3000
+end
+end
