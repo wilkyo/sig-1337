@@ -1,0 +1,52 @@
+Dans la partie locale, nous avions du implémenter un algorithme de plus court chemin. Pour ce faire, nous avons utilisé un algorithme de type \emph{A*}\footnote{\url{https://fr.wikipedia.org/wiki/Algorithme_A*}}. Nous utilisons comme fonction de co\^{u}t, la distance déjà parcouru plus la distance à vol d'oiseau entre le dernier sommet et l'arrivé.
+
+L'algorithme utilise une fonction d'initialisation appelé par l'application(voir \ref{calculIti}), une fonction récursive(\ref{calculItiRec}) et une fonction de calcul de co\^{u}t).
+
+Pour les besoins de l'algorithme, nous avons créer une structure \emph{State} qui représente un état de notre recherche, il contient le chemin parcouru ainsi que son co\^{u}t.
+
+L'ensemble de ses états est stockés dans une liste triée par ordre croissant de co\^{u}t.
+
+La fonction d'initialisation crée les états de base et les stocke dans la liste et appel la première itération. Chaque itération de la fonction \ref{calculItiRec}, on récupère l'état qui à le co\^{u}t le plus faible, et on le traite.
+
+Ce traitement consiste en différentes opérations, soit la liste est vide(on a parcouru tout le graphe) et retourne qu'il n'y a pas de chemin, soit le point courant est l'arrivé et retourne le chemin ainsi généré, dans le dernier cas, on récupère les voisins du sommets courant et on remplie la liste des états avec les nouveaux états générés.
+
+La fonction de coût calcul la distance parcourue auquel on ajoute la distance à vol d'oiseau 
+\begin{algorithm}[H]
+ \KwData{A start building $start$, A end building $end$, the graph(map) $graph$}
+ \KwResult{A Path (list of point)}
+ $Path$ $\gets$ $\emptyset$\;
+ $milieu$ $\gets$ Get the middle of the building $end$\;
+ \eIf{not $start$.equals($end$)}{
+   $listState$ $\gets$ $\emptyset$\;
+   \ForAll{$point$ : $start$.getVoisins()}{
+   		\ForAll{$pointInGraph$ : $graph$.keyset()}{
+   			\If{$pointInGraph$.equals($point$)}{
+   				Create a state and insert in $listState$
+   			}
+   		}
+   }
+   \Return CalculItineraireRec($listState$,$end$,$graph$)\;
+ }{
+   \Return $Path$.add($end$.getVoisins().get(0))\;
+ }
+ 
+ \caption{CalculItineraire\label{calculIti}}
+\end{algorithm}
+
+\begin{algorithm}[H]
+ \KwData{A state liste $stateListe$, A end building $end$, the graph(map) $graph$}
+ \KwResult{A Path (list of point)}
+ \eIf{$listState$.isEmpty()}{
+   \Return null\;
+ }{
+ 	$head$ $\gets$ $listState$.remove(0)\;
+ 	\eIf{$head$ in $end$.getVoisins()}{
+ 		\Return $head$.chemin\;
+ 	}{
+ 		\ForAll{$graph$.get($head$}{
+ 			We create a state and insert and sort in the $listState$ if the vertex is not in the path.
+ 		}
+ 	}
+ }
+\caption{calculItineraireRec\label{calculItiRec}}
+\end{algorithm}

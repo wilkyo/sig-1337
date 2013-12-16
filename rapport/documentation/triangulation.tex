@@ -1,0 +1,30 @@
+Nous avons réalisé une visualisation en \emph{OpenGL ES}, hors cette visualisation n'utilise que des triangles pour l'affichage des polygones. Donc nous avons du fournir un algorithme qui permet la triangulation d'un polygone quelconque.
+
+Dans un premier temps, nous avons essayé d'implémenté l'algorithme contenue dans le livre \cite[p.~45]{compute} qui consistait en deux étapes : La première rendre le polygone y-monotone (c'est à dire, $\forall y : nb\_intersect(poly,axe(y))<=2$), puis de le partitionner en triangles.
+
+L'implémentation de cette algorithme n'a pas abouti, nous nous sommes rebattus sur un algorithme plus simple. Qui consiste à directement partitionner un polygone.\\
+
+\begin{algorithm}[H]
+ \KwData{A polygon $polygon$}
+ \KwResult{The triangulate polygon}
+$triangles$ $\gets$ an empty list of triangles\;
+$i$ $\gets$ 0\;
+\While{$polygon$.size() > 3}{
+  $current$ $\gets$ $polygon$.get(i)\;
+  $previous$ $\gets$ $polygon$.get(i-1)\;
+  $next$ $\gets$ $polygon$.get(i+1)\;
+  $segment$ $\gets$ new Segment($previous$,$next$)\;
+  $intersect$ $\gets$ $polygon$.intersect($segment$)\;
+  $contains$ $\gets$ $polygon$.contains($segment$.milieu())\;
+  \eIf{$intersect$ == 2 and $contains$}{
+	$triangles$.add(new triangle($current$,$previous$,$next$))\;
+  	$polygon$.remove($i$)\;
+  }{
+  	$i$++\;
+  }
+  $i$ $\gets$ $i$ $\%$ $polygon$.size()\;
+}
+$triangles$.add(new triangle($polygon$.get(0),$polygon$.get(1),$polygon$.get(2)))\;
+\Return $triangles$\;
+\caption{partitionningPolygon\label{triangulation}}
+\end{algorithm}

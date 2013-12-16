@@ -24,7 +24,6 @@ public class Triangulation {
 	public static ArrayList<Polygone> partitionningPolygon(Polygone polygon) {
 		if (DEBUG)
 			System.out.println("PartitioningPolygon...");
-
 		ArrayList<Polygone> res = new ArrayList<Polygone>();
 		ArrayList<Point> sommets = new ArrayList<Point>(
 				Arrays.asList(polygon.points));
