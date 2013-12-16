@@ -1,22 +1,13 @@
 package com.google.code.sig_1337;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import android.app.IntentService;
 import android.content.Intent;
-import android.util.Log;
-import android.view.MenuItem;
 
-import com.google.code.sig_1337.itineraire.Itineraire;
 import com.google.code.sig_1337.model.ISig1337;
 import com.google.code.sig_1337.model.LocalSig1337;
-import com.google.code.sig_1337.model.xml.IPoint;
-import com.google.code.sig_1337.model.xml.Voisins;
-import com.google.code.sig_1337.model.xml.structure.IBuilding;
 
 public class LocalActivity extends ActivityBase {
 
@@ -56,6 +47,7 @@ public class LocalActivity extends ActivityBase {
 			super("Sig1337");
 		}
 
+		@Override
 		protected void onHandleIntent(Intent workIntent) {
 			try {
 				sig.load(getResources().openRawResource(MAP));
