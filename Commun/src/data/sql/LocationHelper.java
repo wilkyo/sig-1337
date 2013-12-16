@@ -85,7 +85,7 @@ public class LocationHelper {
 
 	public static String getDirection(long idbatsrc, long idbatdest) {
 		Connection connection;
-		String res = "{}";
+		String res = "[]";
 		StringBuilder query = new StringBuilder();
 		try {
 			long idsrc, iddest;
@@ -119,13 +119,13 @@ public class LocationHelper {
 						+ SQLHelper.TABLE_VERTICES + " as target WHERE "
 						+ SQLHelper.TABLE_EDGES + "." + SQLHelper.EDGES_SOURCE
 						+ " = source.id and " + SQLHelper.TABLE_EDGES + "."
-						+ SQLHelper.EDGES_TARGET + " = target.id'," + idsrc +"," + iddest + ",false,false) as chemin WHERE " + SQLHelper.TABLE_EDGES + "." + SQLHelper.EDGES_ID + " = id2");
+						+ SQLHelper.EDGES_TARGET + " = target.id'," + idsrc +"," + iddest + ",false,false) as chemin WHERE " + SQLHelper.TABLE_EDGES + "." + SQLHelper.EDGES_ID + " = id2 and id2 <>-1");
 				ResultSet result = s.executeQuery(query.toString());
-				res = "{";
+				res = "[";
 				while(result.next()) {
-					res += result.getString("chemin");
+					res += result.getString("chemin") + ",";
 				}
-				res += "}";
+				res = res.substring(0, res.length()-1) + "]";
 			}
 			s.close();
 			connection.close();

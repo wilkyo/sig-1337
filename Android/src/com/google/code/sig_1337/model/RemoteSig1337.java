@@ -137,8 +137,6 @@ public class RemoteSig1337 extends Sig1337Base implements IRemoteSig1337 {
 					start.getId(), end.getId());
 			task.execute();
 			String json = task.get(3, TimeUnit.SECONDS);
-			// TODO Retirer ça
-			json = "[" + json.substring(1, json.length() - 1) + "]";
 			// TODO
 			if (json != null && json.length() > 0) {
 				JSONParser parser = new JSONParser();
