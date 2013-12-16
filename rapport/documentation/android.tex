@@ -3,11 +3,33 @@
 
 Afin de faciliter l'implémentation de la version locale et distante du projet Android,
 nous avons défini un socle commun aux deux versions.
-TODO
+
+Une interface \textit{ISIG1337} contenant des méthodes nécessaire à l'application telles que load,
+getStructureId, getStructureName et getItineraire.
+Cette interface est directement implémentée par la classe abstraite \textit{SIG1337Base},
+fournissant quelques méthodes de l'interface.
+
+\begin{figure}[H]
+\includegraphics[width=1\textwidth]{../images/androidSIG.png}
+\caption{Activités Android}
+\end{figure}
+
 
 \subsubsection{Version locale}
 
-TODO
+Pour la version locale, nous avons créé \textit{LocalActivity} qui hérite de \textit{ActivityBase}.
+Elle contient une instance de \textit{LocalSIG1337}, qui hérite de \textit{SIG1337Base} et qui implémente \textit{ILocalSIG1337}.
+Cette dernière possède les méthodes getGraph et getTree, permettant respectivement de récupérer le graphe et l'arbre de décision.
+
+La méthode loadSIG1337() qui doit charger le SIG va charger le xml qui avait été généré précédemment dans le projet \textit{Commun}
+et qui a été placée dans les fichiers de l'application.
+Ce fichier, en version locale, contient la carte au format xml, le graphe et l'arbre de décision.
+
+Lorsqu'on touche un bâtiment sur la carte, un calcul est fait sur l'arbre de décision qui renvoie finalement le nom du dit bâtiment.
+
+Pour le calcul d'itinéraire, une fois les deux bâtiments sélectionnés via \textit{ItineraireActivity} et le bouton validé,
+l'application fait appel au graphe afin de calculer l'itinéraire entre ces deux bâtiments.
+
 
 \subsubsection{Version distante}
 
