@@ -1,0 +1,56 @@
+Au départ, nous voulions implémenter le \texttt{Randomized Incremental Algorithm} pour la génération de l'arbre de décision. Cet algorithme prend en paramètre un ensemble de segments, et retourne un découpage en trapèzes ainsi qu'un arbre de recherche qui permet de savoir dans quel trapèze se trouve un point donné.
+
+Une première difficulté était l'implémentation de l'algorithme. L'algorithme nécessite que chaque trapèze connaisse ses deux voisins de gauche et de droite. Le livre décrit comment modifier les trapèzes et l'arbre de recherche suivant si le segment ajouté intersecte un ou plusieurs trapèzes, mais il n'indique jamais comment gérer les voisins. De plus, pour le cas simple où le segment ajouté occupe un seul trapèze, le livre indique bien à la fin qu'il faut gérer les cas où le point à gauche (ou à droite) du segment est aussi le point à gauche (ou à droite) du trapèze, mais ne dit pas comment. Les explications du livre paraissent simples, mais on se retrouve à devoir gérer un bon nombre de cas et à complexifier le code à cause de cette notion de voisins.
+
+Une seconde difficulté était qu'il n'y a pas de notion d'être à l'intérieur où à l'extérieur d'un polygone. L'algorithme génère un découpage en trapèzes et un arbre de recherche qui nous retourne le trapèze dans lequel se trouve un point. Cependant, on ne sait pas si ce trapèze est à l'intérieur d'un polygone ou bien à l'extérieur. On ne sait pas non plus à quel polygone appartient le trapèze. D'ailleurs, il n'y a pas de notion de polygone ou de zone dans l'algorithme puisqu'il prend une liste de segments en paramètre. Il est donc nécessaire de faire un pré-traitement ou post-traitement pour labéliser les trapèzes.\\
+
+Plutôt que de rester sur une implémentation incorrecte de cet algorithme, nous avons opté pour une version, certes moins optimisée, mais plus simple et fonctionnelle (voir Algorithm \ref{algoarbre}). Puisque la complexité pour localiser un point vient du fait que les bâtiments sont des polygones et qu'il y a beaucoup de bâtiments à tester, nous avons fait deux choses.
+
+Premièrement, nous avons calculé un rectangle englobant pour chaque bâtiment. Ainsi, plutôt que de devoir parcourir tous les points d'un polygone pour savoir si le point en question est à l'intérieur, il nous suffit de tester si il est à l'intérieur du rectangle.
+
+Deuxièmement, pour ne pas avoir à tester chaque rectangle englobant à chaque fois, nous avons généré un arbre de recherche. On commence avec un noeud qui fait la taille de la carte et qui contient une liste de tous les bâtiments. On divise ce noeud en deux horizontalement et verticalement de manière à obtenir quatre nouveaux noeuds. On donne à chaque nouveau noeud une nouvelle liste qui ne contient que les bâtiments du noeud initial dont les rectangles englobants intersectent le rectangle représenté par le noeud. Le centre du noeud initial nous sert à savoir dans quel sous noeud se trouve le bâtiment contenant le point recherché. On continue à diviser les noeuds un certains nombre de fois, suffisamment pour que chaque noeud ne contienne plus qu'un nombre réduit de bâtiments et pour que l'arbre ne prenne pas trop de place en mémoire.
+
+L'arbre ainsi obtenu nous permet d'optimiser la localisation d'un point en réduisant le nombre de bâtiments, et donc de rectangles, à tester grâce au découpage de la carte en zones de tailles égales.\\
+
+\begin{algorithm}[H]
+ \KwData{A set of buildings $buildings$, the depth of the tree $depth$}
+ \KwResult{The decision tree}
+$boundingBoxes$ $\gets$ an empty list of bounding boxes\;
+\For{each building in $buildings$}{
+  add the bounding box of the building to $boundingBoxes$\;
+}
+calculate the smallest bounding box containing all the buildings\;
+$minX$, $minY$, $maxX$, $maxX$ $\gets$ coordinates of the bounding box\;
+$root \gets split(minX$, $minY$, $maxX$, $maxY$, $depth$, $boundingBoxes)$\;
+\Return $Tree(root)$\;
+ \caption{create\label{algoarbre}}
+\end{algorithm}
+~\\
+\begin{algorithm}[H]
+ \KwData{A rectangle $minX$, $minY$, $maxX$, $maxY$, the depth of the tree $depth$, a list of bounding boxes $boundingBoxes$}
+ \KwResult{A node}
+$list$ $\gets$ an empty list of bounding boxes\;
+\For{each bounding box in $boundingBoxes$}{
+  \If{the bounding box intersect the rectangle}{
+    add the bounding box to $list$\;
+  }
+}
+\uIf{$list$ is empty}{
+  \Return $null$\;
+} \uElseIf{$depth = 0$}{
+ \Return $Leaf(list)$\;
+} \Else {
+  $cX$, $cY$ $\gets$ the center of the rectangle\;
+  $depth \gets depth - 1$\;
+  $topLeft \gets split(minX$, $minY$, $cX$, $cY$, $depth$, $list)$\;
+  $topRight \gets split(cX$, $minY$, $maxX$, $cY$, $depth$, $list)$\;
+  $bottomLeft \gets split(minX$, $cY$, $cX$, $maxY$, $depth$, $list)$\;
+  $bottomRight \gets split(cX$, $cY$, $maxX$, $maxY$, $depth$, $list)$\;
+  \eIf{all the nodes are $null$} {
+    \Return $null$\;
+  } {
+    \Return $Node(topLeft$, $topRight$, $bottomLeft$, $bottomRight$, $cX$, $cY)$\;
+  }
+}
+ \caption{split}
+\end{algorithm}
