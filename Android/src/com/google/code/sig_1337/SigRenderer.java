@@ -15,13 +15,9 @@ import android.opengl.GLSurfaceView;
 
 import com.google.code.sig_1337.model.Color;
 import com.google.code.sig_1337.model.ISig1337;
-import com.google.code.sig_1337.model.xml.IItineraire;
-import com.google.code.sig_1337.model.xml.IPoint;
 import com.google.code.sig_1337.model.xml.route.IRoutes;
 import com.google.code.sig_1337.model.xml.route.IRoutesMap;
-import com.google.code.sig_1337.model.xml.route.Route;
 import com.google.code.sig_1337.model.xml.route.RouteType;
-import com.google.code.sig_1337.model.xml.route.Routes;
 import com.google.code.sig_1337.model.xml.structure.IStructure;
 import com.google.code.sig_1337.model.xml.structure.IStructures;
 
@@ -135,15 +131,14 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	 * @param itineraire
 	 *            selected itineraire.
 	 */
-	public void onItineraire(IItineraire itineraire) {
+	public void onItineraire(IRoutes itineraire) {
 		if (itineraire == null) {
 			this.itineraire = null;
 		} else {
-			Routes routes = new Routes();
-			routes.add(new Route(RouteType.Itineraire, itineraire
-					.toArray(new IPoint[itineraire.size()])));
-			routes.done();
-			this.itineraire = routes;
+			if (!itineraire.isLoaded()) {
+				itineraire.done();
+			}
+			this.itineraire = itineraire;
 		}
 	}
 

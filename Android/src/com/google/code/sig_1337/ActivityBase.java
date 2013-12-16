@@ -19,8 +19,9 @@ import android.widget.Toast;
 
 import com.google.code.sig_1337.ItineraireActivity.ItineraireItem;
 import com.google.code.sig_1337.model.ISig1337;
-import com.google.code.sig_1337.model.xml.IItineraire;
 import com.google.code.sig_1337.model.xml.IPoint;
+import com.google.code.sig_1337.model.xml.route.IRoute;
+import com.google.code.sig_1337.model.xml.route.IRoutes;
 import com.google.code.sig_1337.model.xml.structure.IBuilding;
 import com.google.code.sig_1337.model.xml.structure.IStructure;
 import com.google.code.sig_1337.model.xml.structure.IStructures;
@@ -194,14 +195,15 @@ public abstract class ActivityBase extends Activity implements
 				}
 				if ((depart != null && depart.getVoisins().size() != 0)
 						&& (arrive != null && arrive.getVoisins().size() != 0)) {
-					IItineraire iti = getSig1337()
-							.getItineraire(depart, arrive);
+					IRoutes iti = getSig1337().getItineraire(depart, arrive);
 					view.getRenderer().onItineraire(iti);
 					if (iti != null) {
 						// Debug.
 						String s = "";
-						for (IPoint iPoint : iti) {
-							s += iPoint.toString() + " ";
+						for (IRoute route : iti) {
+							for (IPoint iPoint : route.getPoints()) {
+								s += iPoint.toString() + " ";
+							}
 						}
 						Log.d("pouet", s);
 					} else {
