@@ -107,11 +107,6 @@ public class LocalHandler<T extends ILocalSig1337> extends RemoteHandler<T> {
 	protected static final String SID = "sId";
 
 	/**
-	 * Name for the {@code name} attribute.
-	 */
-	protected static final String NAME = "name";
-
-	/**
 	 * {@inheritDoc}
 	 */
 	@Override
@@ -232,14 +227,13 @@ public class LocalHandler<T extends ILocalSig1337> extends RemoteHandler<T> {
 		parser.require(XmlPullParser.START_TAG, null, BOUNDING_BOX);
 		long id = Long.parseLong(parser.getAttributeValue(null, ID));
 		long sId = Long.parseLong(parser.getAttributeValue(null, SID));
-		String name = parser.getAttributeValue(null, NAME);
 		double x1 = Double.parseDouble(parser.getAttributeValue(null, X1));
 		double y1 = Double.parseDouble(parser.getAttributeValue(null, Y1));
 		double x2 = Double.parseDouble(parser.getAttributeValue(null, X2));
 		double y2 = Double.parseDouble(parser.getAttributeValue(null, Y2));
 		parser.nextTag();
 		parser.require(XmlPullParser.END_TAG, null, BOUNDING_BOX);
-		map.put(id, new BoundingBox(sId, name, x1, y1, x2, y2));
+		map.put(id, new BoundingBox(sId, x1, y1, x2, y2));
 	}
 
 	private INode readNodes(XmlPullParser parser, Map<Long, BoundingBox> map)

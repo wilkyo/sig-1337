@@ -21,6 +21,7 @@ import com.google.code.sig_1337.model.xml.route.Route;
 import com.google.code.sig_1337.model.xml.route.RouteType;
 import com.google.code.sig_1337.model.xml.route.Routes;
 import com.google.code.sig_1337.model.xml.structure.IBuilding;
+import com.google.code.sig_1337.model.xml.structure.IStructure;
 
 /**
  * Local version of the sig.<br/>
@@ -102,11 +103,11 @@ public class LocalSig1337 extends Sig1337Base implements ILocalSig1337 {
 	 */
 	@Override
 	public String getStructureName(double x, double y) {
-		BoundingBox bb = tree.locate(x, y);
-		if (bb == null) {
+		IStructure s = getStructure(getStructureId(x, y));
+		if (s == null) {
 			return null;
 		} else {
-			return bb.getName();
+			return s.getName();
 		}
 	}
 
