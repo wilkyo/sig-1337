@@ -91,7 +91,20 @@ Ensuite, les données vont être récupérées et parsée en XML. On retrouvera 
 \item \textbf{route}, contenant la liste des points la décrivant et son type (chemin ou route pour une réprésentation différent sur la carte).
 \end{itemize}
 
+\newpage
+
 \subsection{WebService}
+Afin de permettre une utilisation de l'application en mode "remote", un \textit{WebService} a été mis en place. Aucune donnée (comme les bâtiments, les routes, l'arbre de décision) n'étant stockée sur le téléphone dans ce mode, c'est l'appel aux méthodes de ce \textit{WebService} qui va nous permettre de récupérer toutes les données nécessaires. \\
+Il permet entre autre d'avoir accès à trois méthodes :\\
+\begin{itemize}
+\item Une méthode permettant de récupérer les informations de la carte au format XML, c'est-à-dire les nœuds, les routes et les structures ainsi que l'arbre de décision. Cette méthode sera appelée au lancement de l'application en mode "remote". Elle est accessible à partir de l'URL : http://\textit{IP\_ADRESS}:\textit{PORT}/WebService/service/map. La définition de cette méthode est présente dans la classe \textbf{MapService}.
+\item Une méthode permettant à partir d'une latitude et d'une longitude, de récupérer le plus proche bâtiment. Elle sera appelée dans l'application Android, lors d'un appuie sur une zone de la carte afin de pouvoir sélectionner un bâtiment comme point de départ ou d'arrivée pour un itinéraire. Cette méthode est accessible à partir de l'URL : http://\textit{IP\_ADRESS}:\textit{PORT}/WebService/service/location/building/\{lat\}/\{lon\}. Elle est définie dans la classe \textbf{LocationService}.
+\item Une méthode permettant à partir de l'identifiant d'un bâtiment de départ et de l'identifiant d'un bâtiment d'arrivée de retourner un itinéraire (au format JSON). La réponse renvoie la liste des coordonnées à parcourir. Cette méthode sera appelée lors de la demande de calcul d'un itinéraire par l'utilisateur et est accessible à partir de l'URL : http://\textit{IP\_ADRESS}:\textit{PORT}/WebService/service/location/direction/\{id départ\}/\{id arrivée\}. Cette méthode est définie dans la classe \textbf{LocationService}.\\
+\end{itemize}
+
+La méthode récupérant le XML décrivant la carte étant la plus longue, c'est un tâche asynchrone qui l'appel. Les deux autres méthodes étant relativement rapide (une seconde environ), on attend la réponse du WebService (avec une limite fixée à 3 secondes pour ne pas bloquer l'application trop longtemps). 
+
+\newpage
 
 \subsection{Android}
 \subsubsection{Version locale}
