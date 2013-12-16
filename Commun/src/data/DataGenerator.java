@@ -10,7 +10,8 @@ import data.sql.SQLToXml;
 public class DataGenerator {
 
 	public static void main(String[] args) {
-		SQLCreate.createDataBase();
+		if (!SQLCreate.createDataBase())
+			System.out.println("Problème à la création de la base.");;
 		FileWriter out;
 		try {
 			out = new FileWriter(new File("files/map.xml"));
