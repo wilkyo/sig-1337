@@ -27,17 +27,13 @@ public class LocationService {
 	}
 
 	@GET
-	@Path("direction/{fromlat}/{fromlon}/{tolat}/{tolon}")
+	@Path("direction/{idDepart}/{idArrive}")
 	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON,
 			MediaType.TEXT_HTML })
-	public String getDirection(@PathParam("fromlat") double srcLatitude,
-			@PathParam("fromlon") double srcLongitude,
-			@PathParam("tolat") double destLatitude,
-			@PathParam("tolon") double destLongitude) {
+	public String getDirection(@PathParam("idDepart") long idDepart,
+			@PathParam("idArrive") long idArrive) {
 		System.out.println("/WebService/service/location/direction/"
-				+ srcLatitude + "/" + srcLongitude + "/" + destLatitude + "/"
-				+ destLongitude);
-		return LocationHelper.getDirection(srcLatitude, srcLongitude,
-				destLatitude, destLongitude);
+				+ idDepart + "/" + idArrive);
+		return LocationHelper.getDirection(idDepart, idArrive);
 	}
 }

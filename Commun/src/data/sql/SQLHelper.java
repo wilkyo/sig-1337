@@ -32,7 +32,9 @@ public class SQLHelper {
 	public static final String TABLE_RELS = "planet_osm_rels";
 	public static final String TABLE_ROADS = "planet_osm_roads";
 	public static final String TABLE_WAYS = "planet_osm_ways";
-
+	public static final String TABLE_VERTICES = "osm_2po_4pgr_noded_vertices_pgr";
+	public static final String TABLE_EDGES = "osm_2po_4pgr_noded";
+	
 	/**
 	 * Constants for our geometries.
 	 */
@@ -91,6 +93,20 @@ public class SQLHelper {
 	public static final String CUSTOM_GRAPH_VOISIN_X = "voisin_x";
 	public static final String CUSTOM_GRAPH_VOISIN_Y = "voisin_y";
 
+	/**
+	 * Constants for our graph vertices table.
+	 */
+	public static final String VERTICES_GEOM = "the_geom";
+	public static final String VERTICES_ID = "id";
+	
+	/**
+	 * Constants for our graph edges table.
+	 */
+	public static final String EDGES_GEOM = "geom_way";
+	public static final String EDGES_ID = "id";
+	public static final String EDGES_SOURCE = "source";
+	public static final String EDGES_TARGET = "target";
+	
 	/**
 	 * Take an SQL Array and returns its integer Array value.
 	 * 
