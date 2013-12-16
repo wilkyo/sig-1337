@@ -6,6 +6,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{hyperref}
+\usepackage{float}
 
 
 % Default margins are too wide all the way around. I reset them here
@@ -58,6 +59,37 @@
 \subsection{Commun}
 \subsubsection{Package geometry}
 \subsubsection{Package data}
+Le package \textbf{data} contient le modèle des données ainsi que les fonctions (SQL et XML) nécessaire au prétraitement des données.
+\paragraph{Le modèle : \\}
+Notre modèle correspond à la structure de notre base de données. Nous avons choisi de ne garder que les nœuds, les trous, les routes, les bâtiments, les bassins et les forêts. Ainsi nous retrouvons : \\
+\renewcommand{\labelitemi}{$\bullet$}
+\begin{itemize}
+\item une classe \textbf{Node} contenant un \textit{id}, une \textit{latitude} et une \textit{longitude}. Cette classe caractérise un point de la carte et va permettre avec ses coordonnées de construire une route, un bâtiment, un bassin ou une forêt.
+\item une classe \textbf{Road} contenant un \textit{id}, un \textit{nom} (pas obligatoire),  un \textit{type} (route secondaire, chemin, route piétonne, etc.), la liste des nœuds qui la constitue et sa \textit{géométrie}.
+\item une classe abstraite \textbf{Structure} possédant un \textit{id}, un {nom} (pas obligatoire), la liste des nœuds qui constitue cette structure, sa géométrie ainsi que la liste de ses trous (peut être vide). Les classes héritant de \textbf{Structure} sont :
+	\begin{itemize}
+	\item la classe \textbf{Building}. Elle représente un bâtiment et à en plus une liste de tous ses nœuds proches (hors ceux constituant le bâtiment).
+	\item la classe \textbf{Basin} décrivant un bassin (lac, étang, etc.)
+	\item la classe \textbf{Forest} décrivant une forêt.
+	\item la classe \textbf{Hole} décrivant un trou d'une structure. Elle possède en plus l'id de la structure à laquelle il appartient.
+	\end{itemize}
+\end{itemize}
+Le modèle est représenté par le schéma ci-dessous :\\
+
+\begin{figure}[H]
+\includegraphics[width=1\textwidth]{../images/modeleDonnees.png}
+\caption{Modèle}
+\end{figure}
+
+\paragraph{Le pré-traitement : \\}
+Une étape de pré-traitement à été nécessaire. En effet lorsque nous avons récupérer les données \textit{OpenStreetMap} et importé dans une base de données (à l'aide de l'outil \textit{osm2pgsql}), nous avons dû récupérer seulement les informations qui nous étaient utiles. Ainsi nous avons créé 4 nouvelles tables correspondant à notre modèle (sig1337\_nodes, sig1337\_roads, sig1337\_holes et sig1337\_structures) avec seulement les informations nécessaire (coordonnées, géométrie, nom, ...). Cette génération se fait à l'aide de la classe \textbf{SQLCreate} du package \textbf{data.sql}. \\
+Ensuite, les données vont être récupérées et parsée en XML. On retrouvera notamment les tags :
+\begin{itemize}
+\item \textbf{bassin}, contenant un nom, une liste de voisins, et les triangles permettant sa construction en \textit{OpenGL}.
+\item \textbf{foret}, contenant un nom, une liste de voisins, et les triangles permettant sa construction en \textit{OpenGL}.
+\item \textbf{batiment}, contenant un nom, une liste de voisins, et les triangles permettant sa construction en \textit{OpenGL}.
+\item \textbf{route}, contenant la liste des points la décrivant et son type (chemin ou route pour une réprésentation différent sur la carte).
+\end{itemize}
 
 \subsection{WebService}
 
