@@ -398,7 +398,7 @@ public class SQLToXml {
 	 */
 	private static String structureToXML(Structure structure, String type) {
 		StringBuffer res = new StringBuffer();
-		res.append("\t\t\t<" + type + " nom=\"" + structure.getName() + "\">\n");
+		res.append("\t\t\t<" + type + " nom=\"" + structure.getName() + "\" id=\"" + structure.getId() + "\">\n");
 		List<Polygone> triangles = Node.toPolygon(structure.getNodes())
 				.toTriangles();
 		res.append("\t\t\t\t<triangles>\n");

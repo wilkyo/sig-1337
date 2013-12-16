@@ -25,5 +25,11 @@ public interface IStructure {
 	 * @return the triangles.
 	 */
 	public List<ITriangles> getTriangles();
+	
+	/**
+	 * Get the id
+	 * @return its id.
+	 */
+	public Long getId();
 
 }

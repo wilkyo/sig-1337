@@ -7,6 +7,8 @@ import java.util.List;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
+import android.util.Log;
+
 import com.google.code.sig_1337.model.ISig1337;
 import com.google.code.sig_1337.model.xml.IBounds;
 import com.google.code.sig_1337.model.xml.IGraphics;
@@ -154,6 +156,11 @@ public class RemoteHandler<U extends ISig1337> implements IHandler<U> {
 	protected static final String Y = "y";
 
 	/**
+	 * NAme for the {@code id} attribute
+	 */
+	private static final String ID = "id";
+
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override
@@ -219,7 +226,7 @@ public class RemoteHandler<U extends ISig1337> implements IHandler<U> {
 	}
 
 	protected static interface Initializer<T> {
-		public T initialize(String name);
+		public T initialize(String name, Long id);
 	}
 
 	/**
@@ -245,22 +252,22 @@ public class RemoteHandler<U extends ISig1337> implements IHandler<U> {
 		// Bassins.
 		readStructures(parser, BASSINS, BASSIN, graphics.getBassins(), bounds,
 				new Initializer<IBassin>() {
-					public IBassin initialize(String name) {
-						return new Bassin(name);
+					public IBassin initialize(String name, Long id) {
+						return new Bassin(name,id);
 					}
 				});
 		// Forets.
 		readStructures(parser, FORETS, FORET, graphics.getForets(), bounds,
 				new Initializer<IForet>() {
-					public IForet initialize(String name) {
-						return new Foret(name);
+					public IForet initialize(String name, Long id) {
+						return new Foret(name,id);
 					}
 				});
 		// Buildings.
 		readStructures(parser, BUILDINGS, BUILDING, graphics.getBuildings(),
 				bounds, new Initializer<IBuilding>() {
-					public IBuilding initialize(String name) {
-						return new Building(name);
+					public IBuilding initialize(String name, Long id) {
+						return new Building(name, id);
 					}
 				});
 		readRoutes(parser, graphics.getRoutes(), bounds);
@@ -320,7 +327,8 @@ public class RemoteHandler<U extends ISig1337> implements IHandler<U> {
 		checkInterrupted();
 		parser.require(XmlPullParser.START_TAG, null, tag);
 		String name = parser.getAttributeValue(null, NAME);
-		T t = init.initialize(name);
+		String id = parser.getAttributeValue(null, ID);
+		T t = init.initialize(name, Long.parseLong(id));
 		while (parser.next() != XmlPullParser.END_TAG) {
 			if (parser.getEventType() != XmlPullParser.START_TAG) {
 				continue;
