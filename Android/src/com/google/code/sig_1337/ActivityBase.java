@@ -1,7 +1,6 @@
 package com.google.code.sig_1337;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.code.sig_1337.ItineraireActivity.ItineraireItem;
 import com.google.code.sig_1337.model.ISig1337;
 import com.google.code.sig_1337.model.xml.IItineraire;
 import com.google.code.sig_1337.model.xml.IPoint;
@@ -145,17 +145,18 @@ public abstract class ActivityBase extends Activity implements
 	public boolean onOptionsItemSelected(MenuItem item) {
 		boolean action = false;
 		if (item.getItemId() == R.id.itineraire) {
-			String[] liste = {};
-			ArrayList<String> l = new ArrayList<String>();
+			ItineraireItem[] liste = {};
+			ArrayList<ItineraireItem> l = new ArrayList<ItineraireItem>();
 			for (IBuilding building : getSig1337().getGraphics().getBuildings()) {
 				String name = building.getName();
 				if (name != null && !name.equals("") && !l.contains(name)
 						&& building.getVoisins().size() != 0)
-					l.add(building.getName());
+					l.add(new ItineraireItem(building.getId(), building
+							.getName()));
 			}
 			Intent i = new Intent(this, ItineraireActivity.class);
 			Collections.sort(l);
-			l.add(0, MA_POSITION);
+			l.add(0, new ItineraireItem(-1, MA_POSITION));
 			liste = l.toArray(liste);
 			i.putExtra("Nombat", liste);
 			startActivityForResult(i, 1);
@@ -167,29 +168,29 @@ public abstract class ActivityBase extends Activity implements
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (data.getAction().equals("Routage")) {
 			if (requestCode == resultCode) {
-				String bdepart = data.getStringExtra("Source");
-				String barrive = data.getStringExtra("Target");
+				ItineraireItem bdepart = data.getParcelableExtra("Source");
+				ItineraireItem barrive = data.getParcelableExtra("Target");
 				IStructures<IBuilding> buildings = getSig1337().getGraphics()
 						.getBuildings();
 				IBuilding depart = null;
 				if (MA_POSITION.equals(bdepart)) {
-					// Get the name of the structure at our location.
-					String name = getSig1337().getStructureName(
+					// Get the id of the structure at our location.
+					long id = getSig1337().getStructureId(
 							locationListener.getLongitude(),
 							locationListener.getLatitude());
 					// Get the corresponding building.
-					depart = buildings.get(name);
+					depart = buildings.get(id);
 				} else {
-					depart = buildings.get(bdepart);
+					depart = buildings.get(bdepart.id);
 				}
 				IBuilding arrive = null;
 				if (MA_POSITION.equals(barrive)) {
-					String name = getSig1337().getStructureName(
+					long id = getSig1337().getStructureId(
 							locationListener.getLongitude(),
 							locationListener.getLatitude());
-					arrive = buildings.get(name);
+					arrive = buildings.get(id);
 				} else {
-					arrive = buildings.get(barrive);
+					arrive = buildings.get(barrive.id);
 				}
 				if ((depart != null && depart.getVoisins().size() != 0)
 						&& (arrive != null && arrive.getVoisins().size() != 0)) {
@@ -204,8 +205,9 @@ public abstract class ActivityBase extends Activity implements
 						}
 						Log.d("pouet", s);
 					} else {
-						Log.d("pouet","No path.");
-						Toast.makeText(this, R.string.no_path, Toast.LENGTH_SHORT).show();
+						Log.d("pouet", "No path.");
+						Toast.makeText(this, R.string.no_path,
+								Toast.LENGTH_SHORT).show();
 					}
 				}
 			} else {
@@ -221,7 +223,11 @@ public abstract class ActivityBase extends Activity implements
 	@Override
 	public void onStructureSelected(IStructure structure) {
 		if (structure != null) {
-			Toast.makeText(this, structure.getName(), Toast.LENGTH_LONG).show();
+			String name = structure.getName();
+			if (name != null && !name.equals("")) {
+				Toast.makeText(this, structure.getName(), Toast.LENGTH_LONG)
+						.show();
+			}
 		}
 	}
 

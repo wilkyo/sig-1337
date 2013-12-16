@@ -21,7 +21,7 @@ public class MainActivity extends Activity {
 	 */
 	private MyLocationListener locationListener;
 
-	private static final String SERVER_IP = "192.168.1.4";
+	private static final String SERVER_IP = "95.157.243.69";
 
 	/**
 	 * {@inheritDoc}

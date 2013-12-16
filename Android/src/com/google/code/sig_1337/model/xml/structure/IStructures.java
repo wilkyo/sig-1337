@@ -20,13 +20,13 @@ public interface IStructures<T extends IStructure> extends Iterable<T> {
 	public void add(T structure);
 
 	/**
-	 * Get the structure with the given name.
+	 * Get the structure with the given id.
 	 * 
-	 * @param name
-	 *            name of the structure.
+	 * @param id
+	 *            id of the structure.
 	 * @return corresponding structure.
 	 */
-	public T get(String name);
+	public T get(long id);
 
 	/**
 	 * Clear the list.

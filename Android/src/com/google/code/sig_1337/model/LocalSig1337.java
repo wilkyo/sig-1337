@@ -83,6 +83,19 @@ public class LocalSig1337 extends Sig1337Base implements ILocalSig1337 {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public long getStructureId(double x, double y) {
+		BoundingBox bb = tree.locate(x, y);
+		if (bb == null) {
+			return -1;
+		} else {
+			return bb.getId();
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public String getStructureName(double x, double y) {
 		BoundingBox bb = tree.locate(x, y);
 		if (bb == null) {

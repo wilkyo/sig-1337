@@ -41,13 +41,13 @@ public interface IGraphics {
 	public IRoutesMap getRoutes();
 
 	/**
-	 * Get the structure with the given name.
+	 * Get the structure with the given id.
 	 * 
-	 * @param name
-	 *            name of the structure.
+	 * @param id
+	 *            id of the structure.
 	 * @return the structure.
 	 */
-	public IStructure getStructure(String name);
+	public IStructure getStructure(long id);
 
 	/**
 	 * Clear the graphics.

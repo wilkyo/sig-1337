@@ -21,9 +21,9 @@ public class Structures<T extends IStructure> implements IStructures<T> {
 	private final List<T> inner;
 
 	/**
-	 * Structures by name.
+	 * Structures by id.
 	 */
-	private final Map<String, T> map;
+	private final Map<Long, T> map;
 
 	/**
 	 * Type.
@@ -71,7 +71,7 @@ public class Structures<T extends IStructure> implements IStructures<T> {
 	public Structures(StructureType type) {
 		super();
 		inner = new ArrayList<T>();
-		map = new HashMap<String, T>();
+		map = new HashMap<Long, T>();
 		this.type = type;
 	}
 
@@ -89,7 +89,7 @@ public class Structures<T extends IStructure> implements IStructures<T> {
 	@Override
 	public void add(T structure) {
 		inner.add(structure);
-		map.put(structure.getName(), structure);
+		map.put(structure.getId(), structure);
 		for (ITriangles triangles : structure.getTriangles()) {
 			int s = triangles.size();
 			switch (triangles.getType()) {
@@ -110,12 +110,8 @@ public class Structures<T extends IStructure> implements IStructures<T> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public T get(String name) {
-		if (name == null) {
-			return null;
-		} else {
-			return map.get(name);
-		}
+	public T get(long id) {
+		return map.get(id);
 	}
 
 	/**

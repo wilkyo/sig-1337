@@ -19,10 +19,10 @@ public abstract class Structure implements IStructure {
 	 */
 	private final List<ITriangles> triangles;
 
-	private final Long id;
-	
+	private final long id;
+
 	protected final IVoisins voisins;
-	
+
 	/**
 	 * Initializing constructor.
 	 * 
@@ -31,7 +31,7 @@ public abstract class Structure implements IStructure {
 	 * @param triangles
 	 *            triangles.
 	 */
-	public Structure(String name, Long id) {
+	public Structure(String name, long id) {
 		super();
 		this.name = name;
 		this.triangles = new CopyOnWriteArrayList<ITriangles>();
@@ -54,9 +54,9 @@ public abstract class Structure implements IStructure {
 	public List<ITriangles> getTriangles() {
 		return triangles;
 	}
-	
+
 	@Override
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 }

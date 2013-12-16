@@ -51,13 +51,13 @@ public interface ISig1337 {
 			IOException, InterruptedException;
 
 	/**
-	 * Get the structure with the given name.
+	 * Get the structure with the given id.
 	 * 
-	 * @param name
-	 *            name of the structure.
+	 * @param id
+	 *            id of the structure.
 	 * @return the structure.
 	 */
-	public IStructure getStructure(String name);
+	public IStructure getStructure(long id);
 
 	/**
 	 * Get the structure at the given coordinates.
@@ -69,6 +69,17 @@ public interface ISig1337 {
 	 * @return the structure.
 	 */
 	public IStructure getStructure(double x, double y);
+
+	/**
+	 * Get the id of the structure at the given coordinates.
+	 * 
+	 * @param x
+	 *            longitude.
+	 * @param y
+	 *            latitude.
+	 * @return the id of the structure.
+	 */
+	public long getStructureId(double x, double y);
 
 	/**
 	 * Get the name of the structure at the given coordinates.

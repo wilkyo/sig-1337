@@ -5,7 +5,9 @@ import java.io.InputStream;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
+import java.util.logging.Logger;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -17,7 +19,10 @@ import android.util.Xml;
 
 import com.google.code.sig_1337.model.handler.RemoteHandler;
 import com.google.code.sig_1337.model.xml.IItineraire;
+import com.google.code.sig_1337.model.xml.Itineraire;
+import com.google.code.sig_1337.model.xml.Point;
 import com.google.code.sig_1337.model.xml.structure.IBuilding;
+import com.google.code.sig_1337.remote.AsyncTaskGetItineraire;
 import com.google.code.sig_1337.remote.AsyncTaskGetLocation;
 
 /**
@@ -50,6 +55,42 @@ public class RemoteSig1337 extends Sig1337Base implements IRemoteSig1337 {
 				e.printStackTrace();
 			}
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public long getStructureId(double x, double y) {
+		Log.v("pouet", "getStructureId");
+		long res = -1;
+		try {
+			AsyncTaskGetLocation task = new AsyncTaskGetLocation(serverIP, y, x);
+			task.execute();
+			String json = task.get(3, TimeUnit.SECONDS);
+			if (json != null && json.length() > 0) {
+				JSONParser parser = new JSONParser();
+				Object obj = parser.parse(json);
+				JSONObject jsonObject = (JSONObject) obj;
+				String s = (String) jsonObject.get("id");
+				if (s != null && !s.equals("")) {
+					res = Long.parseLong(s);
+				}
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			e.printStackTrace();
+		} catch (ParseException e) {
+			e.printStackTrace();
+		} catch (TimeoutException e) {
+			e.printStackTrace();
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+			res = -1;
+		}
+		Log.v("pouet", "res = " + res);
+		return res;
 	}
 
 	/**
@@ -89,8 +130,45 @@ public class RemoteSig1337 extends Sig1337Base implements IRemoteSig1337 {
 	 */
 	@Override
 	public IItineraire getItineraire(IBuilding start, IBuilding end) {
-		// TODO Auto-generated method stub
-		return null;
+		Log.v("pouet", "getItineraire");
+		IItineraire res = null;
+		try {
+			AsyncTaskGetItineraire task = new AsyncTaskGetItineraire(serverIP,
+					start.getId(), end.getId());
+			task.execute();
+			String json = task.get(3, TimeUnit.SECONDS);
+			// TODO Retirer ça
+			json = "[" + json.substring(1, json.length() - 1) + "]";
+			// TODO
+			if (json != null && json.length() > 0) {
+				JSONParser parser = new JSONParser();
+				Object obj = parser.parse(json);
+				JSONArray jsonArray = (JSONArray) obj;
+				res = new Itineraire();
+				for (Object object : jsonArray) {
+					JSONObject jsonObject = (JSONObject) object;
+					JSONArray coordinates = (JSONArray) jsonObject
+							.get("coordinates");
+					for (Object object2 : coordinates) {
+						JSONArray coords = (JSONArray) object2;
+						double x = (Double) coords.get(0);
+						double y = (Double) coords.get(1);
+						Logger.getLogger("pouet").info(x + " " + y);
+						res.add(new Point(x, y, x - bounds.getMinLon(), y
+								- bounds.getMinLat()));
+					}
+				}
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			e.printStackTrace();
+		} catch (ParseException e) {
+			e.printStackTrace();
+		} catch (TimeoutException e) {
+			e.printStackTrace();
+		}
+		Log.v("pouet", "res = " + res);
+		return res;
 	}
-
 }

@@ -91,14 +91,14 @@ public class Graphics implements IGraphics {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IStructure getStructure(String name) {
-		IStructure s = buildings.get(name);
+	public IStructure getStructure(long id) {
+		IStructure s = buildings.get(id);
 		if (s != null)
 			return s;
-		s = forets.get(name);
+		s = forets.get(id);
 		if (s != null)
 			return s;
-		s = bassins.get(name);
+		s = bassins.get(id);
 		if (s != null)
 			return s;
 		return null;

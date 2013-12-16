@@ -62,8 +62,8 @@ public abstract class Sig1337Base implements ISig1337 {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IStructure getStructure(String name) {
-		return graphics.getStructure(name);
+	public IStructure getStructure(long id) {
+		return graphics.getStructure(id);
 	}
 
 	/**
@@ -71,7 +71,7 @@ public abstract class Sig1337Base implements ISig1337 {
 	 */
 	@Override
 	public IStructure getStructure(double x, double y) {
-		return getStructure(getStructureName(x, y));
+		return getStructure(getStructureId(x, y));
 	}
 
 }

@@ -354,6 +354,8 @@ public class ArbreDecision {
 			buff.append(indent);
 			buff.append("<boundingBox id=\"");
 			buff.append(id);
+			buff.append("\" sId=\"");
+			buff.append(building.getId());
 			buff.append("\" name=\"");
 			buff.append(building.getName());
 			buff.append("\" x1=\"");

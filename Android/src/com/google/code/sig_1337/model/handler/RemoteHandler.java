@@ -7,8 +7,6 @@ import java.util.List;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
-import android.util.Log;
-
 import com.google.code.sig_1337.model.ISig1337;
 import com.google.code.sig_1337.model.xml.IBounds;
 import com.google.code.sig_1337.model.xml.IGraphics;
@@ -226,7 +224,7 @@ public class RemoteHandler<U extends ISig1337> implements IHandler<U> {
 	}
 
 	protected static interface Initializer<T> {
-		public T initialize(String name, Long id);
+		public T initialize(String name, long id);
 	}
 
 	/**
@@ -252,21 +250,21 @@ public class RemoteHandler<U extends ISig1337> implements IHandler<U> {
 		// Bassins.
 		readStructures(parser, BASSINS, BASSIN, graphics.getBassins(), bounds,
 				new Initializer<IBassin>() {
-					public IBassin initialize(String name, Long id) {
-						return new Bassin(name,id);
+					public IBassin initialize(String name, long id) {
+						return new Bassin(name, id);
 					}
 				});
 		// Forets.
 		readStructures(parser, FORETS, FORET, graphics.getForets(), bounds,
 				new Initializer<IForet>() {
-					public IForet initialize(String name, Long id) {
-						return new Foret(name,id);
+					public IForet initialize(String name, long id) {
+						return new Foret(name, id);
 					}
 				});
 		// Buildings.
 		readStructures(parser, BUILDINGS, BUILDING, graphics.getBuildings(),
 				bounds, new Initializer<IBuilding>() {
-					public IBuilding initialize(String name, Long id) {
+					public IBuilding initialize(String name, long id) {
 						return new Building(name, id);
 					}
 				});
