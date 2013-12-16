@@ -1,3 +1,5 @@
+\subsection{Arbre de décision}
+
 Au départ, nous voulions implémenter le \texttt{Randomized Incremental Algorithm} pour la génération de l'arbre de décision. Cet algorithme prend en paramètre un ensemble de segments, et retourne un découpage en trapèzes ainsi qu'un arbre de recherche qui permet de savoir dans quel trapèze se trouve un point donné.
 
 Une première difficulté était l'implémentation de l'algorithme. L'algorithme nécessite que chaque trapèze connaisse ses deux voisins de gauche et de droite. Le livre décrit comment modifier les trapèzes et l'arbre de recherche suivant si le segment ajouté intersecte un ou plusieurs trapèzes, mais il n'indique jamais comment gérer les voisins. De plus, pour le cas simple où le segment ajouté occupe un seul trapèze, le livre indique bien à la fin qu'il faut gérer les cas où le point à gauche (ou à droite) du segment est aussi le point à gauche (ou à droite) du trapèze, mais ne dit pas comment. Les explications du livre paraissent simples, mais on se retrouve à devoir gérer un bon nombre de cas et à complexifier le code à cause de cette notion de voisins.
