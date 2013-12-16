@@ -66,7 +66,7 @@ public class Routes implements IRoutes {
 	public void add(IRoute route) {
 		inner.add(route);
 		int s = route.getPoints().length - 2;
-		vertexCount += 12 + s * 6;
+		vertexCount += 12 + s * 12;
 		indexCount += (s + 1) * 6;
 	}
 
@@ -145,10 +145,9 @@ public class Routes implements IRoutes {
 				// Fill the buffers.
 				index = fill(route, from.getRelativeLongitude(),
 						from.getRelativeLatitude(), to.getRelativeLongitude(),
-						to.getRelativeLatitude(), index, i == 1);
+						to.getRelativeLatitude(), index);
 				from = to;
 			}
-			index += 2;
 		}
 		// Reset the position.
 		fillVertexBuffer.position(0);
@@ -167,7 +166,7 @@ public class Routes implements IRoutes {
 	 *            second point.
 	 */
 	private int fill(IRoute route, double x1, double y1, double x2, double y2,
-			int index, boolean first) {
+			int index) {
 		RouteType type = route.getType();
 		float hFillSize = type.getFillSize() / 2;
 		float hStrokeSize = type.getStrokeSize() / 2;
@@ -176,18 +175,16 @@ public class Routes implements IRoutes {
 		v.normaliser();
 		// Fill.
 		v.scale(hFillSize);
-		if (first) {
-			// P1.
-			v.normaleGauche();
-			fillVertexBuffer.put((float) (x1 + v.x));
-			fillVertexBuffer.put((float) (y1 + v.y));
-			fillVertexBuffer.put((float) (0));
-			v.invert();
-			fillVertexBuffer.put((float) (x1 + v.x));
-			fillVertexBuffer.put((float) (y1 + v.y));
-			fillVertexBuffer.put((float) (0));
-			v.normaleGauche();
-		}
+		// P1.
+		v.normaleGauche();
+		fillVertexBuffer.put((float) (x1 + v.x));
+		fillVertexBuffer.put((float) (y1 + v.y));
+		fillVertexBuffer.put((float) (0));
+		v.invert();
+		fillVertexBuffer.put((float) (x1 + v.x));
+		fillVertexBuffer.put((float) (y1 + v.y));
+		fillVertexBuffer.put((float) (0));
+		v.normaleGauche();
 		// P2.
 		v.normaleGauche();
 		fillVertexBuffer.put((float) (x2 + v.x));
@@ -201,18 +198,16 @@ public class Routes implements IRoutes {
 		v.normaliser();
 		// Stroke.
 		v.scale(hStrokeSize);
-		if (first) {
-			// P1.
-			v.normaleGauche();
-			strokeVertexBuffer.put((float) (x1 + v.x));
-			strokeVertexBuffer.put((float) (y1 + v.y));
-			strokeVertexBuffer.put((float) (0));
-			v.invert();
-			strokeVertexBuffer.put((float) (x1 + v.x));
-			strokeVertexBuffer.put((float) (y1 + v.y));
-			strokeVertexBuffer.put((float) (0));
-			v.normaleGauche();
-		}
+		// P1.
+		v.normaleGauche();
+		strokeVertexBuffer.put((float) (x1 + v.x));
+		strokeVertexBuffer.put((float) (y1 + v.y));
+		strokeVertexBuffer.put((float) (0));
+		v.invert();
+		strokeVertexBuffer.put((float) (x1 + v.x));
+		strokeVertexBuffer.put((float) (y1 + v.y));
+		strokeVertexBuffer.put((float) (0));
+		v.normaleGauche();
 		// P2.
 		v.normaleGauche();
 		strokeVertexBuffer.put((float) (x2 + v.x));
@@ -230,7 +225,7 @@ public class Routes implements IRoutes {
 		indexBuffer.put((short) (index));
 		indexBuffer.put((short) (index + 2));
 		indexBuffer.put((short) (index + 3));
-		return index + 2;
+		return index + 4;
 	}
 
 	/**
