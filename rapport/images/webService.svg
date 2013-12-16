@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Bouml (http://bouml.free.fr/) -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="764" height="274" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<g>
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="748" y="184" width="3" height="73" />
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="316" y="254" width="435" height="3" />
+	<rect fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" x="312" y="180" width="436" height="74" />
+	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" text-anchor="middle" x="530" y="190">LocationService</text>
+	<line stroke="black" stroke-opacity="1" x1="312" y1="199" x2="748" y2="199" />
+	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="316" y="209">-</text>
+	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="328" y="209">context : ServletContext</text>
+	<line stroke="black" stroke-opacity="1" x1="312" y1="218" x2="748" y2="218" />
+	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="316" y="228">+</text>
+	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="328" y="228">getNearestBuiding(latitude : double, longitude : double, req : HttpServletRequest) : string</text>
+	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="316" y="245">+</text>
+	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="328" y="245">getDirection(idDepart : long, idArrive : long, req : HttpServletRequest) : string</text>
+</g>
+<g>
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="724" y="54" width="3" height="61" />
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="340" y="112" width="387" height="3" />
+	<rect fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" x="336" y="50" width="388" height="62" />
+	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" text-anchor="middle" x="530" y="60">LocationHelper</text>
+	<line stroke="black" stroke-opacity="1" x1="336" y1="69" x2="724" y2="69" />
+	<line stroke="black" stroke-opacity="1" x1="336" y1="77" x2="724" y2="77" />
+	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="340" y="87">+</text>
+	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" text-decoration="underline" x="352" y="87">getNearestBuilding(latitude : double, longitude : double, nullable : bool) : string</text>
+	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="340" y="104">+</text>
+	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" text-decoration="underline" x="352" y="104">getDirection(batimentSource : string, batimentDest : string) : string</text>
+</g>
+<g>
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="265" y="58" width="3" height="45" />
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="51" y="100" width="217" height="3" />
+	<rect fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" x="47" y="54" width="218" height="46" />
+	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" text-anchor="middle" x="156" y="64">SQLToXML</text>
+	<line stroke="black" stroke-opacity="1" x1="47" y1="73" x2="265" y2="73" />
+	<line stroke="black" stroke-opacity="1" x1="47" y1="81" x2="265" y2="81" />
+	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="51" y="91">+</text>
+	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="63" y="91">process(filename : string, isRemote : bool)</text>
+</g>
+<g>
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="267" y="172" width="3" height="89" />
+	<rect fill="#cbcbcb" stroke="none" stroke-opacity="1" x="49" y="258" width="221" height="3" />
+	<rect fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" x="45" y="168" width="222" height="90" />
+	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" text-anchor="middle" x="156" y="178">MapService</text>
+	<line stroke="black" stroke-opacity="1" x1="45" y1="187" x2="267" y2="187" />
+	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="49" y="197">-</text>
+	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="61" y="197">context : ServletContext</text>
+	<line stroke="black" stroke-opacity="1" x1="45" y1="206" x2="267" y2="206" />
+	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="49" y="216">+</text>
+	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="61" y="216">getXML(req : HttpServletRequest) : string</text>
+	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="49" y="233">+</text>
+	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="61" y="233">getJSON(req : HttpServletRequest) : string</text>
+	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" font-weight="bold" x="49" y="250">+</text>
+	<text font-family="Helvetica" font-size="8" fill="#000000" xml:space="preserve" x="61" y="250">getHTML(req : HttpServletRequest) : string</text>
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="532" y1="116" x2="526" y2="122" />
+	<line stroke="black" stroke-opacity="1" x1="532" y1="116" x2="538" y2="122" />
+	<line stroke-dasharray="4,4" stroke="black" stroke-opacity="1" x1="532" y1="179" x2="532" y2="116" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="158" y1="104" x2="152" y2="110" />
+	<line stroke="black" stroke-opacity="1" x1="158" y1="104" x2="164" y2="110" />
+	<line stroke-dasharray="4,4" stroke="black" stroke-opacity="1" x1="158" y1="167" x2="158" y2="104" />
+</g>
+</svg>
