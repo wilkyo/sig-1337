@@ -55,7 +55,6 @@ public class LocationHelper {
 			query.append(" ORDER BY distance ASC LIMIT 1;");
 
 			ResultSet result = s.executeQuery(query.toString());
-			System.out.println(query);
 			if (result.next()) {
 				res = "{"
 						+ "\""
@@ -127,7 +126,6 @@ public class LocationHelper {
 					res += result.getString("chemin");
 				}
 				res += "}";
-				System.out.println(res);
 			}
 			s.close();
 			connection.close();
