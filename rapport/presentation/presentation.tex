@@ -8,8 +8,8 @@
 
 \begin{document}
 \title{}
-\title{\textbf{Rapport SIG}}
-\author{
+\title{\textbf{Soutenance SIG}}
+\author[FONTORBE, FRANÇOIS, MOROSI, PERRIN]{
 	\textit{Jordan FONTORBE}\\
 	\textit{Willy FRANÇOIS}\\
 	\textit{Jérémy MOROSI}\\
@@ -38,6 +38,29 @@
 \end{frame}
 \subsubsection{Package data}
 \begin{frame}
+\frametitle{Package data}
+
+Le modèle :\\
+\begin{columns}
+\begin{column}{.49\textwidth}
+\begin{itemize}
+\item Node : une latitude et longitude
+\item Road : une liste de noeud, un type (route, chemin, etc.)
+\end{itemize}
+\end{column}
+\begin{column}{.49\textwidth}
+\begin{itemize}
+\item Structure : un nom, une liste de noeuds
+\begin{itemize}
+\item Building : une liste de trous
+\item Basin
+\item Forest
+\item Hole : la structure auquel il appartient
+\end{itemize}
+\end{itemize}
+\end{column}
+\end{columns}
+
 \end{frame}
 
 \subsection{WebService}
