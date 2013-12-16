@@ -1133,5 +1133,207 @@ ${members}}
 	  b parent class_ref 136234 // Segment
       end
     end
+
+    class 136490 "Triangulation"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      operation 139562 "partitionningPolygon"
+	public explicit_return_type "ArrayList<Polygone>"
+	nparams 1
+	  param in name "polygon" type class_ref 136106 // Polygone
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      classrelation 137130 // <dependency>
+	relation 136362 -_->
+	  a default
+	    classrelation_ref 137130 // <dependency>
+	  b parent class_ref 136106 // Polygone
+      end
+    end
+
+    classdiagram 134698 "CommunGeometryTree"
+      draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+      size A4
+    end
+
+    class 136618 "INode"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      operation 140074 "toXML"
+	public explicit_return_type ""
+	nparams 2
+	  param in name "buff" explicit_type "StringBuffer"
+	  param in name "indent" explicit_type "string"
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+    end
+
+    class 136746 "NullNode"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 137386 // <realization>
+	relation 136618 -_-|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 137386 // <realization>
+	  b parent class_ref 136618 // INode
+      end
+    end
+
+    class 136874 "Node_"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 137258 // <realization>
+	relation 136490 -_-|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 137258 // <realization>
+	  b parent class_ref 136618 // INode
+      end
+    end
+
+    class 137002 "Leaf"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 137514 // <realization>
+	relation 136746 -_-|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 137514 // <realization>
+	  b parent class_ref 136618 // INode
+      end
+    end
+
+    class 137130 "BoundingBox"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      operation 140202 "toXML"
+	public explicit_return_type ""
+	nparams 2
+	  param in name "buff" explicit_type "StringBuffer"
+	  param in name "indent" explicit_type "string"
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+    end
+
+    class 137258 "ArbreDecision"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      operation 139690 "create"
+	class_operation public return_type class_ref 137258 // ArbreDecision
+	nparams 1
+	  param in name "buildings" explicit_type "Collection<Building>"
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      operation 139818 "create"
+	class_operation public return_type class_ref 137258 // ArbreDecision
+	nparams 2
+	  param in name "buildings" explicit_type "Collection<Building>"
+	  param in name "depth" explicit_type "int"
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      operation 139946 "toXML"
+	public explicit_return_type ""
+	nparams 2
+	  param in name "buff" explicit_type "StringBuffer"
+	  param in name "indent" explicit_type "string"
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+    end
   end
 end
