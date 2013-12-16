@@ -4,7 +4,7 @@
 	<bounds minlat="47.8380000" minlon="1.9236000" maxlat="47.8508000" maxlon="1.9437000" />
 	<graphics>
 		<bassins>
-			<bassin nom="Étang du campus">
+			<bassin nom="Étang du campus" id="27435896">
 				<triangles>
 					<triangle>
 						<point x="1.93524959973153" y="47.8430346084764" />
@@ -795,7 +795,7 @@
 					</triangle>
 				</triangles>
 			</bassin>
-			<bassin nom="Le Loiret – Le Bouillon">
+			<bassin nom="Le Loiret – Le Bouillon" id="199989647">
 				<triangles>
 					<triangle>
 						<point x="1.9374235227191" y="47.8502088230168" />
@@ -876,7 +876,7 @@
 			</bassin>
 		</bassins>
 		<forets>
-			<foret nom="">
+			<foret nom="" id="95545165">
 				<triangles>
 					<triangle>
 						<point x="1.93641740960088" y="47.8444815887726" />
@@ -935,7 +935,7 @@
 					</triangle>
 				</triangles>
 			</foret>
-			<foret nom="">
+			<foret nom="" id="95545164">
 				<triangles>
 					<triangle>
 						<point x="1.9380343771123" y="47.8461214509805" />
@@ -979,7 +979,7 @@
 					</triangle>
 				</triangles>
 			</foret>
-			<foret nom="">
+			<foret nom="" id="40876111">
 				<triangles>
 					<triangle>
 						<point x="1.92428117011243" y="47.8446383425481" />
@@ -1293,7 +1293,7 @@
 					</triangle>
 				</triangles>
 			</foret>
-			<foret nom="">
+			<foret nom="" id="40876114">
 				<triangles>
 					<triangle>
 						<point x="1.93836675376742" y="47.8384944458109" />
@@ -1597,7 +1597,7 @@
 					</triangle>
 				</triangles>
 			</foret>
-			<foret nom="">
+			<foret nom="" id="181260896">
 				<triangles>
 					<triangle>
 						<point x="1.93480044208947" y="47.8428356455292" />
@@ -1626,7 +1626,7 @@
 					</triangle>
 				</triangles>
 			</foret>
-			<foret nom="">
+			<foret nom="" id="181260897">
 				<triangles>
 					<triangle>
 						<point x="1.93446806543434" y="47.8429019665964" />
@@ -1665,7 +1665,7 @@
 					</triangle>
 				</triangles>
 			</foret>
-			<foret nom="">
+			<foret nom="" id="181260898">
 				<triangles>
 					<triangle>
 						<point x="1.93506095352186" y="47.8427452075736" />
@@ -1704,7 +1704,7 @@
 					</triangle>
 				</triangles>
 			</foret>
-			<foret nom="">
+			<foret nom="" id="40831925">
 				<triangles>
 					<triangle>
 						<point x="1.93347991862181" y="47.840429942228" />
@@ -1910,7 +1910,7 @@
 			</foret>
 		</forets>
 		<batiments>
-			<batiment nom="UFR de STAPS">
+			<batiment nom="UFR de STAPS" id="41688109">
 				<triangles>
 					<triangle>
 						<point x="1.93035378143307" y="47.8479300624098" />
@@ -1985,7 +1985,7 @@
 					<point x="1.9312970124814" y="47.8488042019931" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="42156654">
 				<triangles>
 					<triangle>
 						<point x="1.9397142266936" y="47.8393205076312" />
@@ -2004,7 +2004,7 @@
 					<point x="1.93872607988107" y="47.839091382313" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="41688111">
 				<triangles>
 					<triangle>
 						<point x="1.93929201851006" y="47.8410690622577" />
@@ -2025,7 +2025,7 @@
 					<point x="1.93991185605611" y="47.8411956794423" />
 				</voisins>
 			</batiment>
-			<batiment nom="Cône">
+			<batiment nom="Cône" id="41688110">
 				<triangles>
 					<triangle>
 						<point x="1.93642639275372" y="47.8425341850641" />
@@ -2139,7 +2139,7 @@
 					<point x="1.93665995472759" y="47.8431310750852" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="200711133">
 				<triangles>
 					<triangle>
 						<point x="1.92538609791189" y="47.8473573422807" />
@@ -2317,7 +2317,7 @@
 					<point x="1.92535914845337" y="47.8477431754839" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="200711131">
 				<triangles>
 					<triangle>
 						<point x="1.92644610994715" y="47.8496903836348" />
@@ -2331,7 +2331,7 @@
 					<point x="1.92605085122214" y="47.8495698155939" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="41688101">
 				<triangles>
 					<triangle>
 						<point x="1.92917698841088" y="47.8455969418694" />
@@ -2352,7 +2352,7 @@
 					<point x="1.92964411235862" y="47.8452472661821" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="41688100">
 				<triangles>
 					<triangle>
 						<point x="1.92834155519665" y="47.842829616337" />
@@ -2378,7 +2378,7 @@
 					<point x="1.92773968395629" y="47.8432094540728" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153708202">
 				<triangles>
 					<triangle>
 						<point x="1.93409077301501" y="47.8391878562546" />
@@ -2573,7 +2573,7 @@
 					<point x="1.93496213884061" y="47.8393928627846" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="41688099">
 				<triangles>
 					<triangle>
 						<point x="1.92729950946707" y="47.8449156749906" />
@@ -2590,7 +2590,7 @@
 					<point x="1.92687730128353" y="47.8446865743838" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704749">
 				<triangles>
 					<triangle>
 						<point x="1.94068440720045" y="47.8378552940635" />
@@ -2739,7 +2739,7 @@
 					</triangle>
 				</triangles>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153708201">
 				<triangles>
 					<triangle>
 						<point x="1.92909614003531" y="47.8389768192745" />
@@ -2778,7 +2778,7 @@
 					<point x="1.92861104978188" y="47.8393808035994" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="41688124">
 				<triangles>
 					<triangle>
 						<point x="1.93634554437815" y="47.8461877678468" />
@@ -2822,7 +2822,7 @@
 					<point x="1.93493518938208" y="47.8455426820035" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="41688126">
 				<triangles>
 					<triangle>
 						<point x="1.93616588132133" y="47.8464108330473" />
@@ -2836,7 +2836,7 @@
 					</triangle>
 				</triangles>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="41688127">
 				<triangles>
 					<triangle>
 						<point x="1.93559095953949" y="47.8462359982417" />
@@ -2875,7 +2875,7 @@
 					<point x="1.93472857686674" y="47.8455667975065" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="200711116">
 				<triangles>
 					<triangle>
 						<point x="1.92450574893346" y="47.8477371468621" />
@@ -2959,7 +2959,7 @@
 					<point x="1.92461354676755" y="47.8470257645785" />
 				</voisins>
 			</batiment>
-			<batiment nom="UFR Sciences Administration">
+			<batiment nom="UFR Sciences Administration" id="41688121">
 				<triangles>
 					<triangle>
 						<point x="1.93939981634416" y="47.8458923556993" />
@@ -2988,7 +2988,7 @@
 					<point x="1.93851946736572" y="47.8456089996097" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="41688122">
 				<triangles>
 					<triangle>
 						<point x="1.93474654317242" y="47.8473995429271" />
@@ -3009,7 +3009,7 @@
 					<point x="1.93370449744284" y="47.8467725583604" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="41688123">
 				<triangles>
 					<triangle>
 						<point x="1.93436925075309" y="47.8468207882115" />
@@ -3056,7 +3056,7 @@
 					<point x="1.93332720502351" y="47.8467182997242" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="41688116">
 				<triangles>
 					<triangle>
 						<point x="1.93865421465834" y="47.8440957313069" />
@@ -3101,7 +3101,7 @@
 					<point x="1.9376211520816" y="47.8441741088369" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="41688117">
 				<triangles>
 					<triangle>
 						<point x="1.93831285485037" y="47.8440414698706" />
@@ -3271,7 +3271,7 @@
 					<point x="1.93787268036116" y="47.8444273277399" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="42156663">
 				<triangles>
 					<triangle>
 						<point x="1.93647130851793" y="47.8393084484292" />
@@ -3373,7 +3373,7 @@
 					<point x="1.93482739154799" y="47.8389346117755" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="41688118">
 				<triangles>
 					<triangle>
 						<point x="1.9374684384833" y="47.8434867941548" />
@@ -3464,7 +3464,7 @@
 					<point x="1.93647130851793" y="47.8437159000607" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="41688119">
 				<triangles>
 					<triangle>
 						<point x="1.93814217494639" y="47.8433963573345" />
@@ -3759,7 +3759,7 @@
 					<point x="1.93975914245781" y="47.8446081976281" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="42156661">
 				<triangles>
 					<triangle>
 						<point x="1.9410886490783" y="47.8402912642008" />
@@ -3828,7 +3828,7 @@
 					</triangle>
 				</triangles>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704396">
 				<triangles>
 					<triangle>
 						<point x="1.93504298721618" y="47.8384160596994" />
@@ -3911,7 +3911,7 @@
 					<point x="1.93457586326844" y="47.8391697674042" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="41688112">
 				<triangles>
 					<triangle>
 						<point x="1.93901354077199" y="47.840942444764" />
@@ -3944,7 +3944,7 @@
 					<point x="1.93816014125207" y="47.8412197969662" />
 				</voisins>
 			</batiment>
-			<batiment nom="Bibliothèque Universitaire des Sciences">
+			<batiment nom="Bibliothèque Universitaire des Sciences" id="41688114">
 				<triangles>
 					<triangle>
 						<point x="1.93658808950486" y="47.8450663985222" />
@@ -3980,7 +3980,7 @@
 					<point x="1.93728877542648" y="47.8450663985222" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="41688115">
 				<triangles>
 					<triangle>
 						<point x="1.93824098962764" y="47.844246457221" />
@@ -4125,7 +4125,7 @@
 					<point x="1.93840268637879" y="47.8447348061746" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704434">
 				<triangles>
 					<triangle>
 						<point x="1.93120718095299" y="47.8387356331033" />
@@ -4205,7 +4205,7 @@
 					<point x="1.93056937710126" y="47.8387235737653" />
 				</voisins>
 			</batiment>
-			<batiment nom="Restaurant Universitaire - L'Anatidé">
+			<batiment nom="Restaurant Universitaire - L'Anatidé" id="95539405">
 				<triangles>
 					<triangle>
 						<point x="1.93569875737359" y="47.8447770089547" />
@@ -4317,7 +4317,7 @@
 					<point x="1.93497112199345" y="47.8449518486782" />
 				</voisins>
 			</batiment>
-			<batiment nom="Oiseaux">
+			<batiment nom="Oiseaux" id="116359581">
 				<triangles>
 					<triangle>
 						<point x="1.93775589937422" y="47.8507995964599" />
@@ -4451,7 +4451,7 @@
 					<point x="1.93840268637879" y="47.8504318709239" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704443">
 				<triangles>
 					<triangle>
 						<point x="1.93991185605611" y="47.8380482463641" />
@@ -4547,7 +4547,7 @@
 					<point x="1.93917523752313" y="47.8380241273657" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704441">
 				<triangles>
 					<triangle>
 						<point x="1.94008253596009" y="47.8382894357308" />
@@ -4633,7 +4633,7 @@
 					<point x="1.93944473210836" y="47.8378975024405" />
 				</voisins>
 			</batiment>
-			<batiment nom="Halle des Sports">
+			<batiment nom="Halle des Sports" id="40831054">
 				<triangles>
 					<triangle>
 						<point x="1.92962614605294" y="47.8464168618232" />
@@ -4658,7 +4658,7 @@
 					<point x="1.92997648901374" y="47.8464892070792" />
 				</voisins>
 			</batiment>
-			<batiment nom="Gymnase Universitaire">
+			<batiment nom="Gymnase Universitaire" id="40831055">
 				<triangles>
 					<triangle>
 						<point x="1.93127904617572" y="47.8491659106145" />
@@ -4693,7 +4693,7 @@
 					<point x="1.93183600165187" y="47.8493226502337" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153705795">
 				<triangles>
 					<triangle>
 						<point x="1.92669763822671" y="47.8397184597262" />
@@ -4744,7 +4744,7 @@
 					<point x="1.92601491861078" y="47.8400440546244" />
 				</voisins>
 			</batiment>
-			<batiment nom="Restaurants Universitaires - Le Forum - Le Bistro">
+			<batiment nom="Restaurants Universitaires - Le Forum - Le Bistro" id="40831059">
 				<triangles>
 					<triangle>
 						<point x="1.93633656122531" y="47.8431431333987" />
@@ -4837,7 +4837,7 @@
 					<point x="1.93498908829913" y="47.8431491625544" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153705270">
 				<triangles>
 					<triangle>
 						<point x="1.92978784280408" y="47.838856226329" />
@@ -4851,7 +4851,7 @@
 					</triangle>
 				</triangles>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="200711558">
 				<triangles>
 					<triangle>
 						<point x="1.92495490657552" y="47.8507453420366" />
@@ -4880,7 +4880,7 @@
 					<point x="1.92447879947493" y="47.8505162671791" />
 				</voisins>
 			</batiment>
-			<batiment nom="Résidence Les Magnolias">
+			<batiment nom="Résidence Les Magnolias" id="40831056">
 				<triangles>
 					<triangle>
 						<point x="1.92869189815745" y="47.8448553854553" />
@@ -4938,7 +4938,7 @@
 					<point x="1.93003937108363" y="47.8454643065414" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="200711555">
 				<triangles>
 					<triangle>
 						<point x="1.92624848058465" y="47.8500581144285" />
@@ -4967,7 +4967,7 @@
 					<point x="1.92605085122214" y="47.8495698155939" />
 				</voisins>
 			</batiment>
-			<batiment nom="Maison de l'Étudiant">
+			<batiment nom="Maison de l'Étudiant" id="40831060">
 				<triangles>
 					<triangle>
 						<point x="1.93644435905941" y="47.8428899082268" />
@@ -5081,7 +5081,7 @@
 					<point x="1.93574367313779" y="47.8423291909472" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="200711564">
 				<triangles>
 					<triangle>
 						<point x="1.92555677781588" y="47.8503715878004" />
@@ -5110,7 +5110,7 @@
 					<point x="1.92556576096872" y="47.8508417943055" />
 				</voisins>
 			</batiment>
-			<batiment nom="Résidence les Dahlias">
+			<batiment nom="Résidence les Dahlias" id="39838230">
 				<triangles>
 					<triangle>
 						<point x="1.9386901472697" y="47.8417142037361" />
@@ -5199,7 +5199,7 @@
 					<point x="1.9386452315055" y="47.8424859512271" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153705273">
 				<triangles>
 					<triangle>
 						<point x="1.93414467193206" y="47.8383075248881" />
@@ -5226,7 +5226,36 @@
 					<point x="1.93356975015022" y="47.8385547427391" />
 				</voisins>
 			</batiment>
-			<batiment nom="Résidence Les Roses">
+			<batiment nom="" id="200711560">
+				<triangles>
+					<triangle>
+						<point x="1.92526931692496" y="47.8507453420366" />
+						<point x="1.92517948539655" y="47.8507935681935" />
+						<point x="1.92539508106474" y="47.8508779638601" />
+					</triangle>
+					<triangle>
+						<point x="1.92529626638348" y="47.8509201616419" />
+						<point x="1.92539508106474" y="47.8508779638601" />
+						<point x="1.92526931692496" y="47.8508900203727" />
+					</triangle>
+					<triangle>
+						<point x="1.92526931692496" y="47.8508900203727" />
+						<point x="1.92539508106474" y="47.8508779638601" />
+						<point x="1.9252783000778" y="47.8508839921167" />
+					</triangle>
+					<triangle>
+						<point x="1.92539508106474" y="47.8508779638601" />
+						<point x="1.9252783000778" y="47.8508839921167" />
+						<point x="1.92517948539655" y="47.8507935681935" />
+					</triangle>
+				</triangles>
+				<voisins>
+					<point x="1.92556576096872" y="47.8508417943055" />
+					<point x="1.92541304737042" y="47.8506308047343" />
+					<point x="1.92574542402554" y="47.8504921539773" />
+				</voisins>
+			</batiment>
+			<batiment nom="Résidence Les Roses" id="39838231">
 				<triangles>
 					<triangle>
 						<point x="1.94019033379418" y="47.8423955126619" />
@@ -5321,36 +5350,7 @@
 					<point x="1.94151085726184" y="47.8426547694604" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
-				<triangles>
-					<triangle>
-						<point x="1.92526931692496" y="47.8507453420366" />
-						<point x="1.92517948539655" y="47.8507935681935" />
-						<point x="1.92539508106474" y="47.8508779638601" />
-					</triangle>
-					<triangle>
-						<point x="1.92529626638348" y="47.8509201616419" />
-						<point x="1.92539508106474" y="47.8508779638601" />
-						<point x="1.92526931692496" y="47.8508900203727" />
-					</triangle>
-					<triangle>
-						<point x="1.92526931692496" y="47.8508900203727" />
-						<point x="1.92539508106474" y="47.8508779638601" />
-						<point x="1.9252783000778" y="47.8508839921167" />
-					</triangle>
-					<triangle>
-						<point x="1.92539508106474" y="47.8508779638601" />
-						<point x="1.9252783000778" y="47.8508839921167" />
-						<point x="1.92517948539655" y="47.8507935681935" />
-					</triangle>
-				</triangles>
-				<voisins>
-					<point x="1.92556576096872" y="47.8508417943055" />
-					<point x="1.92541304737042" y="47.8506308047343" />
-					<point x="1.92574542402554" y="47.8504921539773" />
-				</voisins>
-			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="40876105">
 				<triangles>
 					<triangle>
 						<point x="1.92766781873356" y="47.8431973957747" />
@@ -5525,7 +5525,7 @@
 					<point x="1.92653594147557" y="47.8424799219944" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153706254">
 				<triangles>
 					<triangle>
 						<point x="1.92980580910976" y="47.8381748709214" />
@@ -5732,7 +5732,7 @@
 					<point x="1.93003937108363" y="47.8377166091542" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704804">
 				<triangles>
 					<triangle>
 						<point x="1.93271635063031" y="47.8389346117755" />
@@ -5921,7 +5921,7 @@
 					<point x="1.9324738055036" y="47.8380723653512" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153705282">
 				<triangles>
 					<triangle>
 						<point x="1.92930275255065" y="47.8393446260269" />
@@ -5940,7 +5940,7 @@
 					<point x="1.92861104978188" y="47.8393808035994" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153703862">
 				<triangles>
 					<triangle>
 						<point x="1.9335877164559" y="47.8396340459005" />
@@ -6010,7 +6010,7 @@
 					<point x="1.93457586326844" y="47.8391697674042" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="106230560">
 				<triangles>
 					<triangle>
 						<point x="1.94297511117495" y="47.8495276167134" />
@@ -6034,7 +6034,7 @@
 					<point x="1.943594948721" y="47.8497687527111" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="40876110">
 				<triangles>
 					<triangle>
 						<point x="1.92710188010456" y="47.8448011248137" />
@@ -6059,7 +6059,7 @@
 					<point x="1.92587118816532" y="47.8452472661821" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153705290">
 				<triangles>
 					<triangle>
 						<point x="1.93300381152123" y="47.8395375727887" />
@@ -6087,7 +6087,7 @@
 					<point x="1.9332373734951" y="47.8399958184721" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153705293">
 				<triangles>
 					<triangle>
 						<point x="1.93003937108363" y="47.8387718111005" />
@@ -6106,7 +6106,7 @@
 					<point x="1.93056937710126" y="47.8387235737653" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="200711062">
 				<triangles>
 					<triangle>
 						<point x="1.92608678383351" y="47.8504378992324" />
@@ -6151,7 +6151,7 @@
 					<point x="1.9261945816676" y="47.849847121669" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153708574">
 				<triangles>
 					<triangle>
 						<point x="1.92784748179038" y="47.8410992092344" />
@@ -6188,7 +6188,7 @@
 					<point x="1.92727256000854" y="47.840598767152" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="200711061">
 				<triangles>
 					<triangle>
 						<point x="1.92562864303861" y="47.8502148513513" />
@@ -6241,7 +6241,7 @@
 					<point x="1.92556576096872" y="47.8508417943055" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153706648">
 				<triangles>
 					<triangle>
 						<point x="1.92956326398305" y="47.839260211593" />
@@ -6265,7 +6265,7 @@
 					</triangle>
 				</triangles>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="106230582">
 				<triangles>
 					<triangle>
 						<point x="1.93827692223901" y="47.8476768606063" />
@@ -6297,7 +6297,7 @@
 					<point x="1.93760318577592" y="47.8478336047257" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153708275">
 				<triangles>
 					<triangle>
 						<point x="1.92692221704774" y="47.8395436023634" />
@@ -6346,7 +6346,7 @@
 					<point x="1.92616763220908" y="47.8397727256845" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="200711651">
 				<triangles>
 					<triangle>
 						<point x="1.92632932896022" y="47.847200596722" />
@@ -6389,7 +6389,7 @@
 					<point x="1.9270659474932" y="47.8472307401355" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704320">
 				<triangles>
 					<triangle>
 						<point x="1.93185396795755" y="47.8379819190917" />
@@ -6448,7 +6448,7 @@
 					<point x="1.9324738055036" y="47.8380723653512" />
 				</voisins>
 			</batiment>
-			<batiment nom="La serre aux papillons">
+			<batiment nom="La serre aux papillons" id="106230576">
 				<triangles>
 					<triangle>
 						<point x="1.93988490659758" y="47.8506549178716" />
@@ -6514,7 +6514,7 @@
 					<point x="1.94094491863284" y="47.8504439275402" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153708552">
 				<triangles>
 					<triangle>
 						<point x="1.92664373930966" y="47.8390310860085" />
@@ -6554,7 +6554,7 @@
 					<point x="1.92625746373749" y="47.8388200483908" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="106230589">
 				<triangles>
 					<triangle>
 						<point x="1.93664198842191" y="47.849057398293" />
@@ -6602,7 +6602,7 @@
 					<point x="1.93585147097189" y="47.8495517303636" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704829">
 				<triangles>
 					<triangle>
 						<point x="1.93795352873673" y="47.8379457405437" />
@@ -6819,7 +6819,7 @@
 					<point x="1.93671385364464" y="47.8387597517709" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704372">
 				<triangles>
 					<triangle>
 						<point x="1.92814392583414" y="47.839983759427" />
@@ -6889,7 +6889,7 @@
 					<point x="1.92861104978188" y="47.8393808035994" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153707144">
 				<triangles>
 					<triangle>
 						<point x="1.93414467193206" y="47.8383075248881" />
@@ -6927,7 +6927,7 @@
 					<point x="1.93356975015022" y="47.8385547427391" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="200711636">
 				<triangles>
 					<triangle>
 						<point x="1.9234457368982" y="47.8469534200709" />
@@ -6964,7 +6964,7 @@
 					<point x="1.92338285482831" y="47.8467785870942" />
 				</voisins>
 			</batiment>
-			<batiment nom="UFR de Droit, Économie et Gestion">
+			<batiment nom="UFR de Droit, Économie et Gestion" id="41688130">
 				<triangles>
 					<triangle>
 						<point x="1.93258160333769" y="47.8455547397564" />
@@ -7217,7 +7217,7 @@
 					<point x="1.93365059852579" y="47.8449940512817" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="106230542">
 				<triangles>
 					<triangle>
 						<point x="1.93802539395946" y="47.847489972768" />
@@ -7262,7 +7262,7 @@
 					<point x="1.93739657326057" y="47.8479240338098" />
 				</voisins>
 			</batiment>
-			<batiment nom="UFR de Droit, Économie et Gestion">
+			<batiment nom="UFR de Droit, Économie et Gestion" id="41688128">
 				<triangles>
 					<triangle>
 						<point x="1.93241990658655" y="47.8464831783117" />
@@ -7678,7 +7678,7 @@
 					<point x="1.93367754798432" y="47.8455788552538" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153703834">
 				<triangles>
 					<triangle>
 						<point x="1.92809901006993" y="47.8393868331924" />
@@ -7752,7 +7752,7 @@
 					<point x="1.92861104978188" y="47.8393808035994" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="200711092">
 				<triangles>
 					<triangle>
 						<point x="1.92747917252389" y="47.8474236575667" />
@@ -7814,7 +7814,7 @@
 					<point x="1.92681441921364" y="47.8469232764963" />
 				</voisins>
 			</batiment>
-			<batiment nom="Bloc Central">
+			<batiment nom="Bloc Central" id="41688134">
 				<triangles>
 					<triangle>
 						<point x="1.92529626638348" y="47.8437761909204" />
@@ -7890,7 +7890,7 @@
 					<point x="1.92517948539655" y="47.843251658094" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="41688133">
 				<triangles>
 					<triangle>
 						<point x="1.93382127842978" y="47.8406892088496" />
@@ -7911,7 +7911,7 @@
 					<point x="1.93398297518092" y="47.840297293688" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153705341">
 				<triangles>
 					<triangle>
 						<point x="1.94015440118282" y="47.8381507519819" />
@@ -7931,7 +7931,7 @@
 					<point x="1.93950761417825" y="47.8380180976144" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704272">
 				<triangles>
 					<triangle>
 						<point x="1.9332373734951" y="47.8388441670191" />
@@ -7991,7 +7991,7 @@
 					<point x="1.93408178986217" y="47.8386693067096" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="199405350">
 				<triangles>
 					<triangle>
 						<point x="1.9234906526624" y="47.8413102375811" />
@@ -8008,7 +8008,7 @@
 					<point x="1.92315827600728" y="47.8410992092344" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153707116">
 				<triangles>
 					<triangle>
 						<point x="1.93994778866747" y="47.8380361868663" />
@@ -8050,7 +8050,7 @@
 					<point x="1.93924710274586" y="47.8378673536033" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="199405346">
 				<triangles>
 					<triangle>
 						<point x="1.92415540597265" y="47.842528155837" />
@@ -8070,7 +8070,7 @@
 					<point x="1.92481117613006" y="47.8428597622907" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="199405373">
 				<triangles>
 					<triangle>
 						<point x="1.92351760212093" y="47.8427632951773" />
@@ -8099,7 +8099,7 @@
 					<point x="1.92363438310786" y="47.8432938620808" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704264">
 				<triangles>
 					<triangle>
 						<point x="1.93363263222011" y="47.8393868331924" />
@@ -8156,7 +8156,7 @@
 					<point x="1.93370449744284" y="47.839754637038" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153707122">
 				<triangles>
 					<triangle>
 						<point x="1.94035203054532" y="47.8386270989605" />
@@ -8180,7 +8180,7 @@
 					</triangle>
 				</triangles>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153708093">
 				<triangles>
 					<triangle>
 						<point x="1.93420755400195" y="47.8383859111635" />
@@ -8230,7 +8230,7 @@
 					<point x="1.93499807145197" y="47.83900093783" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="199405374">
 				<triangles>
 					<triangle>
 						<point x="1.92384099562321" y="47.8427210907588" />
@@ -8249,7 +8249,7 @@
 					</triangle>
 				</triangles>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704271">
 				<triangles>
 					<triangle>
 						<point x="1.9326265191019" y="47.838753722105" />
@@ -8303,7 +8303,7 @@
 					</triangle>
 				</triangles>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704270">
 				<triangles>
 					<triangle>
 						<point x="1.9292039378694" y="47.8408640623511" />
@@ -8363,7 +8363,7 @@
 					<point x="1.92980580910976" y="47.8410087682516" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153705968">
 				<triangles>
 					<triangle>
 						<point x="1.9263023795017" y="47.8393868331924" />
@@ -8391,7 +8391,7 @@
 					<point x="1.92655390778125" y="47.8399415527472" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153705391">
 				<triangles>
 					<triangle>
 						<point x="1.93231210875246" y="47.8382532573972" />
@@ -8410,7 +8410,7 @@
 					<point x="1.9324738055036" y="47.8380723653512" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="199105230">
 				<triangles>
 					<triangle>
 						<point x="1.92960817974726" y="47.8508297377817" />
@@ -8444,7 +8444,7 @@
 					</triangle>
 				</triangles>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="199105228">
 				<triangles>
 					<triangle>
 						<point x="1.93126107987004" y="47.8505464086655" />
@@ -8478,7 +8478,7 @@
 					</triangle>
 				</triangles>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153705383">
 				<triangles>
 					<triangle>
 						<point x="1.92700306542331" y="47.8381869303869" />
@@ -8496,7 +8496,7 @@
 					<point x="1.92655390778125" y="47.8379457405437" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="199105216">
 				<triangles>
 					<triangle>
 						<point x="1.93082988853366" y="47.8507393137639" />
@@ -8510,7 +8510,7 @@
 					</triangle>
 				</triangles>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704299">
 				<triangles>
 					<triangle>
 						<point x="1.92656289093409" y="47.8416297931578" />
@@ -8576,7 +8576,7 @@
 					<point x="1.92659882354546" y="47.8422447813695" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153708057">
 				<triangles>
 					<triangle>
 						<point x="1.92764086927503" y="47.8394531586687" />
@@ -8614,7 +8614,7 @@
 					<point x="1.92689526758921" y="47.8392722708062" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153705944">
 				<triangles>
 					<triangle>
 						<point x="1.93047954557285" y="47.8403817064345" />
@@ -8631,7 +8631,7 @@
 					<point x="1.93019208468193" y="47.8408821506108" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153705947">
 				<triangles>
 					<triangle>
 						<point x="1.92608678383351" y="47.8391516785475" />
@@ -8654,7 +8654,7 @@
 					<point x="1.92540406421758" y="47.8391155008152" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704219">
 				<triangles>
 					<triangle>
 						<point x="1.93119819780015" y="47.8390371156421" />
@@ -8719,7 +8719,7 @@
 					<point x="1.93056937710126" y="47.8387235737653" />
 				</voisins>
 			</batiment>
-			<batiment nom="Restaurant Universitaire - Le Lac">
+			<batiment nom="Restaurant Universitaire - Le Lac" id="39569056">
 				<triangles>
 					<triangle>
 						<point x="1.93288703053429" y="47.8441198474826" />
@@ -8822,7 +8822,7 @@
 					<point x="1.9329768620627" y="47.8446202555982" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="199105213">
 				<triangles>
 					<triangle>
 						<point x="1.93100955159048" y="47.8498953486611" />
@@ -8841,7 +8841,7 @@
 					<point x="1.93078497276945" y="47.8494311620003" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704204">
 				<triangles>
 					<triangle>
 						<point x="1.92641017733579" y="47.8416780277908" />
@@ -8901,7 +8901,7 @@
 					<point x="1.92543999682894" y="47.8415574411241" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="199105212">
 				<triangles>
 					<triangle>
 						<point x="1.93030886566887" y="47.8506549178716" />
@@ -8915,7 +8915,7 @@
 					</triangle>
 				</triangles>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="199105215">
 				<triangles>
 					<triangle>
 						<point x="1.93076700646377" y="47.8505042105796" />
@@ -8929,7 +8929,7 @@
 					</triangle>
 				</triangles>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="199105214">
 				<triangles>
 					<triangle>
 						<point x="1.9297698764984" y="47.8504921539773" />
@@ -8948,7 +8948,7 @@
 					<point x="1.92957224713589" y="47.8500942845296" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="199105209">
 				<triangles>
 					<triangle>
 						<point x="1.93116226518878" y="47.8501244262613" />
@@ -8962,7 +8962,7 @@
 					</triangle>
 				</triangles>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="199105208">
 				<triangles>
 					<triangle>
 						<point x="1.9312970124814" y="47.8503052762836" />
@@ -8976,7 +8976,7 @@
 					</triangle>
 				</triangles>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="199105211">
 				<triangles>
 					<triangle>
 						<point x="1.93116226518878" y="47.849847121669" />
@@ -8995,7 +8995,7 @@
 					<point x="1.93078497276945" y="47.8494311620003" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="199105210">
 				<triangles>
 					<triangle>
 						<point x="1.93016513522341" y="47.8504559841537" />
@@ -9009,7 +9009,7 @@
 					</triangle>
 				</triangles>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153707071">
 				<triangles>
 					<triangle>
 						<point x="1.92608678383351" y="47.83813266277" />
@@ -9040,7 +9040,7 @@
 					<point x="1.92549389574599" y="47.8378311749754" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="199105207">
 				<triangles>
 					<triangle>
 						<point x="1.93062327601831" y="47.8503052762836" />
@@ -9054,7 +9054,7 @@
 					</triangle>
 				</triangles>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153706524">
 				<triangles>
 					<triangle>
 						<point x="1.93389314365251" y="47.838645188" />
@@ -9334,7 +9334,7 @@
 					<point x="1.9324738055036" y="47.8380723653512" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704194">
 				<triangles>
 					<triangle>
 						<point x="1.93275228324167" y="47.8381025140693" />
@@ -9400,7 +9400,7 @@
 					<point x="1.93350686808033" y="47.8377226389405" />
 				</voisins>
 			</batiment>
-			<batiment nom="Département GEA">
+			<batiment nom="Département GEA" id="39569039">
 				<triangles>
 					<triangle>
 						<point x="1.92577237348407" y="47.8442645443013" />
@@ -9434,7 +9434,7 @@
 					<point x="1.92473931090733" y="47.844861414412" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153703706">
 				<triangles>
 					<triangle>
 						<point x="1.9322132940712" y="47.8382834060103" />
@@ -9473,7 +9473,7 @@
 					<point x="1.9324738055036" y="47.8380723653512" />
 				</voisins>
 			</batiment>
-			<batiment nom="Bâtiment Administratif">
+			<batiment nom="Bâtiment Administratif" id="39569037">
 				<triangles>
 					<triangle>
 						<point x="1.92505372125677" y="47.8433601825622" />
@@ -9511,7 +9511,7 @@
 					<point x="1.92506270440961" y="47.8429019665964" />
 				</voisins>
 			</batiment>
-			<batiment nom="Résidence les Ormes">
+			<batiment nom="Résidence les Ormes" id="39837550">
 				<triangles>
 					<triangle>
 						<point x="1.93704623029977" y="47.8396280163363" />
@@ -9608,7 +9608,7 @@
 					<point x="1.93628266230826" y="47.8397003710608" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704244">
 				<triangles>
 					<triangle>
 						<point x="1.93113531573026" y="47.8402249397959" />
@@ -9666,7 +9666,7 @@
 					<point x="1.93173718697062" y="47.8403515590408" />
 				</voisins>
 			</batiment>
-			<batiment nom="Centre d'Innovation">
+			<batiment nom="Centre d'Innovation" id="39837546">
 				<triangles>
 					<triangle>
 						<point x="1.93950761417825" y="47.8438123654026" />
@@ -9887,7 +9887,7 @@
 					<point x="1.94039694630953" y="47.8431250459274" />
 				</voisins>
 			</batiment>
-			<batiment nom="Château de la Source - Présidence de l'Université">
+			<batiment nom="Château de la Source - Présidence de l'Université" id="39569054">
 				<triangles>
 					<triangle>
 						<point x="1.93362364906727" y="47.8506488895884" />
@@ -10041,7 +10041,7 @@
 					<point x="1.93359669960875" y="47.8513180247536" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704920">
 				<triangles>
 					<triangle>
 						<point x="1.94042389576805" y="47.8385426833591" />
@@ -10055,7 +10055,7 @@
 					</triangle>
 				</triangles>
 			</batiment>
-			<batiment nom="Résidence les Hêtres">
+			<batiment nom="Résidence les Hêtres" id="39837553">
 				<triangles>
 					<triangle>
 						<point x="1.9384925179072" y="47.840435971699" />
@@ -10146,7 +10146,7 @@
 					<point x="1.93942676580268" y="47.8400139070344" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704922">
 				<triangles>
 					<triangle>
 						<point x="1.93992083920895" y="47.8378311749754" />
@@ -10181,7 +10181,7 @@
 					<point x="1.93920218698165" y="47.8379457405437" />
 				</voisins>
 			</batiment>
-			<batiment nom="Département Informatique">
+			<batiment nom="Département Informatique" id="39569045">
 				<triangles>
 					<triangle>
 						<point x="1.92654492462841" y="47.8432094540728" />
@@ -10251,7 +10251,7 @@
 					<point x="1.92682340236648" y="47.8426849155156" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704228">
 				<triangles>
 					<triangle>
 						<point x="1.92812595952846" y="47.8409665624057" />
@@ -10308,7 +10308,7 @@
 					<point x="1.92727256000854" y="47.840598767152" />
 				</voisins>
 			</batiment>
-			<batiment nom="Amphithêatres">
+			<batiment nom="Amphithêatres" id="39569044">
 				<triangles>
 					<triangle>
 						<point x="1.92607780068067" y="47.843444590325" />
@@ -10330,7 +10330,7 @@
 					<point x="1.92543999682894" y="47.8435591434976" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153706428">
 				<triangles>
 					<triangle>
 						<point x="1.92823375736255" y="47.8385547427391" />
@@ -10349,7 +10349,7 @@
 					</triangle>
 				</triangles>
 			</batiment>
-			<batiment nom="Atelier de Génie Chimique">
+			<batiment nom="Atelier de Génie Chimique" id="39569043">
 				<triangles>
 					<triangle>
 						<point x="1.92705696434036" y="47.843655609131" />
@@ -10380,7 +10380,7 @@
 					<point x="1.92773968395629" y="47.8432094540728" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="39569042">
 				<triangles>
 					<triangle>
 						<point x="1.92709289695172" y="47.8438666270785" />
@@ -10399,7 +10399,7 @@
 					<point x="1.92724561055002" y="47.8433782699515" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704225">
 				<triangles>
 					<triangle>
 						<point x="1.92797324593016" y="47.8406108260541" />
@@ -10456,7 +10456,7 @@
 					<point x="1.92727256000854" y="47.840598767152" />
 				</voisins>
 			</batiment>
-			<batiment nom="Atelier de Génie Industriel">
+			<batiment nom="Atelier de Génie Industriel" id="39569041">
 				<triangles>
 					<triangle>
 						<point x="1.92738934099548" y="47.8444152697249" />
@@ -10474,7 +10474,7 @@
 					<point x="1.92633831211306" y="47.8448553854553" />
 				</voisins>
 			</batiment>
-			<batiment nom="Département GMP">
+			<batiment nom="Département GMP" id="39569040">
 				<triangles>
 					<triangle>
 						<point x="1.92649102571136" y="47.844143963647" />
@@ -10498,7 +10498,7 @@
 					<point x="1.92590712077668" y="47.8449880223405" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704498">
 				<triangles>
 					<triangle>
 						<point x="1.94026219901691" y="47.838536653668" />
@@ -10587,7 +10587,7 @@
 					<point x="1.93961541201235" y="47.8380964843271" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704128">
 				<triangles>
 					<triangle>
 						<point x="1.9318629511104" y="47.8393446260269" />
@@ -10641,7 +10641,7 @@
 					</triangle>
 				</triangles>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="211692002">
 				<triangles>
 					<triangle>
 						<point x="1.93435128444741" y="47.8396280163363" />
@@ -10699,7 +10699,7 @@
 					<point x="1.93553706062244" y="47.8400802317091" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704142">
 				<triangles>
 					<triangle>
 						<point x="1.9285930834762" y="47.8404058243368" />
@@ -10753,7 +10753,7 @@
 					</triangle>
 				</triangles>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153705587">
 				<triangles>
 					<triangle>
 						<point x="1.92739832414832" y="47.8407675915266" />
@@ -10770,7 +10770,7 @@
 					<point x="1.92727256000854" y="47.840598767152" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153708883">
 				<triangles>
 					<triangle>
 						<point x="1.9338482278883" y="47.8385065052021" />
@@ -10827,7 +10827,7 @@
 					<point x="1.93375839635989" y="47.8376141026786" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704486">
 				<triangles>
 					<triangle>
 						<point x="1.93536638071846" y="47.8380542761119" />
@@ -10934,7 +10934,7 @@
 					<point x="1.93739657326057" y="47.8386210692792" />
 				</voisins>
 			</batiment>
-			<batiment nom="UFR de STAPS">
+			<batiment nom="UFR de STAPS" id="41265558">
 				<triangles>
 					<triangle>
 						<point x="1.93107243366037" y="47.8488825724085" />
@@ -10989,7 +10989,7 @@
 					<point x="1.93072209069956" y="47.8482676628917" />
 				</voisins>
 			</batiment>
-			<batiment nom="Résidence Les Châtaigners">
+			<batiment nom="Résidence Les Châtaigners" id="41265559">
 				<triangles>
 					<triangle>
 						<point x="1.92834155519665" y="47.8456934037132" />
@@ -11138,7 +11138,7 @@
 					<point x="1.9293117357035" y="47.845349757576" />
 				</voisins>
 			</batiment>
-			<batiment nom="Brasserie de l'Indien">
+			<batiment nom="Brasserie de l'Indien" id="40109324">
 				<triangles>
 					<triangle>
 						<point x="1.93479145893663" y="47.8403756769572" />
@@ -11189,7 +11189,7 @@
 					<point x="1.93477349263094" y="47.8408399446618" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704152">
 				<triangles>
 					<triangle>
 						<point x="1.93141379346834" y="47.8392421227678" />
@@ -11243,7 +11243,7 @@
 					</triangle>
 				</triangles>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153706945">
 				<triangles>
 					<triangle>
 						<point x="1.92549389574599" y="47.8382834060103" />
@@ -11272,7 +11272,7 @@
 					<point x="1.9259969523051" y="47.8384763567187" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153705570">
 				<triangles>
 					<triangle>
 						<point x="1.92686831813069" y="47.8381145735517" />
@@ -11290,7 +11290,7 @@
 					<point x="1.92654492462841" y="47.8380120678624" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="200711297">
 				<triangles>
 					<triangle>
 						<point x="1.92592508708237" y="47.8501545679755" />
@@ -11309,7 +11309,7 @@
 					<point x="1.92626644689033" y="47.8498230081561" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704165">
 				<triangles>
 					<triangle>
 						<point x="1.93073107385241" y="47.83839797058" />
@@ -11365,7 +11365,7 @@
 					<point x="1.93004835423647" y="47.8380361868663" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153706109">
 				<triangles>
 					<triangle>
 						<point x="1.92956326398305" y="47.839260211593" />
@@ -11379,7 +11379,7 @@
 					</triangle>
 				</triangles>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704472">
 				<triangles>
 					<triangle>
 						<point x="1.92870986446314" y="47.8400561136554" />
@@ -11459,7 +11459,7 @@
 					<point x="1.92802714484721" y="47.8394591882533" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704451">
 				<triangles>
 					<triangle>
 						<point x="1.92705696434036" y="47.839121530439" />
@@ -11537,7 +11537,7 @@
 					<point x="1.92667068876818" y="47.8393506556241" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704998">
 				<triangles>
 					<triangle>
 						<point x="1.9296171629001" y="47.83892858213" />
@@ -11551,7 +11551,7 @@
 					</triangle>
 				</triangles>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704181">
 				<triangles>
 					<triangle>
 						<point x="1.92934766831486" y="47.8405565609725" />
@@ -11605,7 +11605,7 @@
 					</triangle>
 				</triangles>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704454">
 				<triangles>
 					<triangle>
 						<point x="1.9291590221052" y="47.8394591882533" />
@@ -11679,7 +11679,7 @@
 					<point x="1.92861104978188" y="47.8393808035994" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153707458">
 				<triangles>
 					<triangle>
 						<point x="1.94015440118282" y="47.8383919408721" />
@@ -11708,7 +11708,7 @@
 					<point x="1.93961541201235" y="47.8380964843271" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704460">
 				<triangles>
 					<triangle>
 						<point x="1.93455789696275" y="47.8382653168445" />
@@ -11799,7 +11799,7 @@
 					<point x="1.93482739154799" y="47.8389346117755" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="199405304">
 				<triangles>
 					<triangle>
 						<point x="1.92352658527377" y="47.840665091079" />
@@ -11813,7 +11813,7 @@
 					</triangle>
 				</triangles>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="47436369">
 				<triangles>
 					<triangle>
 						<point x="1.94472682597899" y="47.8392783004118" />
@@ -11931,7 +11931,7 @@
 					<point x="1.94280443127097" y="47.8384040002872" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="133876386">
 				<triangles>
 					<triangle>
 						<point x="1.94138509312206" y="47.8451025721047" />
@@ -11971,7 +11971,7 @@
 					<point x="1.94204984643231" y="47.8451869770322" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="133876384">
 				<triangles>
 					<triangle>
 						<point x="1.94011846857145" y="47.8445961396552" />
@@ -11995,7 +11995,7 @@
 					<point x="1.93961541201235" y="47.8446504005112" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="133876385">
 				<triangles>
 					<triangle>
 						<point x="1.94143899203911" y="47.8448433275399" />
@@ -12009,7 +12009,37 @@
 					</triangle>
 				</triangles>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153707437">
+				<triangles>
+					<triangle>
+						<point x="1.92623949743181" y="47.8378432345209" />
+						<point x="1.92627543004317" y="47.8378914726745" />
+						<point x="1.92629339634885" y="47.8378251452017" />
+					</triangle>
+					<triangle>
+						<point x="1.92629339634885" y="47.8378251452017" />
+						<point x="1.92627543004317" y="47.8378914726745" />
+						<point x="1.92639221103011" y="47.8379578000625" />
+					</triangle>
+					<triangle>
+						<point x="1.92639221103011" y="47.8379578000625" />
+						<point x="1.92627543004317" y="47.8378914726745" />
+						<point x="1.92624848058465" y="47.8380000083562" />
+					</triangle>
+					<triangle>
+						<point x="1.92627543004317" y="47.8378914726745" />
+						<point x="1.92624848058465" y="47.8380000083562" />
+						<point x="1.92618559851476" y="47.8379155917345" />
+					</triangle>
+				</triangles>
+				<voisins>
+					<point x="1.92655390778125" y="47.8379457405437" />
+					<point x="1.92654492462841" y="47.8380120678624" />
+					<point x="1.92626644689033" y="47.8375357152371" />
+					<point x="1.92549389574599" y="47.8378311749754" />
+				</voisins>
+			</batiment>
+			<batiment nom="" id="153704087">
 				<triangles>
 					<triangle>
 						<point x="1.93003038793079" y="47.8403274411132" />
@@ -12063,37 +12093,7 @@
 					</triangle>
 				</triangles>
 			</batiment>
-			<batiment nom="">
-				<triangles>
-					<triangle>
-						<point x="1.92623949743181" y="47.8378432345209" />
-						<point x="1.92627543004317" y="47.8378914726745" />
-						<point x="1.92629339634885" y="47.8378251452017" />
-					</triangle>
-					<triangle>
-						<point x="1.92629339634885" y="47.8378251452017" />
-						<point x="1.92627543004317" y="47.8378914726745" />
-						<point x="1.92639221103011" y="47.8379578000625" />
-					</triangle>
-					<triangle>
-						<point x="1.92639221103011" y="47.8379578000625" />
-						<point x="1.92627543004317" y="47.8378914726745" />
-						<point x="1.92624848058465" y="47.8380000083562" />
-					</triangle>
-					<triangle>
-						<point x="1.92627543004317" y="47.8378914726745" />
-						<point x="1.92624848058465" y="47.8380000083562" />
-						<point x="1.92618559851476" y="47.8379155917345" />
-					</triangle>
-				</triangles>
-				<voisins>
-					<point x="1.92655390778125" y="47.8379457405437" />
-					<point x="1.92654492462841" y="47.8380120678624" />
-					<point x="1.92626644689033" y="47.8375357152371" />
-					<point x="1.92549389574599" y="47.8378311749754" />
-				</voisins>
-			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153707438">
 				<triangles>
 					<triangle>
 						<point x="1.92548491259315" y="47.8383859111635" />
@@ -12121,7 +12121,7 @@
 					<point x="1.9259969523051" y="47.8384763567187" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704082">
 				<triangles>
 					<triangle>
 						<point x="1.94036999685101" y="47.8386572473562" />
@@ -12170,7 +12170,26 @@
 					</triangle>
 				</triangles>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153705032">
+				<triangles>
+					<triangle>
+						<point x="1.92544897998178" y="47.83835576261" />
+						<point x="1.92559271042724" y="47.8383075248881" />
+						<point x="1.92542203052326" y="47.8383195843228" />
+					</triangle>
+					<triangle>
+						<point x="1.92542203052326" y="47.8383195843228" />
+						<point x="1.92556576096872" y="47.8382713465671" />
+						<point x="1.92559271042724" y="47.8383075248881" />
+					</triangle>
+				</triangles>
+				<voisins>
+					<point x="1.9259969523051" y="47.8384763567187" />
+					<point x="1.9259969523051" y="47.8384763567187" />
+					<point x="1.92549389574599" y="47.8378311749754" />
+				</voisins>
+			</batiment>
+			<batiment nom="" id="200711417">
 				<triangles>
 					<triangle>
 						<point x="1.92510762017382" y="47.8507634268507" />
@@ -12196,26 +12215,7 @@
 					<point x="1.92574542402554" y="47.8504921539773" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
-				<triangles>
-					<triangle>
-						<point x="1.92544897998178" y="47.83835576261" />
-						<point x="1.92559271042724" y="47.8383075248881" />
-						<point x="1.92542203052326" y="47.8383195843228" />
-					</triangle>
-					<triangle>
-						<point x="1.92542203052326" y="47.8383195843228" />
-						<point x="1.92556576096872" y="47.8382713465671" />
-						<point x="1.92559271042724" y="47.8383075248881" />
-					</triangle>
-				</triangles>
-				<voisins>
-					<point x="1.9259969523051" y="47.8384763567187" />
-					<point x="1.9259969523051" y="47.8384763567187" />
-					<point x="1.92549389574599" y="47.8378311749754" />
-				</voisins>
-			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704089">
 				<triangles>
 					<triangle>
 						<point x="1.93239295712803" y="47.8397968438699" />
@@ -12272,7 +12272,7 @@
 					<point x="1.93233905821098" y="47.840152585803" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153707418">
 				<triangles>
 					<triangle>
 						<point x="1.94011846857145" y="47.838277376289" />
@@ -12302,7 +12302,7 @@
 					<point x="1.93950761417825" y="47.8380180976144" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153706037">
 				<triangles>
 					<triangle>
 						<point x="1.92897037589553" y="47.8394652178371" />
@@ -12321,7 +12321,7 @@
 					<point x="1.92861104978188" y="47.8393808035994" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704110">
 				<triangles>
 					<triangle>
 						<point x="1.92894342643701" y="47.8395436023634" />
@@ -12380,7 +12380,7 @@
 					<point x="1.92861104978188" y="47.8393808035994" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153705482">
 				<triangles>
 					<triangle>
 						<point x="1.92522440116075" y="47.8380241273657" />
@@ -12400,7 +12400,7 @@
 					<point x="1.92453269839198" y="47.8379457405437" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="133876383">
 				<triangles>
 					<triangle>
 						<point x="1.9407383061175" y="47.844764951021" />
@@ -12444,7 +12444,7 @@
 					<point x="1.94059457567204" y="47.8443248345233" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="133876382">
 				<triangles>
 					<triangle>
 						<point x="1.94087305341011" y="47.8444212987327" />
@@ -12462,61 +12462,7 @@
 					<point x="1.94059457567204" y="47.8443248345233" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
-				<triangles>
-					<triangle>
-						<point x="1.93052446133706" y="47.839754637038" />
-						<point x="1.93055141079558" y="47.8397486074878" />
-						<point x="1.93041666350296" y="47.8396159572057" />
-					</triangle>
-					<triangle>
-						<point x="1.93041666350296" y="47.8396159572057" />
-						<point x="1.93055141079558" y="47.8397486074878" />
-						<point x="1.93044361296149" y="47.8396038980723" />
-					</triangle>
-					<triangle>
-						<point x="1.93041666350296" y="47.8395737502267" />
-						<point x="1.93044361296149" y="47.8396038980723" />
-						<point x="1.9305783602541" y="47.8395194840603" />
-					</triangle>
-					<triangle>
-						<point x="1.9305783602541" y="47.8395194840603" />
-						<point x="1.93044361296149" y="47.8396038980723" />
-						<point x="1.93060530971263" y="47.8395556615108" />
-					</triangle>
-					<triangle>
-						<point x="1.93062327601831" y="47.8395436023634" />
-						<point x="1.93060530971263" y="47.8395556615108" />
-						<point x="1.93073107385241" y="47.8396883119471" />
-					</triangle>
-					<triangle>
-						<point x="1.93073107385241" y="47.8396883119471" />
-						<point x="1.93060530971263" y="47.8395556615108" />
-						<point x="1.93070412439388" y="47.8396943415043" />
-					</triangle>
-					<triangle>
-						<point x="1.93073107385241" y="47.8397305188329" />
-						<point x="1.93070412439388" y="47.8396943415043" />
-						<point x="1.9305783602541" y="47.8397847847786" />
-					</triangle>
-					<triangle>
-						<point x="1.9305783602541" y="47.8397847847786" />
-						<point x="1.93070412439388" y="47.8396943415043" />
-						<point x="1.93055141079558" y="47.8397486074878" />
-					</triangle>
-					<triangle>
-						<point x="1.93055141079558" y="47.8397486074878" />
-						<point x="1.93070412439388" y="47.8396943415043" />
-						<point x="1.93044361296149" y="47.8396038980723" />
-					</triangle>
-					<triangle>
-						<point x="1.93044361296149" y="47.8396038980723" />
-						<point x="1.93060530971263" y="47.8395556615108" />
-						<point x="1.93070412439388" y="47.8396943415043" />
-					</triangle>
-				</triangles>
-			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704527">
 				<triangles>
 					<triangle>
 						<point x="1.93483637470083" y="47.8390129971035" />
@@ -12627,7 +12573,61 @@
 					<point x="1.93445009912866" y="47.8395436023634" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704125">
+				<triangles>
+					<triangle>
+						<point x="1.93052446133706" y="47.839754637038" />
+						<point x="1.93055141079558" y="47.8397486074878" />
+						<point x="1.93041666350296" y="47.8396159572057" />
+					</triangle>
+					<triangle>
+						<point x="1.93041666350296" y="47.8396159572057" />
+						<point x="1.93055141079558" y="47.8397486074878" />
+						<point x="1.93044361296149" y="47.8396038980723" />
+					</triangle>
+					<triangle>
+						<point x="1.93041666350296" y="47.8395737502267" />
+						<point x="1.93044361296149" y="47.8396038980723" />
+						<point x="1.9305783602541" y="47.8395194840603" />
+					</triangle>
+					<triangle>
+						<point x="1.9305783602541" y="47.8395194840603" />
+						<point x="1.93044361296149" y="47.8396038980723" />
+						<point x="1.93060530971263" y="47.8395556615108" />
+					</triangle>
+					<triangle>
+						<point x="1.93062327601831" y="47.8395436023634" />
+						<point x="1.93060530971263" y="47.8395556615108" />
+						<point x="1.93073107385241" y="47.8396883119471" />
+					</triangle>
+					<triangle>
+						<point x="1.93073107385241" y="47.8396883119471" />
+						<point x="1.93060530971263" y="47.8395556615108" />
+						<point x="1.93070412439388" y="47.8396943415043" />
+					</triangle>
+					<triangle>
+						<point x="1.93073107385241" y="47.8397305188329" />
+						<point x="1.93070412439388" y="47.8396943415043" />
+						<point x="1.9305783602541" y="47.8397847847786" />
+					</triangle>
+					<triangle>
+						<point x="1.9305783602541" y="47.8397847847786" />
+						<point x="1.93070412439388" y="47.8396943415043" />
+						<point x="1.93055141079558" y="47.8397486074878" />
+					</triangle>
+					<triangle>
+						<point x="1.93055141079558" y="47.8397486074878" />
+						<point x="1.93070412439388" y="47.8396943415043" />
+						<point x="1.93044361296149" y="47.8396038980723" />
+					</triangle>
+					<triangle>
+						<point x="1.93044361296149" y="47.8396038980723" />
+						<point x="1.93060530971263" y="47.8395556615108" />
+						<point x="1.93070412439388" y="47.8396943415043" />
+					</triangle>
+				</triangles>
+			</batiment>
+			<batiment nom="" id="181305256">
 				<triangles>
 					<triangle>
 						<point x="1.93674080310316" y="47.8430225501377" />
@@ -12736,7 +12736,7 @@
 					<point x="1.93789064666684" y="47.8427753535763" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="181305257">
 				<triangles>
 					<triangle>
 						<point x="1.9368575840901" y="47.8429502000465" />
@@ -12771,7 +12771,7 @@
 					<point x="1.93627367915542" y="47.8429803459301" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153705479">
 				<triangles>
 					<triangle>
 						<point x="1.92733544207843" y="47.8385607724281" />
@@ -12785,7 +12785,7 @@
 					</triangle>
 				</triangles>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704120">
 				<triangles>
 					<triangle>
 						<point x="1.92718272848013" y="47.8403033231744" />
@@ -12849,7 +12849,7 @@
 					<point x="1.9266078066983" y="47.8400078775144" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704522">
 				<triangles>
 					<triangle>
 						<point x="1.92949139876032" y="47.8381567817178" />
@@ -12946,7 +12946,7 @@
 					<point x="1.93004835423647" y="47.8380361868663" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="106230524">
 				<triangles>
 					<triangle>
 						<point x="1.93770200045717" y="47.8476406888192" />
@@ -13019,7 +13019,7 @@
 					<point x="1.93730674173216" y="47.8481169486624" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="200711684">
 				<triangles>
 					<triangle>
 						<point x="1.92470337829596" y="47.8455667975065" />
@@ -13492,7 +13492,7 @@
 					<point x="1.92587118816532" y="47.8452472661821" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="200711685">
 				<triangles>
 					<triangle>
 						<point x="1.92587118816532" y="47.8469956210459" />
@@ -13971,7 +13971,7 @@
 					<point x="1.92642814364147" y="47.8467062422418" />
 				</voisins>
 			</batiment>
-			<batiment nom="Amphithéatre de l'UFR de Sciences">
+			<batiment nom="Amphithéatre de l'UFR de Sciences" id="31139273">
 				<triangles>
 					<triangle>
 						<point x="1.93687555039578" y="47.8443790956632" />
@@ -14010,7 +14010,7 @@
 					<point x="1.93840268637879" y="47.8447348061746" />
 				</voisins>
 			</batiment>
-			<batiment nom="Résidence les Charmes">
+			<batiment nom="Résidence les Charmes" id="31139272">
 				<triangles>
 					<triangle>
 						<point x="1.93399195833376" y="47.8410449446636" />
@@ -14323,7 +14323,7 @@
 					<point x="1.93496213884061" y="47.8399717003791" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704025">
 				<triangles>
 					<triangle>
 						<point x="1.93105446735469" y="47.839947582275" />
@@ -14377,7 +14377,7 @@
 					</triangle>
 				</triangles>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704030">
 				<triangles>
 					<triangle>
 						<point x="1.93178210273482" y="47.8397425779369" />
@@ -14431,7 +14431,7 @@
 					</triangle>
 				</triangles>
 			</batiment>
-			<batiment nom="Bibliothèque Universitaire de LLSH">
+			<batiment nom="Bibliothèque Universitaire de LLSH" id="31139277">
 				<triangles>
 					<triangle>
 						<point x="1.93705521345261" y="47.8422869861755" />
@@ -14519,7 +14519,7 @@
 					<point x="1.93850150106004" y="47.8425341850641" />
 				</voisins>
 			</batiment>
-			<batiment nom="Batiment Enseignement Général UFR Sciences">
+			<batiment nom="Batiment Enseignement Général UFR Sciences" id="31139267">
 				<triangles>
 					<triangle>
 						<point x="1.93682165147874" y="47.8467303572038" />
@@ -14550,7 +14550,7 @@
 					<point x="1.93591435304177" y="47.847387485603" />
 				</voisins>
 			</batiment>
-			<batiment nom="Gymnase Gilbert Cathelineau">
+			<batiment nom="Gymnase Gilbert Cathelineau" id="153708327">
 				<triangles>
 					<triangle>
 						<point x="1.9421127285022" y="47.83900093783" />
@@ -14572,7 +14572,7 @@
 					<point x="1.94208577904368" y="47.839073293429" />
 				</voisins>
 			</batiment>
-			<batiment nom="Université d'informatique, Bat 3IA - LIFO">
+			<batiment nom="Université d'informatique, Bat 3IA - LIFO" id="31139269">
 				<triangles>
 					<triangle>
 						<point x="1.93961541201235" y="47.8458260384554" />
@@ -14699,7 +14699,7 @@
 					<point x="1.9387979451038" y="47.8449156749906" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704022">
 				<triangles>
 					<triangle>
 						<point x="1.92988665748533" y="47.8399717003791" />
@@ -14753,41 +14753,7 @@
 					</triangle>
 				</triangles>
 			</batiment>
-			<batiment nom="">
-				<triangles>
-					<triangle>
-						<point x="1.92560169358008" y="47.8385848911769" />
-						<point x="1.92567355880281" y="47.8386873957345" />
-						<point x="1.92574542402554" y="47.838536653668" />
-					</triangle>
-					<triangle>
-						<point x="1.92578135663691" y="47.8386512176785" />
-						<point x="1.92574542402554" y="47.8385969505471" />
-						<point x="1.92567355880281" y="47.8386873957345" />
-					</triangle>
-					<triangle>
-						<point x="1.92567355880281" y="47.8386873957345" />
-						<point x="1.92574542402554" y="47.8385969505471" />
-						<point x="1.92574542402554" y="47.838536653668" />
-					</triangle>
-					<triangle>
-						<point x="1.92574542402554" y="47.838536653668" />
-						<point x="1.92578135663691" y="47.8385848911769" />
-						<point x="1.92574542402554" y="47.8385969505471" />
-					</triangle>
-				</triangles>
-				<voisins>
-					<point x="1.9259969523051" y="47.8384763567187" />
-					<point x="1.9259969523051" y="47.8384763567187" />
-					<point x="1.92625746373749" y="47.8388200483908" />
-					<point x="1.92625746373749" y="47.8388200483908" />
-					<point x="1.92553881151019" y="47.8390672637996" />
-					<point x="1.92553881151019" y="47.8390672637996" />
-					<point x="1.92540406421758" y="47.8391155008152" />
-					<point x="1.92540406421758" y="47.8391155008152" />
-				</voisins>
-			</batiment>
-			<batiment nom="UFR de Physique-Chimie">
+			<batiment nom="UFR de Physique-Chimie" id="31139271">
 				<triangles>
 					<triangle>
 						<point x="1.93653419058782" y="47.8454401909907" />
@@ -14844,7 +14810,41 @@
 					<point x="1.9380343771123" y="47.8461214509805" />
 				</voisins>
 			</batiment>
-			<batiment nom="Université de mathématiques">
+			<batiment nom="" id="153707374">
+				<triangles>
+					<triangle>
+						<point x="1.92560169358008" y="47.8385848911769" />
+						<point x="1.92567355880281" y="47.8386873957345" />
+						<point x="1.92574542402554" y="47.838536653668" />
+					</triangle>
+					<triangle>
+						<point x="1.92578135663691" y="47.8386512176785" />
+						<point x="1.92574542402554" y="47.8385969505471" />
+						<point x="1.92567355880281" y="47.8386873957345" />
+					</triangle>
+					<triangle>
+						<point x="1.92567355880281" y="47.8386873957345" />
+						<point x="1.92574542402554" y="47.8385969505471" />
+						<point x="1.92574542402554" y="47.838536653668" />
+					</triangle>
+					<triangle>
+						<point x="1.92574542402554" y="47.838536653668" />
+						<point x="1.92578135663691" y="47.8385848911769" />
+						<point x="1.92574542402554" y="47.8385969505471" />
+					</triangle>
+				</triangles>
+				<voisins>
+					<point x="1.9259969523051" y="47.8384763567187" />
+					<point x="1.9259969523051" y="47.8384763567187" />
+					<point x="1.92625746373749" y="47.8388200483908" />
+					<point x="1.92625746373749" y="47.8388200483908" />
+					<point x="1.92553881151019" y="47.8390672637996" />
+					<point x="1.92553881151019" y="47.8390672637996" />
+					<point x="1.92540406421758" y="47.8391155008152" />
+					<point x="1.92540406421758" y="47.8391155008152" />
+				</voisins>
+			</batiment>
+			<batiment nom="Université de mathématiques" id="31139270">
 				<triangles>
 					<triangle>
 						<point x="1.93710911236965" y="47.8462118830498" />
@@ -14880,7 +14880,7 @@
 					<point x="1.93852845051856" y="47.8462359982417" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704041">
 				<triangles>
 					<triangle>
 						<point x="1.92605983437498" y="47.840683179408" />
@@ -14953,7 +14953,7 @@
 					<point x="1.92636526157158" y="47.8401164087687" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704601">
 				<triangles>
 					<triangle>
 						<point x="1.94020830009987" y="47.8380723653512" />
@@ -15075,7 +15075,7 @@
 					<point x="1.93939981634416" y="47.8379819190917" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153705682">
 				<triangles>
 					<triangle>
 						<point x="1.92857511717052" y="47.8410208270584" />
@@ -15089,7 +15089,7 @@
 					</triangle>
 				</triangles>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153706867">
 				<triangles>
 					<triangle>
 						<point x="1.94076525557602" y="47.8383859111635" />
@@ -15103,7 +15103,7 @@
 					</triangle>
 				</triangles>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153706231">
 				<triangles>
 					<triangle>
 						<point x="1.93264448540758" y="47.8386090099146" />
@@ -15122,7 +15122,7 @@
 					<point x="1.9324738055036" y="47.8380723653512" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153706872">
 				<triangles>
 					<triangle>
 						<point x="1.93998372127884" y="47.8381447222453" />
@@ -15161,26 +15161,7 @@
 					<point x="1.939408799497" y="47.8378552940635" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
-				<triangles>
-					<triangle>
-						<point x="1.92913207264667" y="47.8393988923762" />
-						<point x="1.92914105579951" y="47.8394109515572" />
-						<point x="1.92917698841088" y="47.8393868331924" />
-					</triangle>
-					<triangle>
-						<point x="1.92917698841088" y="47.8393868331924" />
-						<point x="1.92918597156372" y="47.8393988923762" />
-						<point x="1.92914105579951" y="47.8394109515572" />
-					</triangle>
-				</triangles>
-				<voisins>
-					<point x="1.92861104978188" y="47.8393808035994" />
-					<point x="1.92861104978188" y="47.8393808035994" />
-					<point x="1.92861104978188" y="47.8393808035994" />
-				</voisins>
-			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704056">
 				<triangles>
 					<triangle>
 						<point x="1.93300381152123" y="47.8393325668304" />
@@ -15234,7 +15215,26 @@
 					</triangle>
 				</triangles>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153705670">
+				<triangles>
+					<triangle>
+						<point x="1.92913207264667" y="47.8393988923762" />
+						<point x="1.92914105579951" y="47.8394109515572" />
+						<point x="1.92917698841088" y="47.8393868331924" />
+					</triangle>
+					<triangle>
+						<point x="1.92917698841088" y="47.8393868331924" />
+						<point x="1.92918597156372" y="47.8393988923762" />
+						<point x="1.92914105579951" y="47.8394109515572" />
+					</triangle>
+				</triangles>
+				<voisins>
+					<point x="1.92861104978188" y="47.8393808035994" />
+					<point x="1.92861104978188" y="47.8393808035994" />
+					<point x="1.92861104978188" y="47.8393808035994" />
+				</voisins>
+			</batiment>
+			<batiment nom="" id="153704585">
 				<triangles>
 					<triangle>
 						<point x="1.93434230129457" y="47.8391577081671" />
@@ -15377,7 +15377,7 @@
 					<point x="1.93463874533832" y="47.8387175440953" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153705120">
 				<triangles>
 					<triangle>
 						<point x="1.93017411837625" y="47.8387054847531" />
@@ -15397,7 +15397,7 @@
 					<point x="1.93082988853366" y="47.838633128641" />
 				</voisins>
 			</batiment>
-			<batiment nom="Kt Self">
+			<batiment nom="Kt Self" id="42170973">
 				<triangles>
 					<triangle>
 						<point x="1.92468541199028" y="47.8423955126619" />
@@ -15418,7 +15418,7 @@
 					<point x="1.92481117613006" y="47.8428597622907" />
 				</voisins>
 			</batiment>
-			<batiment nom="Station Elf">
+			<batiment nom="Station Elf" id="42170972">
 				<triangles>
 					<triangle>
 						<point x="1.92529626638348" y="47.8420759618021" />
@@ -15446,7 +15446,7 @@
 					<point x="1.92585322185964" y="47.842347278696" />
 				</voisins>
 			</batiment>
-			<batiment nom="Station Elf">
+			<batiment nom="Station Elf" id="42170971">
 				<triangles>
 					<triangle>
 						<point x="1.92556576096872" y="47.84244977582" />
@@ -15472,7 +15472,7 @@
 					<point x="1.92616763220908" y="47.8424136003876" />
 				</voisins>
 			</batiment>
-			<batiment nom="Département Qlio">
+			<batiment nom="Département Qlio" id="40794193">
 				<triangles>
 					<triangle>
 						<point x="1.92720967793866" y="47.8439691212005" />
@@ -15493,7 +15493,7 @@
 					<point x="1.9278295154847" y="47.8436314927394" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153706131">
 				<triangles>
 					<triangle>
 						<point x="1.92616763220908" y="47.8392119747119" />
@@ -15517,37 +15517,7 @@
 					<point x="1.92605085122214" y="47.8397666961363" />
 				</voisins>
 			</batiment>
-			<batiment nom="Station Elf">
-				<triangles>
-					<triangle>
-						<point x="1.92536813160621" y="47.8425221266091" />
-						<point x="1.92523338431359" y="47.8425703604124" />
-						<point x="1.92526931692496" y="47.8423894834186" />
-					</triangle>
-					<triangle>
-						<point x="1.92526931692496" y="47.8423894834186" />
-						<point x="1.92513456963234" y="47.8424377173453" />
-						<point x="1.92523338431359" y="47.8425703604124" />
-					</triangle>
-				</triangles>
-				<voisins>
-					<point x="1.92553881151019" y="47.8426427110333" />
-					<point x="1.92586220501248" y="47.8426306526035" />
-					<point x="1.92586220501248" y="47.8426306526035" />
-					<point x="1.92586220501248" y="47.8426306526035" />
-					<point x="1.92506270440961" y="47.8429019665964" />
-					<point x="1.92506270440961" y="47.8429019665964" />
-					<point x="1.92585322185964" y="47.842347278696" />
-					<point x="1.92585322185964" y="47.842347278696" />
-					<point x="1.92585322185964" y="47.842347278696" />
-					<point x="1.9248650750471" y="47.8421000789168" />
-					<point x="1.92481117613006" y="47.8428597622907" />
-					<point x="1.92481117613006" y="47.8428597622907" />
-					<point x="1.92481117613006" y="47.8428597622907" />
-					<point x="1.92481117613006" y="47.8428597622907" />
-				</voisins>
-			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153707312">
 				<triangles>
 					<triangle>
 						<point x="1.92725459370286" y="47.8394471290834" />
@@ -15579,7 +15549,37 @@
 					<point x="1.92681441921364" y="47.839983759427" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="Station Elf" id="42170970">
+				<triangles>
+					<triangle>
+						<point x="1.92536813160621" y="47.8425221266091" />
+						<point x="1.92523338431359" y="47.8425703604124" />
+						<point x="1.92526931692496" y="47.8423894834186" />
+					</triangle>
+					<triangle>
+						<point x="1.92526931692496" y="47.8423894834186" />
+						<point x="1.92513456963234" y="47.8424377173453" />
+						<point x="1.92523338431359" y="47.8425703604124" />
+					</triangle>
+				</triangles>
+				<voisins>
+					<point x="1.92553881151019" y="47.8426427110333" />
+					<point x="1.92586220501248" y="47.8426306526035" />
+					<point x="1.92586220501248" y="47.8426306526035" />
+					<point x="1.92586220501248" y="47.8426306526035" />
+					<point x="1.92506270440961" y="47.8429019665964" />
+					<point x="1.92506270440961" y="47.8429019665964" />
+					<point x="1.92585322185964" y="47.842347278696" />
+					<point x="1.92585322185964" y="47.842347278696" />
+					<point x="1.92585322185964" y="47.842347278696" />
+					<point x="1.9248650750471" y="47.8421000789168" />
+					<point x="1.92481117613006" y="47.8428597622907" />
+					<point x="1.92481117613006" y="47.8428597622907" />
+					<point x="1.92481117613006" y="47.8428597622907" />
+					<point x="1.92481117613006" y="47.8428597622907" />
+				</voisins>
+			</batiment>
+			<batiment nom="" id="199105465">
 				<triangles>
 					<triangle>
 						<point x="1.9284403698779" y="47.8503414462123" />
@@ -15621,7 +15621,7 @@
 					<point x="1.92858410032336" y="47.8504258426147" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153707325">
 				<triangles>
 					<triangle>
 						<point x="1.94029813162828" y="47.8385245942837" />
@@ -15645,7 +15645,7 @@
 					</triangle>
 				</triangles>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153707860">
 				<triangles>
 					<triangle>
 						<point x="1.92658984039261" y="47.8385969505471" />
@@ -15682,7 +15682,7 @@
 					<point x="1.92655390778125" y="47.8379457405437" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153705662">
 				<triangles>
 					<triangle>
 						<point x="1.92579932294259" y="47.8388501966744" />
@@ -15706,7 +15706,7 @@
 					<point x="1.92540406421758" y="47.8391155008152" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153703965">
 				<triangles>
 					<triangle>
 						<point x="1.93510586928607" y="47.8373789399988" />
@@ -15763,7 +15763,7 @@
 					<point x="1.93417162139058" y="47.838138692508" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="200711288">
 				<triangles>
 					<triangle>
 						<point x="1.9263472952659" y="47.8495095314683" />
@@ -15782,7 +15782,7 @@
 					<point x="1.9261945816676" y="47.849847121669" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="200711295">
 				<triangles>
 					<triangle>
 						<point x="1.92523338431359" y="47.8504137859942" />
@@ -15804,7 +15804,7 @@
 					<point x="1.92447879947493" y="47.8505162671791" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="200711294">
 				<triangles>
 					<triangle>
 						<point x="1.92578135663691" y="47.8506368330197" />
@@ -15823,7 +15823,7 @@
 					<point x="1.92541304737042" y="47.8506308047343" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="199105451">
 				<triangles>
 					<triangle>
 						<point x="1.92839545411369" y="47.8503535028496" />
@@ -15850,7 +15850,7 @@
 					<point x="1.92858410032336" y="47.8504258426147" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="199105448">
 				<triangles>
 					<triangle>
 						<point x="1.92784748179038" y="47.8507212289414" />
@@ -15877,7 +15877,7 @@
 					<point x="1.92858410032336" y="47.8504258426147" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="200711292">
 				<triangles>
 					<triangle>
 						<point x="1.92499982233972" y="47.8508056247257" />
@@ -15897,7 +15897,7 @@
 					<point x="1.92422727119538" y="47.8506609461542" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="200711283">
 				<triangles>
 					<triangle>
 						<point x="1.92670662137955" y="47.8469956210459" />
@@ -15925,7 +15925,7 @@
 					<point x="1.92597000284657" y="47.8470739941942" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="200711282">
 				<triangles>
 					<triangle>
 						<point x="1.92785646494322" y="47.8473392562789" />
@@ -15945,7 +15945,7 @@
 					<point x="1.9270659474932" y="47.8472307401355" />
 				</voisins>
 			</batiment>
-			<batiment nom="UFR Lettres, Langues et Sciences Humaines">
+			<batiment nom="UFR Lettres, Langues et Sciences Humaines" id="95533437">
 				<triangles>
 					<triangle>
 						<point x="1.93727979227364" y="47.8418408193462" />
@@ -16159,16 +16159,16 @@
 					</triangle>
 				</triangles>
 				<voisins>
-					<point x="1.93614791501565" y="47.841876995178" />
-					<point x="1.93646232536509" y="47.8417021450905" />
-					<point x="1.93638147698952" y="47.8417322916993" />
+					<point x="1.93642639275372" y="47.8417865555511" />
 					<point x="1.93660605581055" y="47.8418167021109" />
+					<point x="1.93647130851793" y="47.8418528779596" />
+					<point x="1.93646232536509" y="47.8417021450905" />
 					<point x="1.93642639275372" y="47.8417865555511" />
 					<point x="1.93614791501565" y="47.841876995178" />
 					<point x="1.93647130851793" y="47.8418528779596" />
 					<point x="1.93638147698952" y="47.8417322916993" />
-					<point x="1.93642639275372" y="47.8417865555511" />
-					<point x="1.93647130851793" y="47.8418528779596" />
+					<point x="1.93614791501565" y="47.841876995178" />
+					<point x="1.93638147698952" y="47.8417322916993" />
 					<point x="1.93519570081448" y="47.842274927663" />
 					<point x="1.93701928084124" y="47.8417202330579" />
 					<point x="1.93701928084124" y="47.8417202330579" />
@@ -16300,7 +16300,7 @@
 					<point x="1.93577960574916" y="47.8412559732311" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="200711281">
 				<triangles>
 					<triangle>
 						<point x="1.92709289695172" y="47.8476406888192" />
@@ -16320,7 +16320,7 @@
 					<point x="1.9270659474932" y="47.8472307401355" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="200711280">
 				<triangles>
 					<triangle>
 						<point x="1.92446981632209" y="47.8471403098425" />
@@ -16340,7 +16340,7 @@
 					<point x="1.92481117613006" y="47.8467544721546" />
 				</voisins>
 			</batiment>
-			<batiment nom="Centre de Médecine Universitaire Jean Zay">
+			<batiment nom="Centre de Médecine Universitaire Jean Zay" id="95533436">
 				<triangles>
 					<triangle>
 						<point x="1.9362916454611" y="47.8409545035862" />
@@ -16449,7 +16449,7 @@
 					<point x="1.93710012921681" y="47.8412680319805" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="199105445">
 				<triangles>
 					<triangle>
 						<point x="1.92913207264667" y="47.8500159159452" />
@@ -16481,7 +16481,7 @@
 					<point x="1.92923088732793" y="47.8494251335748" />
 				</voisins>
 			</batiment>
-			<batiment nom="Résidence Aristote">
+			<batiment nom="Résidence Aristote" id="95533435">
 				<triangles>
 					<triangle>
 						<point x="1.93570774052643" y="47.8399897889499" />
@@ -16618,7 +16618,7 @@
 					<point x="1.93489925677072" y="47.8400500841402" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="199105442">
 				<triangles>
 					<triangle>
 						<point x="1.92913207264667" y="47.8500159159452" />
@@ -16650,7 +16650,7 @@
 					<point x="1.92858410032336" y="47.8504258426147" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="200711286">
 				<triangles>
 					<triangle>
 						<point x="1.9263472952659" y="47.8495095314683" />
@@ -16669,7 +16669,7 @@
 					<point x="1.9261945816676" y="47.849847121669" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="181303196">
 				<triangles>
 					<triangle>
 						<point x="1.92779358287333" y="47.8446323135655" />
@@ -16686,7 +16686,7 @@
 					<point x="1.92687730128353" y="47.8446865743838" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="200711285">
 				<triangles>
 					<triangle>
 						<point x="1.92773070080345" y="47.8468388743941" />
@@ -16716,7 +16716,7 @@
 					<point x="1.92708391379888" y="47.8473693996117" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="199105440">
 				<triangles>
 					<triangle>
 						<point x="1.92848528564211" y="47.8500038592294" />
@@ -16738,7 +16738,7 @@
 					<point x="1.92858410032336" y="47.8504258426147" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="200711284">
 				<triangles>
 					<triangle>
 						<point x="1.92615864905624" y="47.8499616607021" />
@@ -16757,7 +16757,7 @@
 					<point x="1.92605085122214" y="47.8495698155939" />
 				</voisins>
 			</batiment>
-			<batiment nom="Département Chimie">
+			<batiment nom="Département Chimie" id="40794231">
 				<triangles>
 					<triangle>
 						<point x="1.92720967793866" y="47.8439691212005" />
@@ -16784,7 +16784,7 @@
 					<point x="1.92847630248927" y="47.8437641327541" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="199105438">
 				<triangles>
 					<triangle>
 						<point x="1.92841342041938" y="47.8500761994822" />
@@ -16806,7 +16806,7 @@
 					<point x="1.92858410032336" y="47.8504258426147" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="200711244">
 				<triangles>
 					<triangle>
 						<point x="1.92591610392952" y="47.8498652067963" />
@@ -16828,7 +16828,7 @@
 					<point x="1.92518846854939" y="47.8498893202896" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153705622">
 				<triangles>
 					<triangle>
 						<point x="1.9403250810868" y="47.83839797058" />
@@ -16842,7 +16842,7 @@
 					</triangle>
 				</triangles>
 			</batiment>
-			<batiment nom="Bibliothèque Départementale de Prêt">
+			<batiment nom="Bibliothèque Départementale de Prêt" id="199105434">
 				<triangles>
 					<triangle>
 						<point x="1.93014716891773" y="47.8494974746348" />
@@ -17120,7 +17120,7 @@
 					<point x="1.93091073690923" y="47.8496361280511" />
 				</voisins>
 			</batiment>
-			<batiment nom="UFR de Droit, Économie et Gestion">
+			<batiment nom="UFR de Droit, Économie et Gestion" id="95541108">
 				<triangles>
 					<triangle>
 						<point x="1.9319078668746" y="47.8451688902736" />
@@ -17396,7 +17396,7 @@
 					<point x="1.9312970124814" y="47.8459767593417" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153706808">
 				<triangles>
 					<triangle>
 						<point x="1.92877274653302" y="47.8382472276725" />
@@ -17420,7 +17420,7 @@
 					</triangle>
 				</triangles>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="199105420">
 				<triangles>
 					<triangle>
 						<point x="1.93014716891773" y="47.8494974746348" />
@@ -17441,7 +17441,7 @@
 					<point x="1.92952733137168" y="47.8492322235882" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153703997">
 				<triangles>
 					<triangle>
 						<point x="1.92668865507387" y="47.8384100299936" />
@@ -17496,7 +17496,7 @@
 					<point x="1.9259969523051" y="47.8384763567187" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="199105421">
 				<triangles>
 					<triangle>
 						<point x="1.92979682595692" y="47.8491598821582" />
@@ -17516,37 +17516,7 @@
 					<point x="1.92923088732793" y="47.8494251335748" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
-				<triangles>
-					<triangle>
-						<point x="1.92640119418295" y="47.8386572473562" />
-						<point x="1.92637424472443" y="47.8386150395972" />
-						<point x="1.92632034580738" y="47.8386873957345" />
-					</triangle>
-					<triangle>
-						<point x="1.92632034580738" y="47.8386873957345" />
-						<point x="1.92637424472443" y="47.8386150395972" />
-						<point x="1.92623949743181" y="47.8385788614908" />
-					</triangle>
-					<triangle>
-						<point x="1.92623949743181" y="47.8385788614908" />
-						<point x="1.92637424472443" y="47.8386150395972" />
-						<point x="1.92639221103011" y="47.8385245942837" />
-					</triangle>
-					<triangle>
-						<point x="1.92637424472443" y="47.8386150395972" />
-						<point x="1.92639221103011" y="47.8385245942837" />
-						<point x="1.92643712679431" y="47.8385969505471" />
-					</triangle>
-				</triangles>
-				<voisins>
-					<point x="1.92625746373749" y="47.8388200483908" />
-					<point x="1.92625746373749" y="47.8388200483908" />
-					<point x="1.9259969523051" y="47.8384763567187" />
-					<point x="1.9259969523051" y="47.8384763567187" />
-				</voisins>
-			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153708987">
 				<triangles>
 					<triangle>
 						<point x="1.92820680790403" y="47.8390250563742" />
@@ -17591,7 +17561,37 @@
 					<point x="1.92861104978188" y="47.8393808035994" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153707269">
+				<triangles>
+					<triangle>
+						<point x="1.92640119418295" y="47.8386572473562" />
+						<point x="1.92637424472443" y="47.8386150395972" />
+						<point x="1.92632034580738" y="47.8386873957345" />
+					</triangle>
+					<triangle>
+						<point x="1.92632034580738" y="47.8386873957345" />
+						<point x="1.92637424472443" y="47.8386150395972" />
+						<point x="1.92623949743181" y="47.8385788614908" />
+					</triangle>
+					<triangle>
+						<point x="1.92623949743181" y="47.8385788614908" />
+						<point x="1.92637424472443" y="47.8386150395972" />
+						<point x="1.92639221103011" y="47.8385245942837" />
+					</triangle>
+					<triangle>
+						<point x="1.92637424472443" y="47.8386150395972" />
+						<point x="1.92639221103011" y="47.8385245942837" />
+						<point x="1.92643712679431" y="47.8385969505471" />
+					</triangle>
+				</triangles>
+				<voisins>
+					<point x="1.92625746373749" y="47.8388200483908" />
+					<point x="1.92625746373749" y="47.8388200483908" />
+					<point x="1.9259969523051" y="47.8384763567187" />
+					<point x="1.9259969523051" y="47.8384763567187" />
+				</voisins>
+			</batiment>
+			<batiment nom="" id="199105423">
 				<triangles>
 					<triangle>
 						<point x="1.92916800525804" y="47.8500400293684" />
@@ -17613,7 +17613,7 @@
 					<point x="1.92977885965124" y="47.8497325823829" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153708988">
 				<triangles>
 					<triangle>
 						<point x="1.93424348661331" y="47.836962880339" />
@@ -18082,10 +18082,10 @@
 					</triangle>
 				</triangles>
 				<voisins>
-					<point x="1.93615689816849" y="47.8377166091542" />
+					<point x="1.93509688613323" y="47.8380663356055" />
 					<point x="1.93509688613323" y="47.8380663356055" />
 					<point x="1.93615689816849" y="47.8377166091542" />
-					<point x="1.93509688613323" y="47.8380663356055" />
+					<point x="1.93615689816849" y="47.8377166091542" />
 					<point x="1.93551909431676" y="47.8379276512603" />
 					<point x="1.93674978625601" y="47.8379819190917" />
 					<point x="1.93457586326844" y="47.8380060381096" />
@@ -18103,74 +18103,7 @@
 					<point x="1.93418060454342" y="47.8374754171246" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
-				<triangles>
-					<triangle>
-						<point x="1.92785646494322" y="47.8507332854904" />
-						<point x="1.9278744312489" y="47.85075739858" />
-						<point x="1.92803612800005" y="47.8506730027172" />
-					</triangle>
-					<triangle>
-						<point x="1.92803612800005" y="47.8506730027172" />
-						<point x="1.9278744312489" y="47.85075739858" />
-						<point x="1.92806307745857" y="47.8507031441126" />
-					</triangle>
-					<triangle>
-						<point x="1.92806307745857" y="47.8507031441126" />
-						<point x="1.9278744312489" y="47.85075739858" />
-						<point x="1.927982229083" y="47.8507272572162" />
-					</triangle>
-					<triangle>
-						<point x="1.927982229083" y="47.8507272572162" />
-						<point x="1.9278744312489" y="47.85075739858" />
-						<point x="1.92808104376425" y="47.8507995964599" />
-					</triangle>
-					<triangle>
-						<point x="1.92800019538868" y="47.8508478225663" />
-						<point x="1.92808104376425" y="47.8507995964599" />
-						<point x="1.92796426277732" y="47.8508297377817" />
-					</triangle>
-					<triangle>
-						<point x="1.92796426277732" y="47.8508297377817" />
-						<point x="1.92808104376425" y="47.8507995964599" />
-						<point x="1.927982229083" y="47.8508176812551" />
-					</triangle>
-					<triangle>
-						<point x="1.927982229083" y="47.8508176812551" />
-						<point x="1.92808104376425" y="47.8507995964599" />
-						<point x="1.92791036386027" y="47.8507694551207" />
-					</triangle>
-					<triangle>
-						<point x="1.92790138070743" y="47.8507995964599" />
-						<point x="1.92788341440175" y="47.8507754833899" />
-						<point x="1.92785646494322" y="47.8508176812551" />
-					</triangle>
-					<triangle>
-						<point x="1.92785646494322" y="47.8508176812551" />
-						<point x="1.92788341440175" y="47.8507754833899" />
-						<point x="1.92782053233186" y="47.8507694551207" />
-					</triangle>
-					<triangle>
-						<point x="1.92782053233186" y="47.8507694551207" />
-						<point x="1.92788341440175" y="47.8507754833899" />
-						<point x="1.9278744312489" y="47.85075739858" />
-					</triangle>
-					<triangle>
-						<point x="1.92808104376425" y="47.8507995964599" />
-						<point x="1.9278744312489" y="47.85075739858" />
-						<point x="1.92791036386027" y="47.8507694551207" />
-					</triangle>
-					<triangle>
-						<point x="1.92791036386027" y="47.8507694551207" />
-						<point x="1.92788341440175" y="47.8507754833899" />
-						<point x="1.9278744312489" y="47.85075739858" />
-					</triangle>
-				</triangles>
-				<voisins>
-					<point x="1.92858410032336" y="47.8504258426147" />
-				</voisins>
-			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704651">
 				<triangles>
 					<triangle>
 						<point x="1.92745222306537" y="47.8399415527472" />
@@ -18308,7 +18241,74 @@
 					<point x="1.92681441921364" y="47.839983759427" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="199105417">
+				<triangles>
+					<triangle>
+						<point x="1.92785646494322" y="47.8507332854904" />
+						<point x="1.9278744312489" y="47.85075739858" />
+						<point x="1.92803612800005" y="47.8506730027172" />
+					</triangle>
+					<triangle>
+						<point x="1.92803612800005" y="47.8506730027172" />
+						<point x="1.9278744312489" y="47.85075739858" />
+						<point x="1.92806307745857" y="47.8507031441126" />
+					</triangle>
+					<triangle>
+						<point x="1.92806307745857" y="47.8507031441126" />
+						<point x="1.9278744312489" y="47.85075739858" />
+						<point x="1.927982229083" y="47.8507272572162" />
+					</triangle>
+					<triangle>
+						<point x="1.927982229083" y="47.8507272572162" />
+						<point x="1.9278744312489" y="47.85075739858" />
+						<point x="1.92808104376425" y="47.8507995964599" />
+					</triangle>
+					<triangle>
+						<point x="1.92800019538868" y="47.8508478225663" />
+						<point x="1.92808104376425" y="47.8507995964599" />
+						<point x="1.92796426277732" y="47.8508297377817" />
+					</triangle>
+					<triangle>
+						<point x="1.92796426277732" y="47.8508297377817" />
+						<point x="1.92808104376425" y="47.8507995964599" />
+						<point x="1.927982229083" y="47.8508176812551" />
+					</triangle>
+					<triangle>
+						<point x="1.927982229083" y="47.8508176812551" />
+						<point x="1.92808104376425" y="47.8507995964599" />
+						<point x="1.92791036386027" y="47.8507694551207" />
+					</triangle>
+					<triangle>
+						<point x="1.92790138070743" y="47.8507995964599" />
+						<point x="1.92788341440175" y="47.8507754833899" />
+						<point x="1.92785646494322" y="47.8508176812551" />
+					</triangle>
+					<triangle>
+						<point x="1.92785646494322" y="47.8508176812551" />
+						<point x="1.92788341440175" y="47.8507754833899" />
+						<point x="1.92782053233186" y="47.8507694551207" />
+					</triangle>
+					<triangle>
+						<point x="1.92782053233186" y="47.8507694551207" />
+						<point x="1.92788341440175" y="47.8507754833899" />
+						<point x="1.9278744312489" y="47.85075739858" />
+					</triangle>
+					<triangle>
+						<point x="1.92808104376425" y="47.8507995964599" />
+						<point x="1.9278744312489" y="47.85075739858" />
+						<point x="1.92791036386027" y="47.8507694551207" />
+					</triangle>
+					<triangle>
+						<point x="1.92791036386027" y="47.8507694551207" />
+						<point x="1.92788341440175" y="47.8507754833899" />
+						<point x="1.9278744312489" y="47.85075739858" />
+					</triangle>
+				</triangles>
+				<voisins>
+					<point x="1.92858410032336" y="47.8504258426147" />
+				</voisins>
+			</batiment>
+			<batiment nom="" id="199105418">
 				<triangles>
 					<triangle>
 						<point x="1.92908715688247" y="47.8501063412244" />
@@ -18385,7 +18385,7 @@
 					<point x="1.92934766831486" y="47.8496361280511" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="199105419">
 				<triangles>
 					<triangle>
 						<point x="1.92983275856829" y="47.8493166217956" />
@@ -18403,7 +18403,7 @@
 					<point x="1.92977885965124" y="47.8497325823829" />
 				</voisins>
 			</batiment>
-			<batiment nom="">
+			<batiment nom="" id="153704644">
 				<triangles>
 					<triangle>
 						<point x="1.9303807308916" y="47.8390491749072" />
@@ -18782,6 +18782,10 @@
 				<point x="1.93542027963551" y="47.8451327167374" />
 				<point x="1.93555502692813" y="47.8449518486782" />
 				<point x="1.93565384160938" y="47.8448312696216" />
+			</route>
+			<route type="chemin">
+				<point x="1.93383026158262" y="47.8429381416882" />
+				<point x="1.93388416049966" y="47.8431551917094" />
 			</route>
 			<route type="route">
 				<point x="1.92517948539655" y="47.843251658094" />
@@ -19699,10 +19703,6 @@
 				<point x="1.93380331212409" y="47.8440173536584" />
 			</route>
 			<route type="chemin">
-				<point x="1.93383026158262" y="47.8429381416882" />
-				<point x="1.93388416049966" y="47.8431551917094" />
-			</route>
-			<route type="chemin">
 				<point x="1.93595028565314" y="47.8426246233876" />
 				<point x="1.9358335046662" y="47.8425100681512" />
 			</route>
@@ -19977,10 +19977,6 @@
 				<point x="1.93638147698952" y="47.8415996464893" />
 				<point x="1.93646232536509" y="47.8417021450905" />
 			</route>
-			<route type="route">
-				<point x="1.92585322185964" y="47.842347278696" />
-				<point x="1.92616763220908" y="47.8424136003876" />
-			</route>
 			<route type="chemin">
 				<point x="1.93784573090263" y="47.8506850592775" />
 				<point x="1.93789962981968" y="47.8505825784261" />
@@ -20252,6 +20248,11 @@
 				<point x="1.9261945816676" y="47.849847121669" />
 				<point x="1.92626644689033" y="47.8498230081561" />
 				<point x="1.92605085122214" y="47.8495698155939" />
+			</route>
+			<route type="route">
+				<point x="1.93527654919005" y="47.8403093526602" />
+				<point x="1.93531248180141" y="47.8402309692908" />
+				<point x="1.93538434702414" y="47.8401947923111" />
 			</route>
 			<route type="chemin">
 				<point x="1.9239038776931" y="47.8508598790859" />
@@ -20994,11 +20995,6 @@
 				<point x="1.93790861297252" y="47.8427271199636" />
 				<point x="1.93809725918219" y="47.8426668278846" />
 			</route>
-			<route type="route">
-				<point x="1.93527654919005" y="47.8403093526602" />
-				<point x="1.93531248180141" y="47.8402309692908" />
-				<point x="1.93538434702414" y="47.8401947923111" />
-			</route>
 			<route type="chemin">
 				<point x="1.93510586928607" y="47.8416780277908" />
 				<point x="1.9353304481071" y="47.841726262379" />
@@ -21020,13 +21016,6 @@
 			<route type="chemin">
 				<point x="1.93418060454342" y="47.8508176812551" />
 				<point x="1.9341536550849" y="47.8507815116585" />
-			</route>
-			<route type="route">
-				<point x="1.92621254797328" y="47.8401887628121" />
-				<point x="1.9261496659034" y="47.8401827333123" />
-				<point x="1.92606881752782" y="47.840152585803" />
-				<point x="1.92603288491646" y="47.8401164087687" />
-				<point x="1.92601491861078" y="47.8400862612208" />
 			</route>
 			<route type="chemin">
 				<point x="1.93357873330306" y="47.851348165774" />
@@ -21303,6 +21292,17 @@
 				<point x="1.92601491861078" y="47.8400862612208" />
 			</route>
 			<route type="route">
+				<point x="1.92585322185964" y="47.842347278696" />
+				<point x="1.92616763220908" y="47.8424136003876" />
+			</route>
+			<route type="route">
+				<point x="1.92621254797328" y="47.8401887628121" />
+				<point x="1.9261496659034" y="47.8401827333123" />
+				<point x="1.92606881752782" y="47.840152585803" />
+				<point x="1.92603288491646" y="47.8401164087687" />
+				<point x="1.92601491861078" y="47.8400862612208" />
+			</route>
+			<route type="route">
 				<point x="1.92586220501248" y="47.8426306526035" />
 				<point x="1.92506270440961" y="47.8429019665964" />
 				<point x="1.92392184399878" y="47.8432938620808" />
@@ -21382,30 +21382,30 @@
 			<point x="1.9328628" y="47.8467647" />
 		</vertex>
 		<vertex x="1.9389285" y="47.8497914">
-			<point x="1.9397161" y="47.849512" />
 			<point x="1.9387971" y="47.850227" />
+			<point x="1.9397161" y="47.849512" />
 			<point x="1.9386335" y="47.849885" />
 		</vertex>
 		<vertex x="1.9407476" y="47.8487619">
-			<point x="1.9401357" y="47.8488821" />
 			<point x="1.9399039" y="47.848529" />
-			<point x="1.9412939" y="47.8486571" />
+			<point x="1.9401357" y="47.8488821" />
 			<point x="1.9408675" y="47.8481451" />
+			<point x="1.9412939" y="47.8486571" />
 		</vertex>
 		<vertex x="1.9329766" y="47.8428528">
-			<point x="1.9331787" y="47.8430382" />
 			<point x="1.9334206" y="47.8423754" />
+			<point x="1.9331787" y="47.8430382" />
 			<point x="1.9328605" y="47.8430088" />
 		</vertex>
 		<vertex x="1.9403074" y="47.8482053">
-			<point x="1.9403926" y="47.8482983" />
 			<point x="1.9401894" y="47.8482467" />
+			<point x="1.9403926" y="47.8482983" />
 			<point x="1.9406566" y="47.8480637" />
 			<point x="1.9402537" y="47.8481477" />
 		</vertex>
 		<vertex x="1.9375169" y="47.8475343">
-			<point x="1.9374356" y="47.8474269" />
 			<point x="1.9369679" y="47.8477297" />
+			<point x="1.9374356" y="47.8474269" />
 			<point x="1.9376846" y="47.8474767" />
 		</vertex>
 		<vertex x="1.92995915102133" y="47.8464279483471">
@@ -21419,8 +21419,8 @@
 		</vertex>
 		<vertex x="1.9335677" y="47.8404367">
 			<point x="1.9349633" y="47.8399763" />
-			<point x="1.9289204" y="47.8420087" />
 			<point x="1.9332921" y="47.840046" />
+			<point x="1.9289204" y="47.8420087" />
 		</vertex>
 		<vertex x="1.933427" y="47.8377452">
 			<point x="1.93390717762122" y="47.8384336988171" />
@@ -21437,26 +21437,26 @@
 		</vertex>
 		<vertex x="1.9344639" y="47.8477305">
 			<point x="1.9357575" y="47.8472937" />
-			<point x="1.933904" y="47.8466879" />
 			<point x="1.9337433" y="47.8479693" />
+			<point x="1.933904" y="47.8466879" />
 		</vertex>
 		<vertex x="1.9386335" y="47.849885">
-			<point x="1.9389285" y="47.8497914" />
 			<point x="1.9387971" y="47.850227" />
+			<point x="1.9389285" y="47.8497914" />
 			<point x="1.9376384" y="47.8502144" />
 		</vertex>
 		<vertex x="1.934498" y="47.841735">
 			<point x="1.9350867" y="47.8418262" />
 			<point x="1.9346343" y="47.8412976" />
-			<point x="1.9344369" y="47.8419391" />
 			<point x="1.9343569" y="47.8417168" />
+			<point x="1.9344369" y="47.8419391" />
 		</vertex>
 		<vertex x="1.9255686" y="47.8508445">
 			<point x="1.9264086" y="47.8511608" />
 		</vertex>
 		<vertex x="1.9275827" y="47.8432667">
-			<point x="1.927824" y="47.8435794" />
 			<point x="1.9272528" y="47.8433814" />
+			<point x="1.927824" y="47.8435794" />
 			<point x="1.9277458" y="47.84321" />
 		</vertex>
 		<vertex x="1.9255014" y="47.8378346">
@@ -21464,12 +21464,12 @@
 		</vertex>
 		<vertex x="1.935838" y="47.8419993">
 			<point x="1.9360652" y="47.8419095" />
-			<point x="1.9356146" y="47.8420833" />
 			<point x="1.9356844" y="47.8417495" />
+			<point x="1.9356146" y="47.8420833" />
 		</vertex>
 		<vertex x="1.9238633" y="47.843214">
-			<point x="1.9225142" y="47.843638" />
 			<point x="1.9239248" y="47.843296" />
+			<point x="1.9225142" y="47.843638" />
 			<point x="1.9248137" y="47.8428611" />
 		</vertex>
 		<vertex x="1.9378443" y="47.8413338">
@@ -21489,8 +21489,8 @@
 		</vertex>
 		<vertex x="1.9315243" y="47.848734">
 			<point x="1.9318953" y="47.8486113" />
-			<point x="1.9312985" y="47.8488088" />
 			<point x="1.93114684340844" y="47.8488296084816" />
+			<point x="1.9312985" y="47.8488088" />
 		</vertex>
 		<vertex x="1.9336582" y="47.8449962">
 			<point x="1.9336959" y="47.8447511" />
@@ -21506,31 +21506,31 @@
 		</vertex>
 		<vertex x="1.927099" y="47.8509284">
 			<point x="1.9264086" y="47.8511608" />
-			<point x="1.9295809" y="47.8501003" />
 			<point x="1.9260514" y="47.8495701" />
+			<point x="1.9295809" y="47.8501003" />
 		</vertex>
 		<vertex x="1.9309173" y="47.8496413">
 			<point x="1.9295809" y="47.8501003" />
-			<point x="1.9317174" y="47.849371" />
 			<point x="1.9314262" y="47.8492271" />
+			<point x="1.9317174" y="47.849371" />
 		</vertex>
 		<vertex x="1.9388649" y="47.8444697">
 			<point x="1.9387742" y="47.8443401" />
 			<point x="1.9382814" y="47.8445034" />
 		</vertex>
 		<vertex x="1.9292423" y="47.8435144">
-			<point x="1.9289985" y="47.8435954" />
 			<point x="1.9287521" y="47.8428649" />
+			<point x="1.9289985" y="47.8435954" />
 			<point x="1.929647" y="47.84338" />
 		</vertex>
 		<vertex x="1.9378502" y="47.8458306">
 			<point x="1.9385252" y="47.8456107" />
 		</vertex>
 		<vertex x="1.929647" y="47.84338">
-			<point x="1.9291734" y="47.8427101" />
 			<point x="1.9292423" y="47.8435144" />
-			<point x="1.929886" y="47.8436865" />
+			<point x="1.9291734" y="47.8427101" />
 			<point x="1.9312061" y="47.8428256" />
+			<point x="1.929886" y="47.8436865" />
 		</vertex>
 		<vertex x="1.9357452" y="47.8423306">
 			<point x="1.9357076" y="47.8425571" />
@@ -21554,8 +21554,8 @@
 		</vertex>
 		<vertex x="1.936427" y="47.8417874">
 			<point x="1.9364777" y="47.8418539" />
-			<point x="1.936387" y="47.841735" />
 			<point x="1.9361562" y="47.8418778" />
+			<point x="1.936387" y="47.841735" />
 		</vertex>
 		<vertex x="1.943094" y="47.8395521">
 			<point x="1.94308438410054" y="47.8395227549275" />
@@ -21579,8 +21579,8 @@
 			<point x="1.93390717762122" y="47.8384336988171" />
 		</vertex>
 		<vertex x="1.9348055" y="47.8393894">
-			<point x="1.9346065" y="47.8394512" />
 			<point x="1.93458585260239" y="47.8391796407958" />
+			<point x="1.9346065" y="47.8394512" />
 			<point x="1.936721" y="47.8387647" />
 		</vertex>
 		<vertex x="1.9355286" y="47.8413993">
@@ -21589,13 +21589,13 @@
 			<point x="1.9356871" y="47.8414012" />
 		</vertex>
 		<vertex x="1.940029" y="47.8430987">
-			<point x="1.939451" y="47.8441315" />
 			<point x="1.9412306" y="47.8431889" />
+			<point x="1.939451" y="47.8441315" />
 			<point x="1.9388906" y="47.8430035" />
 		</vertex>
 		<vertex x="1.9239694" y="47.8433535">
-			<point x="1.9332636376216" y="47.8400574980469" />
 			<point x="1.9241154" y="47.8436181" />
+			<point x="1.9332636376216" y="47.8400574980469" />
 			<point x="1.9239248" y="47.843296" />
 			<point x="1.9113431" y="47.8478339" />
 		</vertex>
@@ -21608,8 +21608,8 @@
 			<point x="1.93121821703482" y="47.8488386556887" />
 		</vertex>
 		<vertex x="1.9250613" y="47.8413888">
-			<point x="1.9250295" y="47.841472" />
 			<point x="1.9253961" y="47.8413947" />
+			<point x="1.9250295" y="47.841472" />
 			<point x="1.9260215" y="47.8400882" />
 		</vertex>
 		<vertex x="1.9419576" y="47.8532363">
@@ -21635,12 +21635,12 @@
 		</vertex>
 		<vertex x="1.9378819" y="47.8458977">
 			<point x="1.93764" y="47.8458303" />
-			<point x="1.9383795" y="47.8459215" />
 			<point x="1.9380329" y="47.8461113" />
+			<point x="1.9383795" y="47.8459215" />
 		</vertex>
 		<vertex x="1.9262591" y="47.8399487">
-			<point x="1.9255432" y="47.83907" />
 			<point x="1.9260432" y="47.8400045" />
+			<point x="1.9255432" y="47.83907" />
 			<point x="1.9263593" y="47.8400015" />
 		</vertex>
 		<vertex x="1.9406001" y="47.8443304">
@@ -21650,8 +21650,8 @@
 		</vertex>
 		<vertex x="1.9363074" y="47.8416329">
 			<point x="1.936387" y="47.841735" />
-			<point x="1.9363892" y="47.8416043" />
 			<point x="1.9362554" y="47.8415663" />
+			<point x="1.9363892" y="47.8416043" />
 		</vertex>
 		<vertex x="1.9359198" y="47.8473893">
 			<point x="1.9369662" y="47.8470513" />
@@ -21661,19 +21661,19 @@
 		<vertex x="1.9433122" y="47.850187">
 			<point x="1.9419576" y="47.8532363" />
 			<point x="1.9426739" y="47.8480936" />
-			<point x="1.9437121" y="47.8500359" />
 			<point x="1.9435658" y="47.8501571" />
+			<point x="1.9437121" y="47.8500359" />
 		</vertex>
 		<vertex x="1.9370774" y="47.8437399">
-			<point x="1.9385252" y="47.8456107" />
 			<point x="1.9369574" y="47.8446358" />
-			<point x="1.9379461" y="47.844475" />
+			<point x="1.9385252" y="47.8456107" />
 			<point x="1.9377941" y="47.8434913" />
+			<point x="1.9379461" y="47.844475" />
 			<point x="1.9366628" y="47.8431358" />
 		</vertex>
 		<vertex x="1.9287228" y="47.843687">
-			<point x="1.9289295" y="47.8439581" />
 			<point x="1.9284834" y="47.8437665" />
+			<point x="1.9289295" y="47.8439581" />
 			<point x="1.9289985" y="47.8435954" />
 		</vertex>
 		<vertex x="1.930628" y="47.8452693">
@@ -21696,8 +21696,8 @@
 			<point x="1.9404762" y="47.8505096" />
 		</vertex>
 		<vertex x="1.9352843" y="47.8424222">
-			<point x="1.9344369" y="47.8419391" />
 			<point x="1.9350867" y="47.8418262" />
+			<point x="1.9344369" y="47.8419391" />
 			<point x="1.9355815" y="47.8426093" />
 		</vertex>
 		<vertex x="1.9258864" y="47.8406915">
@@ -21707,8 +21707,8 @@
 		</vertex>
 		<vertex x="1.9308059" y="47.8445823">
 			<point x="1.9309031" y="47.8447134" />
-			<point x="1.9311979" y="47.8442453" />
 			<point x="1.9306861" y="47.8444207" />
+			<point x="1.9311979" y="47.8442453" />
 		</vertex>
 		<vertex x="1.9297868" y="47.8465534">
 			<point x="1.9301905" y="47.8471021" />
@@ -21726,21 +21726,21 @@
 		</vertex>
 		<vertex x="1.9318953" y="47.8486113">
 			<point x="1.9321682" y="47.8491046" />
-			<point x="1.9312176" y="47.8473587" />
 			<point x="1.9315243" y="47.848734" />
+			<point x="1.9312176" y="47.8473587" />
 		</vertex>
 		<vertex x="1.9456904" y="47.8438295">
 			<point x="1.9456059" y="47.8437559" />
 		</vertex>
 		<vertex x="1.9347762" y="47.8408421">
-			<point x="1.9349861" y="47.8401736" />
 			<point x="1.9350594" y="47.8408677" />
-			<point x="1.9346343" y="47.8412976" />
+			<point x="1.9349861" y="47.8401736" />
 			<point x="1.9346369" y="47.8408227" />
+			<point x="1.9346343" y="47.8412976" />
 		</vertex>
 		<vertex x="1.9314262" y="47.8492271">
-			<point x="1.9309173" y="47.8496413" />
 			<point x="1.9312654" y="47.8489858" />
+			<point x="1.9309173" y="47.8496413" />
 		</vertex>
 		<vertex x="1.9338872" y="47.8431561">
 			<point x="1.9338328" y="47.8429388" />
@@ -21749,15 +21749,15 @@
 		<vertex x="1.9355436" y="47.8500164">
 			<point x="1.9359486" y="47.8494872" />
 			<point x="1.935144" y="47.8492526" />
-			<point x="1.9341318" y="47.8507498" />
 			<point x="1.9372819" y="47.8496753" />
+			<point x="1.9341318" y="47.8507498" />
 		</vertex>
 		<vertex x="1.9368139" y="47.8421056">
 			<point x="1.936695" y="47.8421392" />
+			<point x="1.9373833" y="47.8421459" />
 			<point x="1.9372145" y="47.8419346" />
 			<point x="1.9366105" y="47.8418201" />
 			<point x="1.9370265" y="47.8417254" />
-			<point x="1.9373833" y="47.8421459" />
 			<point x="1.9368479" y="47.8423242" />
 		</vertex>
 		<vertex x="1.9307186" y="47.8517823">
@@ -21766,18 +21766,18 @@
 		<vertex x="1.9343749" y="47.8431918">
 			<point x="1.933904" y="47.8432039" />
 			<point x="1.9354209" y="47.8428803" />
-			<point x="1.9339195" y="47.8433749" />
 			<point x="1.9344425" y="47.8432035" />
+			<point x="1.9339195" y="47.8433749" />
 		</vertex>
 		<vertex x="1.9365331" y="47.842765">
 			<point x="1.9364494" y="47.8428938" />
-			<point x="1.9367415" y="47.8427666" />
 			<point x="1.9365423" y="47.8424313" />
+			<point x="1.9367415" y="47.8427666" />
 		</vertex>
 		<vertex x="1.9331891" y="47.8442138">
 			<point x="1.9334969" y="47.844105" />
-			<point x="1.9336546" y="47.8450206" />
 			<point x="1.9328017" y="47.8442756" />
+			<point x="1.9336546" y="47.8450206" />
 		</vertex>
 		<vertex x="1.918506" y="47.841274">
 			<point x="1.9250295" y="47.841472" />
@@ -21796,8 +21796,8 @@
 			<point x="1.9425732" y="47.8396402" />
 		</vertex>
 		<vertex x="1.9358371" y="47.8425107">
-			<point x="1.9357076" y="47.8425571" />
 			<point x="1.9359553" y="47.8426249" />
+			<point x="1.9357076" y="47.8425571" />
 			<point x="1.936695" y="47.8421392" />
 		</vertex>
 		<vertex x="1.9369662" y="47.8470513">
@@ -21821,12 +21821,12 @@
 		<vertex x="1.9370378" y="47.8468672">
 			<point x="1.9371469" y="47.8468304" />
 			<point x="1.9374356" y="47.8474269" />
-			<point x="1.9369399" y="47.8468998" />
 			<point x="1.9364568" y="47.8458114" />
+			<point x="1.9369399" y="47.8468998" />
 		</vertex>
 		<vertex x="1.9357575" y="47.8472937">
-			<point x="1.9369399" y="47.8468998" />
 			<point x="1.9359198" y="47.8473893" />
+			<point x="1.9369399" y="47.8468998" />
 			<point x="1.9344639" y="47.8477305" />
 		</vertex>
 		<vertex x="1.9356579" y="47.8448315">
@@ -21834,11 +21834,6 @@
 		</vertex>
 		<vertex x="1.9390784" y="47.8439574">
 			<point x="1.9385848" y="47.8430097" />
-		</vertex>
-		<vertex x="1.9383646" y="47.8481753">
-			<point x="1.9382509" y="47.8482137" />
-			<point x="1.9399039" y="47.848529" />
-			<point x="1.9397037" y="47.8477286" />
 		</vertex>
 		<vertex x="1.92582955415736" y="47.8425428084658">
 			<point x="1.9248137" y="47.8428611" />
@@ -21850,6 +21845,11 @@
 			<point x="1.9408675" y="47.8481451" />
 			<point x="1.9403926" y="47.8482983" />
 		</vertex>
+		<vertex x="1.9383646" y="47.8481753">
+			<point x="1.9382509" y="47.8482137" />
+			<point x="1.9397037" y="47.8477286" />
+			<point x="1.9399039" y="47.848529" />
+		</vertex>
 		<vertex x="1.9455561" y="47.8451895">
 			<point x="1.9435941" y="47.8489983" />
 		</vertex>
@@ -21858,8 +21858,8 @@
 		</vertex>
 		<vertex x="1.9258575" y="47.8423483">
 			<point x="1.9254437" y="47.8415634" />
-			<point x="1.9261731" y="47.8424176" />
 			<point x="1.9258590281795" y="47.8424239448853" />
+			<point x="1.9261731" y="47.8424176" />
 		</vertex>
 		<vertex x="1.9437217" y="47.8497288">
 			<point x="1.9436921" y="47.8494821" />
@@ -21885,8 +21885,8 @@
 		</vertex>
 		<vertex x="1.9372922" y="47.8412726">
 			<point x="1.9374572" y="47.8415074" />
-			<point x="1.9369736" y="47.8410677" />
 			<point x="1.9371022" y="47.8413293" />
+			<point x="1.9369736" y="47.8410677" />
 		</vertex>
 		<vertex x="1.943786" y="47.8501959">
 			<point x="1.94368698173289" y="47.8501784526396" />
@@ -21924,8 +21924,8 @@
 			<point x="1.9343749" y="47.8431918" />
 		</vertex>
 		<vertex x="1.9371022" y="47.8413293">
-			<point x="1.9372922" y="47.8412726" />
 			<point x="1.9365235" y="47.8411281" />
+			<point x="1.9372922" y="47.8412726" />
 			<point x="1.9365235" y="47.8411281" />
 		</vertex>
 		<vertex x="1.9370223" y="47.840926">
@@ -21934,30 +21934,30 @@
 			<point x="1.9372072" y="47.8408592" />
 		</vertex>
 		<vertex x="1.9335767" y="47.8487237">
-			<point x="1.933502" y="47.8487576" />
 			<point x="1.9369679" y="47.8477297" />
+			<point x="1.933502" y="47.8487576" />
 			<point x="1.9333191" y="47.8487219" />
 			<point x="1.9332024" y="47.8481474" />
 			<point x="1.934148" y="47.8485284" />
 		</vertex>
 		<vertex x="1.9365811" y="47.8394359">
-			<point x="1.937191" y="47.8392509" />
 			<point x="1.9362911" y="47.8397009" />
+			<point x="1.937191" y="47.8392509" />
 			<point x="1.9353114" y="47.8398629" />
 		</vertex>
 		<vertex x="1.94368930000816" y="47.8501806706799">
 			<point x="1.94368993325873" y="47.8501766497962" />
 			<point x="1.9421132" y="47.85336" />
 		</vertex>
-		<vertex x="1.9350822" y="47.8431228">
-			<point x="1.9354665" y="47.842941" />
-			<point x="1.9344425" y="47.8432035" />
-			<point x="1.9336784" y="47.8447226" />
-		</vertex>
 		<vertex x="1.9383795" y="47.8459215">
 			<point x="1.9378819" y="47.8458977" />
 			<point x="1.9386215" y="47.8457589" />
 			<point x="1.9387747" y="47.8459808" />
+		</vertex>
+		<vertex x="1.9350822" y="47.8431228">
+			<point x="1.9354665" y="47.842941" />
+			<point x="1.9344425" y="47.8432035" />
+			<point x="1.9336784" y="47.8447226" />
 		</vertex>
 		<vertex x="1.9337433" y="47.8479693">
 			<point x="1.9332024" y="47.8481474" />
@@ -21977,8 +21977,8 @@
 		</vertex>
 		<vertex x="1.9287276" y="47.8421223">
 			<point x="1.9286982" y="47.8420819" />
-			<point x="1.9291734" y="47.8427101" />
 			<point x="1.9289527" y="47.8420592" />
+			<point x="1.9291734" y="47.8427101" />
 		</vertex>
 		<vertex x="1.9294808" y="47.8438257">
 			<point x="1.929886" y="47.8436865" />
@@ -22001,8 +22001,8 @@
 			<point x="1.9295354" y="47.8492353" />
 		</vertex>
 		<vertex x="1.9456059" y="47.8437559">
-			<point x="1.943094" y="47.8395521" />
 			<point x="1.945315" y="47.8438351" />
+			<point x="1.943094" y="47.8395521" />
 			<point x="1.9456904" y="47.8438295" />
 		</vertex>
 		<vertex x="1.933812" y="47.8440227">
@@ -22014,8 +22014,8 @@
 		</vertex>
 		<vertex x="1.9383039" y="47.8464402">
 			<point x="1.9389489" y="47.8462231" />
-			<point x="1.9371469" y="47.8468304" />
 			<point x="1.9383326" y="47.8466029" />
+			<point x="1.9371469" y="47.8468304" />
 		</vertex>
 		<vertex x="1.9350867" y="47.8418262">
 			<point x="1.9351095" y="47.8416792" />
@@ -22030,16 +22030,16 @@
 			<point x="1.93444768523731" y="47.8395502260694" />
 		</vertex>
 		<vertex x="1.9355815" y="47.8426093">
-			<point x="1.9352843" y="47.8424222" />
 			<point x="1.9354209" y="47.8428803" />
+			<point x="1.9352843" y="47.8424222" />
 			<point x="1.9357076" y="47.8425571" />
 		</vertex>
 		<vertex x="1.9260514" y="47.8495701">
 			<point x="1.927099" y="47.8509284" />
 		</vertex>
 		<vertex x="1.9312654" y="47.8489858">
-			<point x="1.9312985" y="47.8488088" />
 			<point x="1.93118792737595" y="47.8488837342555" />
+			<point x="1.9312985" y="47.8488088" />
 			<point x="1.9314262" y="47.8492271" />
 		</vertex>
 		<vertex x="1.92349340897129" y="47.848503416961">
@@ -22063,8 +22063,8 @@
 		</vertex>
 		<vertex x="1.9264086" y="47.8511608">
 			<point x="1.9251076" y="47.8520323" />
-			<point x="1.927099" y="47.8509284" />
 			<point x="1.9255686" y="47.8508445" />
+			<point x="1.927099" y="47.8509284" />
 		</vertex>
 		<vertex x="1.9376396" y="47.8414059">
 			<point x="1.9374572" y="47.8415074" />
@@ -22073,8 +22073,8 @@
 		</vertex>
 		<vertex x="1.9239058" y="47.8508629">
 			<point x="1.9251076" y="47.8520323" />
-			<point x="1.923793" y="47.8493986" />
 			<point x="1.9252542" y="47.8498452" />
+			<point x="1.923793" y="47.8493986" />
 		</vertex>
 		<vertex x="1.9282591" y="47.8441927">
 			<point x="1.9287884" y="47.8440867" />
@@ -22082,8 +22082,8 @@
 			<point x="1.9261066" y="47.8449308" />
 		</vertex>
 		<vertex x="1.9386215" y="47.8457589">
-			<point x="1.9383795" y="47.8459215" />
 			<point x="1.9387747" y="47.8459808" />
+			<point x="1.9383795" y="47.8459215" />
 			<point x="1.9385252" y="47.8456107" />
 			<point x="1.9394943" y="47.8454763" />
 		</vertex>
@@ -22102,8 +22102,8 @@
 		</vertex>
 		<vertex x="1.9347493" y="47.8487109">
 			<point x="1.935144" y="47.8492526" />
-			<point x="1.9346907" y="47.8486304" />
 			<point x="1.936037" y="47.8489152" />
+			<point x="1.9346907" y="47.8486304" />
 		</vertex>
 		<vertex x="1.9456974" y="47.8438648">
 			<point x="1.94559116168481" y="47.8437729464076" />
@@ -22123,15 +22123,15 @@
 		</vertex>
 		<vertex x="1.937117" y="47.8386299">
 			<point x="1.936721" y="47.8387647" />
-			<point x="1.9372333" y="47.8385861" />
 			<point x="1.9346454" y="47.8387205" />
+			<point x="1.9372333" y="47.8385861" />
 		</vertex>
 		<vertex x="1.9334206" y="47.8423754">
-			<point x="1.9336827" y="47.8428473" />
 			<point x="1.9337916" y="47.8429227" />
+			<point x="1.9336827" y="47.8428473" />
 			<point x="1.932573" y="47.8423959" />
-			<point x="1.9344369" y="47.8419391" />
 			<point x="1.9329766" y="47.8428528" />
+			<point x="1.9344369" y="47.8419391" />
 		</vertex>
 		<vertex x="1.9372498" y="47.847988">
 			<point x="1.9367965" y="47.8480204" />
@@ -22181,8 +22181,8 @@
 		</vertex>
 		<vertex x="1.9361199" y="47.8427617">
 			<point x="1.9359553" y="47.8426249" />
-			<point x="1.9358431" y="47.8428377" />
 			<point x="1.9362781" y="47.8429817" />
+			<point x="1.9358431" y="47.8428377" />
 		</vertex>
 		<vertex x="1.9326955" y="47.849421">
 			<point x="1.933502" y="47.8487576" />
@@ -22194,10 +22194,10 @@
 			<point x="1.9343877" y="47.839369" />
 		</vertex>
 		<vertex x="1.9372526" y="47.8415814">
-			<point x="1.9371337" y="47.8415518" />
 			<point x="1.9374883" y="47.841849" />
-			<point x="1.9374572" y="47.8415074" />
+			<point x="1.9371337" y="47.8415518" />
 			<point x="1.9365826" y="47.8414543" />
+			<point x="1.9374572" y="47.8415074" />
 		</vertex>
 		<vertex x="1.9372333" y="47.8385861">
 			<point x="1.937117" y="47.8386299" />
@@ -22206,8 +22206,8 @@
 		</vertex>
 		<vertex x="1.9261066" y="47.8449308">
 			<point x="1.9282591" y="47.8441927" />
-			<point x="1.9259129" y="47.8446378" />
 			<point x="1.925909" y="47.8449918" />
+			<point x="1.9259129" y="47.8446378" />
 		</vertex>
 		<vertex x="1.9328605" y="47.8430088">
 			<point x="1.9329766" y="47.8428528" />
@@ -22223,32 +22223,32 @@
 		</vertex>
 		<vertex x="1.9382814" y="47.8445034">
 			<point x="1.9381304" y="47.8443988" />
-			<point x="1.9387742" y="47.8443401" />
 			<point x="1.9388649" y="47.8444697" />
+			<point x="1.9387742" y="47.8443401" />
 		</vertex>
 		<vertex x="1.9314291" y="47.8472881">
 			<point x="1.9316357" y="47.8472191" />
-			<point x="1.9314766" y="47.8470135" />
 			<point x="1.9312176" y="47.8473587" />
+			<point x="1.9314766" y="47.8470135" />
 		</vertex>
 		<vertex x="1.9265535" y="47.8415945">
 			<point x="1.9258864" y="47.8406915" />
 		</vertex>
-		<vertex x="1.9366628" y="47.8431358">
-			<point x="1.9358062" y="47.8434071" />
-			<point x="1.9370774" y="47.8437399" />
-			<point x="1.9367415" y="47.8427666" />
-		</vertex>
 		<vertex x="1.9349826" y="47.8413485">
-			<point x="1.9346343" y="47.8412976" />
 			<point x="1.9350594" y="47.8408677" />
-			<point x="1.9351095" y="47.8416792" />
+			<point x="1.9346343" y="47.8412976" />
 			<point x="1.9355286" y="47.8413993" />
+			<point x="1.9351095" y="47.8416792" />
+		</vertex>
+		<vertex x="1.9366628" y="47.8431358">
+			<point x="1.9370774" y="47.8437399" />
+			<point x="1.9358062" y="47.8434071" />
+			<point x="1.9367415" y="47.8427666" />
 		</vertex>
 		<vertex x="1.9321682" y="47.8491046">
 			<point x="1.9333191" y="47.8487219" />
-			<point x="1.9321842" y="47.8492041" />
 			<point x="1.9318953" y="47.8486113" />
+			<point x="1.9321842" y="47.8492041" />
 		</vertex>
 		<vertex x="1.9374572" y="47.8415074">
 			<point x="1.938289" y="47.8426092" />
@@ -22258,8 +22258,8 @@
 		</vertex>
 		<vertex x="1.9357746" y="47.8426936">
 			<point x="1.9359553" y="47.8426249" />
-			<point x="1.9357076" y="47.8425571" />
 			<point x="1.9354209" y="47.8428803" />
+			<point x="1.9357076" y="47.8425571" />
 		</vertex>
 		<vertex x="1.9328907" y="47.8435877">
 			<point x="1.9329258" y="47.8432697" />
@@ -22289,8 +22289,8 @@
 		</vertex>
 		<vertex x="1.9437121" y="47.8500359">
 			<point x="1.9433122" y="47.850187" />
-			<point x="1.94368993325873" y="47.8501766497962" />
 			<point x="1.9440992" y="47.8501057" />
+			<point x="1.94368993325873" y="47.8501766497962" />
 		</vertex>
 		<vertex x="1.936758" y="47.838795">
 			<point x="1.93444768523731" y="47.8395502260694" />
@@ -22312,9 +22312,9 @@
 			<point x="1.9312061" y="47.8428256" />
 			<point x="1.9319467" y="47.8410358" />
 			<point x="1.9289527" y="47.8420592" />
+			<point x="1.9334206" y="47.8423754" />
 			<point x="1.9328605" y="47.8430088" />
 			<point x="1.9312061" y="47.8428256" />
-			<point x="1.9334206" y="47.8423754" />
 		</vertex>
 		<vertex x="1.9374883" y="47.841849">
 			<point x="1.9372145" y="47.8419346" />
@@ -22336,8 +22336,8 @@
 		</vertex>
 		<vertex x="1.9351818" y="47.8399028">
 			<point x="1.9353114" y="47.8398629" />
-			<point x="1.9353847" y="47.8401979" />
 			<point x="1.9349633" y="47.8399763" />
+			<point x="1.9353847" y="47.8401979" />
 		</vertex>
 		<vertex x="1.9385848" y="47.8430097">
 			<point x="1.938514" y="47.8429108" />
@@ -22351,8 +22351,8 @@
 			<point x="1.9263667" y="47.8401221" />
 		</vertex>
 		<vertex x="1.9356844" y="47.8417495">
-			<point x="1.9359071" y="47.841681" />
 			<point x="1.935838" y="47.8419993" />
+			<point x="1.9359071" y="47.841681" />
 			<point x="1.9356535" y="47.8416993" />
 		</vertex>
 		<vertex x="1.9302857" y="47.8453407">
@@ -22378,12 +22378,12 @@
 		</vertex>
 		<vertex x="1.933502" y="47.8487576">
 			<point x="1.9321842" y="47.8492041" />
-			<point x="1.9326955" y="47.849421" />
 			<point x="1.9335767" y="47.8487237" />
+			<point x="1.9326955" y="47.849421" />
 		</vertex>
 		<vertex x="1.9242668" y="47.8490886">
-			<point x="1.926294" y="47.846714" />
 			<point x="1.92411420922079" y="47.8489733435194" />
+			<point x="1.926294" y="47.846714" />
 			<point x="1.9242644" y="47.8491877" />
 		</vertex>
 		<vertex x="1.9259129" y="47.8446378">
@@ -22392,15 +22392,15 @@
 		<vertex x="1.9388561" y="47.8490066">
 			<point x="1.9399039" y="47.848529" />
 			<point x="1.9382509" y="47.8482137" />
-			<point x="1.9397161" y="47.849512" />
 			<point x="1.9372819" y="47.8496753" />
+			<point x="1.9397161" y="47.849512" />
 		</vertex>
 		<vertex x="1.9391826" y="47.8423185">
 			<point x="1.9386541" y="47.8424889" />
 		</vertex>
 		<vertex x="1.9298069" y="47.8410144">
-			<point x="1.9261731" y="47.8424176" />
 			<point x="1.928614" y="47.8393843" />
+			<point x="1.9261731" y="47.8424176" />
 			<point x="1.9298896" y="47.8411292" />
 			<point x="1.9317395" y="47.8403528" />
 		</vertex>
@@ -22414,8 +22414,8 @@
 			<point x="1.9373088" y="47.8391099" />
 		</vertex>
 		<vertex x="1.9341318" y="47.8507498">
-			<point x="1.9341555" y="47.850782" />
 			<point x="1.9355436" y="47.8500164" />
+			<point x="1.9341555" y="47.850782" />
 			<point x="1.9307186" y="47.8517823" />
 		</vertex>
 		<vertex x="1.9227138" y="47.8463697">
@@ -22431,15 +22431,15 @@
 			<point x="1.9275827" y="47.8432667" />
 		</vertex>
 		<vertex x="1.934148" y="47.8485284">
-			<point x="1.9337433" y="47.8479693" />
 			<point x="1.9335767" y="47.8487237" />
+			<point x="1.9337433" y="47.8479693" />
 			<point x="1.9370776" y="47.8475486" />
 		</vertex>
 		<vertex x="1.9359553" y="47.8426249">
 			<point x="1.9365423" y="47.8424313" />
-			<point x="1.9358371" y="47.8425107" />
 			<point x="1.9357746" y="47.8426936" />
 			<point x="1.9361199" y="47.8427617" />
+			<point x="1.9358371" y="47.8425107" />
 		</vertex>
 		<vertex x="1.9319467" y="47.8410358">
 			<point x="1.932573" y="47.8423959" />
@@ -22459,8 +22459,8 @@
 			<point x="1.9356535" y="47.8416993" />
 		</vertex>
 		<vertex x="1.9321842" y="47.8492041">
-			<point x="1.9321682" y="47.8491046" />
 			<point x="1.9318443" y="47.8493277" />
+			<point x="1.9321682" y="47.8491046" />
 			<point x="1.933502" y="47.8487576" />
 		</vertex>
 		<vertex x="1.9259977" y="47.8384818">
@@ -22470,20 +22470,20 @@
 		</vertex>
 		<vertex x="1.9302915" y="47.8450362">
 			<point x="1.93052479878385" y="47.8449586865549" />
-			<point x="1.9301139" y="47.8450953" />
 			<point x="1.9299149" y="47.8445265" />
+			<point x="1.9301139" y="47.8450953" />
 		</vertex>
 		<vertex x="1.9420633" y="47.8456466">
 			<point x="1.940909" y="47.8461606" />
 			<point x="1.9420579" y="47.8451921" />
-			<point x="1.945315" y="47.8438351" />
 			<point x="1.9420642" y="47.8457192" />
+			<point x="1.945315" y="47.8438351" />
 		</vertex>
 		<vertex x="1.9338804" y="47.8437218">
 			<point x="1.9338958" y="47.843698" />
 			<point x="1.9333688" y="47.8438082" />
-			<point x="1.9338324" y="47.8439886" />
 			<point x="1.9335212" y="47.8440336" />
+			<point x="1.9338324" y="47.8439886" />
 		</vertex>
 		<vertex x="1.932796" y="47.8469558">
 			<point x="1.9323959" y="47.8470816" />
@@ -22491,8 +22491,8 @@
 			<point x="1.9334229" y="47.8466019" />
 		</vertex>
 		<vertex x="1.9254739" y="47.843152">
-			<point x="1.9268263" y="47.8426859" />
 			<point x="1.9255966" y="47.8432568" />
+			<point x="1.9268263" y="47.8426859" />
 			<point x="1.9251841" y="47.8432539" />
 		</vertex>
 		<vertex x="1.9410321" y="47.8462183">
@@ -22501,8 +22501,8 @@
 			<point x="1.9420642" y="47.8457192" />
 		</vertex>
 		<vertex x="1.9311979" y="47.8442453">
-			<point x="1.9321533" y="47.8441069" />
 			<point x="1.9308059" y="47.8445823" />
+			<point x="1.9321533" y="47.8441069" />
 			<point x="1.9306861" y="47.8444207" />
 		</vertex>
 		<vertex x="1.9271564" y="47.8432451">
@@ -22527,41 +22527,41 @@
 			<point x="1.9372526" y="47.8415814" />
 		</vertex>
 		<vertex x="1.9335212" y="47.8440336">
-			<point x="1.9334969" y="47.844105" />
 			<point x="1.9338804" y="47.8437218" />
+			<point x="1.9334969" y="47.844105" />
 			<point x="1.9333688" y="47.8438082" />
 		</vertex>
 		<vertex x="1.9413972" y="47.8454158">
-			<point x="1.9406001" y="47.8443304" />
 			<point x="1.9420579" y="47.8451921" />
+			<point x="1.9406001" y="47.8443304" />
 			<point x="1.940523" y="47.8457117" />
 		</vertex>
 		<vertex x="1.9332921" y="47.840046">
 			<point x="1.9335677" y="47.8404367" />
-			<point x="1.9332636376216" y="47.8400574980469" />
 			<point x="1.93329776187584" y="47.8400378006949" />
 			<point x="1.9332394" y="47.8399975" />
+			<point x="1.9332636376216" y="47.8400574980469" />
 		</vertex>
 		<vertex x="1.9346343" y="47.8412976">
 			<point x="1.934494" y="47.841279" />
 			<point x="1.9347762" y="47.8408421" />
-			<point x="1.9349826" y="47.8413485" />
 			<point x="1.934498" y="47.841735" />
+			<point x="1.9349826" y="47.8413485" />
 		</vertex>
 		<vertex x="1.9352885" y="47.850793">
-			<point x="1.9353911" y="47.8507583" />
 			<point x="1.9341812" y="47.8508189" />
+			<point x="1.9353911" y="47.8507583" />
 			<point x="1.9335861" y="47.8513503" />
 		</vertex>
 		<vertex x="1.9272528" y="47.8433814">
 			<point x="1.9271564" y="47.8432451" />
-			<point x="1.927824" y="47.8435794" />
 			<point x="1.9275827" y="47.8432667" />
+			<point x="1.927824" y="47.8435794" />
 		</vertex>
 		<vertex x="1.9397659" y="47.8446107">
-			<point x="1.940523" y="47.8457117" />
 			<point x="1.9379461" y="47.844475" />
 			<point x="1.9406001" y="47.8443304" />
+			<point x="1.940523" y="47.8457117" />
 			<point x="1.9397536" y="47.844595" />
 		</vertex>
 		<vertex x="1.93118792737595" y="47.8488837342555">
@@ -22569,8 +22569,8 @@
 			<point x="1.9312654" y="47.8489858" />
 		</vertex>
 		<vertex x="1.930424" y="47.8454072">
-			<point x="1.9303838" y="47.8453525" />
 			<point x="1.9299981" y="47.8455511" />
+			<point x="1.9303838" y="47.8453525" />
 			<point x="1.9309434" y="47.8460995" />
 		</vertex>
 		<vertex x="1.9455039" y="47.8436975">
@@ -22579,14 +22579,14 @@
 		</vertex>
 		<vertex x="1.9382509" y="47.8482137">
 			<point x="1.9378996" y="47.8477376" />
+			<point x="1.9383646" y="47.8481753" />
 			<point x="1.9388561" y="47.8490066" />
 			<point x="1.9360685" y="47.8489455" />
-			<point x="1.9383646" y="47.8481753" />
 		</vertex>
 		<vertex x="1.928614" y="47.8393843">
 			<point x="1.9305733" y="47.8387236" />
-			<point x="1.9268203" y="47.8399892" />
 			<point x="1.9298069" y="47.8410144" />
+			<point x="1.9268203" y="47.8399892" />
 		</vertex>
 		<vertex x="1.9359545" y="47.8489942">
 			<point x="1.9360685" y="47.8489455" />
@@ -22594,16 +22594,16 @@
 			<point x="1.9359486" y="47.8494872" />
 		</vertex>
 		<vertex x="1.9252542" y="47.8498452">
-			<point x="1.9245165" y="47.8493473" />
 			<point x="1.9239058" y="47.8508629" />
+			<point x="1.9245165" y="47.8493473" />
 		</vertex>
 		<vertex x="1.9377941" y="47.8434913">
 			<point x="1.9370774" y="47.8437399" />
 		</vertex>
 		<vertex x="1.9293559" y="47.8496382">
 			<point x="1.9295809" y="47.8501003" />
-			<point x="1.9296495" y="47.8495411" />
 			<point x="1.9278005" y="47.8462698" />
+			<point x="1.9296495" y="47.8495411" />
 		</vertex>
 		<vertex x="1.92389643378497" y="47.8489494927369">
 			<point x="1.923793" y="47.8493986" />
@@ -22632,18 +22632,18 @@
 			<point x="1.9362911" y="47.8397009" />
 		</vertex>
 		<vertex x="1.9260215" y="47.8400882">
-			<point x="1.9250613" y="47.8413888" />
 			<point x="1.926216" y="47.8401895" />
+			<point x="1.9250613" y="47.8413888" />
 			<point x="1.9260432" y="47.8400045" />
 		</vertex>
 		<vertex x="1.925909" y="47.8449918">
 			<point x="1.9261066" y="47.8449308" />
-			<point x="1.9256857" y="47.8447175" />
 			<point x="1.9256336" y="47.845122" />
+			<point x="1.9256857" y="47.8447175" />
 		</vertex>
 		<vertex x="1.9420642" y="47.8457192">
-			<point x="1.9410321" y="47.8462183" />
 			<point x="1.9420633" y="47.8456466" />
+			<point x="1.9410321" y="47.8462183" />
 			<point x="1.9444089" y="47.8445196" />
 		</vertex>
 		<vertex x="1.9356871" y="47.8414012">
@@ -22653,8 +22653,8 @@
 		</vertex>
 		<vertex x="1.9435941" y="47.8489983">
 			<point x="1.9455561" y="47.8451895" />
-			<point x="1.9436921" y="47.8494821" />
 			<point x="1.9426739" y="47.8480936" />
+			<point x="1.9436921" y="47.8494821" />
 		</vertex>
 		<vertex x="1.9300118" y="47.845428">
 			<point x="1.9298329" y="47.8451887" />
@@ -22664,53 +22664,53 @@
 		<vertex x="1.9372493" y="47.846061">
 			<point x="1.9377268" y="47.8459134" />
 		</vertex>
+		<vertex x="1.9284834" y="47.8437665">
+			<point x="1.9280021" y="47.8437833" />
+			<point x="1.928008" y="47.8431182" />
+			<point x="1.9287228" y="47.843687" />
+		</vertex>
 		<vertex x="1.9354665" y="47.842941">
-			<point x="1.9358431" y="47.8428377" />
 			<point x="1.9358062" y="47.8434071" />
+			<point x="1.9358431" y="47.8428377" />
 			<point x="1.9350822" y="47.8431228" />
 			<point x="1.9354209" y="47.8428803" />
 		</vertex>
-		<vertex x="1.9284834" y="47.8437665">
-			<point x="1.9280021" y="47.8437833" />
-			<point x="1.9287228" y="47.843687" />
-			<point x="1.928008" y="47.8431182" />
-		</vertex>
 		<vertex x="1.9350577" y="47.8402888">
 			<point x="1.9349861" y="47.8401736" />
-			<point x="1.9355487" y="47.8409427" />
 			<point x="1.9350594" y="47.8408677" />
+			<point x="1.9355487" y="47.8409427" />
 		</vertex>
 		<vertex x="1.923793" y="47.8493986">
-			<point x="1.9245165" y="47.8493473" />
 			<point x="1.9239058" y="47.8508629" />
-			<point x="1.9242644" y="47.8491877" />
+			<point x="1.9245165" y="47.8493473" />
 			<point x="1.92389643378497" y="47.8489494927369" />
+			<point x="1.9242644" y="47.8491877" />
 		</vertex>
 		<vertex x="1.9376632" y="47.8420733">
-			<point x="1.9380323" y="47.8426092" />
 			<point x="1.9373833" y="47.8421459" />
+			<point x="1.9380323" y="47.8426092" />
 			<point x="1.9374883" y="47.841849" />
 		</vertex>
 		<vertex x="1.9289527" y="47.8420592">
 			<point x="1.9287276" y="47.8421223" />
-			<point x="1.9289204" y="47.8420087" />
 			<point x="1.932573" y="47.8423959" />
+			<point x="1.9289204" y="47.8420087" />
 		</vertex>
 		<vertex x="1.938289" y="47.8426092">
-			<point x="1.9385046" y="47.8425382" />
 			<point x="1.938514" y="47.8429108" />
+			<point x="1.9385046" y="47.8425382" />
 			<point x="1.9374572" y="47.8415074" />
 			<point x="1.9380973" y="47.8426726" />
+		</vertex>
+		<vertex x="1.9362554" y="47.8415663">
+			<point x="1.9357848" y="47.8412567" />
+			<point x="1.9363074" y="47.8416329" />
+			<point x="1.9363411" y="47.841538" />
 		</vertex>
 		<vertex x="1.9397037" y="47.8477286">
 			<point x="1.9383646" y="47.8481753" />
 			<point x="1.9404599" y="47.848038" />
 			<point x="1.9408068" y="47.8480027" />
-		</vertex>
-		<vertex x="1.9362554" y="47.8415663">
-			<point x="1.9363074" y="47.8416329" />
-			<point x="1.9357848" y="47.8412567" />
-			<point x="1.9363411" y="47.841538" />
 		</vertex>
 		<vertex x="1.9358062" y="47.8434071">
 			<point x="1.9336546" y="47.8450206" />
@@ -22718,8 +22718,8 @@
 			<point x="1.9354665" y="47.842941" />
 		</vertex>
 		<vertex x="1.9332024" y="47.8481474">
-			<point x="1.9323959" y="47.8470816" />
 			<point x="1.9335767" y="47.8487237" />
+			<point x="1.9323959" y="47.8470816" />
 			<point x="1.9337433" y="47.8479693" />
 		</vertex>
 		<vertex x="1.936695" y="47.8421392">
@@ -22734,32 +22734,32 @@
 		</vertex>
 		<vertex x="1.9286982" y="47.8420819">
 			<point x="1.9289204" y="47.8420087" />
-			<point x="1.9287276" y="47.8421223" />
 			<point x="1.9268263" y="47.8426859" />
+			<point x="1.9287276" y="47.8421223" />
 		</vertex>
 		<vertex x="1.9315607" y="47.8520197">
 			<point x="1.9335861" y="47.8513503" />
 		</vertex>
 		<vertex x="1.9245165" y="47.8493473">
-			<point x="1.9242644" y="47.8491877" />
 			<point x="1.9265431" y="47.8466754" />
+			<point x="1.9242644" y="47.8491877" />
 			<point x="1.9252542" y="47.8498452" />
 			<point x="1.923793" y="47.8493986" />
 		</vertex>
 		<vertex x="1.9356535" y="47.8416993">
-			<point x="1.9351095" y="47.8416792" />
 			<point x="1.9356844" y="47.8417495" />
+			<point x="1.9351095" y="47.8416792" />
 			<point x="1.9356286" y="47.8416588" />
 		</vertex>
 		<vertex x="1.9294502" y="47.8438975">
 			<point x="1.9299149" y="47.8445265" />
-			<point x="1.9288232" y="47.8441343" />
 			<point x="1.9294146" y="47.8438493" />
+			<point x="1.9288232" y="47.8441343" />
 		</vertex>
 		<vertex x="1.9291947" y="47.8438681">
 			<point x="1.9289985" y="47.8435954" />
-			<point x="1.9289295" y="47.8439581" />
 			<point x="1.929229" y="47.8439158" />
+			<point x="1.9289295" y="47.8439581" />
 		</vertex>
 		<vertex x="1.9113431" y="47.8478339">
 			<point x="1.9239694" y="47.8433535" />
@@ -22776,12 +22776,12 @@
 		</vertex>
 		<vertex x="1.9255966" y="47.8432568">
 			<point x="1.9251841" y="47.8432539" />
-			<point x="1.9254739" y="47.843152" />
 			<point x="1.9269075" y="47.842815" />
+			<point x="1.9254739" y="47.843152" />
 		</vertex>
 		<vertex x="1.9306861" y="47.8444207">
-			<point x="1.9311979" y="47.8442453" />
 			<point x="1.9308059" y="47.8445823" />
+			<point x="1.9311979" y="47.8442453" />
 			<point x="1.9306061" y="47.8443069" />
 		</vertex>
 		<vertex x="1.9385368" y="47.8462411">
@@ -22796,16 +22796,16 @@
 			<point x="1.9373031" y="47.8510874" />
 		</vertex>
 		<vertex x="1.9373833" y="47.8421459">
-			<point x="1.9368139" y="47.8421056" />
 			<point x="1.9368479" y="47.8423242" />
 			<point x="1.9372145" y="47.8419346" />
+			<point x="1.9368139" y="47.8421056" />
 			<point x="1.9376632" y="47.8420733" />
 		</vertex>
 		<vertex x="1.9357848" y="47.8412567">
-			<point x="1.9359193" y="47.8412024" />
 			<point x="1.9356264" y="47.8410461" />
-			<point x="1.9356871" y="47.8414012" />
+			<point x="1.9359193" y="47.8412024" />
 			<point x="1.9362554" y="47.8415663" />
+			<point x="1.9356871" y="47.8414012" />
 		</vertex>
 		<vertex x="1.9303115" y="47.8453775">
 			<point x="1.9302857" y="47.8453407" />
@@ -22823,8 +22823,8 @@
 			<point x="1.9341841" y="47.8374793" />
 		</vertex>
 		<vertex x="1.9399039" y="47.848529">
-			<point x="1.9403926" y="47.8482983" />
 			<point x="1.9383646" y="47.8481753" />
+			<point x="1.9403926" y="47.8482983" />
 			<point x="1.9388561" y="47.8490066" />
 			<point x="1.9407476" y="47.8487619" />
 		</vertex>
@@ -22832,41 +22832,41 @@
 			<point x="1.9373719" y="47.8428231" />
 		</vertex>
 		<vertex x="1.9365826" y="47.8414543">
-			<point x="1.9372526" y="47.8415814" />
 			<point x="1.9363411" y="47.841538" />
-			<point x="1.9371337" y="47.8415518" />
+			<point x="1.9372526" y="47.8415814" />
 			<point x="1.9363003" y="47.8410814" />
+			<point x="1.9371337" y="47.8415518" />
 		</vertex>
 		<vertex x="1.9248137" y="47.8428611">
 			<point x="1.9238633" y="47.843214" />
 			<point x="1.9250687" y="47.8429079" />
-			<point x="1.9250018" y="47.8415818" />
 			<point x="1.92582955415736" y="47.8425428084658" />
+			<point x="1.9250018" y="47.8415818" />
 		</vertex>
 		<vertex x="1.9375389" y="47.8438123">
 			<point x="1.9380361" y="47.8444323" />
 		</vertex>
 		<vertex x="1.9248731" y="47.8447519">
 			<point x="1.9256336" y="47.845122" />
-			<point x="1.9241154" y="47.8436181" />
 			<point x="1.9227138" y="47.8463697" />
+			<point x="1.9241154" y="47.8436181" />
 		</vertex>
 		<vertex x="1.9372976" y="47.845071">
 			<point x="1.9378228" y="47.845815" />
 		</vertex>
 		<vertex x="1.9288232" y="47.8441343">
-			<point x="1.9287884" y="47.8440867" />
 			<point x="1.9294502" y="47.8438975" />
+			<point x="1.9287884" y="47.8440867" />
 			<point x="1.9292709" y="47.8447425" />
 		</vertex>
 		<vertex x="1.9289985" y="47.8435954">
 			<point x="1.9287228" y="47.843687" />
-			<point x="1.9292423" y="47.8435144" />
 			<point x="1.9291947" y="47.8438681" />
+			<point x="1.9292423" y="47.8435144" />
 		</vertex>
 		<vertex x="1.9387742" y="47.8443401">
-			<point x="1.9382814" y="47.8445034" />
 			<point x="1.9381304" y="47.8443988" />
+			<point x="1.9382814" y="47.8445034" />
 			<point x="1.9388649" y="47.8444697" />
 		</vertex>
 		<vertex x="1.938514" y="47.8429108">
@@ -22893,12 +22893,12 @@
 		<vertex x="1.9305135" y="47.8462429">
 			<point x="1.9309434" y="47.8460995" />
 			<point x="1.9309434" y="47.8460995" />
-			<point x="1.9299981" y="47.8455511" />
 			<point x="1.92995915102133" y="47.8464279483471" />
+			<point x="1.9299981" y="47.8455511" />
 		</vertex>
 		<vertex x="1.9356146" y="47.8420833">
-			<point x="1.935838" y="47.8419993" />
 			<point x="1.9356488" y="47.8421252" />
+			<point x="1.935838" y="47.8419993" />
 		</vertex>
 		<vertex x="1.9306061" y="47.8443069">
 			<point x="1.9306861" y="47.8444207" />
@@ -22908,8 +22908,8 @@
 		</vertex>
 		<vertex x="1.934494" y="47.841279">
 			<point x="1.9343569" y="47.8417168" />
-			<point x="1.9346369" y="47.8408227" />
 			<point x="1.9346343" y="47.8412976" />
+			<point x="1.9346369" y="47.8408227" />
 		</vertex>
 		<vertex x="1.9412306" y="47.8431889">
 			<point x="1.9416935" y="47.843265" />
@@ -22918,16 +22918,16 @@
 		</vertex>
 		<vertex x="1.9280021" y="47.8437833">
 			<point x="1.927824" y="47.8435794" />
-			<point x="1.9284834" y="47.8437665" />
 			<point x="1.9282591" y="47.8441927" />
+			<point x="1.9284834" y="47.8437665" />
 		</vertex>
 		<vertex x="1.9269042" y="47.8392749">
 			<point x="1.9262603" y="47.8388241" />
 		</vertex>
 		<vertex x="1.928212" y="47.8430467">
 			<point x="1.9287521" y="47.8428649" />
-			<point x="1.928008" y="47.8431182" />
 			<point x="1.9286291" y="47.8427759" />
+			<point x="1.928008" y="47.8431182" />
 		</vertex>
 		<vertex x="1.9378996" y="47.8477376">
 			<point x="1.9378389" y="47.8476553" />
@@ -22946,13 +22946,13 @@
 		</vertex>
 		<vertex x="1.9299981" y="47.8455511">
 			<point x="1.9305135" y="47.8462429" />
-			<point x="1.930424" y="47.8454072" />
 			<point x="1.9299587" y="47.8454982" />
+			<point x="1.930424" y="47.8454072" />
 		</vertex>
 		<vertex x="1.940909" y="47.8461606">
 			<point x="1.9409753" y="47.8462378" />
-			<point x="1.9420633" y="47.8456466" />
 			<point x="1.940523" y="47.8457117" />
+			<point x="1.9420633" y="47.8456466" />
 		</vertex>
 		<vertex x="1.93451332261294" y="47.8395258341645">
 			<point x="1.9343877" y="47.839369" />
@@ -22978,8 +22978,8 @@
 			<point x="1.9359193" y="47.8412024" />
 		</vertex>
 		<vertex x="1.9344369" y="47.8419391">
-			<point x="1.9334206" y="47.8423754" />
 			<point x="1.934498" y="47.841735" />
+			<point x="1.9334206" y="47.8423754" />
 			<point x="1.9352843" y="47.8424222" />
 		</vertex>
 		<vertex x="1.932925" y="47.8465867">
@@ -23011,12 +23011,12 @@
 		<vertex x="1.9346907" y="47.8486304">
 			<point x="1.9347493" y="47.8487109" />
 		</vertex>
-		<vertex x="1.9430779" y="47.8493432">
-			<point x="1.9417862" y="47.8501585" />
-		</vertex>
 		<vertex x="1.9373088" y="47.8391099">
 			<point x="1.9371199" y="47.8388334" />
 			<point x="1.937191" y="47.8392509" />
+		</vertex>
+		<vertex x="1.9430779" y="47.8493432">
+			<point x="1.9417862" y="47.8501585" />
 		</vertex>
 		<vertex x="1.93048813748889" y="47.8450933014635">
 			<point x="1.93038421136576" y="47.8449625241349" />
@@ -23024,8 +23024,8 @@
 		</vertex>
 		<vertex x="1.9262603" y="47.8388241">
 			<point x="1.9255432" y="47.83907" />
-			<point x="1.9269042" y="47.8392749" />
 			<point x="1.9259977" y="47.8384818" />
+			<point x="1.9269042" y="47.8392749" />
 		</vertex>
 		<vertex x="1.9380232" y="47.8383366">
 			<point x="1.9372333" y="47.8385861" />
@@ -23033,10 +23033,10 @@
 			<point x="1.9392142" y="47.8379001" />
 		</vertex>
 		<vertex x="1.9328561" y="47.8465506">
-			<point x="1.9321688" y="47.8467812" />
 			<point x="1.932925" y="47.8465867" />
-			<point x="1.9334471" y="47.8463523" />
+			<point x="1.9321688" y="47.8467812" />
 			<point x="1.9324092" y="47.8463299" />
+			<point x="1.9334471" y="47.8463523" />
 		</vertex>
 		<vertex x="1.9318443" y="47.8493277">
 			<point x="1.9326955" y="47.849421" />
@@ -23046,8 +23046,8 @@
 		<vertex x="1.9349861" y="47.8401736">
 			<point x="1.9346369" y="47.8408227" />
 			<point x="1.9349033" y="47.8400555" />
-			<point x="1.9347762" y="47.8408421" />
 			<point x="1.9350577" y="47.8402888" />
+			<point x="1.9347762" y="47.8408421" />
 		</vertex>
 		<vertex x="1.9309434" y="47.8460995">
 			<point x="1.930424" y="47.8454072" />
@@ -23057,8 +23057,8 @@
 		</vertex>
 		<vertex x="1.9300792" y="47.8439553">
 			<point x="1.929886" y="47.8436865" />
-			<point x="1.9303865" y="47.8443784" />
 			<point x="1.9303003" y="47.843872" />
+			<point x="1.9303865" y="47.8443784" />
 		</vertex>
 		<vertex x="1.9250018" y="47.8415818">
 			<point x="1.9248137" y="47.8428611" />
@@ -23075,8 +23075,8 @@
 		</vertex>
 		<vertex x="1.9293923" y="47.8456919">
 			<point x="1.9299587" y="47.8454982" />
-			<point x="1.9277678" y="47.8462474" />
 			<point x="1.92990148515909" y="47.846385567524" />
+			<point x="1.9277678" y="47.8462474" />
 		</vertex>
 		<vertex x="1.9331787" y="47.8430382">
 			<point x="1.9329258" y="47.8432697" />
@@ -23119,8 +23119,8 @@
 		</vertex>
 		<vertex x="1.9446936" y="47.8423069">
 			<point x="1.9449441" y="47.8426599" />
-			<point x="1.9429661" y="47.8397004" />
 			<point x="1.9435664" y="47.8409632" />
+			<point x="1.9429661" y="47.8397004" />
 		</vertex>
 		<vertex x="1.9369399" y="47.8468998">
 			<point x="1.9370378" y="47.8468672" />
@@ -23131,8 +23131,8 @@
 			<point x="1.9398512" y="47.8504844" />
 		</vertex>
 		<vertex x="1.9376534" y="47.8507368">
-			<point x="1.9378544" y="47.8506856" />
 			<point x="1.9367646" y="47.8507254" />
+			<point x="1.9378544" y="47.8506856" />
 			<point x="1.9378544" y="47.8506856" />
 		</vertex>
 		<vertex x="1.935144" y="47.8492526">
@@ -23175,8 +23175,8 @@
 			<point x="1.9356579" y="47.8448315" />
 		</vertex>
 		<vertex x="1.9314766" y="47.8470135">
-			<point x="1.9316357" y="47.8472191" />
 			<point x="1.9314291" y="47.8472881" />
+			<point x="1.9316357" y="47.8472191" />
 			<point x="1.9321688" y="47.8467812" />
 		</vertex>
 		<vertex x="1.939403" y="47.8379865">
@@ -23184,19 +23184,19 @@
 			<point x="1.9394483" y="47.8379" />
 			<point x="1.9393086" y="47.8380095" />
 		</vertex>
+		<vertex x="1.9361562" y="47.8418778">
+			<point x="1.936427" y="47.8417874" />
+			<point x="1.9360652" y="47.8419095" />
+		</vertex>
 		<vertex x="1.9357076" y="47.8425571">
 			<point x="1.9355815" y="47.8426093" />
 			<point x="1.9357746" y="47.8426936" />
 			<point x="1.9357452" y="47.8423306" />
 			<point x="1.9358371" y="47.8425107" />
 		</vertex>
-		<vertex x="1.9361562" y="47.8418778">
-			<point x="1.936427" y="47.8417874" />
-			<point x="1.9360652" y="47.8419095" />
-		</vertex>
 		<vertex x="1.9360685" y="47.8489455">
-			<point x="1.936037" y="47.8489152" />
 			<point x="1.9382509" y="47.8482137" />
+			<point x="1.936037" y="47.8489152" />
 			<point x="1.9359545" y="47.8489942" />
 		</vertex>
 		<vertex x="1.933904" y="47.8432039">
@@ -23217,13 +23217,13 @@
 		<vertex x="1.9337916" y="47.8429227">
 			<point x="1.9334163" y="47.8429778" />
 			<point x="1.9336827" y="47.8428473" />
-			<point x="1.9338328" y="47.8429388" />
 			<point x="1.9334206" y="47.8423754" />
+			<point x="1.9338328" y="47.8429388" />
 		</vertex>
 		<vertex x="1.9352796" y="47.8403119">
 			<point x="1.9359193" y="47.8412024" />
-			<point x="1.9353847" y="47.8401979" />
 			<point x="1.9349633" y="47.8399763" />
+			<point x="1.9353847" y="47.8401979" />
 		</vertex>
 		<vertex x="1.9309031" y="47.8447134">
 			<point x="1.930683" y="47.8447868" />
@@ -23246,8 +23246,8 @@
 		</vertex>
 		<vertex x="1.9336784" y="47.8447226">
 			<point x="1.9350822" y="47.8431228" />
-			<point x="1.9336959" y="47.8447511" />
 			<point x="1.9337595" y="47.8443022" />
+			<point x="1.9336959" y="47.8447511" />
 		</vertex>
 		<vertex x="1.9299813" y="47.8464943">
 			<point x="1.9297868" y="47.8465534" />
@@ -23266,16 +23266,16 @@
 			<point x="1.9307826" y="47.8422131" />
 		</vertex>
 		<vertex x="1.9404599" y="47.848038">
-			<point x="1.9406566" y="47.8480637" />
 			<point x="1.9397037" y="47.8477286" />
+			<point x="1.9406566" y="47.8480637" />
 			<point x="1.9402537" y="47.8481477" />
 		</vertex>
 		<vertex x="1.9369574" y="47.8446358">
 			<point x="1.9370774" y="47.8437399" />
 		</vertex>
 		<vertex x="1.9385252" y="47.8456107">
-			<point x="1.9378502" y="47.8458306" />
 			<point x="1.9386215" y="47.8457589" />
+			<point x="1.9378502" y="47.8458306" />
 			<point x="1.9370774" y="47.8437399" />
 		</vertex>
 		<vertex x="1.9344425" y="47.8432035">
@@ -23299,9 +23299,9 @@
 		<vertex x="1.9368479" y="47.8423242">
 			<point x="1.9367415" y="47.8427666" />
 			<point x="1.9368139" y="47.8421056" />
+			<point x="1.9372575" y="47.8428104" />
 			<point x="1.9373833" y="47.8421459" />
 			<point x="1.9365423" y="47.8424313" />
-			<point x="1.9372575" y="47.8428104" />
 		</vertex>
 		<vertex x="1.9268263" y="47.8426859">
 			<point x="1.9286982" y="47.8420819" />
@@ -23321,8 +23321,8 @@
 		</vertex>
 		<vertex x="1.9364486" y="47.8410313">
 			<point x="1.9369736" y="47.8410677" />
-			<point x="1.9363003" y="47.8410814" />
 			<point x="1.9365235" y="47.8411281" />
+			<point x="1.9363003" y="47.8410814" />
 		</vertex>
 		<vertex x="1.9346369" y="47.8408227">
 			<point x="1.9347762" y="47.8408421" />
@@ -23337,22 +23337,22 @@
 			<point x="1.934494" y="47.841279" />
 		</vertex>
 		<vertex x="1.9242644" y="47.8491877">
-			<point x="1.9242668" y="47.8490886" />
 			<point x="1.923793" y="47.8493986" />
+			<point x="1.9242668" y="47.8490886" />
 			<point x="1.9245165" y="47.8493473" />
 		</vertex>
 		<vertex x="1.9344626" y="47.8433071">
 			<point x="1.9337595" y="47.8443022" />
-			<point x="1.9344425" y="47.8432035" />
 			<point x="1.9339348" y="47.8434446" />
+			<point x="1.9344425" y="47.8432035" />
 		</vertex>
 		<vertex x="1.9412971" y="47.8494959">
 			<point x="1.9415142" y="47.8497908" />
 		</vertex>
 		<vertex x="1.9389489" y="47.8462231">
 			<point x="1.940523" y="47.8457117" />
-			<point x="1.9383039" y="47.8464402" />
 			<point x="1.9387747" y="47.8459808" />
+			<point x="1.9383039" y="47.8464402" />
 		</vertex>
 		<vertex x="1.9436921" y="47.8494821">
 			<point x="1.9435941" y="47.8489983" />
@@ -23365,8 +23365,8 @@
 			<point x="1.9367646" y="47.8507254" />
 		</vertex>
 		<vertex x="1.9261731" y="47.8424176">
-			<point x="1.9258575" y="47.8423483" />
 			<point x="1.92591680132312" y="47.8425110104277" />
+			<point x="1.9258575" y="47.8423483" />
 			<point x="1.9298069" y="47.8410144" />
 		</vertex>
 		<vertex x="1.9339953634251" y="47.8383723548149">
@@ -23375,8 +23375,8 @@
 		</vertex>
 		<vertex x="1.9424498" y="47.8396393">
 			<point x="1.9423801" y="47.8396387" />
-			<point x="1.9425732" y="47.8396402" />
 			<point x="1.9422083" y="47.83964" />
+			<point x="1.9425732" y="47.8396402" />
 		</vertex>
 		<vertex x="1.9412939" y="47.8486571">
 			<point x="1.9408675" y="47.8481451" />
@@ -23432,8 +23432,8 @@
 		<vertex x="1.9373719" y="47.8428231">
 			<point x="1.9372575" y="47.8428104" />
 			<point x="1.9375243" y="47.8430053" />
-			<point x="1.9380323" y="47.8426092" />
 			<point x="1.9382654" y="47.843264" />
+			<point x="1.9380323" y="47.8426092" />
 		</vertex>
 		<vertex x="1.93451576296951" y="47.8392788839043">
 			<point x="1.9346065" y="47.8394512" />
@@ -23441,24 +23441,24 @@
 		</vertex>
 		<vertex x="1.9254096" y="47.8391175">
 			<point x="1.9260432" y="47.8400045" />
-			<point x="1.9203568" y="47.8322347" />
 			<point x="1.9255432" y="47.83907" />
+			<point x="1.9203568" y="47.8322347" />
 		</vertex>
 		<vertex x="1.9387747" y="47.8459808">
-			<point x="1.9389489" y="47.8462231" />
 			<point x="1.9383795" y="47.8459215" />
+			<point x="1.9389489" y="47.8462231" />
 			<point x="1.9389052" y="47.8459379" />
 			<point x="1.9386215" y="47.8457589" />
 		</vertex>
 		<vertex x="1.9367415" y="47.8427666">
-			<point x="1.9365331" y="47.842765" />
 			<point x="1.9366628" y="47.8431358" />
-			<point x="1.9368479" y="47.8423242" />
+			<point x="1.9365331" y="47.842765" />
 			<point x="1.9372575" y="47.8428104" />
+			<point x="1.9368479" y="47.8423242" />
 		</vertex>
 		<vertex x="1.9371469" y="47.8468304">
-			<point x="1.9373243" y="47.846917" />
 			<point x="1.9383039" y="47.8464402" />
+			<point x="1.9373243" y="47.846917" />
 			<point x="1.9370378" y="47.8468672" />
 		</vertex>
 		<vertex x="1.9367646" y="47.8507254">
@@ -23475,8 +23475,8 @@
 			<point x="1.9282591" y="47.8441927" />
 		</vertex>
 		<vertex x="1.9299149" y="47.8445265">
-			<point x="1.9302915" y="47.8450362" />
 			<point x="1.9292709" y="47.8447425" />
+			<point x="1.9302915" y="47.8450362" />
 			<point x="1.9294502" y="47.8438975" />
 		</vertex>
 		<vertex x="1.9289653" y="47.8440051">
@@ -23489,8 +23489,8 @@
 		</vertex>
 		<vertex x="1.9387891" y="47.8504376">
 			<point x="1.9378544" y="47.8506856" />
-			<point x="1.9387971" y="47.850227" />
 			<point x="1.9398512" y="47.8504844" />
+			<point x="1.9387971" y="47.850227" />
 		</vertex>
 		<vertex x="1.9309528" y="47.8451582">
 			<point x="1.9307529" y="47.8448829" />
@@ -23498,8 +23498,8 @@
 			<point x="1.9314214" y="47.8457955" />
 		</vertex>
 		<vertex x="1.9278005" y="47.8462698">
-			<point x="1.9265431" y="47.8466754" />
 			<point x="1.9293559" y="47.8496382" />
+			<point x="1.9265431" y="47.8466754" />
 			<point x="1.9277678" y="47.8462474" />
 		</vertex>
 		<vertex x="1.9381304" y="47.8443988">
@@ -23507,13 +23507,13 @@
 			<point x="1.9387742" y="47.8443401" />
 			<point x="1.9382814" y="47.8445034" />
 		</vertex>
-		<vertex x="1.9272734" y="47.8406">
-			<point x="1.9269282" y="47.8401412" />
-		</vertex>
 		<vertex x="1.9327609" y="47.8495528">
 			<point x="1.9326955" y="47.849421" />
 			<point x="1.9327609" y="47.8495528" />
 			<point x="1.9327609" y="47.8495528" />
+		</vertex>
+		<vertex x="1.9272734" y="47.8406">
+			<point x="1.9269282" y="47.8401412" />
 		</vertex>
 		<vertex x="1.9303865" y="47.8443784">
 			<point x="1.9300792" y="47.8439553" />
@@ -23526,17 +23526,17 @@
 		</vertex>
 		<vertex x="1.9380361" y="47.8444323">
 			<point x="1.9379632" y="47.8444669" />
-			<point x="1.9375389" y="47.8438123" />
 			<point x="1.9381304" y="47.8443988" />
+			<point x="1.9375389" y="47.8438123" />
 		</vertex>
 		<vertex x="1.9246208" y="47.8470272">
-			<point x="1.92412253681403" y="47.8483475045932" />
 			<point x="1.9227957" y="47.8464231" />
+			<point x="1.92412253681403" y="47.8483475045932" />
 			<point x="1.926294" y="47.846714" />
 		</vertex>
 		<vertex x="1.9277458" y="47.84321">
-			<point x="1.928008" y="47.8431182" />
 			<point x="1.9275827" y="47.8432667" />
+			<point x="1.928008" y="47.8431182" />
 		</vertex>
 		<vertex x="1.9297475" y="47.8464986">
 			<point x="1.92995915102133" y="47.8464279483471" />
@@ -23546,21 +23546,21 @@
 			<point x="1.9371337" y="47.8415518" />
 		</vertex>
 		<vertex x="1.9256336" y="47.845122">
-			<point x="1.9277678" y="47.8462474" />
 			<point x="1.925909" y="47.8449918" />
+			<point x="1.9277678" y="47.8462474" />
 			<point x="1.9248731" y="47.8447519" />
 		</vertex>
 		<vertex x="1.9396217" y="47.8380967">
 			<point x="1.9394483" y="47.8379" />
-			<point x="1.939403" y="47.8379865" />
 			<point x="1.9422083" y="47.83964" />
+			<point x="1.939403" y="47.8379865" />
 		</vertex>
 		<vertex x="1.9365175" y="47.8382398">
 			<point x="1.936162" y="47.8377205" />
 		</vertex>
 		<vertex x="1.9250295" y="47.841472">
-			<point x="1.918506" y="47.841274" />
 			<point x="1.9250018" y="47.8415818" />
+			<point x="1.918506" y="47.841274" />
 			<point x="1.9250613" y="47.8413888" />
 		</vertex>
 		<vertex x="1.9338324" y="47.8439886">
@@ -23575,8 +23575,8 @@
 		</vertex>
 		<vertex x="1.9341812" y="47.8508189">
 			<point x="1.9335861" y="47.8513503" />
-			<point x="1.9341555" y="47.850782" />
 			<point x="1.9352885" y="47.850793" />
+			<point x="1.9341555" y="47.850782" />
 		</vertex>
 		<vertex x="1.9258633" y="47.8426354">
 			<point x="1.9298896" y="47.8411292" />
@@ -23593,12 +23593,12 @@
 		</vertex>
 		<vertex x="1.9370776" y="47.8475486">
 			<point x="1.934148" y="47.8485284" />
-			<point x="1.9374356" y="47.8474269" />
 			<point x="1.9369679" y="47.8477297" />
+			<point x="1.9374356" y="47.8474269" />
 		</vertex>
 		<vertex x="1.9350594" y="47.8408677">
-			<point x="1.9355487" y="47.8409427" />
 			<point x="1.9350577" y="47.8402888" />
+			<point x="1.9355487" y="47.8409427" />
 			<point x="1.9347762" y="47.8408421" />
 			<point x="1.9349826" y="47.8413485" />
 		</vertex>
@@ -23608,10 +23608,10 @@
 			<point x="1.9335677" y="47.8404367" />
 		</vertex>
 		<vertex x="1.9255432" y="47.83907">
-			<point x="1.9207993" y="47.8326598" />
 			<point x="1.9254096" y="47.8391175" />
-			<point x="1.9262591" y="47.8399487" />
+			<point x="1.9207993" y="47.8326598" />
 			<point x="1.9262603" y="47.8388241" />
+			<point x="1.9262591" y="47.8399487" />
 		</vertex>
 		<vertex x="1.9364568" y="47.8458114">
 			<point x="1.9370378" y="47.8468672" />
@@ -23640,18 +23640,18 @@
 			<point x="1.9300792" y="47.8439553" />
 			<point x="1.9294808" y="47.8438257" />
 		</vertex>
-		<vertex x="1.92591680132312" y="47.8425110104277">
-			<point x="1.92582955415736" y="47.8425428084658" />
-			<point x="1.9261731" y="47.8424176" />
-		</vertex>
 		<vertex x="1.936721" y="47.8387647">
 			<point x="1.9348055" y="47.8393894" />
 			<point x="1.937117" y="47.8386299" />
 			<point x="1.9371199" y="47.8388334" />
 		</vertex>
+		<vertex x="1.92591680132312" y="47.8425110104277">
+			<point x="1.92582955415736" y="47.8425428084658" />
+			<point x="1.9261731" y="47.8424176" />
+		</vertex>
 		<vertex x="1.937191" y="47.8392509">
-			<point x="1.9417649" y="47.8429998" />
 			<point x="1.9373088" y="47.8391099" />
+			<point x="1.9417649" y="47.8429998" />
 			<point x="1.9365811" y="47.8394359" />
 		</vertex>
 		<vertex x="1.9354393" y="47.8385279">
@@ -23679,14 +23679,14 @@
 		</vertex>
 		<vertex x="1.9329258" y="47.8432697">
 			<point x="1.9328605" y="47.8430088" />
-			<point x="1.9328907" y="47.8435877" />
 			<point x="1.9331787" y="47.8430382" />
+			<point x="1.9328907" y="47.8435877" />
 		</vertex>
 		<vertex x="1.9359486" y="47.8494872">
 			<point x="1.9359545" y="47.8489942" />
 			<point x="1.9359486" y="47.8494872" />
-			<point x="1.9355436" y="47.8500164" />
 			<point x="1.9359486" y="47.8494872" />
+			<point x="1.9355436" y="47.8500164" />
 		</vertex>
 		<vertex x="1.9317174" y="47.849371">
 			<point x="1.9309173" y="47.8496413" />
@@ -23695,8 +23695,8 @@
 		</vertex>
 		<vertex x="1.926216" y="47.8401895">
 			<point x="1.9263667" y="47.8401221" />
-			<point x="1.9260215" y="47.8400882" />
 			<point x="1.9253961" y="47.8413947" />
+			<point x="1.9260215" y="47.8400882" />
 		</vertex>
 		<vertex x="1.9323959" y="47.8470816">
 			<point x="1.9321688" y="47.8467812" />
@@ -23712,8 +23712,8 @@
 			<point x="1.92561510553244" y="47.8390171482995" />
 		</vertex>
 		<vertex x="1.9374356" y="47.8474269">
-			<point x="1.9370776" y="47.8475486" />
 			<point x="1.9370378" y="47.8468672" />
+			<point x="1.9370776" y="47.8475486" />
 			<point x="1.9375169" y="47.8475343" />
 			<point x="1.9409753" y="47.8462378" />
 		</vertex>
@@ -23724,12 +23724,12 @@
 		</vertex>
 		<vertex x="1.9362911" y="47.8397009">
 			<point x="1.9372072" y="47.8408592" />
-			<point x="1.9370223" y="47.840926" />
 			<point x="1.9365811" y="47.8394359" />
+			<point x="1.9370223" y="47.840926" />
 		</vertex>
 		<vertex x="1.9336546" y="47.8450206">
-			<point x="1.9331891" y="47.8442138" />
 			<point x="1.9336582" y="47.8449962" />
+			<point x="1.9331891" y="47.8442138" />
 			<point x="1.9358062" y="47.8434071" />
 		</vertex>
 		<vertex x="1.9262696" y="47.837539">
@@ -23754,18 +23754,18 @@
 			<point x="1.9314897" y="47.8438493" />
 		</vertex>
 		<vertex x="1.9339348" y="47.8434446">
-			<point x="1.9339195" y="47.8433749" />
 			<point x="1.9344626" y="47.8433071" />
+			<point x="1.9339195" y="47.8433749" />
 			<point x="1.9339359" y="47.843492" />
 		</vertex>
 		<vertex x="1.9294146" y="47.8438493">
-			<point x="1.9294502" y="47.8438975" />
 			<point x="1.9294808" y="47.8438257" />
+			<point x="1.9294502" y="47.8438975" />
 			<point x="1.929229" y="47.8439158" />
 		</vertex>
 		<vertex x="1.9299587" y="47.8454982">
-			<point x="1.9300428" y="47.8454694" />
 			<point x="1.9299981" y="47.8455511" />
+			<point x="1.9300428" y="47.8454694" />
 			<point x="1.9293923" y="47.8456919" />
 		</vertex>
 		<vertex x="1.9433439" y="47.8409749">
@@ -23783,17 +23783,17 @@
 		</vertex>
 		<vertex x="1.9397161" y="47.849512">
 			<point x="1.9388561" y="47.8490066" />
-			<point x="1.9389285" y="47.8497914" />
 			<point x="1.9400551" y="47.8499426" />
+			<point x="1.9389285" y="47.8497914" />
 		</vertex>
 		<vertex x="1.9381615" y="47.841221">
 			<point x="1.9378443" y="47.8413338" />
-			<point x="1.9378443" y="47.8413338" />
 			<point x="1.9388617" y="47.8405213" />
+			<point x="1.9378443" y="47.8413338" />
 		</vertex>
 		<vertex x="1.9296452" y="47.8452511">
-			<point x="1.9292709" y="47.8447425" />
 			<point x="1.9298329" y="47.8451887" />
+			<point x="1.9292709" y="47.8447425" />
 			<point x="1.9293176" y="47.8453516" />
 		</vertex>
 		<vertex x="1.93114684340844" y="47.8488296084816">
@@ -23801,8 +23801,8 @@
 			<point x="1.93118792737595" y="47.8488837342555" />
 		</vertex>
 		<vertex x="1.9277678" y="47.8462474">
-			<point x="1.9293923" y="47.8456919" />
 			<point x="1.9278005" y="47.8462698" />
+			<point x="1.9293923" y="47.8456919" />
 			<point x="1.9256336" y="47.845122" />
 		</vertex>
 		<vertex x="1.9312176" y="47.8473587">
@@ -23811,16 +23811,16 @@
 			<point x="1.9304116" y="47.8478595" />
 		</vertex>
 		<vertex x="1.9321688" y="47.8467812">
-			<point x="1.9314766" y="47.8470135" />
 			<point x="1.9314214" y="47.8457955" />
-			<point x="1.9328561" y="47.8465506" />
+			<point x="1.9314766" y="47.8470135" />
 			<point x="1.9323959" y="47.8470816" />
+			<point x="1.9328561" y="47.8465506" />
 		</vertex>
 		<vertex x="1.9305733" y="47.8387236">
 			<point x="1.932476" y="47.8380767" />
-			<point x="1.928614" y="47.8393843" />
-			<point x="1.9317395" y="47.8403528" />
 			<point x="1.9298092" y="47.8373773" />
+			<point x="1.9317395" y="47.8403528" />
+			<point x="1.928614" y="47.8393843" />
 		</vertex>
 		<vertex x="1.9304059" y="47.8440222">
 			<point x="1.9305083" y="47.8441679" />
@@ -23828,8 +23828,8 @@
 			<point x="1.9303003" y="47.843872" />
 		</vertex>
 		<vertex x="1.928008" y="47.8431182">
-			<point x="1.928212" y="47.8430467" />
 			<point x="1.9284834" y="47.8437665" />
+			<point x="1.928212" y="47.8430467" />
 			<point x="1.9277458" y="47.84321" />
 		</vertex>
 		<vertex x="1.9423801" y="47.8396387">
@@ -23838,8 +23838,8 @@
 			<point x="1.9424498" y="47.8396393" />
 		</vertex>
 		<vertex x="1.9415142" y="47.8497908">
-			<point x="1.9412971" y="47.8494959" />
 			<point x="1.9412939" y="47.8486571" />
+			<point x="1.9412971" y="47.8494959" />
 			<point x="1.9416056" y="47.8499225" />
 			<point x="1.9400551" y="47.8499426" />
 		</vertex>
@@ -23897,8 +23897,8 @@
 		</vertex>
 		<vertex x="1.9359071" y="47.841681">
 			<point x="1.9356871" y="47.8414012" />
-			<point x="1.9356844" y="47.8417495" />
 			<point x="1.9360652" y="47.8419095" />
+			<point x="1.9356844" y="47.8417495" />
 		</vertex>
 		<vertex x="1.9328628" y="47.8467647">
 			<point x="1.932796" y="47.8469558" />
@@ -23912,8 +23912,8 @@
 		</vertex>
 		<vertex x="1.9251076" y="47.8520323">
 			<point x="1.9182712" y="47.8565041" />
-			<point x="1.9264086" y="47.8511608" />
 			<point x="1.9239058" y="47.8508629" />
+			<point x="1.9264086" y="47.8511608" />
 		</vertex>
 		<vertex x="1.9372145" y="47.8419346">
 			<point x="1.9368139" y="47.8421056" />
@@ -23944,8 +23944,8 @@
 		</vertex>
 		<vertex x="1.9406566" y="47.8480637">
 			<point x="1.9403074" y="47.8482053" />
-			<point x="1.9404599" y="47.848038" />
 			<point x="1.9408068" y="47.8480027" />
+			<point x="1.9404599" y="47.848038" />
 		</vertex>
 		<vertex x="1.9305083" y="47.8441679">
 			<point x="1.9306061" y="47.8443069" />
@@ -23954,8 +23954,8 @@
 		</vertex>
 		<vertex x="1.9380744" y="47.8430117">
 			<point x="1.9380973" y="47.8426726" />
-			<point x="1.9382644" y="47.8431134" />
 			<point x="1.9380973" y="47.8426726" />
+			<point x="1.9382644" y="47.8431134" />
 		</vertex>
 		<vertex x="1.94368993325873" y="47.8501766497962">
 			<point x="1.9437121" y="47.8500359" />
@@ -23977,14 +23977,14 @@
 			<point x="1.9407476" y="47.8487619" />
 		</vertex>
 		<vertex x="1.9380973" y="47.8426726">
-			<point x="1.938289" y="47.8426092" />
 			<point x="1.9380744" y="47.8430117" />
+			<point x="1.938289" y="47.8426092" />
 			<point x="1.9380323" y="47.8426092" />
 			<point x="1.9380744" y="47.8430117" />
 		</vertex>
 		<vertex x="1.9372575" y="47.8428104">
-			<point x="1.9367415" y="47.8427666" />
 			<point x="1.9368479" y="47.8423242" />
+			<point x="1.9367415" y="47.8427666" />
 			<point x="1.9373719" y="47.8428231" />
 		</vertex>
 		<vertex x="1.9430601" y="47.8395788">
@@ -23992,8 +23992,8 @@
 		</vertex>
 		<vertex x="1.9369679" y="47.8477297">
 			<point x="1.9370776" y="47.8475486" />
-			<point x="1.9375169" y="47.8475343" />
 			<point x="1.9335767" y="47.8487237" />
+			<point x="1.9375169" y="47.8475343" />
 		</vertex>
 		<vertex x="1.931545" y="47.8367981">
 			<point x="1.932476" y="47.8380767" />
@@ -24009,21 +24009,21 @@
 		</vertex>
 		<vertex x="1.9358431" y="47.8428377">
 			<point x="1.9361199" y="47.8427617" />
-			<point x="1.9354665" y="47.842941" />
 			<point x="1.935908" y="47.8429137" />
+			<point x="1.9354665" y="47.842941" />
 		</vertex>
 		<vertex x="1.933387" y="47.8377263">
 			<point x="1.932476" y="47.8380767" />
 		</vertex>
 		<vertex x="1.9336827" y="47.8428473">
 			<point x="1.9334163" y="47.8429778" />
-			<point x="1.9334206" y="47.8423754" />
 			<point x="1.9337916" y="47.8429227" />
+			<point x="1.9334206" y="47.8423754" />
 		</vertex>
 		<vertex x="1.9404762" y="47.8505096">
 			<point x="1.9400551" y="47.8499426" />
-			<point x="1.9417862" y="47.8501585" />
 			<point x="1.9398512" y="47.8504844" />
+			<point x="1.9417862" y="47.8501585" />
 		</vertex>
 		<vertex x="1.9337643" y="47.8442775">
 			<point x="1.933812" y="47.8440227" />

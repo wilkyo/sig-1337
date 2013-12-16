@@ -10,8 +10,8 @@ public class Building extends Structure implements IBuilding {
 	
 	private IVoisins voisins;
 	
-	public Building(String name) {
-		super(name);
+	public Building(String name, Long id) {
+		super(name, id);
 		voisins = new Voisins();
 	}
 
