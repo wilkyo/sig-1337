@@ -7,7 +7,7 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import com.google.code.sig_1337.model.xml.IBounds;
 import com.google.code.sig_1337.model.xml.IGraphics;
-import com.google.code.sig_1337.model.xml.IItineraire;
+import com.google.code.sig_1337.model.xml.route.IRoutes;
 import com.google.code.sig_1337.model.xml.structure.IBuilding;
 import com.google.code.sig_1337.model.xml.structure.IStructure;
 
@@ -105,6 +105,6 @@ public interface ISig1337 {
 	 *            second point y-coordinate.
 	 * @return the itineraire.
 	 */
-	public IItineraire getItineraire(IBuilding start, IBuilding end);
+	public IRoutes getItineraire(IBuilding start, IBuilding end);
 
 }

@@ -15,6 +15,11 @@ import com.google.code.sig_1337.model.xml.ArbreDecision.BoundingBox;
 import com.google.code.sig_1337.model.xml.Graph;
 import com.google.code.sig_1337.model.xml.IGraph;
 import com.google.code.sig_1337.model.xml.IItineraire;
+import com.google.code.sig_1337.model.xml.IPoint;
+import com.google.code.sig_1337.model.xml.route.IRoutes;
+import com.google.code.sig_1337.model.xml.route.Route;
+import com.google.code.sig_1337.model.xml.route.RouteType;
+import com.google.code.sig_1337.model.xml.route.Routes;
 import com.google.code.sig_1337.model.xml.structure.IBuilding;
 
 /**
@@ -109,7 +114,15 @@ public class LocalSig1337 extends Sig1337Base implements ILocalSig1337 {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IItineraire getItineraire(IBuilding start, IBuilding end) {
-		return Itineraire.CalculItineraire(start, end, graph);
+	public IRoutes getItineraire(IBuilding start, IBuilding end) {
+		IItineraire it = Itineraire.CalculItineraire(start, end, graph);
+		if (it == null) {
+			return null;
+		} else {
+			IRoutes routes = new Routes();
+			routes.add(new Route(RouteType.Itineraire, it.toArray(new IPoint[it
+					.size()])));
+			return routes;
+		}
 	}
 }

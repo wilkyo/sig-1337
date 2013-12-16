@@ -2,6 +2,8 @@ package com.google.code.sig_1337.model;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
@@ -18,9 +20,12 @@ import android.util.Log;
 import android.util.Xml;
 
 import com.google.code.sig_1337.model.handler.RemoteHandler;
-import com.google.code.sig_1337.model.xml.IItineraire;
-import com.google.code.sig_1337.model.xml.Itineraire;
+import com.google.code.sig_1337.model.xml.IPoint;
 import com.google.code.sig_1337.model.xml.Point;
+import com.google.code.sig_1337.model.xml.route.IRoutes;
+import com.google.code.sig_1337.model.xml.route.Route;
+import com.google.code.sig_1337.model.xml.route.RouteType;
+import com.google.code.sig_1337.model.xml.route.Routes;
 import com.google.code.sig_1337.model.xml.structure.IBuilding;
 import com.google.code.sig_1337.remote.AsyncTaskGetItineraire;
 import com.google.code.sig_1337.remote.AsyncTaskGetLocation;
@@ -129,34 +134,34 @@ public class RemoteSig1337 extends Sig1337Base implements IRemoteSig1337 {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IItineraire getItineraire(IBuilding start, IBuilding end) {
+	public IRoutes getItineraire(IBuilding start, IBuilding end) {
 		Log.v("pouet", "getItineraire");
-		IItineraire res = null;
+		IRoutes res = null;
 		try {
 			AsyncTaskGetItineraire task = new AsyncTaskGetItineraire(serverIP,
 					start.getId(), end.getId());
 			task.execute();
 			String json = task.get(3, TimeUnit.SECONDS);
-			// TODO Retirer ça
-			json = "[" + json.substring(1, json.length() - 1) + "]";
-			// TODO
 			if (json != null && json.length() > 0) {
 				JSONParser parser = new JSONParser();
 				Object obj = parser.parse(json);
 				JSONArray jsonArray = (JSONArray) obj;
-				res = new Itineraire();
+				res = new Routes();
 				for (Object object : jsonArray) {
 					JSONObject jsonObject = (JSONObject) object;
 					JSONArray coordinates = (JSONArray) jsonObject
 							.get("coordinates");
+					List<IPoint> points = new ArrayList<IPoint>();
 					for (Object object2 : coordinates) {
 						JSONArray coords = (JSONArray) object2;
 						double x = (Double) coords.get(0);
 						double y = (Double) coords.get(1);
 						Logger.getLogger("pouet").info(x + " " + y);
-						res.add(new Point(x, y, x - bounds.getMinLon(), y
+						points.add(new Point(x, y, x - bounds.getMinLon(), y
 								- bounds.getMinLat()));
 					}
+					res.add(new Route(RouteType.Itineraire, points
+							.toArray(new IPoint[points.size()])));
 				}
 			}
 		} catch (InterruptedException e) {
