@@ -291,20 +291,20 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	private void drawStructures(GL10 gl,
 			IStructures<? extends IStructure> structures) {
 		if (structures.isLoaded()) {
-			// Fill.
-			Color color = structures.getType().getFill();
-			gl.glVertexPointer(3, GL10.GL_FLOAT, 0,
-					structures.getFilledVertexBuffer());
-			gl.glColor4f(color.red, color.green, color.blue, 1);
-			gl.glDrawArrays(GL10.GL_TRIANGLES, 0,
-					structures.getFilledIndexCount());
 			// Hole.
-			color = structures.getType().getHole();
+			Color color = structures.getType().getHole();
 			gl.glVertexPointer(3, GL10.GL_FLOAT, 0,
 					structures.getHoleVertexBuffer());
 			gl.glColor4f(color.red, color.green, color.blue, 1);
 			gl.glDrawArrays(GL10.GL_TRIANGLES, 0,
 					structures.getHoleIndexCount());
+			// Fill.
+			color = structures.getType().getFill();
+			gl.glVertexPointer(3, GL10.GL_FLOAT, 0,
+					structures.getFilledVertexBuffer());
+			gl.glColor4f(color.red, color.green, color.blue, 1);
+			gl.glDrawArrays(GL10.GL_TRIANGLES, 0,
+					structures.getFilledIndexCount());
 		}
 	}
 

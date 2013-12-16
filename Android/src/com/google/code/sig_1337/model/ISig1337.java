@@ -71,17 +71,6 @@ public interface ISig1337 {
 	public IStructure getStructure(double x, double y);
 
 	/**
-	 * Get the id of the structure at the given coordinates.
-	 * 
-	 * @param x
-	 *            longitude.
-	 * @param y
-	 *            latitude.
-	 * @return the id of the structure.
-	 */
-	public long getStructureId(double x, double y);
-
-	/**
 	 * Get the name of the structure at the given coordinates.
 	 * 
 	 * @param x

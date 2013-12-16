@@ -12,7 +12,6 @@ import org.json.simple.parser.ParseException;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
-import android.util.JsonReader;
 import android.util.Log;
 import android.util.Xml;
 
@@ -55,37 +54,6 @@ public class RemoteSig1337 extends Sig1337Base implements IRemoteSig1337 {
 
 	/**
 	 * {@inheritDoc}
-	 * @throws  
-	 */
-	@Override
-	public long getStructureId(double x, double y) {
-		Log.v("pouet", "getStructureId");
-		long res = -1;
-		try {
-			AsyncTaskGetLocation task = new AsyncTaskGetLocation(serverIP, y, x);
-			task.execute();
-			String json = task.get(3, TimeUnit.SECONDS);
-			if (json != null && json.length() > 0) {
-			JSONParser parser = new JSONParser();
-			Object obj = parser.parse(json);
-			JSONObject jsonObject = (JSONObject) obj;
-				res = (Long) jsonObject.get("id");
-			}
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		} catch (ExecutionException e) {
-			e.printStackTrace();
-		} catch (ParseException e) {
-			e.printStackTrace();
-		} catch (TimeoutException e) {
-			e.printStackTrace();
-		}
-		Log.v("pouet", "res = " + res);
-		return res;
-	}
-
-	/**
-	 * {@inheritDoc}
 	 */
 	@Override
 	public String getStructureName(double x, double y) {
@@ -96,9 +64,9 @@ public class RemoteSig1337 extends Sig1337Base implements IRemoteSig1337 {
 			task.execute();
 			String json = task.get(3, TimeUnit.SECONDS);
 			if (json != null && json.length() > 0) {
-			JSONParser parser = new JSONParser();
-			Object obj = parser.parse(json);
-			JSONObject jsonObject = (JSONObject) obj;
+				JSONParser parser = new JSONParser();
+				Object obj = parser.parse(json);
+				JSONObject jsonObject = (JSONObject) obj;
 				res = (String) jsonObject.get("name");
 			}
 		} catch (InterruptedException e) {

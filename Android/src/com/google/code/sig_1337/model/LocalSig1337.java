@@ -10,10 +10,11 @@ import android.util.Xml;
 
 import com.google.code.sig_1337.itineraire.Itineraire;
 import com.google.code.sig_1337.model.handler.LocalHandler;
+import com.google.code.sig_1337.model.xml.ArbreDecision;
+import com.google.code.sig_1337.model.xml.ArbreDecision.BoundingBox;
 import com.google.code.sig_1337.model.xml.Graph;
 import com.google.code.sig_1337.model.xml.IGraph;
 import com.google.code.sig_1337.model.xml.IItineraire;
-import com.google.code.sig_1337.model.xml.Tree;
 import com.google.code.sig_1337.model.xml.structure.IBuilding;
 
 /**
@@ -30,7 +31,7 @@ public class LocalSig1337 extends Sig1337Base implements ILocalSig1337 {
 	/**
 	 * Tree.
 	 */
-	private final Tree tree;
+	private final ArbreDecision tree;
 
 	/**
 	 * Default constructor.
@@ -38,7 +39,7 @@ public class LocalSig1337 extends Sig1337Base implements ILocalSig1337 {
 	public LocalSig1337() {
 		super();
 		graph = new Graph();
-		tree = new Tree(null);
+		tree = new ArbreDecision(null);
 	}
 
 	/**
@@ -53,7 +54,7 @@ public class LocalSig1337 extends Sig1337Base implements ILocalSig1337 {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Tree getTree() {
+	public ArbreDecision getTree() {
 		return tree;
 	}
 
@@ -82,16 +83,13 @@ public class LocalSig1337 extends Sig1337Base implements ILocalSig1337 {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public long getStructureId(double x, double y) {
-		return tree.locate(x, y).getId();
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	public String getStructureName(double x, double y) {
-		return tree.locate(x, y).getName();
+		BoundingBox bb = tree.locate(x, y);
+		if (bb == null) {
+			return null;
+		} else {
+			return bb.getName();
+		}
 	}
 
 	/**
