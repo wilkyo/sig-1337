@@ -1,3 +1,5 @@
+Un problème s'est posé suite à l'import des données OpenStreetMap. En effet, nous avons remarqué que les coordonnées récupérées dans notre base de données ne ressemblaient pas à des latitudes et longitudes "normales". Nous avons compris alors que ces données étaient calculées avec le SRID 900913 alors que nous devions récupérer ces données avec le SRID 4326. Nous avons donc utilisé la fonction géométrique \texttt{ST\_Transform} pour corriger ce problème.\\
+
 Nous avons rencontré des problèmes avec l'implémentation de l'algorithme du livre pour la génération de l'arbre de décision.
 Comme solution, nous avons implémenté une version simplifiée, moins performante mais fonctionnelle,
 décrite dans la documentation technique.
