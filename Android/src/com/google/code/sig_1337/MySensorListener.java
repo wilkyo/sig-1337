@@ -1,9 +1,10 @@
 package com.google.code.sig_1337;
 
+import java.util.logging.Logger;
+
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
 
 /**
  * Sensor listener.
@@ -14,10 +15,6 @@ public class MySensorListener implements SensorEventListener {
 	 * Rotation.
 	 */
 	private float rotation;
-
-	private float[] gravity;
-	private float[] geomag;
-	private float[] values = new float[3];
 
 	/**
 	 * Get the rotation.
@@ -31,28 +28,13 @@ public class MySensorListener implements SensorEventListener {
 	/**
 	 * {@inheritDoc}
 	 */
+	@SuppressWarnings("deprecation")
 	@Override
 	public void onSensorChanged(SensorEvent evt) {
-		int type = evt.sensor.getType();
 		// Smoothing the sensor data a bit
-		if (type == Sensor.TYPE_MAGNETIC_FIELD) {
-			geomag = evt.values;
-		} else if (type == Sensor.TYPE_ACCELEROMETER) {
-			gravity = evt.values;
-		}
-
-		if ((type == Sensor.TYPE_MAGNETIC_FIELD)
-				|| (type == Sensor.TYPE_ACCELEROMETER)) {
-			if (gravity != null && geomag != null) {
-				float r[] = new float[9];
-				if (SensorManager.getRotationMatrix(r, null, gravity, geomag)) {
-				/*	SensorManager
-							.remapCoordinateSystem(r, SensorManager.AXIS_Y,
-									SensorManager.AXIS_MINUS_X, r);*/
-					SensorManager.getOrientation(r, values);
-					rotation = values[0];
-				}
-			}
+		if (evt.sensor.getType() == Sensor.TYPE_ORIENTATION) {
+			rotation = evt.values[0];
+			Logger.getLogger("pouet").info(rotation + " " );
 		}
 	}
 
