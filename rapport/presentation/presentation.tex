@@ -43,46 +43,55 @@
 Le modèle :\\
 \begin{columns}
 \begin{column}{.49\textwidth}
+\begin{block}{Bases}
 \begin{itemize}
+\visible<1->{
 \item Node : une latitude et longitude
+}
+\visible<2->{
 \item Road : une liste de noeud, un type (route, chemin, etc.)
+}
 \end{itemize}
+\end{block}
 \end{column}
 \begin{column}{.49\textwidth}
+\visible<3->{
+\begin{block}{Structure: nom, liste de noeuds}
 \begin{itemize}
-\item Structure : un nom, une liste de noeuds
-\begin{itemize}
-\item Building : une liste de trous
+\item Building : liste de trous
 \item Basin
 \item Forest
 \item Hole : la structure auquel il appartient
 \end{itemize}
-\end{itemize}
+\end{block}
+}
 \end{column}
 \end{columns}
 \end{frame}
 
 \begin{frame}
 \frametitle{Package data}
-Pré-traitement des données :
+\begin{block}{Pré-traitement des données}
 \begin{itemize}
 \item Import des données OSM dans PostgreSQL
 \item Récupération des données nécessaires
 \item Création de nouvelles tables
 \item Création du XML représentant la carte
 \end{itemize}
+\end{block}
 \end{frame}
 
 
 \subsection{WebService}
 \begin{frame}
 \frametitle{WebService}
-Méthodes nécessaire pour le mode "remote" :
+\begin{block}{Méthodes nécessaire pour le mode "remote"}
 \begin{itemize}
 \item Récupération de la map (format XML)
 \item Récupération d'un bâtiment à partir de coordonnées (format JSON)
 \item Récupération d'un itinéraire à partir d'un bâtiment de départ et d'arrivée (format JSON)
 \end{itemize}
+\end{block}
 \end{frame}
 
 \subsection{Android}
