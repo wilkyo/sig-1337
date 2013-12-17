@@ -111,6 +111,7 @@ public abstract class ActivityBase extends Activity implements
 	/**
 	 * {@inheritDoc}
 	 */
+	@SuppressWarnings("deprecation")
 	@Override
 	public void onResume() {
 		super.onResume();
@@ -120,10 +121,7 @@ public abstract class ActivityBase extends Activity implements
 		locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0,
 				0, locationListener);
 		sensorManager.registerListener(sensorListener,
-				sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
-				SensorManager.SENSOR_DELAY_NORMAL);
-		sensorManager.registerListener(sensorListener,
-				sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD),
+				sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION),
 				SensorManager.SENSOR_DELAY_NORMAL);
 	}
 

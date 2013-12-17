@@ -247,8 +247,7 @@ public class SigRenderer implements GLSurfaceView.Renderer {
 	private void drawUser(GL10 gl) {
 		gl.glPushMatrix();
 		gl.glScalef(USER_SCALE, USER_SCALE, 1);
-		gl.glRotatef((float) (Math.toDegrees(sensorListener.getRotation())), 0,
-				0, -1);
+		gl.glRotatef(sensorListener.getRotation() - 90, 0, 0, -1);
 		{
 			// Fill.
 			gl.glVertexPointer(3, GL10.GL_FLOAT, 0, user.fillVertexBuffer);
