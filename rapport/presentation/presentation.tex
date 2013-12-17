@@ -55,14 +55,54 @@ Le modèle :\\
 \end{columns}
 \end{frame}
 
+\subsection{Arbre de décision}
+
 \begin{frame}
-\frametitle{Package data}
-\begin{block}{Pré-traitement des données}
+\frametitle{Arbre de décision}
+\begin{block}{Arbre de décision}
 \begin{itemize}
-\item Import des données OSM dans PostgreSQL
-\item Récupération des données nécessaires
-\item Création de nouvelles tables
-\item Création du XML représentant la carte
+\item Un noeud racine
+\item Noeuds décomposés en quatre noeuds
+\item Terminé par des feuilles
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Arbre de décision}
+\begin{block}{Noeud}
+\begin{itemize}
+\item Des coordonnées $(x, y)$
+\item Quatre sous-noeuds:\begin{itemize}
+\item En haut à gauche
+\item En haut à droite
+\item En bas à gauche
+\item En bas à droite
+\end{itemize}
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Arbre de décision}
+\begin{block}{Noeud}
+\begin{itemize}
+\item Liste de bâtiments:\begin{itemize}
+\item Rectangle englobant du bâtiment
+\item Identifiant du bâtiment
+\end{itemize}
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Arbre de décision}
+\begin{block}{Complexité}
+\begin{itemize}
+\item Un noeud n'existe que si il possède une feuille
+\item Une feuille n'existe que si elle possède un bâtiment
+\item Découpage en grille de la carte
+\item Rectangle englobant
 \end{itemize}
 \end{block}
 \end{frame}
@@ -70,13 +110,12 @@ Le modèle :\\
 \begin{frame}
 \begin{figure}
 \centering
-\resizebox{\linewidth}{!}{
-\includegraphics{../images/communData.pdf}
+\resizebox{0.75\linewidth}{!}{
+\includegraphics{../images/modeleArbreDecision.pdf}
 }
-\caption{Modèle commun}
+\caption{Arbre de décision}
 \end{figure}
 \end{frame}
-
 
 \subsection{WebService}
 \begin{frame}
