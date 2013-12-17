@@ -1,3 +1,4 @@
+\subsection{triangulation}
 Nous avons réalisé une visualisation en \emph{OpenGL ES}, hors cette visualisation n'utilise que des triangles pour l'affichage des polygones. Donc nous avons du fournir un algorithme qui permet la triangulation d'un polygone quelconque.
 
 Dans un premier temps, nous avons essayé d'implémenté l'algorithme contenue dans le livre \cite[p.~45]{compute} qui consistait en deux étapes : La première rendre le polygone y-monotone (c'est à dire, $\forall y : nb\_intersect(poly,axe(y))<=2$), puis de le partitionner en triangles.

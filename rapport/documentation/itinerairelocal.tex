@@ -1,3 +1,5 @@
+\subsection{Itinéraire}
+\subsubsection{Local}
 Dans la partie locale, nous avions du implémenter un algorithme de plus court chemin. Pour ce faire, nous avons utilisé un algorithme de type \emph{A*}\footnote{\url{https://fr.wikipedia.org/wiki/Algorithme_A*}}. Nous utilisons comme fonction de co\^{u}t, la distance déjà parcouru plus la distance à vol d'oiseau entre le dernier sommet et l'arrivé.
 
 L'algorithme utilise une fonction d'initialisation appelé par l'application(voir \ref{calculIti}), une fonction récursive(\ref{calculItiRec}) et une fonction de calcul de co\^{u}t).
@@ -10,7 +12,6 @@ La fonction d'initialisation crée les états de base et les stocke dans la list
 
 Ce traitement consiste en différentes opérations, soit la liste est vide(on a parcouru tout le graphe) et retourne qu'il n'y a pas de chemin, soit le point courant est l'arrivé et retourne le chemin ainsi généré, dans le dernier cas, on récupère les voisins du sommets courant et on remplie la liste des états avec les nouveaux états générés.
 
-La fonction de coût calcul la distance parcourue auquel on ajoute la distance à vol d'oiseau 
 \begin{algorithm}[H]
  \KwData{A start building $start$, A end building $end$, the graph(map) $graph$}
  \KwResult{A Path (list of point)}
@@ -50,3 +51,10 @@ La fonction de coût calcul la distance parcourue auquel on ajoute la distance �
  }
 \caption{calculItineraireRec\label{calculItiRec}}
 \end{algorithm}
+
+\subsubsection{Remote}
+Dans la partie remote, le calcul d'itinéraire se fait sur un web service qui utilise PgRouting\footnote{Extension de PostgreSQL : \url{http://pgrouting.org/}}.
+
+Le problème est que les fichiers OSM de base ne sont pas routable en l'état. Pour rendre le fichier OSM routable, nous avons utilisé le logiciel OSM2PO\footnote{\url{http://osm2po.de/}}. Ce logiciel génère un fichier SQL permettant contenant le fichier OSM routable.
+
+Après avoir importé, le fichier SQL dans la base, on peut appeler les fonctions de PgRouting. Notre calcul d'itinéraire en remote utilise la fonction \emph{pgr\_astar}. Cette fonction prend en paramètres, une requête SQL, un sommet de départ, un sommet d'arrivé, un booléen si le graphe est orienté, un booléen si la requête contient un coût de retour. Et retourne le chemin.
