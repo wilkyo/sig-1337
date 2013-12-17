@@ -10,7 +10,7 @@ Une feuille contient la liste des bâtiments dont le rectangle englobant interse
 
 Avec cette structure, au lieu de devoir tester tous les bâtiments existants, on commence par récupérer la feuille qui contient le point, et ainsi, on est sûr de ne tester que les bâtiments qui intersectent la zone représentée par la feuille et qui ont une chance de contenir le point. De plus, on ne teste pas si un bâtiment contient le point par rapport au polygone qui représente le bâtiment, mais par rapport à son rectangle englobant.
 
-\`{A} noter que si une une feuille ne contient aucun bâtiment, alors elle remplacée par \texttt{NullNode.NULL} dans l'arbre. De même, si les quatre sous-noeuds d'un noeud correspondent à \texttt{NullNode.NULL}, alors le noeud est remplacé par \texttt{NullNode.NULL}. Ainsi, un noeud n'existe dans l'arbre que si il possède au moins une feuille qui contient des bâtiments. Par conséquent, l'arbre prend considérablement moins de place en mémoire, et la localisation d'un point s'arrête immédiatement si le point se situe dans une zone sans bâtiments.
+\`{A} noter que si une une feuille ne contient aucun bâtiment, alors elle est remplacée par \texttt{NullNode.NULL} dans l'arbre. De même, si les quatre sous-noeuds d'un noeud correspondent à \texttt{NullNode.NULL}, alors le noeud est remplacé par \texttt{NullNode.NULL}. Ainsi, un noeud n'existe dans l'arbre que si il possède au moins une feuille qui contient des bâtiments. Par conséquent, l'arbre prend considérablement moins de place en mémoire, et la localisation d'un point s'arrête immédiatement si le point se situe dans une zone sans bâtiments.
 
 \begin{figure}[h!]
 \centering
