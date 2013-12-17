@@ -12,6 +12,8 @@ La fonction d'initialisation crée les états de base et les stocke dans la list
 
 Ce traitement consiste en différentes opérations, soit la liste est vide(on a parcouru tout le graphe) et retourne qu'il n'y a pas de chemin, soit le point courant est l'arrivé et retourne le chemin ainsi généré, dans le dernier cas, on récupère les voisins du sommets courant et on remplie la liste des états avec les nouveaux états générés.
 
+\newpage
+
 \begin{algorithm}[H]
  \KwData{A start building $start$, A end building $end$, the graph(map) $graph$}
  \KwResult{A Path (list of point)}
