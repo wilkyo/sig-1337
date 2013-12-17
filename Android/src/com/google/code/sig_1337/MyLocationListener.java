@@ -1,7 +1,5 @@
 package com.google.code.sig_1337;
 
-import java.util.logging.Logger;
-
 import android.location.Location;
 import android.location.LocationListener;
 import android.os.Bundle;
@@ -22,11 +20,6 @@ public class MyLocationListener implements LocationListener {
 	private double longitude;
 
 	/**
-	 * Bearing.
-	 */
-	private float bearing;
-
-	/**
 	 * Get the latitude.
 	 * 
 	 * @return The latitude.
@@ -45,23 +38,12 @@ public class MyLocationListener implements LocationListener {
 	}
 
 	/**
-	 * Get the bearing.
-	 * 
-	 * @return The bearing.
-	 */
-	public float getBearing() {
-		return bearing;
-	}
-
-	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public void onLocationChanged(Location location) {
 		latitude = location.getLatitude();
 		longitude = location.getLongitude();
-		bearing = location.getBearing();
-		Logger.getLogger("pouet", bearing + "");
 	}
 
 	/**

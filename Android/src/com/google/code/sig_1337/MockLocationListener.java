@@ -3,11 +3,17 @@ package com.google.code.sig_1337;
 public class MockLocationListener extends MyLocationListener {
 
 	public double getLatitude() {
-		return 47.843548d;
+		if (super.getLatitude() == 0.0)
+			return 47.843548d;
+		else
+			return super.getLatitude();
 	}
 
 	public double getLongitude() {
-		return 1.934516d;
+		if (super.getLongitude() == 0.0)
+			return 1.934516d;
+		else
+			return super.getLongitude();
 	}
 
 }
