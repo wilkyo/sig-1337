@@ -173,7 +173,6 @@ public class RemoteSig1337 extends Sig1337Base implements IRemoteSig1337 {
 		} catch (TimeoutException e) {
 			e.printStackTrace();
 		}
-		Log.v("pouet", "res = " + res);
 		return res;
 	}
 }

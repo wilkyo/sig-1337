@@ -8,6 +8,7 @@ import data.model.Node;
 public class Building extends Structure {
 
 	private Node[] neighbors;
+
 	/**
 	 * Initializes the Building.
 	 * 
@@ -18,14 +19,13 @@ public class Building extends Structure {
 	 * @param nodes
 	 *            Nodes forming the Building.
 	 */
-	public Building(long id, String name, Node[] nodes, String geom, Node[] neighbors) {
+	public Building(long id, String name, Node[] nodes, String geom,
+			Node[] neighbors) {
 		super(id, name, nodes, geom);
-		this.setNeighbors(neighbors);
+		this.neighbors = neighbors;
 	}
+
 	public Node[] getNeighbors() {
 		return neighbors;
-	}
-	public void setNeighbors(Node[] neighbors) {
-		this.neighbors = neighbors;
 	}
 }

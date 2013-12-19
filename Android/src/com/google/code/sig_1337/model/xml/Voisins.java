@@ -2,7 +2,9 @@ package com.google.code.sig_1337.model.xml;
 
 import java.util.concurrent.CopyOnWriteArrayList;
 
-public class Voisins extends CopyOnWriteArrayList<IPoint> implements IVoisins {
+import com.google.code.sig_1337.model.graph.Node;
+
+public class Voisins extends CopyOnWriteArrayList<Node> implements IVoisins {
 
 	/**
 	 * Default serial ID

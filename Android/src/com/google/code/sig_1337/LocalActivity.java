@@ -27,7 +27,7 @@ public class LocalActivity extends ActivityBase {
 	@Override
 	protected ISig1337 getSig1337() {
 		if (sig == null) {
-			sig = new LocalSig1337();
+			sig = new LocalSig1337(this);
 		}
 		return sig;
 	}

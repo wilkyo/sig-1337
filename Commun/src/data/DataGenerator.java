@@ -11,11 +11,14 @@ public class DataGenerator {
 
 	public static void main(String[] args) {
 		if (!SQLCreate.createDataBase())
-			System.out.println("Problème à la création de la base.");;
+			System.out.println("Problème à la création de la base.");
 		FileWriter out;
 		try {
 			out = new FileWriter(new File("files/map.xml"));
 			out.write(SQLToXml.process("files/Universite.osm", false));
+			out.close();
+			out = new FileWriter(new File("files/graph.json"));
+			out.write(SQLToXml.getGraph());
 			out.close();
 		} catch (IOException e) {
 			e.printStackTrace();

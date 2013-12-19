@@ -8,6 +8,7 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
 import com.google.code.sig_1337.model.ISig1337;
+import com.google.code.sig_1337.model.graph.Node;
 import com.google.code.sig_1337.model.xml.IBounds;
 import com.google.code.sig_1337.model.xml.IGraphics;
 import com.google.code.sig_1337.model.xml.IPoint;
@@ -368,7 +369,7 @@ public class RemoteHandler<U extends ISig1337> implements IHandler<U> {
 				continue;
 			}
 			checkInterrupted();
-			voisins.add(readPoint(parser, bounds));
+			voisins.add(readPointWithId(parser, bounds));
 		}
 		parser.require(XmlPullParser.END_TAG, null, VOISINS);
 	}
@@ -529,6 +530,19 @@ public class RemoteHandler<U extends ISig1337> implements IHandler<U> {
 		parser.nextTag();
 		parser.require(XmlPullParser.END_TAG, null, POINT);
 		return new Point(x, y, x - bounds.getMinLon(), y - bounds.getMinLat());
+	}
+
+	protected Node readPointWithId(XmlPullParser parser, IBounds bounds)
+			throws XmlPullParserException, IOException, InterruptedException {
+		checkInterrupted();
+		parser.require(XmlPullParser.START_TAG, null, POINT);
+		long id = Long.parseLong(parser.getAttributeValue(null, ID));
+		float x = Float.parseFloat(parser.getAttributeValue(null, X));
+		float y = Float.parseFloat(parser.getAttributeValue(null, Y));
+		parser.nextTag();
+		parser.require(XmlPullParser.END_TAG, null, POINT);
+		return new Node(id, x, y, x - bounds.getMinLon(), y
+				- bounds.getMinLat());
 	}
 
 	protected void checkInterrupted() throws InterruptedException {

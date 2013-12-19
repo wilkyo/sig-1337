@@ -4,7 +4,10 @@ import geometry.arbreDependance2.ArbreDecision;
 import geometry.model.Point;
 import geometry.model.Polygone;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -31,6 +34,7 @@ import data.model.structure.Building;
 import data.model.structure.Forest;
 import data.model.structure.Hole;
 import data.model.structure.Structure;
+import data.sql.graph.DijkstraGraph;
 
 public class SQLToXml {
 
@@ -294,6 +298,11 @@ public class SQLToXml {
 		return "<point x=\"" + point.x + "\" y=\"" + point.y + "\" />";
 	}
 
+	private static String nodeToXML(Node node) {
+		return "<point id=\"" + node.getId() + "\" x=\"" + node.getLongitude()
+				+ "\" y=\"" + node.getLatitude() + "\" />";
+	}
+
 	/**
 	 * Returns the XML representation of the Polyedre composed of triangles.
 	 * 
@@ -398,7 +407,8 @@ public class SQLToXml {
 	 */
 	private static String structureToXML(Structure structure, String type) {
 		StringBuffer res = new StringBuffer();
-		res.append("\t\t\t<" + type + " nom=\"" + structure.getName() + "\" id=\"" + structure.getId() + "\">\n");
+		res.append("\t\t\t<" + type + " nom=\"" + structure.getName()
+				+ "\" id=\"" + structure.getId() + "\">\n");
 		List<Polygone> triangles = Node.toPolygon(structure.getNodes())
 				.toTriangles();
 		res.append("\t\t\t\t<triangles>\n");
@@ -422,8 +432,7 @@ public class SQLToXml {
 			if (b.getNeighbors() != null && b.getNeighbors().length > 0) {
 				res.append("\t\t\t\t<voisins>\n");
 				for (Node n : b.getNeighbors()) {
-					res.append("\t\t\t\t\t"
-							+ pointToXML(new Point(n.toPoint())) + "\n");
+					res.append("\t\t\t\t\t" + nodeToXML(n) + "\n");
 				}
 				res.append("\t\t\t\t</voisins>\n");
 			}
@@ -589,5 +598,72 @@ public class SQLToXml {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	public static String getGraph() {
+		Connection connection;
+
+		try {
+			/*
+			 * Load the JDBC driver and establish a connection.
+			 */
+			Class.forName(SQLHelper.SQL_DRIVER);
+			connection = DriverManager
+					.getConnection(SQLHelper.SERVER_URL + SQLHelper.DB_NAME,
+							SQLHelper.USERNAME, SQLHelper.PASSWORD);
+
+			Map<Long, Node> nodes = getAllNodes(connection);
+			List<Road> roads = getAllRoads(connection, nodes);
+			Map<Long, Building> buildings = getAllBuildings(connection, nodes);
+
+			DijkstraGraph g = new DijkstraGraph(roads);
+			for (Node n : g.dijkstra(buildings.get(31139269L),
+					buildings.get(39569056L))) {
+				System.out.print(n + " ");
+			}
+			System.out.println();
+			System.out.println("Dijkstra graph writen");
+			return g.toJSON();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return "{}";
+	}
+
+	public static void main(String[] args) {
+		Connection connection;
+		try {
+			BufferedReader f = new BufferedReader(new FileReader(new File(
+					"files/graph.json")));
+			DijkstraGraph g = new DijkstraGraph(f.readLine());
+			f.close();
+
+			/*
+			 * Load the JDBC driver and establish a connection.
+			 */
+			Class.forName(SQLHelper.SQL_DRIVER);
+			connection = DriverManager
+					.getConnection(SQLHelper.SERVER_URL + SQLHelper.DB_NAME,
+							SQLHelper.USERNAME, SQLHelper.PASSWORD);
+
+			Map<Long, Node> nodes = getAllNodes(connection);
+			Map<Long, Building> buildings = getAllBuildings(connection, nodes);
+
+			for (Node n : g.dijkstra(buildings.get(31139269L),
+					buildings.get(39569056L))) {
+				System.out.print(n + " ");
+			}
+			System.out.println();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

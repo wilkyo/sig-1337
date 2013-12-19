@@ -1,13 +1,16 @@
 package com.google.code.sig_1337.itineraire;
 
-import android.util.Log;
-
-import com.google.code.sig_1337.model.xml.*;
-import com.google.code.sig_1337.model.xml.structure.IBuilding;
-
-import java.nio.charset.CoderMalfunctionError;
 import java.util.ArrayList;
 import java.util.List;
+
+import android.util.Log;
+
+import com.google.code.sig_1337.model.graph.Node;
+import com.google.code.sig_1337.model.xml.IGraph;
+import com.google.code.sig_1337.model.xml.IItineraire;
+import com.google.code.sig_1337.model.xml.IPoint;
+import com.google.code.sig_1337.model.xml.Point;
+import com.google.code.sig_1337.model.xml.structure.IBuilding;
 
 /**
  * Classe permettant de calculer l'itinéraire entre un point départ et un point
@@ -186,7 +189,7 @@ public class Itineraire {
 
 	
 	private static IPoint calculMilieu(IBuilding building) {
-		List<IPoint> list = building.getVoisins();
+		List<Node> list = building.getVoisins();
 		IPoint milieu = list.get(0);
 		for(int i = 1; i < list.size(); i++) {
 			IPoint p = list.get(i);

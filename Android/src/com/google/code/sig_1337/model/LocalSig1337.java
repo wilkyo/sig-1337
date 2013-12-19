@@ -1,14 +1,24 @@
 package com.google.code.sig_1337.model;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
+import android.util.Log;
 import android.util.Xml;
 
+import com.google.code.sig_1337.LocalActivity;
+import com.google.code.sig_1337.R;
 import com.google.code.sig_1337.itineraire.Itineraire;
+import com.google.code.sig_1337.model.graph.DijkstraGraph;
+import com.google.code.sig_1337.model.graph.Node;
 import com.google.code.sig_1337.model.handler.LocalHandler;
 import com.google.code.sig_1337.model.xml.ArbreDecision;
 import com.google.code.sig_1337.model.xml.ArbreDecision.BoundingBox;
@@ -16,6 +26,7 @@ import com.google.code.sig_1337.model.xml.Graph;
 import com.google.code.sig_1337.model.xml.IGraph;
 import com.google.code.sig_1337.model.xml.IItineraire;
 import com.google.code.sig_1337.model.xml.IPoint;
+import com.google.code.sig_1337.model.xml.Point;
 import com.google.code.sig_1337.model.xml.route.IRoutes;
 import com.google.code.sig_1337.model.xml.route.Route;
 import com.google.code.sig_1337.model.xml.route.RouteType;
@@ -29,10 +40,15 @@ import com.google.code.sig_1337.model.xml.structure.IStructure;
  */
 public class LocalSig1337 extends Sig1337Base implements ILocalSig1337 {
 
+	private static final int GRAPH = R.raw.graph;
 	/**
 	 * Graph.
 	 */
 	private final IGraph graph;
+	/**
+	 * The real graph.
+	 */
+	private DijkstraGraph dijkstra;
 
 	/**
 	 * Tree.
@@ -42,9 +58,20 @@ public class LocalSig1337 extends Sig1337Base implements ILocalSig1337 {
 	/**
 	 * Default constructor.
 	 */
-	public LocalSig1337() {
+	public LocalSig1337(LocalActivity mContext) {
 		super();
 		graph = new Graph();
+		// TODO Ouais ouais, je le charge au démarrage de l'activité...
+		try {
+			BufferedReader f = new BufferedReader(new InputStreamReader(
+					mContext.getResources().openRawResource(GRAPH)));
+			dijkstra = new DijkstraGraph(f.readLine(), bounds);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		Log.v("graph", dijkstra.toString());
 		tree = new ArbreDecision(null);
 	}
 
@@ -111,18 +138,34 @@ public class LocalSig1337 extends Sig1337Base implements ILocalSig1337 {
 		}
 	}
 
+	private static final boolean OLD_VERSION = false;
+
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public IRoutes getItineraire(IBuilding start, IBuilding end) {
-		IItineraire it = Itineraire.CalculItineraire(start, end, graph);
-		if (it == null) {
-			return null;
+		if (OLD_VERSION) {
+			IItineraire it = Itineraire.CalculItineraire(start, end, graph);
+			if (it == null) {
+				return null;
+			} else {
+				IRoutes routes = new Routes();
+				routes.add(new Route(RouteType.Itineraire, it
+						.toArray(new IPoint[0])));
+				return routes;
+			}
 		} else {
+			List<Node> path = dijkstra.dijkstra(start, end);
 			IRoutes routes = new Routes();
-			routes.add(new Route(RouteType.Itineraire, it.toArray(new IPoint[it
-					.size()])));
+			List<IPoint> points = new ArrayList<IPoint>();
+			for (Node n : path) {
+				points.add(new Point(n.getLongitude(), n.getLatitude(), n
+						.getLongitude() - bounds.getMinLon(), n.getLatitude()
+						- bounds.getMinLat()));
+			}
+			routes.add(new Route(RouteType.Itineraire, points
+					.toArray(new IPoint[points.size()])));
 			return routes;
 		}
 	}
