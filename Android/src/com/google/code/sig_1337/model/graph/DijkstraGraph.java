@@ -47,7 +47,7 @@ public class DijkstraGraph extends HashMap<Long, DijkstraVertex> {
 
 		DijkstraVertex actuel = aVisiter.poll();
 		int cpt = 0;
-		while (aVisiter.size() > 0) {
+		while (!aVisiter.isEmpty()) {
 			cpt++;
 			actuel.visited = true;
 			for (Node n : actuel.neighbors) {
@@ -81,6 +81,12 @@ public class DijkstraGraph extends HashMap<Long, DijkstraVertex> {
 			finalNode = finalNode.previous;
 		}
 		return res;
+	}
+
+	public void clean() {
+		for(DijkstraVertex u : values()) {
+			u.clean();
+		}
 	}
 
 	@Override

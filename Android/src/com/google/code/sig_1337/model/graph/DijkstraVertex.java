@@ -1,6 +1,5 @@
 package com.google.code.sig_1337.model.graph;
 
-
 public class DijkstraVertex extends Vertex implements
 		Comparable<DijkstraVertex> {
 
@@ -20,6 +19,12 @@ public class DijkstraVertex extends Vertex implements
 	@Override
 	public int compareTo(DijkstraVertex another) {
 		return distance - another.distance;
+	}
+
+	public void clean() {
+		visited = false;
+		distance = Integer.MAX_VALUE;
+		previous = null;
 	}
 
 }

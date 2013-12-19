@@ -11,8 +11,10 @@ import java.util.List;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
+import android.content.Context;
 import android.util.Log;
 import android.util.Xml;
+import android.widget.Toast;
 
 import com.google.code.sig_1337.LocalActivity;
 import com.google.code.sig_1337.R;
@@ -41,6 +43,7 @@ import com.google.code.sig_1337.model.xml.structure.IStructure;
 public class LocalSig1337 extends Sig1337Base implements ILocalSig1337 {
 
 	private static final int GRAPH = R.raw.graph;
+	private Context mContext;
 	/**
 	 * Graph.
 	 */
@@ -60,6 +63,7 @@ public class LocalSig1337 extends Sig1337Base implements ILocalSig1337 {
 	 */
 	public LocalSig1337(LocalActivity mContext) {
 		super();
+		this.mContext = mContext;
 		graph = new Graph();
 		// TODO Ouais ouais, je le charge au démarrage de l'activité...
 		try {
@@ -157,6 +161,10 @@ public class LocalSig1337 extends Sig1337Base implements ILocalSig1337 {
 			}
 		} else {
 			List<Node> path = dijkstra.dijkstra(start, end);
+			dijkstra.clean();
+			Toast.makeText(mContext,
+					path.isEmpty() ? "No Path" : "There is a Path...",
+					Toast.LENGTH_LONG).show();
 			IRoutes routes = new Routes();
 			List<IPoint> points = new ArrayList<IPoint>();
 			for (Node n : path) {
